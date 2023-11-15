@@ -20,11 +20,7 @@ export const GET = async (req: NextRequest, context: any) => {
                 id: true,
                 username: true,
                 email: true,
-                isAdmin: true,
               },
-            },
-            messages: {
-              select: { id: true, chatId: true, content: true, senderId: true },
             },
           },
         },

@@ -12,3 +12,2089 @@ INFO [2023-11-15T16:36:25.975Z]: Creating source
 INFO [2023-11-15T16:36:25.975Z]: Initializing workspace controller
 INFO [2023-11-15T16:36:25.977Z]: opened
 INFO [2023-11-15T16:36:25.977Z]: {}
+INFO [2023-11-15T21:25:11.102Z]: Preparing to initialize extension
+INFO [2023-11-15T21:25:12.110Z]: Registering flag observer
+INFO [2023-11-15T21:25:12.112Z]: Navigating to loading page
+INFO [2023-11-15T21:25:12.112Z]: Navigation
+INFO [2023-11-15T21:25:12.112Z]: {"page":"/loading"}
+INFO [2023-11-15T21:25:12.112Z]: Initializing workspace controller
+INFO [2023-11-15T21:25:12.114Z]: Navigating to blank page
+INFO [2023-11-15T21:25:12.115Z]: Creating URI handler
+INFO [2023-11-15T21:25:12.115Z]: Getting auth service props
+INFO [2023-11-15T21:25:12.118Z]: Creating auth service
+INFO [2023-11-15T21:25:12.118Z]: Setting network auth service
+INFO [2023-11-15T21:25:12.118Z]: Creating context store
+INFO [2023-11-15T21:25:12.118Z]: Creating engine
+INFO [2023-11-15T21:25:12.118Z]: Creating sql db
+INFO [2023-11-15T21:25:12.319Z]: Creating vector db
+INFO [2023-11-15T21:25:12.320Z]: Creating config manager
+INFO [2023-11-15T21:25:12.321Z]: Get languages
+INFO [2023-11-15T21:25:22.697Z]: Get Overview
+INFO [2023-11-15T21:25:22.699Z]: Creating code parser
+INFO [2023-11-15T21:25:22.699Z]: Creating code index
+INFO [2023-11-15T21:25:22.701Z]: Creating graphs
+INFO [2023-11-15T21:25:22.701Z]: Creating tagger
+INFO [2023-11-15T21:25:22.701Z]: Creating semantic
+INFO [2023-11-15T21:25:22.701Z]: Creating keyword
+INFO [2023-11-15T21:25:22.701Z]: Creating file search
+INFO [2023-11-15T21:25:22.702Z]: Initializing engine
+INFO [2023-11-15T21:25:22.851Z]: [CodeTagger.init] Initializing
+INFO [2023-11-15T21:25:22.851Z]: Initializing history service
+INFO [2023-11-15T21:25:22.851Z]: Creating project bot props
+INFO [2023-11-15T21:25:22.851Z]: Creating plan service
+INFO [2023-11-15T21:25:22.851Z]: Creating terms service
+INFO [2023-11-15T21:25:22.852Z]: Creating auth controller
+INFO [2023-11-15T21:25:22.852Z]: Initializing auth controller
+INFO [2023-11-15T21:25:22.852Z]: Checking auth
+INFO [2023-11-15T21:25:24.268Z]: Set User: qn38Qp13HXWChxa84NVTIhOBNXj2
+INFO [2023-11-15T21:25:24.278Z]: Creating plan controller
+INFO [2023-11-15T21:25:24.279Z]: Initializing plan controller
+INFO [2023-11-15T21:25:24.807Z]: Creating status controller
+INFO [2023-11-15T21:25:24.807Z]: Creating chat bot
+INFO [2023-11-15T21:25:24.810Z]: Creating git service
+INFO [2023-11-15T21:25:24.812Z]: Creating user context
+INFO [2023-11-15T21:25:24.812Z]: Creating search controller
+INFO [2023-11-15T21:25:24.813Z]: Initializing search controller
+INFO [2023-11-15T21:25:24.818Z]: Creating index controller
+INFO [2023-11-15T21:25:24.818Z]: Initializing index controller
+INFO [2023-11-15T21:25:24.819Z]: Creating migrate controller
+INFO [2023-11-15T21:25:24.819Z]: Initializing migrate controller
+INFO [2023-11-15T21:25:24.819Z]: Creating settings controller
+INFO [2023-11-15T21:25:24.819Z]: Initializing settings controller
+INFO [2023-11-15T21:25:24.819Z]: Creating navigation controller
+INFO [2023-11-15T21:25:24.820Z]: Initializing navigation controller
+INFO [2023-11-15T21:25:24.820Z]: Registering auth service with auth controller
+INFO [2023-11-15T21:25:24.820Z]: Calculating navigation
+INFO [2023-11-15T21:25:24.833Z]: Navigation
+INFO [2023-11-15T21:25:24.833Z]: {"page":"/initialize/project"}
+INFO [2023-11-15T21:25:24.833Z]: Fully initialized!
+INFO [2023-11-15T21:25:24.835Z]: extension_initialized
+INFO [2023-11-15T21:25:24.835Z]: {"timeToInit":13732}
+INFO [2023-11-15T21:25:35.483Z]: project_languages
+INFO [2023-11-15T21:25:35.484Z]: {"languages":["TypeScript"]}
+INFO [2023-11-15T21:25:35.724Z]: Navigation
+INFO [2023-11-15T21:25:35.724Z]: {"page":"/initialize/ignore"}
+INFO [2023-11-15T21:25:52.067Z]: Navigation
+INFO [2023-11-15T21:25:52.067Z]: {"page":"/initialize/progress"}
+INFO [2023-11-15T21:25:52.225Z]: Found 15 files
+INFO [2023-11-15T21:25:52.230Z]: project_initialize_start
+INFO [2023-11-15T21:25:52.230Z]: {"name":"masdom","languages":["JSON","TypeScript","Markdown","Toml","JavaScript","TSX","SQL","Powershell","YAML","HTML","CSS","Python","PHP","Bash"],"ignored":["*.d.ts","*.min.js",".cache",".changeset",".cosine",".devcontainer",".expo",".expo-settings",".expo-shared",".git",".gitsecret",".husky",".idea",".next",".nyc_output",".parcel-cache",".pnp",".pnp.js",".storybook",".turbo",".versionbot",".vs",".vscode",".yarn",".yarnrc","_generated","build","coverage","dist","logs","node_modules","out"]}
+INFO [2023-11-15T21:26:01.686Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:26:01.687Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:26:01.687Z]: {"added":127,"deleted":0}
+INFO [2023-11-15T21:26:01.920Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:26:01.920Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:01.920Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:26:02.125Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.125Z]: {"language":"TypeScript","percent":6.666666666666667,"file":"tailwind.config.ts"}
+INFO [2023-11-15T21:26:02.125Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.125Z]: {"language":"TypeScript","percent":13.333333333333334,"file":"src\\validationSchemas\\signupValidation.ts"}
+INFO [2023-11-15T21:26:02.126Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.126Z]: {"language":"TypeScript","percent":20,"file":"src\\validationSchemas\\loginValidation.ts"}
+INFO [2023-11-15T21:26:02.126Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.126Z]: {"language":"TypeScript","percent":26.666666666666668,"file":"src\\types\\index.ts"}
+INFO [2023-11-15T21:26:02.126Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.126Z]: {"language":"TypeScript","percent":33.33333333333333,"file":"src\\middleware.ts"}
+INFO [2023-11-15T21:26:02.126Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.126Z]: {"language":"TypeScript","percent":40,"file":"src\\lib\\utils.ts"}
+INFO [2023-11-15T21:26:02.127Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.127Z]: {"language":"TypeScript","percent":46.666666666666664,"file":"src\\lib\\prismaClient.ts"}
+INFO [2023-11-15T21:26:02.127Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.127Z]: {"language":"TypeScript","percent":53.333333333333336,"file":"src\\lib\\nextAuth.ts"}
+INFO [2023-11-15T21:26:02.127Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.127Z]: {"language":"TypeScript","percent":60,"file":"src\\components\\ui\\use-toast.ts"}
+INFO [2023-11-15T21:26:02.127Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.127Z]: {"language":"TypeScript","percent":66.66666666666666,"file":"src\\app\\api\\users\\signup\\route.ts"}
+INFO [2023-11-15T21:26:02.127Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.127Z]: {"language":"TypeScript","percent":73.33333333333333,"file":"src\\app\\api\\users\\me\\route.ts"}
+INFO [2023-11-15T21:26:02.127Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.127Z]: {"language":"TypeScript","percent":80,"file":"src\\app\\api\\users\\login\\route.ts"}
+INFO [2023-11-15T21:26:02.128Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.128Z]: {"language":"TypeScript","percent":86.66666666666667,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:26:02.128Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.131Z]: {"language":"TypeScript","percent":93.33333333333333,"file":"src\\app\\api\\chat\\create\\route.ts"}
+INFO [2023-11-15T21:26:02.131Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:26:02.131Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\auth\\[...nextauth]\\route.ts"}
+INFO [2023-11-15T21:26:02.131Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:02.131Z]: {"language":"TypeScript","percent":0.6237006237006237,"file":"tailwind.config.ts"}
+INFO [2023-11-15T21:26:02.144Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:02.144Z]: {"language":"TypeScript","percent":5.197505197505198,"file":"src\\validationSchemas\\signupValidation.ts"}
+INFO [2023-11-15T21:26:02.157Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:02.157Z]: {"language":"TypeScript","percent":7.6923076923076925,"file":"src\\validationSchemas\\loginValidation.ts"}
+INFO [2023-11-15T21:26:02.162Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:02.162Z]: {"language":"TypeScript","percent":8.523908523908524,"file":"src\\types\\index.ts"}
+INFO [2023-11-15T21:26:02.162Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:02.162Z]: {"language":"TypeScript","percent":8.731808731808732,"file":"src\\middleware.ts"}
+INFO [2023-11-15T21:26:02.164Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:02.164Z]: {"language":"TypeScript","percent":10.187110187110187,"file":"src\\lib\\utils.ts"}
+INFO [2023-11-15T21:26:02.175Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:04.491Z]: {"language":"TypeScript","percent":12.681912681912683,"file":"src\\lib\\prismaClient.ts"}
+INFO [2023-11-15T21:26:04.491Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:04.491Z]: {"language":"TypeScript","percent":27.234927234927238,"file":"src\\lib\\nextAuth.ts"}
+INFO [2023-11-15T21:26:04.491Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:04.491Z]: {"language":"TypeScript","percent":59.87525987525988,"file":"src\\components\\ui\\use-toast.ts"}
+INFO [2023-11-15T21:26:04.491Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:04.491Z]: {"language":"TypeScript","percent":68.60706860706861,"file":"src\\app\\api\\users\\signup\\route.ts"}
+INFO [2023-11-15T21:26:04.491Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:04.491Z]: {"language":"TypeScript","percent":75.67567567567568,"file":"src\\app\\api\\users\\me\\route.ts"}
+INFO [2023-11-15T21:26:04.491Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:04.491Z]: {"language":"TypeScript","percent":86.9022869022869,"file":"src\\app\\api\\users\\login\\route.ts"}
+INFO [2023-11-15T21:26:04.491Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:04.491Z]: {"language":"TypeScript","percent":92.93139293139293,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:26:04.491Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:04.491Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\create\\route.ts"}
+INFO [2023-11-15T21:26:06.225Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:06.225Z]: {"language":"TypeScript","percent":101.66320166320166,"file":"src\\app\\api\\auth\\[...nextauth]\\route.ts"}
+INFO [2023-11-15T21:26:06.225Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:26:06.225Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:26:06.225Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:26:06.225Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:26:06.225Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:26:06.225Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:26:06.225Z]: {"length":127}
+INFO [2023-11-15T21:26:06.225Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:26:06.225Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:26:06.225Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:26:06.225Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:26:06.225Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:26:06.225Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:26:06.225Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:26:07.313Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:26:07.313Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:26:07.313Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:26:07.313Z]: {"added":127,"deleted":0}
+INFO [2023-11-15T21:26:07.313Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:26:07.313Z]: {"embeddingsToDelete":0}
+INFO [2023-11-15T21:26:07.313Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:26:07.313Z]: {"write":127}
+INFO [2023-11-15T21:26:07.313Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:26:07.313Z]: {"resuts":127,"delete":0}
+INFO [2023-11-15T21:26:07.313Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:26:07.313Z]: {"files":{"added":15,"changed":0,"deleted":0}}
+INFO [2023-11-15T21:26:07.313Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:26:07.313Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:26:07.313Z]: [CodeTagger.getCodebaseThemes] Getting codebase themes
+INFO [2023-11-15T21:26:10.568Z]: Tokens for Overview Summary
+INFO [2023-11-15T21:26:10.568Z]: {"projectName":2,"languages":30,"likelyLibraries":2,"code":0,"nonCode":0,"total":201}
+INFO [2023-11-15T21:26:12.596Z]: [CodeTagger.tagCodebase] Tagging codebase
+INFO [2023-11-15T21:26:19.120Z]: [CodeTagger.save] Saving index to file
+INFO [2023-11-15T21:26:19.246Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:26:31.873Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:26:31.874Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:26:31.874Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:26:32.003Z]: project_initialize_success
+INFO [2023-11-15T21:26:32.003Z]: {"name":"masdom","languages":["JSON","TypeScript","Markdown","Toml","JavaScript","TSX","SQL","Powershell","YAML","HTML","CSS","Python","PHP","Bash"],"ignored":["*.d.ts","*.min.js",".cache",".changeset",".cosine",".devcontainer",".expo",".expo-settings",".expo-shared",".git",".gitsecret",".husky",".idea",".next",".nyc_output",".parcel-cache",".pnp",".pnp.js",".storybook",".turbo",".versionbot",".vs",".vscode",".yarn",".yarnrc","_generated","build","coverage","dist","logs","node_modules","out"]}
+INFO [2023-11-15T21:26:36.257Z]: question_start
+INFO [2023-11-15T21:26:36.258Z]: {"prompt":"how to make end point in next 13 accept two params"}
+INFO [2023-11-15T21:26:37.375Z]: tool_selected
+INFO [2023-11-15T21:26:37.375Z]: {"tool":"ideate"}
+INFO [2023-11-15T21:27:22.664Z]: question_success
+INFO [2023-11-15T21:27:22.664Z]: {"prompt":"how to make end point in next 13 accept two params"}
+INFO [2023-11-15T21:28:15.070Z]: project_reinitialize_start
+INFO [2023-11-15T21:28:15.070Z]: {}
+INFO [2023-11-15T21:28:15.211Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:28:15.211Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:28:15.211Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:28:15.211Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:28:15.211Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:15.211Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:15.212Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:28:15.212Z]: {"length":0}
+INFO [2023-11-15T21:28:15.222Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:28:15.222Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:15.223Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:15.223Z]: {"language":"TypeScript","percent":101.66320166320166,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:15.223Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:15.223Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:28:15.223Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:28:15.223Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:15.223Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:28:15.223Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:28:15.223Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:28:15.223Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:28:15.223Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:28:15.224Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:28:15.224Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:28:15.224Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:15.326Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:28:15.397Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:28:15.398Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:28:15.398Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:28:15.398Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:28:15.398Z]: {"embeddingsToDelete":0}
+INFO [2023-11-15T21:28:15.398Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:28:15.398Z]: {"write":0}
+INFO [2023-11-15T21:28:15.723Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:28:15.723Z]: {"resuts":0,"delete":0}
+INFO [2023-11-15T21:28:15.723Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:28:15.723Z]: {"files":{"added":1,"changed":0,"deleted":0}}
+INFO [2023-11-15T21:28:15.888Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:28:15.918Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:28:15.985Z]: [CodeTagger.tagCodebase] Tagging codebase
+INFO [2023-11-15T21:28:17.615Z]: [CodeTagger.save] Saving index to file
+INFO [2023-11-15T21:28:17.980Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:28:17.980Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:28:17.981Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:28:17.981Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:28:17.986Z]: project_reinitialize_success
+INFO [2023-11-15T21:28:17.986Z]: {}
+INFO [2023-11-15T21:28:41.872Z]: project_reinitialize_start
+INFO [2023-11-15T21:28:41.872Z]: {}
+INFO [2023-11-15T21:28:41.958Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:28:41.958Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:28:41.958Z]: {"added":9,"deleted":0}
+INFO [2023-11-15T21:28:41.960Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:28:41.960Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:41.960Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:41.992Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:28:41.992Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:42.022Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:42.022Z]: {"language":"TypeScript","percent":101.5625,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:42.022Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:42.022Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:28:42.023Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:28:42.023Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:42.023Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:28:43.193Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:28:43.193Z]: {"length":9}
+INFO [2023-11-15T21:28:43.194Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:28:43.194Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:28:43.194Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:28:43.195Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:28:43.195Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:28:43.195Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:28:43.195Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:43.322Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:28:43.345Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:28:43.345Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:28:43.345Z]: {"added":9,"deleted":0}
+INFO [2023-11-15T21:28:43.345Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:28:43.345Z]: {"embeddingsToDelete":0}
+INFO [2023-11-15T21:28:43.345Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:28:43.345Z]: {"write":9}
+INFO [2023-11-15T21:28:43.568Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:28:43.568Z]: {"resuts":9,"delete":0}
+INFO [2023-11-15T21:28:43.568Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:28:43.568Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:28:43.639Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:28:43.646Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:28:43.688Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:28:43.688Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:28:43.689Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:28:43.689Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:28:43.693Z]: project_reinitialize_success
+INFO [2023-11-15T21:28:43.693Z]: {}
+INFO [2023-11-15T21:28:51.116Z]: project_reinitialize_start
+INFO [2023-11-15T21:28:51.116Z]: {}
+INFO [2023-11-15T21:28:51.193Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:28:51.193Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:28:51.193Z]: {"added":1,"deleted":1}
+INFO [2023-11-15T21:28:51.196Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:28:51.196Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:51.196Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:51.239Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:28:51.239Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:51.269Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:51.269Z]: {"language":"TypeScript","percent":101.47058823529412,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:51.270Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:51.270Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:28:51.270Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:28:51.270Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:51.270Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:28:51.833Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:28:51.833Z]: {"length":1}
+INFO [2023-11-15T21:28:51.833Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:28:51.833Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:28:51.833Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:28:51.835Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:28:51.836Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:28:51.836Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:28:51.836Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:51.944Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:28:51.997Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:28:51.997Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:28:51.997Z]: {"added":1,"deleted":1}
+INFO [2023-11-15T21:28:51.997Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:28:51.997Z]: {"embeddingsToDelete":1}
+INFO [2023-11-15T21:28:51.998Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:28:51.998Z]: {"write":1}
+INFO [2023-11-15T21:28:52.275Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:28:52.275Z]: {"resuts":1,"delete":1}
+INFO [2023-11-15T21:28:52.275Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:28:52.275Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:28:52.343Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:28:52.347Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:28:52.426Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:28:52.426Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:28:52.426Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:28:52.426Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:28:52.433Z]: project_reinitialize_success
+INFO [2023-11-15T21:28:52.433Z]: {}
+INFO [2023-11-15T21:28:52.869Z]: project_reinitialize_start
+INFO [2023-11-15T21:28:52.869Z]: {}
+INFO [2023-11-15T21:28:53.010Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:28:53.010Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:28:53.010Z]: {"added":0,"deleted":9}
+INFO [2023-11-15T21:28:53.010Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:28:53.010Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:53.010Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:53.011Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:28:53.011Z]: {"length":0}
+INFO [2023-11-15T21:28:53.026Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:28:53.026Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:53.027Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:53.027Z]: {"language":"TypeScript","percent":101.47058823529412,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:53.028Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:53.028Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:28:53.028Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:28:53.028Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:53.029Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:28:53.973Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:28:53.973Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:28:53.973Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:28:53.973Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:28:53.973Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:28:53.973Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:28:53.973Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:53.973Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:28:53.973Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:28:53.973Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:28:53.973Z]: {"added":0,"deleted":9}
+INFO [2023-11-15T21:28:53.973Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:28:53.973Z]: {"embeddingsToDelete":9}
+INFO [2023-11-15T21:28:53.973Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:28:53.973Z]: {"write":0}
+INFO [2023-11-15T21:28:53.973Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:28:54.886Z]: {"resuts":0,"delete":9}
+INFO [2023-11-15T21:28:54.886Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:28:54.886Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:28:54.886Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:28:54.886Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:28:54.887Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:28:54.887Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:28:54.887Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:28:54.887Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:28:54.887Z]: project_reinitialize_success
+INFO [2023-11-15T21:28:54.887Z]: {}
+INFO [2023-11-15T21:28:54.887Z]: project_reinitialize_start
+INFO [2023-11-15T21:28:54.887Z]: {}
+INFO [2023-11-15T21:28:54.887Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:28:54.887Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:28:54.887Z]: {"added":9,"deleted":0}
+INFO [2023-11-15T21:28:55.832Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:28:55.832Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:55.832Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:55.832Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:28:55.832Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:55.833Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:55.833Z]: {"language":"TypeScript","percent":101.39130434782608,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:55.833Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:55.833Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:28:55.833Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:28:55.833Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:55.833Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:28:55.833Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:28:55.833Z]: {"length":9}
+INFO [2023-11-15T21:28:55.833Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:28:55.833Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:28:57.111Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:28:57.111Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:28:57.111Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:28:57.111Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:28:57.111Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:57.111Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:28:57.111Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:28:57.111Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:28:57.111Z]: {"added":9,"deleted":0}
+INFO [2023-11-15T21:28:57.111Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:28:57.111Z]: {"embeddingsToDelete":0}
+INFO [2023-11-15T21:28:57.111Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:28:57.111Z]: {"write":9}
+INFO [2023-11-15T21:28:57.111Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:28:57.111Z]: {"resuts":9,"delete":0}
+INFO [2023-11-15T21:28:57.111Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:28:58.099Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:28:58.099Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:28:58.099Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:28:58.099Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:28:58.099Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:28:58.099Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:28:58.099Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:28:58.099Z]: project_reinitialize_success
+INFO [2023-11-15T21:28:58.099Z]: {}
+INFO [2023-11-15T21:28:58.099Z]: project_reinitialize_start
+INFO [2023-11-15T21:28:58.099Z]: {}
+INFO [2023-11-15T21:28:58.099Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:28:58.099Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:28:58.099Z]: {"added":1,"deleted":1}
+INFO [2023-11-15T21:28:58.099Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:28:58.099Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:59.532Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:59.533Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:28:59.533Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:59.533Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:59.533Z]: {"language":"TypeScript","percent":101.32013201320132,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:28:59.533Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:28:59.533Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:28:59.533Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:28:59.533Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:28:59.533Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:28:59.533Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:28:59.533Z]: {"length":1}
+INFO [2023-11-15T21:28:59.533Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:28:59.533Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:28:59.533Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:28:59.533Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:00.800Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:00.800Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:00.800Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:00.800Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:00.800Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:00.801Z]: {}
+INFO [2023-11-15T21:29:00.801Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:00.801Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:00.801Z]: {"added":1,"deleted":1}
+INFO [2023-11-15T21:29:00.801Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:00.801Z]: {"embeddingsToDelete":1}
+INFO [2023-11-15T21:29:00.801Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:00.801Z]: {"write":1}
+INFO [2023-11-15T21:29:00.801Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:00.801Z]: {"resuts":1,"delete":1}
+INFO [2023-11-15T21:29:00.801Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:01.907Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:01.907Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:01.907Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:01.907Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:01.907Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:01.907Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:01.907Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:01.907Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:01.907Z]: {}
+INFO [2023-11-15T21:29:01.907Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:01.907Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:01.907Z]: {"added":1,"deleted":1}
+INFO [2023-11-15T21:29:01.907Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:01.907Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:01.907Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:01.907Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:02.858Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:02.859Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:02.859Z]: {"language":"TypeScript","percent":101.25984251968505,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:02.859Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:02.859Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:02.859Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:02.859Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:02.859Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:02.859Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:02.859Z]: {"length":1}
+INFO [2023-11-15T21:29:02.859Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:02.859Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:02.859Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:02.859Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:02.859Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:02.859Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:03.969Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:03.970Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:03.970Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:03.970Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:03.970Z]: {"added":1,"deleted":1}
+INFO [2023-11-15T21:29:03.970Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:03.970Z]: {"embeddingsToDelete":1}
+INFO [2023-11-15T21:29:03.970Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:03.970Z]: {"write":1}
+INFO [2023-11-15T21:29:03.970Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:03.970Z]: {"resuts":1,"delete":1}
+INFO [2023-11-15T21:29:03.970Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:03.970Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:03.970Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:03.970Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:03.970Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:05.041Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:05.042Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:05.042Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:05.042Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:05.042Z]: {}
+INFO [2023-11-15T21:29:05.765Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:05.765Z]: {}
+INFO [2023-11-15T21:29:05.845Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:05.845Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:05.845Z]: {"added":1,"deleted":1}
+INFO [2023-11-15T21:29:05.847Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:05.847Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:05.847Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:05.878Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:05.878Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:05.910Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:05.954Z]: {"language":"TypeScript","percent":101.20481927710843,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:05.954Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:05.954Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:05.954Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:05.954Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:05.954Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:06.549Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:06.549Z]: {"length":1}
+INFO [2023-11-15T21:29:06.549Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:06.549Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:06.549Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:06.550Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:06.550Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:06.550Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:06.550Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:06.677Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:06.701Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:07.177Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:07.177Z]: {"added":1,"deleted":1}
+INFO [2023-11-15T21:29:07.177Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:07.177Z]: {"embeddingsToDelete":1}
+INFO [2023-11-15T21:29:07.177Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:07.177Z]: {"write":1}
+INFO [2023-11-15T21:29:07.177Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:07.177Z]: {"resuts":1,"delete":1}
+INFO [2023-11-15T21:29:07.177Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:07.177Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:07.177Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:07.177Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:07.177Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:07.177Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:07.177Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:08.356Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:08.356Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:08.356Z]: {}
+INFO [2023-11-15T21:29:11.043Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:11.043Z]: {}
+INFO [2023-11-15T21:29:11.124Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:11.124Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:11.124Z]: {"added":1,"deleted":2}
+INFO [2023-11-15T21:29:11.125Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:11.125Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:11.125Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:11.187Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:11.187Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:11.216Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:11.216Z]: {"language":"TypeScript","percent":101.15942028985508,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:11.216Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:11.216Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:11.217Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:11.217Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:11.217Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:11.780Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:11.780Z]: {"length":1}
+INFO [2023-11-15T21:29:11.781Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:11.781Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:11.781Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:11.782Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:11.782Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:11.782Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:11.782Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:11.913Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:11.943Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:11.943Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:11.943Z]: {"added":1,"deleted":2}
+INFO [2023-11-15T21:29:11.943Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:11.943Z]: {"embeddingsToDelete":2}
+INFO [2023-11-15T21:29:11.943Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:11.943Z]: {"write":1}
+INFO [2023-11-15T21:29:12.232Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:12.232Z]: {"resuts":1,"delete":2}
+INFO [2023-11-15T21:29:12.232Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:12.232Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:12.287Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:12.291Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:12.341Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:12.341Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:12.341Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:12.341Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:12.347Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:12.347Z]: {}
+INFO [2023-11-15T21:29:24.656Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:24.656Z]: {}
+INFO [2023-11-15T21:29:24.724Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:24.724Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:24.724Z]: {"added":3,"deleted":7}
+INFO [2023-11-15T21:29:24.725Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:24.725Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:24.725Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:24.731Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:24.731Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:24.737Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:24.737Z]: {"language":"TypeScript","percent":101.13475177304964,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:24.737Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:24.737Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:24.737Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:24.737Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:24.737Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:25.608Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:25.608Z]: {"length":3}
+INFO [2023-11-15T21:29:25.609Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:25.609Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:25.609Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:25.614Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:25.615Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:25.615Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:25.615Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:25.727Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:25.750Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:25.750Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:25.750Z]: {"added":3,"deleted":7}
+INFO [2023-11-15T21:29:25.750Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:25.750Z]: {"embeddingsToDelete":7}
+INFO [2023-11-15T21:29:25.750Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:25.750Z]: {"write":3}
+INFO [2023-11-15T21:29:26.031Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:26.031Z]: {"resuts":3,"delete":7}
+INFO [2023-11-15T21:29:26.031Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:26.031Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:26.094Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:26.142Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:26.210Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:26.210Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:26.210Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:26.210Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:26.215Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:26.215Z]: {}
+INFO [2023-11-15T21:29:27.191Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:27.191Z]: {}
+INFO [2023-11-15T21:29:27.254Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:27.254Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:27.254Z]: {"added":2,"deleted":2}
+INFO [2023-11-15T21:29:27.257Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:27.257Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:27.257Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:27.265Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:27.265Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:27.268Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:27.268Z]: {"language":"TypeScript","percent":101.11111111111111,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:27.268Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:27.268Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:27.268Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:27.268Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:27.268Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:28.101Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:28.101Z]: {"length":2}
+INFO [2023-11-15T21:29:28.101Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:28.101Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:28.101Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:28.103Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:28.103Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:28.103Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:28.103Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:28.219Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:28.241Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:28.241Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:28.241Z]: {"added":2,"deleted":2}
+INFO [2023-11-15T21:29:28.241Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:28.241Z]: {"embeddingsToDelete":2}
+INFO [2023-11-15T21:29:28.325Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:28.325Z]: {"write":2}
+INFO [2023-11-15T21:29:28.581Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:28.581Z]: {"resuts":2,"delete":2}
+INFO [2023-11-15T21:29:28.581Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:28.581Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:28.649Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:28.653Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:28.694Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:28.694Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:28.694Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:28.694Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:28.700Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:28.700Z]: {}
+INFO [2023-11-15T21:29:30.721Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:30.721Z]: {}
+INFO [2023-11-15T21:29:30.842Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:30.842Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:30.842Z]: {"added":7,"deleted":3}
+INFO [2023-11-15T21:29:30.843Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:30.844Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:30.844Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:30.870Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:30.870Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:30.900Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:30.900Z]: {"language":"TypeScript","percent":101.07238605898124,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:30.900Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:30.900Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:30.901Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:30.901Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:30.901Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:31.991Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:31.991Z]: {"length":7}
+INFO [2023-11-15T21:29:31.991Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:31.991Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:31.991Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:31.994Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:31.994Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:31.994Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:31.994Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:32.053Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:32.132Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:32.132Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:32.132Z]: {"added":7,"deleted":3}
+INFO [2023-11-15T21:29:32.132Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:32.132Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:29:32.132Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:32.132Z]: {"write":7}
+INFO [2023-11-15T21:29:32.421Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:32.421Z]: {"resuts":7,"delete":3}
+INFO [2023-11-15T21:29:32.421Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:32.421Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:32.479Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:32.488Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:32.544Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:32.544Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:32.544Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:32.544Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:32.551Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:32.551Z]: {}
+INFO [2023-11-15T21:29:34.650Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:34.651Z]: {}
+INFO [2023-11-15T21:29:34.793Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:34.793Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:34.793Z]: {"added":3,"deleted":7}
+INFO [2023-11-15T21:29:34.796Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:34.796Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:34.796Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:34.804Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:34.804Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:34.808Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:34.808Z]: {"language":"TypeScript","percent":101.05124835742446,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:34.808Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:34.808Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:34.808Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:34.808Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:34.808Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:35.683Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:35.683Z]: {"length":3}
+INFO [2023-11-15T21:29:35.683Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:35.683Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:35.683Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:35.691Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:35.691Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:35.691Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:35.691Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:35.842Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:35.873Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:35.874Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:35.874Z]: {"added":3,"deleted":7}
+INFO [2023-11-15T21:29:35.874Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:35.874Z]: {"embeddingsToDelete":7}
+INFO [2023-11-15T21:29:35.874Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:35.874Z]: {"write":3}
+INFO [2023-11-15T21:29:36.155Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:36.155Z]: {"resuts":3,"delete":7}
+INFO [2023-11-15T21:29:36.156Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:36.156Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:36.266Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:36.271Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:36.333Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:36.333Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:36.333Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:36.333Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:36.343Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:36.343Z]: {}
+INFO [2023-11-15T21:29:37.502Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:37.502Z]: {}
+INFO [2023-11-15T21:29:37.579Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:37.580Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:37.580Z]: {"added":2,"deleted":2}
+INFO [2023-11-15T21:29:37.582Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:37.582Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:37.582Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:37.596Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:37.596Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:37.600Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:37.600Z]: {"language":"TypeScript","percent":101.03092783505154,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:37.600Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:37.600Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:37.600Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:37.600Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:37.600Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:38.337Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:38.337Z]: {"length":2}
+INFO [2023-11-15T21:29:38.337Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:38.337Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:38.337Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:38.339Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:38.339Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:38.339Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:38.339Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:38.466Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:38.547Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:38.547Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:38.547Z]: {"added":2,"deleted":2}
+INFO [2023-11-15T21:29:38.547Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:38.547Z]: {"embeddingsToDelete":2}
+INFO [2023-11-15T21:29:38.547Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:38.547Z]: {"write":2}
+INFO [2023-11-15T21:29:38.838Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:38.876Z]: {"resuts":2,"delete":2}
+INFO [2023-11-15T21:29:38.876Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:38.876Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:38.938Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:38.942Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:38.992Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:38.992Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:38.992Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:38.992Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:38.998Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:38.998Z]: {}
+INFO [2023-11-15T21:29:44.047Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:44.048Z]: {}
+INFO [2023-11-15T21:29:44.163Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:44.163Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:44.164Z]: {"added":2,"deleted":2}
+INFO [2023-11-15T21:29:44.164Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:44.164Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:44.164Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:44.172Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:44.172Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:44.176Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:44.176Z]: {"language":"TypeScript","percent":101.01137800252845,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:44.177Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:44.177Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:44.177Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:44.177Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:44.177Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:44.934Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:44.935Z]: {"length":2}
+INFO [2023-11-15T21:29:44.935Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:44.935Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:44.935Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:44.937Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:44.937Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:44.937Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:44.937Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:45.060Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:45.081Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:45.081Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:45.081Z]: {"added":2,"deleted":2}
+INFO [2023-11-15T21:29:45.081Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:45.081Z]: {"embeddingsToDelete":2}
+INFO [2023-11-15T21:29:45.081Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:45.081Z]: {"write":2}
+INFO [2023-11-15T21:29:45.340Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:45.340Z]: {"resuts":2,"delete":2}
+INFO [2023-11-15T21:29:45.340Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:45.340Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:45.439Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:45.441Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:45.515Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:45.515Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:45.517Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:45.517Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:45.546Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:45.546Z]: {}
+INFO [2023-11-15T21:29:45.944Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:45.945Z]: {}
+INFO [2023-11-15T21:29:46.035Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:46.035Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:46.035Z]: {"added":3,"deleted":2}
+INFO [2023-11-15T21:29:46.037Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:46.037Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:46.037Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:46.049Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:46.049Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:46.051Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:46.051Z]: {"language":"TypeScript","percent":100.9913258983891,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:46.052Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:46.052Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:46.052Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:46.052Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:46.052Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:47.046Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:47.046Z]: {"length":3}
+INFO [2023-11-15T21:29:47.046Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:47.046Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:47.046Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:47.049Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:47.049Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:47.049Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:47.049Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:47.156Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:47.165Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:47.165Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:47.165Z]: {"added":3,"deleted":2}
+INFO [2023-11-15T21:29:47.165Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:47.165Z]: {"embeddingsToDelete":2}
+INFO [2023-11-15T21:29:47.165Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:47.165Z]: {"write":3}
+INFO [2023-11-15T21:29:47.440Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:48.109Z]: {"resuts":3,"delete":2}
+INFO [2023-11-15T21:29:48.109Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:48.109Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:48.109Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:48.109Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:48.109Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:48.109Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:48.109Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:48.109Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:48.109Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:48.109Z]: {}
+INFO [2023-11-15T21:29:48.242Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:48.242Z]: {}
+INFO [2023-11-15T21:29:48.386Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:48.386Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:48.386Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:29:49.238Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:49.239Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:49.239Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:49.239Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:49.239Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:49.239Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:49.239Z]: {"language":"TypeScript","percent":100.97087378640776,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:49.239Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:49.239Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:49.239Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:49.239Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:49.239Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:49.304Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:49.304Z]: {"length":3}
+INFO [2023-11-15T21:29:49.304Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:49.304Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:50.845Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:50.845Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:50.845Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:50.845Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:50.845Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:50.845Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:50.845Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:50.845Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:50.845Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:29:50.845Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:50.845Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:29:50.845Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:50.845Z]: {"write":3}
+INFO [2023-11-15T21:29:50.845Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:50.845Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:29:50.845Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:52.651Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:52.651Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:52.651Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:52.651Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:52.651Z]: {}
+INFO [2023-11-15T21:29:52.651Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:52.651Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:52.651Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:52.651Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:52.651Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:52.651Z]: {}
+INFO [2023-11-15T21:29:52.651Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:52.651Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:52.651Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:29:52.651Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:52.651Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:53.910Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:53.910Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:53.910Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:53.910Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:53.910Z]: {"language":"TypeScript","percent":100.9512485136742,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:53.910Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:53.910Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:53.910Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:53.910Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:53.910Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:53.910Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:53.910Z]: {"length":3}
+INFO [2023-11-15T21:29:53.910Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:53.910Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:53.910Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:53.910Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:55.081Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:55.081Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:55.081Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:55.081Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:55.081Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:55.081Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:55.081Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:29:55.081Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:55.081Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:29:55.081Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:55.081Z]: {"write":3}
+INFO [2023-11-15T21:29:55.081Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:55.081Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:29:55.081Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:55.081Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:55.081Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:56.319Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:56.319Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:56.319Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:56.319Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:56.319Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:56.319Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:56.319Z]: {}
+INFO [2023-11-15T21:29:56.319Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:56.319Z]: {}
+INFO [2023-11-15T21:29:56.319Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:56.319Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:56.319Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:29:56.319Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:56.319Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:56.319Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:56.319Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:29:57.170Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:57.171Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:57.171Z]: {"language":"TypeScript","percent":100.9313154831199,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:29:57.171Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:29:57.171Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:29:57.171Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:29:57.171Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:57.171Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:57.171Z]: project_reinitialize_start
+INFO [2023-11-15T21:29:57.171Z]: {}
+INFO [2023-11-15T21:29:57.171Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:57.171Z]: {"length":3}
+INFO [2023-11-15T21:29:57.171Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:57.171Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:29:57.171Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:29:57.171Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:29:58.270Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:29:58.271Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:29:58.271Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:29:58.271Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:29:58.271Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:29:58.271Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:29:58.271Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:29:58.271Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:29:58.271Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:29:58.271Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:29:58.271Z]: {"write":3}
+INFO [2023-11-15T21:29:58.271Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:29:58.271Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:29:58.271Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:29:58.271Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:29:58.271Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:29:59.282Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:29:59.283Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:29:59.283Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:29:59.283Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:29:59.283Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:29:59.283Z]: project_reinitialize_success
+INFO [2023-11-15T21:29:59.283Z]: {}
+INFO [2023-11-15T21:29:59.283Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:29:59.283Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:29:59.283Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:29:59.283Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:29:59.283Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:29:59.283Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:29:59.283Z]: {"length":0}
+INFO [2023-11-15T21:29:59.283Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:29:59.283Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:30:00.704Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:30:00.704Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:30:00.704Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:30:00.704Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:30:00.704Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:30:00.704Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:30:00.704Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:30:00.704Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:30:00.704Z]: {"embeddingsToDelete":0}
+INFO [2023-11-15T21:30:00.704Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:30:00.704Z]: {"write":0}
+INFO [2023-11-15T21:30:00.704Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:30:00.704Z]: {"resuts":0,"delete":0}
+INFO [2023-11-15T21:30:00.704Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:30:00.704Z]: {"files":{"added":0,"changed":0,"deleted":0}}
+INFO [2023-11-15T21:30:00.704Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:30:02.143Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:30:02.144Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:30:02.144Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:30:02.144Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:30:02.144Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:30:02.144Z]: project_reinitialize_success
+INFO [2023-11-15T21:30:02.144Z]: {}
+INFO [2023-11-15T21:30:02.144Z]: project_reinitialize_start
+INFO [2023-11-15T21:30:02.144Z]: {}
+INFO [2023-11-15T21:30:02.144Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:30:02.144Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:30:02.144Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:30:02.144Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:30:02.144Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:30:02.144Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:30:02.144Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:30:03.478Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:30:03.479Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:30:03.479Z]: {"language":"TypeScript","percent":100.91012514220705,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:30:03.479Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:30:03.479Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:30:03.479Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:30:03.479Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:30:03.479Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:30:03.479Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:30:03.479Z]: {"length":3}
+INFO [2023-11-15T21:30:03.479Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:30:03.479Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:30:03.479Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:30:03.479Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:30:03.479Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:30:03.479Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:30:05.035Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:30:05.035Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:30:05.035Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:30:05.035Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:30:05.035Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:30:05.035Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:30:05.035Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:30:05.035Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:30:05.035Z]: {"write":3}
+INFO [2023-11-15T21:30:05.035Z]: project_reinitialize_start
+INFO [2023-11-15T21:30:05.035Z]: {}
+INFO [2023-11-15T21:30:05.035Z]: project_reinitialize_start
+INFO [2023-11-15T21:30:05.035Z]: {}
+INFO [2023-11-15T21:30:05.035Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:30:05.035Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:30:05.035Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:30:06.400Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:30:06.400Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:30:06.400Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:30:06.400Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:30:06.400Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:30:06.400Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:30:06.400Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:30:06.400Z]: project_reinitialize_success
+INFO [2023-11-15T21:30:06.400Z]: {}
+INFO [2023-11-15T21:30:06.400Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:30:06.400Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:30:06.401Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:30:06.401Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:30:06.401Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:30:06.401Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:30:06.401Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:30:07.893Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:30:07.894Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:30:07.894Z]: {"language":"TypeScript","percent":100.8888888888889,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:30:07.894Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:30:07.894Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:30:07.894Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:30:07.894Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:30:07.894Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:30:07.894Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:30:07.894Z]: {"length":3}
+INFO [2023-11-15T21:30:07.894Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:30:07.894Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:30:07.894Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:30:07.894Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:30:07.894Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:30:07.894Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:30:09.044Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:30:09.044Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:30:09.044Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:30:09.044Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:30:09.044Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:30:09.044Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:30:09.044Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:30:09.044Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:30:09.044Z]: {"write":3}
+INFO [2023-11-15T21:30:09.045Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:30:09.045Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:30:09.045Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:30:09.045Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:30:09.045Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:30:09.045Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:30:09.045Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:30:10.329Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:30:10.330Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:30:10.330Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:30:10.330Z]: project_reinitialize_success
+INFO [2023-11-15T21:30:10.330Z]: {}
+INFO [2023-11-15T21:30:10.330Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:30:10.330Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:30:10.330Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:30:10.330Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:30:10.330Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:30:10.330Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:30:10.330Z]: {"length":0}
+INFO [2023-11-15T21:30:10.330Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:30:10.330Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:30:10.330Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:30:10.330Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:30:11.538Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:30:11.538Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:30:11.538Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:30:11.538Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:30:11.538Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:30:11.538Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:30:11.538Z]: {"embeddingsToDelete":0}
+INFO [2023-11-15T21:30:11.538Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:30:11.538Z]: {"write":0}
+INFO [2023-11-15T21:30:11.538Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:30:11.538Z]: {"resuts":0,"delete":0}
+INFO [2023-11-15T21:30:11.538Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:30:11.538Z]: {"files":{"added":0,"changed":0,"deleted":0}}
+INFO [2023-11-15T21:30:11.538Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:30:11.538Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:30:11.538Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:30:12.709Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:30:12.709Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:30:12.709Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:30:12.709Z]: project_reinitialize_success
+INFO [2023-11-15T21:30:12.709Z]: {}
+INFO [2023-11-15T21:30:12.709Z]: project_reinitialize_start
+INFO [2023-11-15T21:30:12.709Z]: {}
+INFO [2023-11-15T21:30:12.709Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:30:12.709Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:30:12.709Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:30:12.709Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:30:12.709Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:30:12.709Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:30:12.709Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:30:12.709Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:30:12.709Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:30:13.749Z]: {"language":"TypeScript","percent":100.8686210640608,"file":"src\\app\\api\\chat\\getchat\\[usersId]\\route.ts"}
+INFO [2023-11-15T21:30:13.750Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:30:13.750Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:30:13.750Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:30:13.750Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:30:13.750Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:30:13.750Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:30:13.750Z]: {"length":3}
+INFO [2023-11-15T21:30:13.750Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:30:13.750Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:30:13.750Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:30:13.750Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:30:13.750Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:30:13.750Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:30:13.750Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:30:13.750Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:30:14.949Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:30:14.949Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:30:14.949Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:30:14.949Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:30:14.949Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:30:14.949Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:30:14.949Z]: {"write":3}
+INFO [2023-11-15T21:30:14.949Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:30:14.949Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:30:14.949Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:30:14.949Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:30:14.949Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:30:14.949Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:30:14.949Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:30:14.949Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:30:14.949Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:30:16.037Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:30:16.038Z]: project_reinitialize_success
+INFO [2023-11-15T21:30:16.038Z]: {}
+INFO [2023-11-15T21:35:36.424Z]: question_start
+INFO [2023-11-15T21:35:36.424Z]: {"prompt":"make end point that takes two users ids and making search in the Chat table to find chat between those two users"}
+INFO [2023-11-15T21:35:37.495Z]: tool_selected
+INFO [2023-11-15T21:35:37.495Z]: {"tool":"ideate"}
+INFO [2023-11-15T21:37:02.753Z]: question_start
+INFO [2023-11-15T21:37:02.754Z]: {"prompt":"create end point that takes chat id and retuen all the chat data"}
+INFO [2023-11-15T21:37:03.890Z]: tool_selected
+INFO [2023-11-15T21:37:03.890Z]: {"tool":"ideate"}
+INFO [2023-11-15T21:37:51.353Z]: question_success
+INFO [2023-11-15T21:37:51.354Z]: {"prompt":"create end point that takes chat id and retuen all the chat data"}
+INFO [2023-11-15T21:39:15.680Z]: project_reinitialize_start
+INFO [2023-11-15T21:39:15.681Z]: {}
+INFO [2023-11-15T21:39:15.790Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:39:15.790Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:39:15.790Z]: {"added":5,"deleted":5}
+INFO [2023-11-15T21:39:15.792Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:39:15.793Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:39:15.793Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:39:15.808Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:39:15.808Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[chatId]\\route.ts"}
+INFO [2023-11-15T21:39:15.815Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:39:15.815Z]: {"language":"TypeScript","percent":100.84925690021231,"file":"src\\app\\api\\chat\\getchat\\[chatId]\\route.ts"}
+INFO [2023-11-15T21:39:15.815Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:39:15.815Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:39:15.815Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:39:15.815Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:39:15.815Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:39:16.855Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:39:16.856Z]: {"length":5}
+INFO [2023-11-15T21:39:16.856Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:39:16.856Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:39:16.856Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:39:16.863Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:39:16.863Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:39:16.863Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:39:16.863Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:39:17.017Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:39:17.018Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:39:17.019Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:39:17.019Z]: {"added":5,"deleted":5}
+INFO [2023-11-15T21:39:17.019Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:39:17.019Z]: {"embeddingsToDelete":5}
+INFO [2023-11-15T21:39:17.019Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:39:17.019Z]: {"write":5}
+INFO [2023-11-15T21:39:17.248Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:39:17.248Z]: {"resuts":5,"delete":5}
+INFO [2023-11-15T21:39:17.248Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:39:17.248Z]: {"files":{"added":1,"changed":0,"deleted":1}}
+INFO [2023-11-15T21:39:17.555Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:39:17.562Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:39:17.628Z]: [CodeTagger.tagCodebase] Tagging codebase
+INFO [2023-11-15T21:39:18.475Z]: project_reinitialize_start
+INFO [2023-11-15T21:39:18.476Z]: {}
+INFO [2023-11-15T21:39:18.890Z]: project_reinitialize_start
+INFO [2023-11-15T21:39:18.890Z]: {}
+INFO [2023-11-15T21:39:19.412Z]: [CodeTagger.save] Saving index to file
+INFO [2023-11-15T21:39:19.507Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:39:19.508Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:39:19.508Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:39:19.508Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:39:19.514Z]: project_reinitialize_success
+INFO [2023-11-15T21:39:19.514Z]: {}
+INFO [2023-11-15T21:39:19.585Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:39:19.586Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:39:19.586Z]: {"added":2,"deleted":2}
+INFO [2023-11-15T21:39:19.588Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:39:19.588Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:39:19.588Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:39:19.601Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:39:19.601Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[chatId]\\route.ts"}
+INFO [2023-11-15T21:39:19.605Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:39:19.605Z]: {"language":"TypeScript","percent":100.83073727933541,"file":"src\\app\\api\\chat\\getchat\\[chatId]\\route.ts"}
+INFO [2023-11-15T21:39:19.605Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:39:19.605Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:39:19.605Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:39:19.605Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:39:19.605Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:39:20.424Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:39:20.424Z]: {"length":2}
+INFO [2023-11-15T21:39:20.424Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:39:20.424Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:39:20.424Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:39:20.426Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:39:20.426Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:39:20.426Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:39:20.426Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:39:20.560Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:39:20.584Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:39:20.584Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:39:20.584Z]: {"added":2,"deleted":2}
+INFO [2023-11-15T21:39:20.584Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:39:20.584Z]: {"embeddingsToDelete":2}
+INFO [2023-11-15T21:39:20.585Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:39:20.585Z]: {"write":2}
+INFO [2023-11-15T21:39:20.890Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:39:20.890Z]: {"resuts":2,"delete":2}
+INFO [2023-11-15T21:39:20.891Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:39:20.891Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:39:20.969Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:39:20.976Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:39:21.038Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:39:21.038Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:39:21.039Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:39:21.039Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:39:21.044Z]: project_reinitialize_success
+INFO [2023-11-15T21:39:21.044Z]: {}
+INFO [2023-11-15T21:39:21.119Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:39:21.119Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:39:21.119Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:39:21.317Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:39:21.318Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:39:21.318Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:39:21.318Z]: {"length":0}
+INFO [2023-11-15T21:39:21.318Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:39:21.318Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:39:21.318Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:39:21.318Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:39:21.318Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:39:21.318Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:39:21.318Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:39:21.318Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:39:21.318Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:39:21.318Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:39:21.318Z]: {"embeddingsToDelete":0}
+INFO [2023-11-15T21:39:21.318Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:39:22.667Z]: {"write":0}
+INFO [2023-11-15T21:39:22.668Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:39:22.668Z]: {"resuts":0,"delete":0}
+INFO [2023-11-15T21:39:22.668Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:39:22.668Z]: {"files":{"added":0,"changed":0,"deleted":0}}
+INFO [2023-11-15T21:39:22.668Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:39:22.668Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:39:22.668Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:39:22.668Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:39:22.668Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:39:22.668Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:39:22.668Z]: project_reinitialize_success
+INFO [2023-11-15T21:39:22.668Z]: {}
+INFO [2023-11-15T21:39:30.468Z]: project_reinitialize_start
+INFO [2023-11-15T21:39:30.468Z]: {}
+INFO [2023-11-15T21:39:30.561Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:39:30.561Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:39:30.561Z]: {"added":4,"deleted":3}
+INFO [2023-11-15T21:39:30.566Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:39:30.567Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:39:30.567Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:39:30.575Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:39:30.575Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[chatId]\\route.ts"}
+INFO [2023-11-15T21:39:30.578Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:39:30.578Z]: {"language":"TypeScript","percent":100.81053698074976,"file":"src\\app\\api\\chat\\getchat\\[chatId]\\route.ts"}
+INFO [2023-11-15T21:39:30.578Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:39:30.578Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:39:30.578Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:39:30.578Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:39:30.578Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:39:31.718Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:39:31.719Z]: {"length":4}
+INFO [2023-11-15T21:39:31.719Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:39:31.719Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:39:31.719Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:39:31.721Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:39:31.721Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:39:31.721Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:39:31.721Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:39:31.875Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:39:31.899Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:39:31.900Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:39:31.900Z]: {"added":4,"deleted":3}
+INFO [2023-11-15T21:39:31.900Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:39:31.900Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:39:31.900Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:39:31.900Z]: {"write":4}
+INFO [2023-11-15T21:39:32.408Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:39:32.408Z]: {"resuts":4,"delete":3}
+INFO [2023-11-15T21:39:32.408Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:39:32.408Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:39:32.518Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:39:32.523Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:39:32.565Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:39:32.565Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:39:32.565Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:39:32.565Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:39:32.571Z]: project_reinitialize_success
+INFO [2023-11-15T21:39:32.571Z]: {}
+INFO [2023-11-15T21:40:07.617Z]: project_reinitialize_start
+INFO [2023-11-15T21:40:07.618Z]: {}
+INFO [2023-11-15T21:40:07.706Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:40:07.706Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:40:07.706Z]: {"added":7,"deleted":4}
+INFO [2023-11-15T21:40:07.709Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:40:07.709Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:40:07.709Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:40:07.736Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:40:07.736Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getchat\\[chatId]\\route.ts"}
+INFO [2023-11-15T21:40:07.752Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:40:07.752Z]: {"language":"TypeScript","percent":100.78895463510848,"file":"src\\app\\api\\chat\\getchat\\[chatId]\\route.ts"}
+INFO [2023-11-15T21:40:07.752Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:40:07.752Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:40:07.752Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:40:07.752Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:40:07.752Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:40:08.889Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:40:08.889Z]: {"length":7}
+INFO [2023-11-15T21:40:08.889Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:40:08.889Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:40:08.889Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:40:08.893Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:40:08.893Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:40:08.893Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:40:08.893Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:40:09.031Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:40:09.088Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:40:09.088Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:40:09.088Z]: {"added":7,"deleted":4}
+INFO [2023-11-15T21:40:09.088Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:40:09.088Z]: {"embeddingsToDelete":4}
+INFO [2023-11-15T21:40:09.089Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:40:09.089Z]: {"write":7}
+INFO [2023-11-15T21:40:09.419Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:40:09.419Z]: {"resuts":7,"delete":4}
+INFO [2023-11-15T21:40:09.419Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:40:09.419Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:40:09.482Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:40:09.485Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:40:09.540Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:40:09.540Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:40:09.541Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:40:09.541Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:40:09.547Z]: project_reinitialize_success
+INFO [2023-11-15T21:40:09.547Z]: {}
+INFO [2023-11-15T21:40:23.834Z]: project_reinitialize_start
+INFO [2023-11-15T21:40:23.835Z]: {}
+INFO [2023-11-15T21:40:23.908Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:40:23.908Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:40:23.908Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:40:23.908Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:40:23.908Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:40:23.908Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:40:23.908Z]: {"length":0}
+INFO [2023-11-15T21:40:23.908Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:40:23.908Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:40:23.908Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:40:23.908Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:40:23.908Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:40:23.908Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:40:24.055Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:40:24.056Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:40:24.056Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:40:24.056Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:40:24.056Z]: {"embeddingsToDelete":0}
+INFO [2023-11-15T21:40:24.056Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:40:24.056Z]: {"write":0}
+INFO [2023-11-15T21:40:24.376Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:40:24.376Z]: {"resuts":0,"delete":0}
+INFO [2023-11-15T21:40:24.377Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:40:24.377Z]: {"files":{"added":0,"changed":0,"deleted":0}}
+INFO [2023-11-15T21:40:24.439Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:40:24.442Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:40:24.501Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:40:24.501Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:40:24.502Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:40:24.502Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:40:24.507Z]: project_reinitialize_success
+INFO [2023-11-15T21:40:24.507Z]: {}
+INFO [2023-11-15T21:42:00.945Z]: project_reinitialize_start
+INFO [2023-11-15T21:42:00.945Z]: {}
+INFO [2023-11-15T21:42:01.005Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:42:01.005Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:42:01.005Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:01.006Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:42:01.006Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:01.006Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:01.054Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:42:01.055Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:01.084Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:01.084Z]: {"language":"TypeScript","percent":100.76701821668263,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:01.084Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:01.084Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:42:01.084Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:42:01.084Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:01.084Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:42:02.152Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:42:02.153Z]: {"length":3}
+INFO [2023-11-15T21:42:02.153Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:42:02.153Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:42:02.153Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:42:02.158Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:42:02.158Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:42:02.158Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:42:02.158Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:02.415Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:42:02.416Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:42:02.417Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:42:02.417Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:02.417Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:42:02.417Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:42:02.417Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:42:02.417Z]: {"write":3}
+INFO [2023-11-15T21:42:02.816Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:42:02.816Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:42:02.816Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:42:02.816Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:42:02.831Z]: project_reinitialize_start
+INFO [2023-11-15T21:42:02.831Z]: {}
+INFO [2023-11-15T21:42:02.885Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:42:02.891Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:42:03.053Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:42:03.053Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:42:03.053Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:42:03.053Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:42:03.090Z]: project_reinitialize_success
+INFO [2023-11-15T21:42:03.090Z]: {}
+INFO [2023-11-15T21:42:03.186Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:42:03.186Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:42:03.186Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:03.190Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:42:03.190Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:03.190Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:03.217Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:42:03.217Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:03.266Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:03.266Z]: {"language":"TypeScript","percent":100.74626865671641,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:03.267Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:03.309Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:42:03.309Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:42:03.309Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:03.309Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:42:03.644Z]: project_reinitialize_start
+INFO [2023-11-15T21:42:03.644Z]: {}
+INFO [2023-11-15T21:42:04.136Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:42:04.136Z]: {"length":3}
+INFO [2023-11-15T21:42:04.136Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:42:04.136Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:42:04.136Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:42:04.142Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:42:04.142Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:42:04.142Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:42:04.142Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:04.301Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:42:04.850Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:42:04.850Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:42:04.850Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:04.850Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:42:04.850Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:42:04.850Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:42:04.850Z]: {"write":3}
+INFO [2023-11-15T21:42:04.850Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:42:04.850Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:42:04.850Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:42:04.850Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:42:04.912Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:42:04.914Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:42:04.970Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:42:04.970Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:42:06.933Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:42:06.934Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:42:06.934Z]: project_reinitialize_success
+INFO [2023-11-15T21:42:06.934Z]: {}
+INFO [2023-11-15T21:42:06.934Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:42:06.934Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:42:06.934Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:42:06.934Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:42:06.934Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:42:06.934Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:42:06.934Z]: {"length":0}
+INFO [2023-11-15T21:42:06.934Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:42:06.934Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:42:06.934Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:42:06.934Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:42:06.934Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:42:07.995Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:42:07.996Z]: project_reinitialize_start
+INFO [2023-11-15T21:42:07.996Z]: {}
+INFO [2023-11-15T21:42:07.996Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:42:07.996Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:42:07.996Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:42:07.996Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:42:07.996Z]: {"embeddingsToDelete":0}
+INFO [2023-11-15T21:42:07.996Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:42:07.996Z]: {"write":0}
+INFO [2023-11-15T21:42:07.996Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:42:07.996Z]: {"resuts":0,"delete":0}
+INFO [2023-11-15T21:42:07.996Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:42:07.996Z]: {"files":{"added":0,"changed":0,"deleted":0}}
+INFO [2023-11-15T21:42:07.996Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:42:07.996Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:42:09.243Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:42:09.243Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:42:09.243Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:42:09.243Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:42:09.243Z]: project_reinitialize_success
+INFO [2023-11-15T21:42:09.243Z]: {}
+INFO [2023-11-15T21:42:09.243Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:42:09.243Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:42:09.243Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:42:09.243Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:42:09.243Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:42:09.243Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:42:09.243Z]: {"length":0}
+INFO [2023-11-15T21:42:09.243Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:42:09.243Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:42:09.243Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:42:10.516Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:42:10.517Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:42:10.517Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:42:10.517Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:42:10.517Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:42:10.517Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:42:10.517Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:42:10.517Z]: {"embeddingsToDelete":0}
+INFO [2023-11-15T21:42:10.517Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:42:10.517Z]: {"write":0}
+INFO [2023-11-15T21:42:10.517Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:42:10.517Z]: {"resuts":0,"delete":0}
+INFO [2023-11-15T21:42:10.517Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:42:10.517Z]: {"files":{"added":0,"changed":0,"deleted":0}}
+INFO [2023-11-15T21:42:10.517Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:42:10.517Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:42:11.394Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:42:11.394Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:42:11.394Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:42:11.394Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:42:11.394Z]: project_reinitialize_success
+INFO [2023-11-15T21:42:11.394Z]: {}
+INFO [2023-11-15T21:42:20.131Z]: project_reinitialize_start
+INFO [2023-11-15T21:42:20.132Z]: {}
+INFO [2023-11-15T21:42:20.226Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:42:20.226Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:42:20.226Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:20.230Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:42:20.230Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:20.230Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:20.267Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:42:20.268Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:20.295Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:20.295Z]: {"language":"TypeScript","percent":100.72661217075387,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:20.295Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:20.295Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:42:20.296Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:42:20.296Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:20.296Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:42:21.101Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:42:21.101Z]: {"length":3}
+INFO [2023-11-15T21:42:21.101Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:42:21.101Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:42:21.101Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:42:21.105Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:42:21.105Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:42:21.105Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:42:21.105Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:21.196Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:42:21.227Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:42:21.227Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:42:21.227Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:21.228Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:42:21.228Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:42:21.228Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:42:21.228Z]: {"write":3}
+INFO [2023-11-15T21:42:21.643Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:42:21.643Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:42:21.643Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:42:21.643Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:42:21.716Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:42:21.745Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:42:22.171Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:42:22.172Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:42:22.172Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:42:22.172Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:42:22.184Z]: project_reinitialize_success
+INFO [2023-11-15T21:42:22.184Z]: {}
+INFO [2023-11-15T21:42:24.927Z]: project_reinitialize_start
+INFO [2023-11-15T21:42:24.927Z]: {}
+INFO [2023-11-15T21:42:25.025Z]: project_reinitialize_start
+INFO [2023-11-15T21:42:25.025Z]: {}
+INFO [2023-11-15T21:42:25.053Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:42:25.054Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:42:25.054Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:25.057Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:42:25.057Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:25.057Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:25.105Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:42:25.106Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:25.164Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:25.164Z]: {"language":"TypeScript","percent":100.70733863837312,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:25.164Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:25.164Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:42:25.164Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:42:25.164Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:25.164Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:42:26.050Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:42:26.050Z]: {"length":3}
+INFO [2023-11-15T21:42:26.051Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:42:26.051Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:42:26.051Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:42:26.055Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:42:26.055Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:42:26.055Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:42:26.055Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:26.207Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:42:26.251Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:42:26.251Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:42:26.251Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:26.251Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:42:26.251Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:42:26.252Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:42:26.252Z]: {"write":3}
+INFO [2023-11-15T21:42:26.965Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:42:26.965Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:42:26.965Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:42:26.965Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:42:27.032Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:42:27.036Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:42:27.126Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:42:27.126Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:42:27.127Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:42:27.127Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:42:27.135Z]: project_reinitialize_success
+INFO [2023-11-15T21:42:27.135Z]: {}
+INFO [2023-11-15T21:42:27.279Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:42:27.279Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:42:27.279Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:27.284Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:42:27.285Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:27.285Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:27.322Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:42:27.322Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:27.375Z]: project_reinitialize_start
+INFO [2023-11-15T21:42:27.375Z]: {}
+INFO [2023-11-15T21:42:27.380Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:27.380Z]: {"language":"TypeScript","percent":100.68906115417744,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:27.381Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:27.381Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:42:27.381Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:42:27.381Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:27.381Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:42:28.978Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:42:28.978Z]: {"length":3}
+INFO [2023-11-15T21:42:28.978Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:42:28.979Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:42:28.979Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:42:28.983Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:42:28.983Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:42:28.983Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:42:28.983Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:29.073Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:42:29.147Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:42:29.147Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:42:29.147Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:29.147Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:42:29.147Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:42:29.148Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:42:29.148Z]: {"write":3}
+INFO [2023-11-15T21:42:29.425Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:42:29.949Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:42:29.950Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:42:29.950Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:42:29.950Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:42:29.950Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:42:29.950Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:42:29.950Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:42:29.950Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:42:29.950Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:42:29.950Z]: project_reinitialize_success
+INFO [2023-11-15T21:42:29.950Z]: {}
+INFO [2023-11-15T21:42:29.950Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:42:29.950Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:42:29.950Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:42:29.950Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:42:29.950Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:42:31.223Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:42:31.224Z]: {"length":0}
+INFO [2023-11-15T21:42:31.224Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:42:31.224Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:42:31.224Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:42:31.224Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:42:31.224Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:42:31.224Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:42:31.224Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:42:31.224Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:42:31.224Z]: {"added":0,"deleted":0}
+INFO [2023-11-15T21:42:31.224Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:42:31.224Z]: {"embeddingsToDelete":0}
+INFO [2023-11-15T21:42:31.224Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:42:31.224Z]: {"write":0}
+INFO [2023-11-15T21:42:31.224Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:42:32.280Z]: {"resuts":0,"delete":0}
+INFO [2023-11-15T21:42:32.280Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:42:32.280Z]: {"files":{"added":0,"changed":0,"deleted":0}}
+INFO [2023-11-15T21:42:32.280Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:42:32.280Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:42:32.280Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:42:32.280Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:42:32.280Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:42:32.280Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:42:32.280Z]: project_reinitialize_success
+INFO [2023-11-15T21:42:32.280Z]: {}
+INFO [2023-11-15T21:42:36.057Z]: project_reinitialize_start
+INFO [2023-11-15T21:42:36.057Z]: {}
+INFO [2023-11-15T21:42:36.159Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:42:36.159Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:42:36.159Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:36.162Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:42:36.162Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:36.162Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:36.211Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:42:36.211Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:36.266Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:36.267Z]: {"language":"TypeScript","percent":100.67170445004199,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:36.267Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:36.267Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:42:36.267Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:42:36.267Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:36.267Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:42:37.948Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:42:37.948Z]: {"length":3}
+INFO [2023-11-15T21:42:37.949Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:42:37.949Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:42:37.949Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:42:37.952Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:42:37.952Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:42:37.952Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:42:37.952Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:38.117Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:42:38.117Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:42:38.117Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:42:38.117Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:38.117Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:42:38.117Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:42:38.118Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:42:38.118Z]: {"write":3}
+INFO [2023-11-15T21:42:38.431Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:42:38.431Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:42:38.431Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:42:38.431Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:42:38.544Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:42:38.546Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:42:38.606Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:42:38.607Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:42:38.607Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:42:38.607Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:42:38.611Z]: project_reinitialize_success
+INFO [2023-11-15T21:42:38.611Z]: {}
+INFO [2023-11-15T21:42:39.881Z]: project_reinitialize_start
+INFO [2023-11-15T21:42:39.881Z]: {}
+INFO [2023-11-15T21:42:39.960Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:42:39.960Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:42:39.960Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:39.963Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:42:39.963Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:39.963Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:39.986Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:42:39.986Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:40.017Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:40.017Z]: {"language":"TypeScript","percent":100.65573770491802,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:40.017Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:40.017Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:42:40.017Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:42:40.017Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:40.017Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:42:40.792Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:42:40.792Z]: {"length":3}
+INFO [2023-11-15T21:42:40.792Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:42:40.792Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:42:40.792Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:42:40.795Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:42:40.795Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:42:40.795Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:42:40.795Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:40.907Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:42:40.958Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:42:40.958Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:42:40.958Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:40.958Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:42:40.958Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:42:40.958Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:42:40.958Z]: {"write":3}
+INFO [2023-11-15T21:42:41.269Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:42:41.269Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:42:41.269Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:42:41.269Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:42:41.366Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:42:41.379Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:42:41.477Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:42:41.477Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:42:41.477Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:42:41.477Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:42:41.502Z]: project_reinitialize_success
+INFO [2023-11-15T21:42:42.730Z]: {}
+INFO [2023-11-15T21:42:48.405Z]: project_reinitialize_start
+INFO [2023-11-15T21:42:48.406Z]: {}
+INFO [2023-11-15T21:42:48.481Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:42:48.481Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:42:48.481Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:48.484Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:42:48.484Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:48.484Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:48.504Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:42:48.504Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:48.537Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:48.538Z]: {"language":"TypeScript","percent":100.64051240992795,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:42:48.538Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:42:48.538Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:42:48.538Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:42:48.538Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:48.538Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:42:49.426Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:42:49.426Z]: {"length":3}
+INFO [2023-11-15T21:42:49.427Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:42:49.427Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:42:49.427Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:42:49.429Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:42:49.429Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:42:49.429Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:42:49.429Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:42:49.713Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:42:49.716Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:42:49.716Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:42:49.716Z]: {"added":3,"deleted":3}
+INFO [2023-11-15T21:42:49.716Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:42:49.716Z]: {"embeddingsToDelete":3}
+INFO [2023-11-15T21:42:49.716Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:42:49.716Z]: {"write":3}
+INFO [2023-11-15T21:42:50.602Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:42:50.602Z]: {"resuts":3,"delete":3}
+INFO [2023-11-15T21:42:50.602Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:42:50.602Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:42:50.655Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:42:50.667Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:42:50.764Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:42:50.764Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:42:50.765Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:42:50.765Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:42:50.772Z]: project_reinitialize_success
+INFO [2023-11-15T21:42:50.772Z]: {}
+INFO [2023-11-15T21:43:10.080Z]: project_reinitialize_start
+INFO [2023-11-15T21:43:10.081Z]: {}
+INFO [2023-11-15T21:43:10.197Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:43:10.197Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:43:10.197Z]: {"added":2,"deleted":4}
+INFO [2023-11-15T21:43:10.198Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:43:10.198Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:43:10.198Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:43:10.219Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:43:10.219Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:43:10.256Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:43:10.256Z]: {"language":"TypeScript","percent":100.62597809076684,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:43:10.256Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:43:10.256Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:43:10.257Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:43:10.257Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:43:10.257Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:43:11.030Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:43:11.031Z]: {"length":2}
+INFO [2023-11-15T21:43:11.031Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:43:11.031Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:43:11.031Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:43:11.035Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:43:11.035Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:43:11.035Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:43:11.035Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:43:11.167Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:43:11.186Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:43:11.186Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:43:11.186Z]: {"added":2,"deleted":4}
+INFO [2023-11-15T21:43:11.186Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:43:11.186Z]: {"embeddingsToDelete":4}
+INFO [2023-11-15T21:43:11.186Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:43:11.186Z]: {"write":2}
+INFO [2023-11-15T21:43:11.703Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:43:11.703Z]: {"resuts":2,"delete":4}
+INFO [2023-11-15T21:43:11.703Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:43:11.703Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:43:11.789Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:43:11.800Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:43:12.262Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:43:12.262Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:43:12.262Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:43:12.262Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:43:12.268Z]: project_reinitialize_success
+INFO [2023-11-15T21:43:12.268Z]: {}
+INFO [2023-11-15T21:43:14.772Z]: project_reinitialize_start
+INFO [2023-11-15T21:43:14.773Z]: {}
+INFO [2023-11-15T21:43:14.939Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-15T21:43:14.939Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-15T21:43:14.939Z]: {"added":2,"deleted":2}
+INFO [2023-11-15T21:43:14.941Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-15T21:43:14.941Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:43:14.941Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:43:14.980Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-15T21:43:14.980Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:43:15.022Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:43:15.023Z]: {"language":"TypeScript","percent":100.61208875286916,"file":"src\\app\\api\\chat\\getuserchat\\[userId]\\route.ts"}
+INFO [2023-11-15T21:43:15.023Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-15T21:43:15.023Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-15T21:43:15.023Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-15T21:43:15.023Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:43:15.023Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-15T21:43:15.729Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-15T21:43:15.729Z]: {"length":2}
+INFO [2023-11-15T21:43:15.730Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-15T21:43:15.730Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-15T21:43:15.730Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-15T21:43:15.733Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-15T21:43:15.733Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-15T21:43:15.733Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-15T21:43:15.733Z]: {"language":"TypeScript"}
+INFO [2023-11-15T21:43:15.802Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-15T21:43:15.883Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-15T21:43:15.883Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-15T21:43:15.883Z]: {"added":2,"deleted":2}
+INFO [2023-11-15T21:43:15.883Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-15T21:43:15.883Z]: {"embeddingsToDelete":2}
+INFO [2023-11-15T21:43:15.883Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-15T21:43:15.883Z]: {"write":2}
+INFO [2023-11-15T21:43:16.359Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-15T21:43:16.359Z]: {"resuts":2,"delete":2}
+INFO [2023-11-15T21:43:16.360Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-15T21:43:16.360Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-15T21:43:16.481Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-15T21:43:16.530Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-15T21:43:16.673Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-15T21:43:16.674Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-15T21:43:16.674Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-15T21:43:16.674Z]: {"adding":0,"deleting":0}
+INFO [2023-11-15T21:43:16.679Z]: project_reinitialize_success
+INFO [2023-11-15T21:43:16.679Z]: {}

@@ -8,3 +8,16 @@ export type Session = {
     id: string; // Required property
   };
 };
+
+export interface Chat {
+  users: {
+    id: string;
+    username: string;
+    email: string;
+    password: string;
+    isAdmin: boolean;
+    phoneNumber: string;
+    createdAt: Date;
+    updatedAt: Date;
+  }[];
+}

@@ -1,40 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { RadioGroup } from "@headlessui/react";
 import axios from "axios";
 import { Session } from "@/types";
-
-const plans = [
-  {
-    name: "Hobby",
-    ram: "8GB",
-    cpus: "4 CPUs",
-    disk: "160 GB SSD disk",
-    price: "$40",
-  },
-  {
-    name: "Startup",
-    ram: "12GB",
-    cpus: "6 CPUs",
-    disk: "256 GB SSD disk",
-    price: "$80",
-  },
-  {
-    name: "Business",
-    ram: "16GB",
-    cpus: "8 CPUs",
-    disk: "512 GB SSD disk",
-    price: "$160",
-  },
-  {
-    name: "Enterprise",
-    ram: "32GB",
-    cpus: "12 CPUs",
-    disk: "1024 GB SSD disk",
-    price: "$240",
-  },
-];
+import { User } from "@prisma/client";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -45,7 +16,23 @@ type Props = { session: Session | null };
 const ChatList = ({ session }: Props) => {
   const user = session?.user;
 
-  const [selected, setSelected] = useState(plans[0]);
+  const router = useRouter();
+
+  const INITIALCHATSDATA = [
+    {
+      createdAt: "",
+      id: "",
+      messages: [],
+      updatedAt: "",
+      users: [],
+    },
+  ];
+
+  const [chatsList, setChatsList] = useState(INITIALCHATSDATA);
+
+  const [usersChat, setUsersChat] = useState<User[]>([]);
+
+  //   const [otherUser, setOtherUser] = useState<User>({});
 
   useEffect(() => {
     (async () => {
@@ -53,77 +40,59 @@ const ChatList = ({ session }: Props) => {
         const res = await axios.get(
           `http://localhost:3000/api/chat/getuserchat/${user?.id}`
         );
-        console.log(res.data);
+        console.log(res.data, "data");
+        setChatsList(res.data.chats);
+        console.log(res.data.chats, "chats");
       } catch (error) {
         console.error("Error", error);
       }
     })();
   }, [user]);
 
+  console.log(chatsList, "chats");
+
+  console.log(usersChat);
+
   return (
-    <RadioGroup value={selected} onChange={setSelected}>
-      <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
-      <div className="space-y-4">
-        {plans.map((plan) => (
-          <RadioGroup.Option
-            key={plan.name}
-            value={plan}
-            className={({ active }) =>
-              classNames(
-                active
-                  ? "border-indigo-600 ring-2 ring-indigo-600"
-                  : "border-gray-300",
-                "relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
-              )
-            }
-          >
-            {({ active, checked }) => (
-              <>
-                <span className="flex items-center">
-                  <span className="flex flex-col text-sm">
-                    <RadioGroup.Label
-                      as="span"
-                      className="font-medium text-gray-900"
-                    >
-                      {plan.name}
-                    </RadioGroup.Label>
-                    <RadioGroup.Description as="span" className="text-gray-500">
-                      <span className="block sm:inline">
-                        {plan.ram} / {plan.cpus}
-                      </span>{" "}
-                      <span
-                        className="hidden sm:mx-1 sm:inline"
-                        aria-hidden="true"
-                      >
-                        &middot;
-                      </span>{" "}
-                      <span className="block sm:inline">{plan.disk}</span>
-                    </RadioGroup.Description>
-                  </span>
-                </span>
-                <RadioGroup.Description
-                  as="span"
-                  className="mt-2 flex text-sm sm:ml-4 sm:mt-0 sm:flex-col sm:text-right"
-                >
-                  <span className="font-medium text-gray-900">
-                    {plan.price}
-                  </span>
-                  <span className="ml-1 text-gray-500 sm:ml-0">/mo</span>
-                </RadioGroup.Description>
-                <span
-                  className={classNames(
-                    active ? "border" : "border-2",
-                    checked ? "border-indigo-600" : "border-transparent",
-                    "pointer-events-none absolute -inset-px rounded-lg"
-                  )}
-                  aria-hidden="true"
-                />
-              </>
-            )}
-          </RadioGroup.Option>
-        ))}
-      </div>
-    </RadioGroup>
+    <div className="space-y-4">
+      {chatsList.map((chat) => (
+        <div key={chat.id}>
+          {chat.users.map((otherUser: User) =>
+            otherUser.id !== user?.id ? (
+              <Link
+                key={otherUser.id}
+                href={`/profile/chat/${chat.id}`}
+                className="flex border w-full h-16 rounded items-center cursor-pointer"
+              >
+                <div className="mr-4 flex-shrink-0 ">
+                  <svg
+                    className="h-10 w-10 border border-gray-300 bg-white text-gray-300"
+                    preserveAspectRatio="none"
+                    stroke="currentColor"
+                    fill="none"
+                    viewBox="0 0 200 200"
+                    aria-hidden="true"
+                  >
+                    <path
+                      vectorEffect="non-scaling-stroke"
+                      strokeWidth={1}
+                      d="M0 0l200 200M0 200L200 0"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div>
+                    <h4 key={otherUser?.id} className="text-lg font-bold">
+                      {otherUser.username}
+                    </h4>
+                  </div>
+                </div>
+              </Link>
+            ) : null
+          )}
+        </div>
+      ))}
+    </div>
   );
 };
 
