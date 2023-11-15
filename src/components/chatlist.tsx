@@ -38,7 +38,7 @@ const ChatList = ({ session }: Props) => {
     (async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/chat/getuserchat/${user?.id}`
+          `/api/chat/getuserchat/${user?.id}`
         );
         console.log(res.data, "data");
         setChatsList(res.data.chats);
