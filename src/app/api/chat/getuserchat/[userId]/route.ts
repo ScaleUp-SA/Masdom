@@ -1,5 +1,6 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
+import cors from "cors";
 
 const prisma = new PrismaClient();
 export const GET = async (req: NextRequest, context: any) => {
