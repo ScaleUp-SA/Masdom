@@ -39,9 +39,9 @@ model Message {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  sender   User   @relation(fields: [senderId], references: [id])
+  sender   User   @relation(fields: [senderId], references: [id], onDelete: Cascade)
   senderId String
-  chat     Chat   @relation(fields: [chatId], references: [id])
+  chat     Chat   @relation(fields: [chatId], references: [id], onDelete: Cascade)
   chatId   String
 }
 
@@ -58,6 +58,6 @@ model ListingCars {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
-  owner   User   @relation(fields: [ownerId], references: [id])
+  owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
   ownerId String
 }

@@ -18,7 +18,7 @@ type Props = {
 
 const MessagePop = ({ chat, user }: Props) => {
   return (
-    <div className="w-full justify-between">
+    <div className="w-full justify-between h-full">
       {chat?.messages?.map((message: Message) =>
         message.senderId === user?.id ? (
           <div key={message.id} className="text-right my-10">

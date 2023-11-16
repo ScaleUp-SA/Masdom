@@ -6,7 +6,10 @@ export async function POST(req: NextRequest) {
     const { chatId, content, sender } = await req.json();
 
     if (!sender || !content || !chatId) {
-      return NextResponse.json({ message: "Missing required data" });
+      return NextResponse.json(
+        { message: "Missing required data" },
+        { status: 400 }
+      );
     }
 
     const messageData = {

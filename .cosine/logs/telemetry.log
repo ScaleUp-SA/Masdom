@@ -8104,3 +8104,112 @@ INFO [2023-11-16T02:09:18.348Z]: [KeywordCodeSearch.diffIndex] Diff computed
 INFO [2023-11-16T02:09:18.348Z]: {"adding":0,"deleting":0}
 INFO [2023-11-16T02:09:18.348Z]: project_reinitialize_success
 INFO [2023-11-16T02:09:18.348Z]: {}
+INFO [2023-11-16T11:11:05.495Z]: question_start
+INFO [2023-11-16T11:11:05.496Z]: {"prompt":"Argument of type '(prev: { sender: string; content: string; chatId: string; }) => { sender: string | undefined; chatId: string | undefined; content: string; }' is not assignable to parameter of type 'SetStateAction<{ sender: string; content: string; chatId: string; }>'.\n  Type '(prev: { sender: string; content: string; chatId: string; }) => { sender: string | undefined; chatId: string | undefined; content: string; }' is not assignable to type '(prevState: { sender: string; content: string; chatId: string; }) => { sender: string; content: string; chatId: string; }'.\n    Call signature return types '{ sender: string | undefined; chatId: string | undefined; content: string; }' and '{ sender: string; content: string; chatId: string; }' are incompatible.\n      The types of 'sender' are incompatible between these types.\n        Type 'string | undefined' is not assignable to type 'string'.\n          Type 'undefined' is not assignable to type 'string'.ts(2345)\n(parameter) prev: {\n    sender: string;\n    content: string;\n    chatId: string;\n}"}
+INFO [2023-11-16T11:11:24.366Z]: question_success
+INFO [2023-11-16T11:11:24.368Z]: {"prompt":"Argument of type '(prev: { sender: string; content: string; chatId: string; }) => { sender: string | undefined; chatId: string | undefined; content: string; }' is not assignable to parameter of type 'SetStateAction<{ sender: string; content: string; chatId: string; }>'.\n  Type '(prev: { sender: string; content: string; chatId: string; }) => { sender: string | undefined; chatId: string | undefined; content: string; }' is not assignable to type '(prevState: { sender: string; content: string; chatId: string; }) => { sender: string; content: string; chatId: string; }'.\n    Call signature return types '{ sender: string | undefined; chatId: string | undefined; content: string; }' and '{ sender: string; content: string; chatId: string; }' are incompatible.\n      The types of 'sender' are incompatible between these types.\n        Type 'string | undefined' is not assignable to type 'string'.\n          Type 'undefined' is not assignable to type 'string'.ts(2345)\n(parameter) prev: {\n    sender: string;\n    content: string;\n    chatId: string;\n}"}
+INFO [2023-11-16T11:26:35.631Z]: project_reinitialize_start
+INFO [2023-11-16T11:26:35.633Z]: {}
+INFO [2023-11-16T11:26:35.729Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-16T11:26:35.729Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-16T11:26:35.729Z]: {"added":2,"deleted":2}
+INFO [2023-11-16T11:26:35.730Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-16T11:26:35.730Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-16T11:26:35.730Z]: {"language":"TypeScript"}
+INFO [2023-11-16T11:26:35.743Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-16T11:26:35.743Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\message\\route.ts"}
+INFO [2023-11-16T11:26:35.753Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-16T11:26:35.753Z]: {"language":"TypeScript","percent":100.31201248049922,"file":"src\\app\\api\\message\\route.ts"}
+INFO [2023-11-16T11:26:35.753Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-16T11:26:35.753Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-16T11:26:35.753Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-16T11:26:35.753Z]: {"language":"TypeScript"}
+INFO [2023-11-16T11:26:35.753Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-16T11:26:36.643Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-16T11:26:36.646Z]: {"length":2}
+INFO [2023-11-16T11:26:36.646Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-16T11:26:36.646Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-16T11:26:36.646Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-16T11:26:36.652Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-16T11:26:36.652Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-16T11:26:36.652Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-16T11:26:36.652Z]: {"language":"TypeScript"}
+INFO [2023-11-16T11:26:36.798Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-16T11:26:36.875Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-16T11:26:36.875Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-16T11:26:36.875Z]: {"added":2,"deleted":2}
+INFO [2023-11-16T11:26:36.875Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-16T11:26:36.875Z]: {"embeddingsToDelete":2}
+INFO [2023-11-16T11:26:36.875Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-16T11:26:36.875Z]: {"write":2}
+INFO [2023-11-16T11:26:37.204Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-16T11:26:37.204Z]: {"resuts":2,"delete":2}
+INFO [2023-11-16T11:26:37.204Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-16T11:26:37.204Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-16T11:26:37.316Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-16T11:26:37.359Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-16T11:26:37.626Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-16T11:26:37.626Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-16T11:26:37.627Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-16T11:26:37.627Z]: {"adding":0,"deleting":0}
+INFO [2023-11-16T11:26:37.635Z]: project_reinitialize_success
+INFO [2023-11-16T11:26:37.635Z]: {}
+INFO [2023-11-16T11:26:40.846Z]: project_reinitialize_start
+INFO [2023-11-16T11:26:40.848Z]: {}
+INFO [2023-11-16T11:26:40.911Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-16T11:26:40.911Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-16T11:26:40.911Z]: {"added":2,"deleted":2}
+INFO [2023-11-16T11:26:40.913Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-16T11:26:40.913Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-16T11:26:40.913Z]: {"language":"TypeScript"}
+INFO [2023-11-16T11:26:40.922Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-16T11:26:40.922Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\message\\route.ts"}
+INFO [2023-11-16T11:26:40.930Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-16T11:26:40.930Z]: {"language":"TypeScript","percent":100.3058103975535,"file":"src\\app\\api\\message\\route.ts"}
+INFO [2023-11-16T11:26:40.930Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-16T11:26:40.930Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-16T11:26:40.930Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-16T11:26:40.930Z]: {"language":"TypeScript"}
+INFO [2023-11-16T11:26:40.930Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-16T11:26:41.667Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-11-16T11:26:41.667Z]: {"length":2}
+INFO [2023-11-16T11:26:41.667Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-11-16T11:26:41.667Z]: [Engine.indexCode] Indexing code
+INFO [2023-11-16T11:26:41.667Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-11-16T11:26:41.672Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-11-16T11:26:41.672Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-11-16T11:26:41.672Z]: [CodeGraphOrchestrator.index] Indexing Language
+INFO [2023-11-16T11:26:41.672Z]: {"language":"TypeScript"}
+INFO [2023-11-16T11:26:41.793Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-11-16T11:26:41.828Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-11-16T11:26:41.828Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-11-16T11:26:41.828Z]: {"added":2,"deleted":2}
+INFO [2023-11-16T11:26:41.828Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-11-16T11:26:41.828Z]: {"embeddingsToDelete":2}
+INFO [2023-11-16T11:26:41.828Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-11-16T11:26:41.828Z]: {"write":2}
+INFO [2023-11-16T11:26:42.143Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-11-16T11:26:42.143Z]: {"resuts":2,"delete":2}
+INFO [2023-11-16T11:26:42.143Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-11-16T11:26:42.143Z]: {"files":{"added":0,"changed":1,"deleted":0}}
+INFO [2023-11-16T11:26:42.217Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-11-16T11:26:42.221Z]: [CodeTagger.index] Starting to index
+INFO [2023-11-16T11:26:42.291Z]: [Engine.indexCode] Indexed code
+INFO [2023-11-16T11:26:42.291Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-11-16T11:26:42.291Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-11-16T11:26:42.291Z]: {"adding":0,"deleting":0}
+INFO [2023-11-16T11:26:42.311Z]: project_reinitialize_success
+INFO [2023-11-16T11:26:42.311Z]: {}
+INFO [2023-11-16T15:22:50.927Z]: Tracking open event
+INFO [2023-11-16T15:22:50.937Z]: Creating language service
+INFO [2023-11-16T15:22:50.937Z]: Creating settings service
+INFO [2023-11-16T15:22:50.938Z]: Creating workspace service
+INFO [2023-11-16T15:22:50.938Z]: Creating remote AI
+INFO [2023-11-16T15:22:50.938Z]: Creating feedback service
+INFO [2023-11-16T15:22:50.938Z]: Creating share service
+INFO [2023-11-16T15:22:50.938Z]: Creating workspace controller
+INFO [2023-11-16T15:22:50.938Z]: Enabling workspace listeners
+INFO [2023-11-16T15:22:50.938Z]: Creating source
+INFO [2023-11-16T15:22:50.938Z]: Initializing workspace controller
+INFO [2023-11-16T15:22:50.974Z]: opened
+INFO [2023-11-16T15:22:50.974Z]: {}
