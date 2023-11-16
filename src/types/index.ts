@@ -1,3 +1,5 @@
+import { Message } from "@prisma/client";
+
 export type Session = {
   user: {
     name?: string; // Optional property
@@ -19,5 +21,6 @@ export interface Chat {
     phoneNumber: string;
     createdAt: Date;
     updatedAt: Date;
-  }[];
+  };
+  messages: Message[];
 }

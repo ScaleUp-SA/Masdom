@@ -1,17 +1,23 @@
+import ChatBox from "@/components/chatbox";
 import React from "react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/nextAuth";
 
 type Props = {
   params: { chatId: string };
 };
 
-const Page = ({ params }: Props) => {
+const Page = async ({ params }: Props) => {
   const { chatId } = params;
-  const [userId1, userId2] = chatId.split("--");
+  const session = await getServerSession(authOptions);
 
-  console.log(userId1, 1);
-  console.log(userId2, 2);
+  console.log(session);
 
-  return <div>{chatId}</div>;
+  return (
+    <>
+      <ChatBox chatId={chatId} session={session} />
+    </>
+  );
 };
 
 export default Page;
