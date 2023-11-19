@@ -3,6 +3,7 @@ import { Message, User } from "@prisma/client";
 import React from "react";
 
 type Props = {
+  chatMessage: Message[];
   chat?: Chat;
   user?:
     | {
@@ -16,10 +17,12 @@ type Props = {
     | undefined;
 };
 
-const MessagePop = ({ chat, user }: Props) => {
+const MessagePop = ({ chat, user, chatMessage }: Props) => {
+  console.log(chatMessage);
+
   return (
     <div className="w-full justify-between h-full">
-      {chat?.messages?.map((message: Message) =>
+      {chatMessage.map((message: Message) =>
         message.senderId === user?.id ? (
           <div key={message.id} className="text-right my-10">
             <p className=" bg-slate-100 p-2 rounded-md">{message.content}</p>

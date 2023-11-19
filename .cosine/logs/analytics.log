@@ -795,3 +795,77 @@ INFO [2023-11-16T11:26:42.311Z]: project_reinitialize_success
 INFO [2023-11-16T11:26:42.311Z]: {"agent":"cosine-vscode","version":"1.1.1","package":"@cosine/analytics"}
 INFO [2023-11-16T15:22:50.936Z]: opened
 INFO [2023-11-16T15:22:50.937Z]: {"agent":"cosine-vscode","version":"1.1.1","package":"@cosine/analytics","token":"1803ee20efed77dfecbf705fb8dc4c18","mp_lib":"node","$lib_version":"0.17.0"}
+INFO [2023-11-19T12:12:01.588Z]: Set User: metwallysayed1999@gmail.com
+INFO [2023-11-19T12:12:01.588Z]: {"Telemetry":true}
+INFO [2023-11-19T12:12:03.158Z]: project_reinitialize_start
+INFO [2023-11-19T12:12:03.159Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:12:03.160Z]: extension_initialized
+INFO [2023-11-19T12:12:03.160Z]: {"timeToInit":5596,"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:12:05.623Z]: project_reinitialize_success
+INFO [2023-11-19T12:12:05.624Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:12:40.717Z]: question_start
+INFO [2023-11-19T12:12:40.717Z]: {"prompt":"Argument of type '(prev: never[]) => { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }[][]' is not assignable to parameter of type 'SetStateAction<never[]>'.\n  Type '(prev: never[]) => { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }[][]' is not assignable to type '(prevState: never[]) => never[]'.\n    Type '{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }[][]' is not assignable to type 'never[]'.\n      Type '{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }[]' is not assignable to type 'never'.ts(2345)\n(parameter) prev: never[]\nNo quick fixes available\n\n\nype '{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }[]' is not assignable to type 'never'.ts(2322)","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:12:54.314Z]: question_success
+INFO [2023-11-19T12:12:54.314Z]: {"prompt":"Argument of type '(prev: never[]) => { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }[][]' is not assignable to parameter of type 'SetStateAction<never[]>'.\n  Type '(prev: never[]) => { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }[][]' is not assignable to type '(prevState: never[]) => never[]'.\n    Type '{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }[][]' is not assignable to type 'never[]'.\n      Type '{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }[]' is not assignable to type 'never'.ts(2345)\n(parameter) prev: never[]\nNo quick fixes available\n\n\nype '{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }[]' is not assignable to type 'never'.ts(2322)","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:13:22.072Z]: question_start
+INFO [2023-11-19T12:13:22.072Z]: {"prompt":"can u show me how to do that in my code ","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:13:22.880Z]: tool_selected
+INFO [2023-11-19T12:13:22.881Z]: {"tool":"with_user_context","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:13:23.526Z]: question_success
+INFO [2023-11-19T12:13:23.526Z]: {"prompt":"can u show me how to do that in my code ","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:13:34.447Z]: question_start
+INFO [2023-11-19T12:13:34.447Z]: {"prompt":"here","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:13:48.227Z]: question_success
+INFO [2023-11-19T12:13:48.227Z]: {"prompt":"here","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:16:46.450Z]: question_start
+INFO [2023-11-19T12:16:46.450Z]: {"prompt":"Unhandled Runtime Error\nTypeError: messages is not iterable\n\nSource\nsrc\\components\\chatbox.tsx (44:28) @ messages\n\n  42 |   console.log(messages, \"rrrrrrrrrrrrrrrrrr\");\n  43 |   setChatMessage((prev) => {\n> 44 |     return [...prev, ...messages];\n     |                        ^\n  45 |   });\n  46 | };\n  47 |\nCall Stack\nChatBox\nsrc\\components\\chatbox.tsx (27:60)\nShow collapsed frames","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:16:55.984Z]: question_success
+INFO [2023-11-19T12:16:55.985Z]: {"prompt":"Unhandled Runtime Error\nTypeError: messages is not iterable\n\nSource\nsrc\\components\\chatbox.tsx (44:28) @ messages\n\n  42 |   console.log(messages, \"rrrrrrrrrrrrrrrrrr\");\n  43 |   setChatMessage((prev) => {\n> 44 |     return [...prev, ...messages];\n     |                        ^\n  45 |   });\n  46 | };\n  47 |\nCall Stack\nChatBox\nsrc\\components\\chatbox.tsx (27:60)\nShow collapsed frames","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:20:09.628Z]: question_start
+INFO [2023-11-19T12:20:09.628Z]: {"prompt":"Argument of type '(prev: { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }) => any[]' is not assignable to parameter of type 'SetStateAction<{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }>'.\n  Type '(prev: { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }) => any[]' is not assignable to type '(prevState: { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }) => { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }'.\n    Type 'any[]' is missing the following properties from type '{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }': id, content, createdAt, updatedAt, and 2 more.ts(2345)\n\n\nArgument of type '{}' is not assignable to parameter of type '{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; } | (() => { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; })'.ts(2345)","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:20:23.300Z]: question_success
+INFO [2023-11-19T12:20:23.300Z]: {"prompt":"Argument of type '(prev: { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }) => any[]' is not assignable to parameter of type 'SetStateAction<{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }>'.\n  Type '(prev: { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }) => any[]' is not assignable to type '(prevState: { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }) => { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }'.\n    Type 'any[]' is missing the following properties from type '{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; }': id, content, createdAt, updatedAt, and 2 more.ts(2345)\n\n\nArgument of type '{}' is not assignable to parameter of type '{ id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; } | (() => { id: string; content: string; createdAt: Date; updatedAt: Date; senderId: string; chatId: string; })'.ts(2345)","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:23:16.389Z]: project_reinitialize_start
+INFO [2023-11-19T12:23:16.390Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:23:16.592Z]: project_reinitialize_start
+INFO [2023-11-19T12:23:16.592Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:23:17.913Z]: project_reinitialize_success
+INFO [2023-11-19T12:23:17.914Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:23:18.726Z]: project_reinitialize_success
+INFO [2023-11-19T12:23:18.727Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:23:19.453Z]: project_reinitialize_start
+INFO [2023-11-19T12:23:19.453Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:23:19.559Z]: project_reinitialize_start
+INFO [2023-11-19T12:23:19.559Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:23:20.921Z]: project_reinitialize_success
+INFO [2023-11-19T12:23:20.921Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:23:21.654Z]: project_reinitialize_success
+INFO [2023-11-19T12:23:21.654Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:24:00.541Z]: project_reinitialize_start
+INFO [2023-11-19T12:24:00.542Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:24:02.116Z]: project_reinitialize_success
+INFO [2023-11-19T12:24:02.116Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:24:04.495Z]: project_reinitialize_start
+INFO [2023-11-19T12:24:04.495Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:24:06.036Z]: project_reinitialize_success
+INFO [2023-11-19T12:24:06.038Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:25:10.090Z]: project_reinitialize_start
+INFO [2023-11-19T12:25:10.091Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:25:10.152Z]: project_reinitialize_start
+INFO [2023-11-19T12:25:10.152Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:25:11.858Z]: project_reinitialize_success
+INFO [2023-11-19T12:25:11.858Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:25:12.831Z]: project_reinitialize_success
+INFO [2023-11-19T12:25:12.831Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:25:15.734Z]: project_reinitialize_start
+INFO [2023-11-19T12:25:15.734Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:25:17.254Z]: project_reinitialize_success
+INFO [2023-11-19T12:25:17.255Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:25:30.724Z]: project_reinitialize_start
+INFO [2023-11-19T12:25:30.724Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:25:31.391Z]: project_reinitialize_start
+INFO [2023-11-19T12:25:31.392Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:25:31.527Z]: project_reinitialize_success
+INFO [2023-11-19T12:25:31.527Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-19T12:25:32.295Z]: project_reinitialize_success
+INFO [2023-11-19T12:25:32.296Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}

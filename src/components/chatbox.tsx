@@ -8,6 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "./ui/use-toast";
+import { pusherClient } from "@/lib/pusher";
+import { Message } from "@prisma/client";
+import { find } from "lodash";
 
 type Props = { chatId?: string; session?: Session | null };
 
@@ -21,19 +24,39 @@ const ChatBox = ({ chatId, session }: Props) => {
     content: "",
     chatId: "",
   });
-
+  const [chatMessage, setChatMessage] = useState<Message[]>([]);
   useEffect(() => {
     (async () => {
       try {
         const res = await axios.get(`/api/chat/getchat/${chatId}`);
         setChat(res.data.chat);
+        setChatMessage(res.data.chat.messages);
       } catch (error) {
         console.error("Error", error);
       }
     })();
   }, [chatId]);
 
-  console.log(chat, "chatData");
+  useEffect(() => {
+    const messageHandler = (messages: Message) => {
+      console.log(messages, "rrrrrrrrrrrrrrrrrr");
+      setChatMessage((prev) => [
+        ...prev,
+        (chatMessage[chatMessage.length - 1] = messages),
+      ]);
+    };
+
+    if (chatId) {
+      pusherClient.subscribe(chatId!);
+      pusherClient.bind("message", messageHandler);
+    } else {
+      console.log("chatId not found");
+    }
+    return () => {
+      pusherClient.unsubscribe(chatId!);
+      pusherClient.unbind("message", messageHandler);
+    };
+  }, [chatId]);
 
   const textareaHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (!user?.id || !chatId) {
@@ -46,8 +69,6 @@ const ChatBox = ({ chatId, session }: Props) => {
       return { ...prev, content: e.target.value, sender: user?.id, chatId };
     });
   };
-
-  console.log(messageData);
 
   const sendMessageHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
     if (!user?.id || !chatId) {
@@ -69,15 +90,13 @@ const ChatBox = ({ chatId, session }: Props) => {
     setMessageData({ sender: "", content: "", chatId: "" });
   };
 
-  console.log(messageData);
-
   return (
     <>
       {!chatId ? (
         <p> please slecet Chat</p>
       ) : (
         <div className="h-full flex flex-col flex-1">
-          <MessagePop chat={chat} user={user} />
+          <MessagePop chat={chat} user={user} chatMessage={chatMessage} />
           <div className="grid w-full gap-2 ">
             <Textarea
               value={messageData.content}

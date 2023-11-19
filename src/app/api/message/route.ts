@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prismaClient";
 import { NextRequest, NextResponse } from "next/server";
+import { pusherServer } from "@/lib/pusher";
 
 export async function POST(req: NextRequest) {
   try {
@@ -29,6 +30,9 @@ export async function POST(req: NextRequest) {
     const message = await prisma.message.create({
       data: messageData,
     });
+    console.log(message, "messageData");
+
+    await pusherServer.trigger(chatId, "message", message);
 
     return NextResponse.json(
       { message: "Message created", data: message },
