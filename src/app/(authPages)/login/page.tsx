@@ -18,6 +18,9 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { Toaster } from "@/components/ui/toaster";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
+import bgImage from "../../../../public/images/heroBg.png";
+import logo from "../../../../public/masdoomLogo.svg";
 
 type Props = {};
 
@@ -68,58 +71,72 @@ const Page = (props: Props) => {
   }
 
   return (
-    <Form {...form}>
-      <div className=" flex justify-center items-center min-h-screen w-full ">
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8 w-1/4 "
-        >
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input
-                    type="email"
-                    placeholder="example@email.com"
-                    {...field}
-                  />
-                </FormControl>
-                {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input type="password" placeholder="Password" {...field} />
-                </FormControl>
-                {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button
-            className=" bg-black text-slate-100 hover:text-black rounded"
-            type="submit"
+    <div className="flex w-full">
+      <Form {...form}>
+        <div className=" flex flex-col justify-center items-center min-h-screen w-3/6 max-lg:w-full">
+          <span className="mb-4 text-center space-y-4">
+            <h1 className="text-4xl ">سجل الدخول الان</h1>
+          </span>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-8 w-full p-14 text-center"
           >
-            Submit
-          </Button>
-        </form>
-        <Toaster />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  {/* <FormLabel>Email</FormLabel> */}
+                  <FormControl className="rounded-full px-4">
+                    <Input
+                      type="email"
+                      placeholder="البريد الالكنتروني"
+                      {...field}
+                    />
+                  </FormControl>
+                  {/* <FormDescription>
+                This is your public display name.
+              </FormDescription> */}
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  {/* <FormLabel>Password</FormLabel> */}
+                  <FormControl className="rounded-full px-4">
+                    <Input type="password" placeholder="كلمة السر" {...field} />
+                  </FormControl>
+                  {/* <FormDescription>
+                This is your public display name.
+              </FormDescription> */}
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button
+              className="w-full bg-green-400 text-white rounded-full hover:bg-green-600"
+              type="submit"
+            >
+              تسجيل الدخول
+            </Button>
+          </form>
+          <Toaster />
+        </div>
+      </Form>
+
+      {/* <div className=" w-3/6 max-lg:hidden">
+        <Image src={bgImage} className="bg-cover bg-center w-full h-full" />
+      </div> */}
+      <div className="w-3/6 bg-green-400 flex flex-col items-center justify-center gap-2 text-white max-lg:hidden">
+        {/* <Image src={bgImage} className="bg-cover bg-center w-full h-full" /> */}
+        <Image src={logo} width={300} className="mb-12" />
+        <h4 className="text-3xl">مرحبا بعودتك</h4>
       </div>
-    </Form>
+    </div>
   );
 };
 
