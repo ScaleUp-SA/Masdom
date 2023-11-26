@@ -5,7 +5,7 @@ import { CiCalendarDate } from "react-icons/ci";
 import { IoSpeedometerOutline } from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
 
-const index = () => {
+const CarCard = () => {
   return (
     <div className="flex flex-col gap-5 border-2 border-solid rounded-xl pb-5 cursor-pointer">
       <div>
@@ -43,4 +43,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default CarCard;

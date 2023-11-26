@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import CarCard from "./components/CarCard/index";
+import CarCard from "@/components/carCard";
 
 export default function Home() {
   const testArray = [1, 2, 3];
@@ -25,8 +25,10 @@ export default function Home() {
           <h6>تصفح أبرز العروض</h6>
         </div>
         <div className={styles.content}>
-          {testArray.map((item) => (
-            <CarCard />
+          {testArray.map((item, index) => (
+            <div key={index}>
+              <CarCard />
+            </div>
           ))}
         </div>
       </div>
@@ -38,8 +40,10 @@ export default function Home() {
           <h6>تصفح آخر العروض</h6>
         </div>
         <div className={styles.content}>
-          {testArray2.map((item) => (
-            <CarCard />
+          {testArray2.map((item, index) => (
+            <div key={index}>
+              <CarCard />
+            </div>
           ))}
         </div>
         <div className={styles.btn}>

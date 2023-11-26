@@ -4,8 +4,7 @@ import React from "react";
 import Image from "next/image";
 import logo from "../../../../public/masdoomLogo.svg";
 import { usePathname } from "next/navigation";
-
-const index = () => {
+const Footer = () => {
   const pathname = usePathname();
 
   return pathname === "/login" || pathname === "/signup" ? null : (
@@ -32,4 +31,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Footer;
