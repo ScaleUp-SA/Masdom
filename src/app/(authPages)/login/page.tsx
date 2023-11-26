@@ -133,7 +133,7 @@ const Page = (props: Props) => {
       </div> */}
       <div className="w-3/6 bg-green-400 flex flex-col items-center justify-center gap-2 text-white max-lg:hidden">
         {/* <Image src={bgImage} className="bg-cover bg-center w-full h-full" /> */}
-        <Image src={logo} width={300} className="mb-12" />
+        <Image src={logo} width={300} className="mb-12" alt={"login logo"} />
         <h4 className="text-3xl">مرحبا بعودتك</h4>
       </div>
     </div>
