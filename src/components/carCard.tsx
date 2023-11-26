@@ -10,7 +10,7 @@ const CarCard = () => {
     <div className="flex flex-col gap-5 border-2 border-solid rounded-xl pb-5 cursor-pointer">
       <div>
         <Image
-          src="../../../../public/images/car.jpg"
+          src="/car.jpg"
           alt="Car"
           width={400}
           height={300}

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import logo from "../../../../public/masdoomLogo.svg";
+import logo from "/public/images/car.jpg";
 import { usePathname } from "next/navigation";
 const Footer = () => {
   const pathname = usePathname();
@@ -10,7 +10,13 @@ const Footer = () => {
   return pathname === "/login" || pathname === "/signup" ? null : (
     <div className="bg-black w-full pt-20 pb-16 flex flex-col items-center justify-between gap-8">
       <div>
-        <Image src={logo} alt="logo" width={200} />
+        <Image
+          src="/masdoomLogo.svg"
+          alt="logo"
+          width={200}
+          height={200}
+          priority
+        />
       </div>
       <div className="flex flex-col gap-10 text-white font-bold text-xl  md:flex-row items-center gap-5 py-5">
         <a href="#">الرئيسية</a>

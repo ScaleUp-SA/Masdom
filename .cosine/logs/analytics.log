@@ -2021,3 +2021,39 @@ INFO [2023-11-20T11:28:09.139Z]: project_reinitialize_success
 INFO [2023-11-20T11:28:09.140Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
 INFO [2023-11-20T11:28:09.833Z]: project_reinitialize_success
 INFO [2023-11-20T11:28:09.834Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:13:14.176Z]: Set User: metwallysayed1999@gmail.com
+INFO [2023-11-26T12:13:14.178Z]: {"Telemetry":true}
+INFO [2023-11-26T12:13:14.720Z]: project_reinitialize_start
+INFO [2023-11-26T12:13:14.721Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:13:14.723Z]: extension_initialized
+INFO [2023-11-26T12:13:14.723Z]: {"timeToInit":4271,"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:13:15.633Z]: project_reinitialize_success
+INFO [2023-11-26T12:13:15.634Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:13:20.825Z]: question_start
+INFO [2023-11-26T12:13:20.826Z]: {"prompt":"Unhandled Runtime Error\nError: Failed to parse src \"public/images/car.jpg\" on `next/image`, if using relative image it must start with a leading slash \"/\" or be an absolute URL (http:// or https://)","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:13:27.009Z]: question_success
+INFO [2023-11-26T12:13:27.011Z]: {"prompt":"Unhandled Runtime Error\nError: Failed to parse src \"public/images/car.jpg\" on `next/image`, if using relative image it must start with a leading slash \"/\" or be an absolute URL (http:// or https://)","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:13:45.782Z]: question_start
+INFO [2023-11-26T12:13:45.784Z]: {"prompt":"Error: Failed to parse src \"public/images/car.jpg\" on `next/image`, if using relative image it must start with a leading slash \"/\" or be an absolute URL (http:// or https://)","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:13:51.613Z]: question_success
+INFO [2023-11-26T12:13:51.614Z]: {"prompt":"Error: Failed to parse src \"public/images/car.jpg\" on `next/image`, if using relative image it must start with a leading slash \"/\" or be an absolute URL (http:// or https://)","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:14:29.241Z]: question_start
+INFO [2023-11-26T12:14:29.242Z]: {"prompt":"Error: Failed to parse src \"public/images/car.jpg\" on `next/image`, if using relative image it must start with a leading slash \"/\" or be an absolute URL (http:// or https://)","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:14:40.814Z]: question_success
+INFO [2023-11-26T12:14:40.815Z]: {"prompt":"Error: Failed to parse src \"public/images/car.jpg\" on `next/image`, if using relative image it must start with a leading slash \"/\" or be an absolute URL (http:// or https://)","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:17:14.352Z]: question_start
+INFO [2023-11-26T12:17:14.354Z]: {"prompt":"im using next 14 and im getting this error on the localhost Error: Failed to parse src \"public/images/car.jpg\" on `next/image`, if using relative image it must start with a leading slash \"/\" or be an absolute URL (http:// or https://) and im using this code ","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:17:24.432Z]: question_success
+INFO [2023-11-26T12:17:24.433Z]: {"prompt":"im using next 14 and im getting this error on the localhost Error: Failed to parse src \"public/images/car.jpg\" on `next/image`, if using relative image it must start with a leading slash \"/\" or be an absolute URL (http:// or https://) and im using this code ","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:18:09.415Z]: question_start
+INFO [2023-11-26T12:18:09.416Z]: {"prompt":"i deleted tha cash and still not working and the image path is right ","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:18:17.493Z]: question_success
+INFO [2023-11-26T12:18:17.494Z]: {"prompt":"i deleted tha cash and still not working and the image path is right ","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:20:51.316Z]: question_start
+INFO [2023-11-26T12:20:51.318Z]: {"prompt":"Error: Failed to parse src \"public/images/car.jpg\" on `next/image`, if using relative image it must start with a leading slash \"/\" or be an absolute URL (http:// or https://)\n\nand i updated my next app and cleaned the cash ","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:20:59.031Z]: question_success
+INFO [2023-11-26T12:20:59.033Z]: {"prompt":"Error: Failed to parse src \"public/images/car.jpg\" on `next/image`, if using relative image it must start with a leading slash \"/\" or be an absolute URL (http:// or https://)\n\nand i updated my next app and cleaned the cash ","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:44:49.628Z]: question_start
+INFO [2023-11-26T12:44:49.629Z]: {"prompt":"Import trace for requested module:\n./src/app/page.module.css\n./src/app/page.tsx\n ⨯ The requested resource isn't a valid image for /public/car.jpg received text/html; charset=utf-8","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-26T12:45:00.121Z]: question_success
+INFO [2023-11-26T12:45:00.122Z]: {"prompt":"Import trace for requested module:\n./src/app/page.module.css\n./src/app/page.tsx\n ⨯ The requested resource isn't a valid image for /public/car.jpg received text/html; charset=utf-8","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
