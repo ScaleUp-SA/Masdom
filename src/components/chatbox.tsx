@@ -39,7 +39,6 @@ const ChatBox = ({ chatId, session }: Props) => {
 
   useEffect(() => {
     const messageHandler = (messages: Message) => {
-      console.log(messages, "rrrrrrrrrrrrrrrrrr");
       setChatMessage((prev) => [
         ...prev,
         (chatMessage[chatMessage.length - 1] = messages),

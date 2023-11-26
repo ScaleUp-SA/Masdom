@@ -46,7 +46,7 @@ model Message {
 }
 
 model ListingCars {
-  id           String   @id @default(uuid())
+  id           String  @id @default(uuid())
   title        String
   discussion   String
   price        String
@@ -55,9 +55,52 @@ model ListingCars {
   transmission String
   country      String
   city         String
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  mileage      String
+  featured     Boolean @default(false)
+  cylinders    String
+  shape        String
+  class        String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
   ownerId String
+
+  CarsMakers   CarsMakers? @relation(fields: [carsMakersId], references: [id], onDelete: Cascade)
+  carsMakersId String?
+
+  CarsModels   CarsModels? @relation(fields: [carsModelsId], references: [id], onDelete: Cascade)
+  carsModelsId String?
+
+  Damage Damage[]
+}
+
+model CarsMakers {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  listingCars ListingCars[]
+  carsModel   CarsModels[]
+}
+
+model CarsModels {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  CarsMakers   CarsMakers? @relation(fields: [carsMakersId], references: [id], onDelete: Cascade)
+  carsMakersId String?
+
+  listingCars ListingCars[]
+}
+
+model Damage {
+  id           String      @id @default(uuid())
+  description  String
+  listingCar   ListingCars @relation(fields: [listingCarId], references: [id], onDelete: Cascade)
+  listingCarId String
 }
