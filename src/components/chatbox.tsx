@@ -11,6 +11,9 @@ import { useToast } from "./ui/use-toast";
 import { pusherClient } from "@/lib/pusher";
 import { Message } from "@prisma/client";
 import { find } from "lodash";
+import Image from "next/image";
+import userImg from "../../public/images/userImg.png";
+import { BsFillSendFill } from "react-icons/bs";
 
 type Props = { chatId?: string; session?: Session | null };
 
@@ -92,21 +95,33 @@ const ChatBox = ({ chatId, session }: Props) => {
   return (
     <>
       {!chatId ? (
-        <p> please slecet Chat</p>
+        <p className="p-5">من فضلك حدد المحادثة</p>
       ) : (
         <div className="h-full flex flex-col flex-1">
+          {/* top chat box */}
+          <div className="w-full h-20 flex items-center p-5 gap-5 border-b">
+            <Image
+              src={userImg}
+              alt="user image"
+              width={50}
+              className="rounded"
+            />
+            <h4 className="text-md text-sky-900">username</h4>
+          </div>
           <MessagePop chat={chat} user={user} chatMessage={chatMessage} />
-          <div className="grid w-full gap-2 ">
+          <div className="flex items-center w-full h-20 p-5 border-t gap-5">
             <Textarea
               value={messageData.content}
               onChange={(e) => textareaHandler(e)}
-              placeholder="Type your message here."
+              placeholder="اكتب رسالتك هنا."
+              className=" resize-none max-h-10 min-h-6 rounded-full outline-8"
             />
             <Button
               onClick={(e) => sendMessageHandler(e)}
               disabled={messageData.content.length === 0}
+              className="bg-green-400 text-xl hover:bg-green-600 rounded-full"
             >
-              Send message
+              <BsFillSendFill />
             </Button>
           </div>
         </div>

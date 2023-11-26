@@ -14,10 +14,10 @@ const layout = async ({ children }: Props) => {
 
   return (
     <div className="flex">
-      <ScrollArea className=" min-h-screen md:w-1/4 rounded-md border p-4 mr-4">
+      <ScrollArea className="bg-gray-50 min-h-screen md:w-1/4  py-2">
         <Chatlist session={session} />
       </ScrollArea>{" "}
-      <div className="border w-full rounded-md p-4">{children}</div>
+      <div className="border w-full">{children}</div>
     </div>
   );
 };

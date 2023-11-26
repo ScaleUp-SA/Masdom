@@ -6,6 +6,8 @@ import { Session } from "@/types";
 import { User } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
+import userImg from "../../public/images/userImg.png";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -28,18 +30,18 @@ const ChatList = ({ session }: Props) => {
     },
   ];
 
+  const [testChatList, setTestChatList] = useState([1, 2, 3, 4, 5]);
+
   const [chatsList, setChatsList] = useState(INITIALCHATSDATA);
 
   const [usersChat, setUsersChat] = useState<User[]>([]);
 
-  //   const [otherUser, setOtherUser] = useState<User>({});
+  // const [otherUser, setOtherUser] = useState<User>({});
 
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get(
-          `/api/chat/getuserchat/${user?.id}`
-        );
+        const res = await axios.get(`/api/chat/getuserchat/${user?.id}`);
         console.log(res.data, "data");
         setChatsList(res.data.chats);
         console.log(res.data.chats, "chats");
@@ -54,44 +56,48 @@ const ChatList = ({ session }: Props) => {
   console.log(usersChat);
 
   return (
-    <div className="space-y-4">
-      {chatsList.map((chat) => (
-        <div key={chat.id}>
-          {chat.users.map((otherUser: User) =>
-            otherUser.id !== user?.id ? (
-              <Link
-                key={otherUser.id}
-                href={`/profile/chat/${chat.id}`}
-                className="flex border w-full h-16 rounded items-center cursor-pointer"
-              >
-                <div className="mr-4 flex-shrink-0 ">
-                  <svg
-                    className="h-10 w-10 border border-gray-300 bg-white text-gray-300"
-                    preserveAspectRatio="none"
-                    stroke="currentColor"
-                    fill="none"
-                    viewBox="0 0 200 200"
-                    aria-hidden="true"
-                  >
-                    <path
-                      vectorEffect="non-scaling-stroke"
-                      strokeWidth={1}
-                      d="M0 0l200 200M0 200L200 0"
+    <div className="flex flex-col items-center space-y-4" dir="rtl">
+      {/* top chat list */}
+      <div className=" w-full h-16 flex items-center justify-start p-5 gap-6">
+        <Image
+          src={userImg}
+          alt="current user"
+          width={50}
+          className="rounded"
+        />
+        <span>
+          <h4 className="text-md text-sky-900">current username</h4>
+          <p className="text-xs text-slate-500">Currentuser@example.com</p>
+        </span>
+      </div>
+      <hr className="w-4/5 text-slate-500" />
+      <div className="flex flex-col w-full items-center gap-2 p-2">
+        {chatsList.map((chat) => (
+          <div key={chat.id}>
+            {chat.users.map((otherUser: User) =>
+              otherUser.id !== user?.id ? (
+                <Link
+                  key={otherUser.id}
+                  href={`/profile/chat/${chat.id}`}
+                  className="w-full rounded hover:bg-slate-200 active:bg-slate-50"
+                >
+                  <div className="h-16 flex items-center justify-start gap-6 p-2 curser-pointer">
+                    <Image
+                      src={userImg}
+                      alt="user image"
+                      width={50}
+                      className="rounded"
                     />
-                  </svg>
-                </div>
-                <div>
-                  <div>
-                    <h4 key={otherUser?.id} className="text-lg font-bold">
+                    <h4 key={otherUser?.id} className="text-md text-sky-900">
                       {otherUser.username}
                     </h4>
                   </div>
-                </div>
-              </Link>
-            ) : null
-          )}
-        </div>
-      ))}
+                </Link>
+              ) : null
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
