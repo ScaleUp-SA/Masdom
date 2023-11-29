@@ -30,8 +30,6 @@ const ChatList = ({ session }: Props) => {
     },
   ];
 
-  const [testChatList, setTestChatList] = useState([1, 2, 3, 4, 5]);
-
   const [chatsList, setChatsList] = useState(INITIALCHATSDATA);
 
   const [usersChat, setUsersChat] = useState<User[]>([]);
@@ -56,9 +54,9 @@ const ChatList = ({ session }: Props) => {
   console.log(usersChat);
 
   return (
-    <div className="flex flex-col items-center space-y-4" dir="rtl">
+    <div className="flex flex-col w-full items-center space-y-4" dir="rtl">
       {/* top chat list */}
-      <div className=" w-full h-16 flex items-center justify-start p-5 gap-6">
+      {/* <div className=" w-full h-16 flex items-center justify-start p-5 gap-6">
         <Image
           src={userImg}
           alt="current user"
@@ -70,25 +68,21 @@ const ChatList = ({ session }: Props) => {
           <p className="text-xs text-slate-500">Currentuser@example.com</p>
         </span>
       </div>
-      <hr className="w-4/5 text-slate-500" />
-      <div className="flex flex-col w-full items-center gap-2 p-2">
+      <hr className="w-4/5 text-slate-500" /> */}
+      <div className="flex flex-col w-full items-start gap-2 p-2">
         {chatsList.map((chat) => (
-          <div key={chat.id}>
+          <div key={chat.id} className="w-full">
             {chat.users.map((otherUser: User) =>
               otherUser.id !== user?.id ? (
-                <Link
-                  key={otherUser.id}
-                  href={`/profile/chat/${chat.id}`}
-                  className="w-full rounded hover:bg-slate-200 active:bg-slate-50"
-                >
-                  <div className="h-16 flex items-center justify-start gap-6 p-2 curser-pointer">
+                <Link key={otherUser.id} href={`/profile/chat/${chat.id}`}>
+                  <div className="h-16 w-full flex items-center justify-start gap-6 p-4 curser-pointer rounded hover:bg-slate-200">
                     <Image
                       src={userImg}
                       alt="user image"
                       width={50}
                       className="rounded"
                     />
-                    <h4 key={otherUser?.id} className="text-md text-sky-900">
+                    <h4 key={otherUser?.id} className="text-md text-sky-900 ">
                       {otherUser.username}
                     </h4>
                   </div>

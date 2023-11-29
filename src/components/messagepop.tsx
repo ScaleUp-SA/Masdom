@@ -20,29 +20,24 @@ type Props = {
 const MessagePop = ({ chat, user, chatMessage }: Props) => {
   console.log(chatMessage);
 
-  const testChatMessage = [1, 2, 3, 4];
-  const [sender, setSender] = useState(true);
-
   return (
-    <div className="w-full h-full relative py-5">
+    <div className="w-full h-full flex flex-col py-5 gap-4">
       {chatMessage.map((message: Message) =>
         message.senderId === user?.id ? (
-          <div
-            key={message.id}
-            className="text-right w-max absolute right-0 px-5"
-          >
-            <p className=" bg-green-200 p-2 rounded-t-xl rounded-bl-xl">
-              {message.content}
-            </p>
+          <div key={message.id} className="flex justify-start">
+            <div className="text-right w-max right px-5">
+              <p className=" bg-green-200 p-2 rounded-t-xl rounded-bl-xl">
+                {message.content}
+              </p>
+            </div>
           </div>
         ) : (
-          <div
-            key={message.id}
-            className="text-left my-14 w-max absolute left-0 px-5"
-          >
-            <p className=" bg-sky-200 p-2 rounded-t-xl rounded-br-xl">
-              {message.content}
-            </p>
+          <div key={message.id} className="flex justify-end">
+            <div className="text-left w-max px-5">
+              <p className=" bg-sky-200 p-2 rounded-t-xl rounded-br-xl">
+                {message.content}
+              </p>
+            </div>
           </div>
         )
       )}

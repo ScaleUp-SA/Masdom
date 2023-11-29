@@ -95,7 +95,7 @@ const ChatBox = ({ chatId, session }: Props) => {
   return (
     <>
       {!chatId ? (
-        <p className="p-5">من فضلك حدد المحادثة</p>
+        <p className="p-5 min-h-screen">من فضلك حدد المحادثة</p>
       ) : (
         <div className="h-full flex flex-col flex-1">
           {/* top chat box */}

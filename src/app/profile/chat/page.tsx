@@ -1,5 +1,5 @@
 import ChatBox from "@/components/chatbox";
-import React from "react";
+import React, { useState } from "react";
 
 type Props = {};
 
