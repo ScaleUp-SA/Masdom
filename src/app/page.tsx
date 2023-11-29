@@ -1,10 +1,13 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import CarCard from "@/components/carCard";
+import { getFeaturedCars, getLatestCars } from "@/lib/dbQueries";
 
-export default function Home() {
-  const testArray = [1, 2, 3];
-  const testArray2 = [1, 2, 3, 4, 5, 6];
+import { prisma } from "@/lib/prismaClient";
+
+export default async function Home() {
+  const featuredCars = await getFeaturedCars();
+
+  const latestCars = await getLatestCars();
 
   return (
     <div className={styles.container}>
@@ -25,9 +28,9 @@ export default function Home() {
           <h6>تصفح أبرز العروض</h6>
         </div>
         <div className={styles.content}>
-          {testArray.map((item, index) => (
+          {featuredCars.map((item, index) => (
             <div key={index}>
-              <CarCard />
+              <CarCard carData={item} />
             </div>
           ))}
         </div>
@@ -40,9 +43,9 @@ export default function Home() {
           <h6>تصفح آخر العروض</h6>
         </div>
         <div className={styles.content}>
-          {testArray2.map((item, index) => (
+          {latestCars.map((item, index) => (
             <div key={index}>
-              <CarCard />
+              <CarCard carData={item} />
             </div>
           ))}
         </div>

@@ -30,7 +30,6 @@ export async function POST(req: NextRequest) {
     const message = await prisma.message.create({
       data: messageData,
     });
-    console.log(message, "messageData");
 
     await pusherServer.trigger(chatId, "message", message);
 

@@ -1,95 +1,3 @@
-INFO [2023-11-20T09:54:56.868Z]: [SemanticCodeSearch.preIndex] Embedded components
-INFO [2023-11-20T09:54:56.868Z]: {"length":2}
-INFO [2023-11-20T09:54:56.868Z]: [Engine.indexCode]: Preindexed semantic & graph
-INFO [2023-11-20T09:54:56.868Z]: [Engine.indexCode] Indexing code
-INFO [2023-11-20T09:54:56.868Z]: [KeywordCodeSearch.index] Indexing
-INFO [2023-11-20T09:54:56.871Z]: [KeywordCodeSearch.index] Saving index
-INFO [2023-11-20T09:54:56.871Z]: [CodeGraphOrchestrator.index] Indexing
-INFO [2023-11-20T09:54:56.871Z]: [CodeGraphOrchestrator.index] Indexing Language
-INFO [2023-11-20T09:54:56.871Z]: {"language":"TypeScript"}
-INFO [2023-11-20T09:54:56.992Z]: [CodeGraphOrchestrator.index] Indexed
-INFO [2023-11-20T09:54:57.054Z]: [KeywordCodeSearch.index] Indexed
-INFO [2023-11-20T09:54:57.054Z]: [SemanticCodeSearch.index] Indexing components
-INFO [2023-11-20T09:54:57.054Z]: {"added":2,"deleted":2}
-INFO [2023-11-20T09:54:57.054Z]: [SemanticCodeSearch.index] Deleting components
-INFO [2023-11-20T09:54:57.054Z]: {"embeddingsToDelete":2}
-INFO [2023-11-20T09:54:57.054Z]: [SemanticCodeSearch.index] Writing components
-INFO [2023-11-20T09:54:57.054Z]: {"write":2}
-INFO [2023-11-20T09:54:57.314Z]: [SemanticCodeSearch.index] Indexed components
-INFO [2023-11-20T09:54:57.314Z]: {"resuts":2,"delete":2}
-INFO [2023-11-20T09:54:57.314Z]: [CodeIndex.index] Indexing with MetaDB
-INFO [2023-11-20T09:54:57.314Z]: {"files":{"added":0,"changed":1,"deleted":0}}
-INFO [2023-11-20T09:54:57.413Z]: [CodeIndex.index] Indexed with MetaDB
-INFO [2023-11-20T09:54:57.421Z]: [CodeTagger.index] Starting to index
-INFO [2023-11-20T09:54:57.476Z]: [Engine.indexCode] Indexed code
-INFO [2023-11-20T09:54:57.476Z]: [KeywordCodeSearch.diffIndex] Computing diff
-INFO [2023-11-20T09:54:57.476Z]: [KeywordCodeSearch.diffIndex] Diff computed
-INFO [2023-11-20T09:54:57.476Z]: {"adding":0,"deleting":0}
-INFO [2023-11-20T09:54:57.482Z]: project_reinitialize_success
-INFO [2023-11-20T09:54:57.482Z]: {}
-INFO [2023-11-20T09:54:57.544Z]: [Engine.indexCode] Preindexing with graph
-INFO [2023-11-20T09:54:57.844Z]: [SemanticCodeSearch.preIndex] Embedding components
-INFO [2023-11-20T09:54:57.844Z]: {"added":0,"deleted":0}
-INFO [2023-11-20T09:54:57.844Z]: [CodeGraphOrchestrator.preIndex] Preindexing
-INFO [2023-11-20T09:54:57.844Z]: [CodeGraphOrchestrator.preIndex] Preindexed
-INFO [2023-11-20T09:54:57.844Z]: [SemanticCodeSearch.preIndex] Embedded components
-INFO [2023-11-20T09:54:57.844Z]: {"length":0}
-INFO [2023-11-20T09:54:57.844Z]: [Engine.indexCode]: Preindexed semantic & graph
-INFO [2023-11-20T09:54:57.844Z]: [Engine.indexCode] Indexing code
-INFO [2023-11-20T09:54:57.844Z]: [KeywordCodeSearch.index] Indexing
-INFO [2023-11-20T09:54:57.844Z]: [KeywordCodeSearch.index] Saving index
-INFO [2023-11-20T09:54:57.844Z]: [CodeGraphOrchestrator.index] Indexing
-INFO [2023-11-20T09:54:57.844Z]: [CodeGraphOrchestrator.index] Indexed
-INFO [2023-11-20T09:54:57.850Z]: [KeywordCodeSearch.index] Indexed
-INFO [2023-11-20T09:54:57.850Z]: [SemanticCodeSearch.index] Indexing components
-INFO [2023-11-20T09:54:57.850Z]: {"added":0,"deleted":0}
-INFO [2023-11-20T09:54:59.822Z]: [SemanticCodeSearch.index] Deleting components
-INFO [2023-11-20T09:54:59.831Z]: {"embeddingsToDelete":0}
-INFO [2023-11-20T09:54:59.831Z]: [SemanticCodeSearch.index] Writing components
-INFO [2023-11-20T09:54:59.831Z]: {"write":0}
-INFO [2023-11-20T09:54:59.831Z]: project_reinitialize_start
-INFO [2023-11-20T09:54:59.831Z]: {}
-INFO [2023-11-20T09:54:59.831Z]: [SemanticCodeSearch.index] Indexed components
-INFO [2023-11-20T09:54:59.831Z]: {"resuts":0,"delete":0}
-INFO [2023-11-20T09:54:59.831Z]: [CodeIndex.index] Indexing with MetaDB
-INFO [2023-11-20T09:54:59.831Z]: {"files":{"added":0,"changed":0,"deleted":0}}
-INFO [2023-11-20T09:54:59.831Z]: [CodeIndex.index] Indexed with MetaDB
-INFO [2023-11-20T09:54:59.831Z]: [CodeTagger.index] Starting to index
-INFO [2023-11-20T09:54:59.831Z]: [Engine.indexCode] Indexed code
-INFO [2023-11-20T09:54:59.831Z]: [KeywordCodeSearch.diffIndex] Computing diff
-INFO [2023-11-20T09:54:59.831Z]: [KeywordCodeSearch.diffIndex] Diff computed
-INFO [2023-11-20T09:54:59.831Z]: {"adding":0,"deleting":0}
-INFO [2023-11-20T09:55:01.489Z]: project_reinitialize_success
-INFO [2023-11-20T09:55:01.493Z]: {}
-INFO [2023-11-20T09:55:01.493Z]: [Engine.indexCode] Preindexing with graph
-INFO [2023-11-20T09:55:01.493Z]: [SemanticCodeSearch.preIndex] Embedding components
-INFO [2023-11-20T09:55:01.493Z]: {"added":2,"deleted":2}
-INFO [2023-11-20T09:55:01.493Z]: [CodeGraphOrchestrator.preIndex] Preindexing
-INFO [2023-11-20T09:55:01.493Z]: [CodeGraphOrchestrator.preIndex] Linking
-INFO [2023-11-20T09:55:01.493Z]: {"language":"TypeScript"}
-INFO [2023-11-20T09:55:01.493Z]: [CodeGraphOrchestrator.preIndex] Symbolising
-INFO [2023-11-20T09:55:01.493Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\maker\\route.ts"}
-INFO [2023-11-20T09:55:01.493Z]: [CodeGraphOrchestrator.preIndex] Linking
-INFO [2023-11-20T09:55:01.493Z]: {"language":"TypeScript","percent":100,"file":"src\\app\\api\\maker\\route.ts"}
-INFO [2023-11-20T09:55:01.493Z]: [CodeGraphOrchestrator.preIndex] Linking
-INFO [2023-11-20T09:55:01.493Z]: {"language":"TypeScript","percent":100}
-INFO [2023-11-20T09:55:01.493Z]: [CodeGraphOrchestrator.preIndex] Linking complete
-INFO [2023-11-20T09:55:01.493Z]: {"language":"TypeScript"}
-INFO [2023-11-20T09:55:02.781Z]: [CodeGraphOrchestrator.preIndex] Preindexed
-INFO [2023-11-20T09:55:02.790Z]: project_reinitialize_start
-INFO [2023-11-20T09:55:02.790Z]: {}
-INFO [2023-11-20T09:55:02.790Z]: [SemanticCodeSearch.preIndex] Embedded components
-INFO [2023-11-20T09:55:02.790Z]: {"length":2}
-INFO [2023-11-20T09:55:02.790Z]: [Engine.indexCode]: Preindexed semantic & graph
-INFO [2023-11-20T09:55:02.790Z]: [Engine.indexCode] Indexing code
-INFO [2023-11-20T09:55:02.790Z]: [KeywordCodeSearch.index] Indexing
-INFO [2023-11-20T09:55:02.790Z]: [KeywordCodeSearch.index] Saving index
-INFO [2023-11-20T09:55:02.790Z]: [CodeGraphOrchestrator.index] Indexing
-INFO [2023-11-20T09:55:02.790Z]: [CodeGraphOrchestrator.index] Indexing Language
-INFO [2023-11-20T09:55:02.790Z]: {"language":"TypeScript"}
-INFO [2023-11-20T09:55:02.790Z]: [KeywordCodeSearch.index] Indexed
-INFO [2023-11-20T09:55:02.790Z]: [CodeGraphOrchestrator.index] Indexed
-INFO [2023-11-20T09:55:02.790Z]: [SemanticCodeSearch.index] Indexing components
 INFO [2023-11-20T09:55:02.790Z]: {"added":2,"deleted":2}
 INFO [2023-11-20T09:55:04.861Z]: [SemanticCodeSearch.index] Deleting components
 INFO [2023-11-20T09:55:04.872Z]: {"embeddingsToDelete":2}
@@ -9998,3 +9906,95 @@ INFO [2023-11-26T12:44:49.631Z]: question_start
 INFO [2023-11-26T12:44:49.635Z]: {"prompt":"Import trace for requested module:\n./src/app/page.module.css\n./src/app/page.tsx\n ⨯ The requested resource isn't a valid image for /public/car.jpg received text/html; charset=utf-8"}
 INFO [2023-11-26T12:45:00.123Z]: question_success
 INFO [2023-11-26T12:45:00.127Z]: {"prompt":"Import trace for requested module:\n./src/app/page.module.css\n./src/app/page.tsx\n ⨯ The requested resource isn't a valid image for /public/car.jpg received text/html; charset=utf-8"}
+INFO [2023-11-29T12:17:01.048Z]: Preparing to initialize extension
+INFO [2023-11-29T12:17:02.059Z]: Registering flag observer
+INFO [2023-11-29T12:17:02.063Z]: Navigating to loading page
+INFO [2023-11-29T12:17:02.063Z]: Navigation
+INFO [2023-11-29T12:17:02.063Z]: {"page":"/loading"}
+INFO [2023-11-29T12:17:02.063Z]: Initializing workspace controller
+INFO [2023-11-29T12:17:02.065Z]: Creating URI handler
+INFO [2023-11-29T12:17:02.065Z]: Getting auth service props
+INFO [2023-11-29T12:17:02.066Z]: Creating auth service
+INFO [2023-11-29T12:17:02.067Z]: Setting network auth service
+INFO [2023-11-29T12:17:02.067Z]: Creating context store
+INFO [2023-11-29T12:17:02.067Z]: Creating engine
+INFO [2023-11-29T12:17:02.067Z]: Creating sql db
+INFO [2023-11-29T12:17:02.570Z]: Creating vector db
+INFO [2023-11-29T12:17:02.575Z]: Creating config manager
+INFO [2023-11-29T12:17:02.582Z]: Get languages
+INFO [2023-11-29T12:17:02.583Z]: Reading ALL files
+INFO [2023-11-29T12:17:02.654Z]: Files: 59
+INFO [2023-11-29T12:17:02.654Z]: Counting languages
+INFO [2023-11-29T12:17:02.655Z]: Sorting languages
+INFO [2023-11-29T12:17:02.655Z]: Get Overview
+INFO [2023-11-29T12:17:02.655Z]: Creating code parser
+INFO [2023-11-29T12:17:02.655Z]: Creating code index
+INFO [2023-11-29T12:17:02.656Z]: Creating graphs
+INFO [2023-11-29T12:17:02.656Z]: Creating tagger
+INFO [2023-11-29T12:17:02.656Z]: Creating semantic
+INFO [2023-11-29T12:17:02.656Z]: Creating keyword
+INFO [2023-11-29T12:17:02.656Z]: Creating file search
+INFO [2023-11-29T12:17:02.656Z]: Initializing engine
+INFO [2023-11-29T12:17:03.624Z]: [CodeTagger.init] Initializing
+INFO [2023-11-29T12:17:03.677Z]: Initializing history service
+INFO [2023-11-29T12:17:03.677Z]: Creating project bot props
+INFO [2023-11-29T12:17:03.677Z]: Creating plan service
+INFO [2023-11-29T12:17:03.677Z]: Creating terms service
+INFO [2023-11-29T12:17:03.677Z]: Creating auth controller
+INFO [2023-11-29T12:17:03.677Z]: Initializing auth controller
+INFO [2023-11-29T12:17:03.677Z]: Checking auth
+INFO [2023-11-29T12:17:05.378Z]: Set User: qn38Qp13HXWChxa84NVTIhOBNXj2
+INFO [2023-11-29T12:17:05.400Z]: Creating plan controller
+INFO [2023-11-29T12:17:05.400Z]: Initializing plan controller
+INFO [2023-11-29T12:17:05.891Z]: Creating status controller
+INFO [2023-11-29T12:17:05.903Z]: Creating chat bot
+INFO [2023-11-29T12:17:05.906Z]: Creating git service
+INFO [2023-11-29T12:17:05.907Z]: Creating user context
+INFO [2023-11-29T12:17:05.907Z]: Creating search controller
+INFO [2023-11-29T12:17:05.907Z]: Initializing search controller
+INFO [2023-11-29T12:17:05.915Z]: Creating index controller
+INFO [2023-11-29T12:17:05.915Z]: Initializing index controller
+INFO [2023-11-29T12:17:05.915Z]: Creating migrate controller
+INFO [2023-11-29T12:17:05.915Z]: Initializing migrate controller
+INFO [2023-11-29T12:17:05.915Z]: Creating settings controller
+INFO [2023-11-29T12:17:05.916Z]: Initializing settings controller
+INFO [2023-11-29T12:17:05.916Z]: Creating navigation controller
+INFO [2023-11-29T12:17:05.916Z]: Initializing navigation controller
+INFO [2023-11-29T12:17:05.916Z]: Registering auth service with auth controller
+INFO [2023-11-29T12:17:05.916Z]: Calculating navigation
+INFO [2023-11-29T12:17:05.936Z]: Navigation
+INFO [2023-11-29T12:17:05.936Z]: {"page":"/home"}
+INFO [2023-11-29T12:17:05.940Z]: Fully initialized!
+INFO [2023-11-29T12:17:05.941Z]: project_reinitialize_start
+INFO [2023-11-29T12:17:05.941Z]: {}
+INFO [2023-11-29T12:17:05.941Z]: extension_initialized
+INFO [2023-11-29T12:17:05.941Z]: {"timeToInit":4893}
+INFO [2023-11-29T12:17:06.111Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-11-29T12:17:06.111Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-11-29T12:17:06.111Z]: {"added":5,"deleted":0}
+INFO [2023-11-29T12:17:06.344Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-11-29T12:17:06.344Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-29T12:17:06.344Z]: {"language":"TypeScript"}
+INFO [2023-11-29T12:17:06.615Z]: [CodeGraphOrchestrator.preIndex] Symbolising
+INFO [2023-11-29T12:17:06.615Z]: {"language":"TypeScript","percent":100,"file":"src\\lib\\dbQueries.ts"}
+INFO [2023-11-29T12:17:06.616Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-29T12:17:06.616Z]: {"language":"TypeScript","percent":100,"file":"src\\lib\\dbQueries.ts"}
+INFO [2023-11-29T12:17:06.616Z]: [CodeGraphOrchestrator.preIndex] Linking
+INFO [2023-11-29T12:17:06.616Z]: {"language":"TypeScript","percent":100}
+INFO [2023-11-29T12:17:06.616Z]: [CodeGraphOrchestrator.preIndex] Linking complete
+INFO [2023-11-29T12:17:06.616Z]: {"language":"TypeScript"}
+INFO [2023-11-29T12:17:06.616Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-11-29T12:17:24.261Z]: question_start
+INFO [2023-11-29T12:17:24.265Z]: {"prompt":"how to make it find the latest cars added"}
+INFO [2023-11-29T12:19:32.698Z]: question_start
+INFO [2023-11-29T12:19:32.704Z]: {"prompt":"can u make it to retun the lated added cars"}
+INFO [2023-11-29T12:22:08.928Z]: project_reinitialize_start
+INFO [2023-11-29T12:22:08.935Z]: {}
+INFO [2023-11-29T12:22:08.989Z]: project_reinitialize_start
+INFO [2023-11-29T12:22:08.989Z]: {}
+INFO [2023-11-29T13:05:05.211Z]: project_reinitialize_start
+INFO [2023-11-29T13:05:05.215Z]: {}
+INFO [2023-11-29T13:05:05.313Z]: project_reinitialize_start
+INFO [2023-11-29T13:05:05.313Z]: {}
+INFO [2023-11-29T13:06:12.214Z]: project_reinitialize_start
+INFO [2023-11-29T13:06:12.219Z]: {}

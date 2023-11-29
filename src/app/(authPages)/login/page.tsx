@@ -54,8 +54,6 @@ const Page = (props: Props) => {
       router.refresh();
     }
 
-    console.log(signInData);
-
     // try {
     //   const res = await axios.post("/api/users/login", values);
     //   router.push("/");

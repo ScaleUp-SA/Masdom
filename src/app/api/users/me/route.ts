@@ -8,8 +8,6 @@ export async function GET(req: NextRequest) {
     const cookiesStore = cookies();
     const currentToken = cookiesStore.get("masdoomToken")?.value as string;
 
-    console.log(cookiesStore.get("masdoomToken")?.value);
-
     const validToken = jwt.verify(currentToken, process.env.TOKEN_SECRET!);
 
     if (!validToken) {

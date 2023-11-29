@@ -11,8 +11,6 @@ const Page = async ({ params }: Props) => {
   const { chatId } = params;
   const session = await getServerSession(authOptions);
 
-  console.log(session);
-
   return (
     <>
       <ChatBox chatId={chatId} session={session} />

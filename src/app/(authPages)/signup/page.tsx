@@ -36,7 +36,6 @@ const Page = (props: Props) => {
   async function onSubmit(values: z.infer<typeof signupSchema>) {
     try {
       const res = await axios.post("/api/users/signup", values);
-      console.log(res.data);
       toast({
         title: res.data.message,
       });

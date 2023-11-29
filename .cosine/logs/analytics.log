@@ -2057,3 +2057,23 @@ INFO [2023-11-26T12:44:49.628Z]: question_start
 INFO [2023-11-26T12:44:49.629Z]: {"prompt":"Import trace for requested module:\n./src/app/page.module.css\n./src/app/page.tsx\n ⨯ The requested resource isn't a valid image for /public/car.jpg received text/html; charset=utf-8","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
 INFO [2023-11-26T12:45:00.121Z]: question_success
 INFO [2023-11-26T12:45:00.122Z]: {"prompt":"Import trace for requested module:\n./src/app/page.module.css\n./src/app/page.tsx\n ⨯ The requested resource isn't a valid image for /public/car.jpg received text/html; charset=utf-8","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-29T12:17:05.390Z]: Set User: metwallysayed1999@gmail.com
+INFO [2023-11-29T12:17:05.393Z]: {"Telemetry":true}
+INFO [2023-11-29T12:17:05.938Z]: project_reinitialize_start
+INFO [2023-11-29T12:17:05.939Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-29T12:17:05.941Z]: extension_initialized
+INFO [2023-11-29T12:17:05.941Z]: {"timeToInit":4893,"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-29T12:17:24.258Z]: question_start
+INFO [2023-11-29T12:17:24.259Z]: {"prompt":"how to make it find the latest cars added","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-29T12:19:32.696Z]: question_start
+INFO [2023-11-29T12:19:32.697Z]: {"prompt":"can u make it to retun the lated added cars","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-29T12:22:08.925Z]: project_reinitialize_start
+INFO [2023-11-29T12:22:08.927Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-29T12:22:08.988Z]: project_reinitialize_start
+INFO [2023-11-29T12:22:08.988Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-29T13:05:05.209Z]: project_reinitialize_start
+INFO [2023-11-29T13:05:05.210Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-29T13:05:05.313Z]: project_reinitialize_start
+INFO [2023-11-29T13:05:05.313Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-11-29T13:06:12.212Z]: project_reinitialize_start
+INFO [2023-11-29T13:06:12.214Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}

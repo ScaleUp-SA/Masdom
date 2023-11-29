@@ -40,18 +40,12 @@ const ChatList = ({ session }: Props) => {
     (async () => {
       try {
         const res = await axios.get(`/api/chat/getuserchat/${user?.id}`);
-        console.log(res.data, "data");
         setChatsList(res.data.chats);
-        console.log(res.data.chats, "chats");
       } catch (error) {
         console.error("Error", error);
       }
     })();
   }, [user]);
-
-  console.log(chatsList, "chats");
-
-  console.log(usersChat);
 
   return (
     <div className="flex flex-col w-full items-center space-y-4" dir="rtl">

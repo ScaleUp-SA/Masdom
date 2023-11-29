@@ -18,8 +18,6 @@ type Props = {
 };
 
 const MessagePop = ({ chat, user, chatMessage }: Props) => {
-  console.log(chatMessage);
-
   return (
     <div className="w-full h-full flex flex-col py-5 gap-4">
       {chatMessage.map((message: Message) =>

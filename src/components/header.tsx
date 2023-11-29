@@ -5,6 +5,7 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,6 +18,16 @@ export default function Header() {
           { name: "Home", href: "/" },
           { name: "Chat", href: "/profile/chat" },
         ];
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      // Redirect to the desired page after sign-out
+      // router.push("/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return pathname === "/login" || pathname === "/signup" ? null : (
     <header className="bg-white">
@@ -55,10 +66,13 @@ export default function Header() {
             </Link>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+        <div
+          onClick={handleSignOut}
+          className="hidden lg:flex lg:flex-1 lg:justify-end"
+        >
+          <p className="text-sm font-semibold leading-6 text-gray-900 cursor-pointer">
             Log out <span aria-hidden="true">&rarr;</span>
-          </a>
+          </p>
         </div>
       </nav>
       <Dialog
