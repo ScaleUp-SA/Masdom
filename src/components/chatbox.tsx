@@ -9,8 +9,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "./ui/use-toast";
 import { pusherClient } from "@/lib/pusher";
-import { Message } from "@prisma/client";
-import { find } from "lodash";
+import { Message, User } from "@prisma/client";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
 import userImg from "../../public/images/userImg.png";
 import { BsFillSendFill } from "react-icons/bs";
@@ -28,11 +28,16 @@ const ChatBox = ({ chatId, session }: Props) => {
     chatId: "",
   });
   const [chatMessage, setChatMessage] = useState<Message[]>([]);
+  const [userNameChat, setUserChat] = useState<User>();
   useEffect(() => {
     (async () => {
       try {
         const res = await axios.get(`/api/chat/getchat/${chatId}`);
+        const users = res.data.chat.users;
         setChat(res.data.chat);
+        setUserChat(() =>
+          users.find((chatUser: User) => chatUser.id !== user?.id)
+        );
         setChatMessage(res.data.chat.messages);
       } catch (error) {
         console.error("Error", error);
@@ -79,9 +84,7 @@ const ChatBox = ({ chatId, session }: Props) => {
         variant: "destructive",
       });
     }
-
     const res = await axios.post(`/api/message`, messageData);
-    console.log(res);
 
     if (res.status === 400 || res.status === 500)
       return toast({
@@ -98,32 +101,37 @@ const ChatBox = ({ chatId, session }: Props) => {
         <p className="p-5 min-h-screen">من فضلك حدد المحادثة</p>
       ) : (
         <div className="h-full flex flex-col flex-1">
-          {/* top chat box */}
-          <div className="w-full h-20 flex items-center p-5 gap-5 border-b">
-            <Image
-              src={userImg}
-              alt="user image"
-              width={50}
-              className="rounded"
-            />
-            <h4 className="text-md text-sky-900">username</h4>
-          </div>
-          <MessagePop chat={chat} user={user} chatMessage={chatMessage} />
-          <div className="flex items-center w-full h-20 p-5 border-t gap-5">
-            <Textarea
-              value={messageData.content}
-              onChange={(e) => textareaHandler(e)}
-              placeholder="اكتب رسالتك هنا."
-              className=" resize-none max-h-10 min-h-6 rounded-full outline-8"
-            />
-            <Button
-              onClick={(e) => sendMessageHandler(e)}
-              disabled={messageData.content.length === 0}
-              className="bg-green-400 text-xl hover:bg-green-600 rounded-full"
-            >
-              <BsFillSendFill />
-            </Button>
-          </div>
+          <ScrollArea>
+            {/* top chat box */}
+            <div className="w-full h-20 flex items-center p-5 gap-5 border-b">
+              <Image
+                src={userImg}
+                alt="user image"
+                width={50}
+                className="rounded"
+              />
+              <h4 className="text-md text-sky-900">{userNameChat?.username}</h4>
+            </div>
+            <ScrollArea>
+              <MessagePop chat={chat} user={user} chatMessage={chatMessage} />
+            </ScrollArea>
+
+            <div className="flex items-center w-full h-20 p-5 border-t gap-5">
+              <Textarea
+                value={messageData.content}
+                onChange={(e) => textareaHandler(e)}
+                placeholder="اكتب رسالتك هنا."
+                className=" resize-none max-h-10 min-h-6 rounded-full outline-8"
+              />
+              <Button
+                onClick={(e) => sendMessageHandler(e)}
+                disabled={messageData.content.length === 0}
+                className="bg-green-400 text-xl hover:bg-green-600 rounded-full"
+              >
+                <BsFillSendFill />
+              </Button>
+            </div>
+          </ScrollArea>
         </div>
       )}
       <Toaster />
