@@ -104,14 +104,14 @@ const CarDetails = ({ car, currentUserId }: Props) => {
         userId2: currentUserId,
       });
       const chatId = await res.data.Chat;
+      router.push(`/profile/chat/${chatId}`);
 
-      if (chatId) {
-        router.push(`/profile/chat/${chatId}`);
+      if (!chatId) {
+        toast({
+          variant: "destructive",
+          description: "Something went wrong",
+        });
       }
-      toast({
-        variant: "destructive",
-        description: "Something went wrong",
-      });
     }
   };
   return (
