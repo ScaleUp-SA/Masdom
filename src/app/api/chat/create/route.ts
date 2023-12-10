@@ -23,16 +23,41 @@ export const POST = async (req: NextRequest) => {
     updatedAt: new Date(),
   };
 
-  try {
-    // create a new chat
-    const chat = await prisma.chat.create({
-      data: chatData,
-    });
+  const user1Chats = await prisma.user.findUnique({
+    where: { id: userId1 },
+    include: { chats: true },
+  });
 
-    return NextResponse.json(
-      { message: "Conversation created", chat },
-      { status: 200 }
+  const user2Chats = await prisma.user.findUnique({
+    where: { id: userId1 },
+    include: { chats: true },
+  });
+
+  try {
+    if (!user1Chats || !user2Chats) {
+      throw new Error("One or both users not found");
+    }
+
+    const commonChat = user1Chats.chats.find((chat1) =>
+      user2Chats.chats.some((chat2) => chat2.id === chat1.id)
     );
+
+    if (commonChat) {
+      return NextResponse.json(
+        { message: "Conversation found", Chat: commonChat.id },
+        { status: 200 }
+      );
+    } else {
+      const chat = await prisma.chat.create({
+        data: chatData,
+      });
+
+      return NextResponse.json(
+        { message: "Conversation created", chat },
+        { status: 200 }
+      );
+    }
+    // create a new chat
   } catch (error) {
     console.error(error);
     return NextResponse.json(

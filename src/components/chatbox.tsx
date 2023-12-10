@@ -14,6 +14,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
 import userImg from "../../public/images/userImg.png";
 import { BsFillSendFill } from "react-icons/bs";
+import { uploadcareLoader } from "@uploadcare/nextjs-loader/build/utils/loader";
 
 type Props = { chatId?: string; session?: Session | null };
 
@@ -57,7 +58,6 @@ const ChatBox = ({ chatId, session }: Props) => {
       pusherClient.subscribe(chatId!);
       pusherClient.bind("message", messageHandler);
     } else {
-      console.log("chatId not found");
     }
     return () => {
       pusherClient.unsubscribe(chatId!);
@@ -109,6 +109,7 @@ const ChatBox = ({ chatId, session }: Props) => {
                 alt="user image"
                 width={50}
                 className="rounded"
+                loader={uploadcareLoader}
               />
               <h4 className="text-md text-sky-900">{userNameChat?.username}</h4>
             </div>

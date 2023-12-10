@@ -1,18 +1,39 @@
-import React from "react";
-import imageCar from "../../../../public/images/car.jpg";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { CiCalendarDate } from "react-icons/ci";
 import { IoSpeedometerOutline } from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
 import { ListingCars } from "@prisma/client";
+import { useRouter } from "next/navigation";
+import UploadcareImage, { getBlurDataURL } from "@uploadcare/nextjs-loader";
+
+const imageUrl = "https://ucarecdn.com/093e8474-e3a6-40e5-a7fa-3abcd9042e0c";
 
 const CarCard = ({ carData }: { carData: ListingCars }) => {
+  const router = useRouter();
+  const [blurImage, setBlurImage] = useState("");
+  const routeHandler = () => {
+    router.push(`/cars/${carData.id}`);
+  };
+
   return (
-    <div className="flex flex-col gap-5 border-2 border-solid rounded-xl pb-5 cursor-pointer">
+    <div
+      onClick={routeHandler}
+      className="flex flex-col gap-5 border-2 border-solid rounded-xl pb-5 cursor-pointer"
+    >
       <div>
-        <Image
+        {/* <Image
           src="/car.jpg"
           alt="Car"
+          width={400}
+          height={300}
+          className="rounded-t-xl"
+        /> */}
+        <UploadcareImage
+          alt="Test image"
+          src={`${imageUrl}/-/scale_crop/450x300/center/-/enhance/`}
           width={400}
           height={300}
           className="rounded-t-xl"

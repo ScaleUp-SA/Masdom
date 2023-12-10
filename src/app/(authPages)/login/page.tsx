@@ -40,7 +40,6 @@ const Page = (props: Props) => {
     });
 
     if (signInData?.error) {
-      console.log(signInData?.error);
       toast({
         variant: "destructive",
         title: `${signInData?.error}`,
