@@ -2,7 +2,9 @@ import styles from "./page.module.css";
 import CarCard from "@/components/carCard";
 import { getFeaturedCars, getLatestCars } from "@/lib/dbQueries";
 
-import { prisma } from "@/lib/prismaClient";
+export const metadata = {
+  title: "الرئيسية | منصة مصدوم",
+};
 
 export default async function Home() {
   const featuredCars = await getFeaturedCars();

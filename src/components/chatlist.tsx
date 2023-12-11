@@ -38,11 +38,13 @@ const ChatList = ({ session }: Props) => {
 
   useEffect(() => {
     (async () => {
-      try {
-        const res = await axios.get(`/api/chat/getuserchat/${user?.id}`);
-        setChatsList(res.data.chats);
-      } catch (error) {
-        console.error("Error", error);
+      if (user) {
+        try {
+          const res = await axios.get(`/api/chat/getuserchat/${user?.id}`);
+          setChatsList(res.data.chats);
+        } catch (error) {
+          console.error("Error", error);
+        }
       }
     })();
   }, [user]);

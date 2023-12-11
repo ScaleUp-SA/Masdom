@@ -7,6 +7,10 @@ type Props = {
   params: { chatId: string };
 };
 
+export const metadata = {
+  title: "المحادثات",
+};
+
 const Page = async ({ params }: Props) => {
   const { chatId } = params;
   const session = await getServerSession(authOptions);
