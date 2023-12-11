@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -13,6 +13,7 @@ import { useToast } from "@/components/ui/use-toast";
 
 export default function Header({ session }: { session: Session | null }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [header, setHeader] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const { toast } = useToast();
@@ -20,13 +21,13 @@ export default function Header({ session }: { session: Session | null }) {
   const navigation =
     pathname.includes("profile") === false
       ? [
-          { name: "حسابي", href: "/profile" },
-          { name: "الرئيسية", href: "/" },
-        ]
+        { name: "حسابي", href: "/profile" },
+        { name: "الرئيسية", href: "/" },
+      ]
       : [
-          { name: "الرئيسية", href: "/" },
-          { name: "المحادثات", href: "/profile/chat" },
-        ];
+        { name: "الرئيسية", href: "/" },
+        { name: "المحادثات", href: "/profile/chat" },
+      ];
 
   const handleSignOut = async () => {
     if (!session) {
@@ -44,12 +45,29 @@ export default function Header({ session }: { session: Session | null }) {
     }
   };
 
+  // handle header
+  const scrollHeader = () => {
+    if (window.scrollY >= 20) {
+      setHeader(true);
+    } else {
+      setHeader(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHeader);
+    return () => {
+      window.removeEventListener("scroll", scrollHeader);
+    };
+  }, []);
+
   const logStatues = session
     ? { title: "تسجيل الخروج", path: "/" }
     : { title: "تسجيل الدخول", path: "/login" };
 
   return pathname === "/login" || pathname === "/signup" ? null : (
-    <header className="backdrop-blur-md bg-white/10 bg-opacity-10">
+    <header className={`w-full transition duration-300 ${header ? 'fixed backdrop-blur-md bg-white/30' : 'bg-white'}`}>
+
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
