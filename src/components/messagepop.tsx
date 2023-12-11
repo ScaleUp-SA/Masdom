@@ -6,15 +6,15 @@ type Props = {
   chatMessage: Message[];
   chat?: Chat;
   user?:
-    | {
-        name?: string | undefined;
-        email: string;
-        image?: string | undefined;
-        username: string;
-        isAdmin: boolean;
-        id: string;
-      }
-    | undefined;
+  | {
+    name?: string | undefined;
+    email: string;
+    image?: string | undefined;
+    username: string;
+    isAdmin: boolean;
+    id: string;
+  }
+  | undefined;
 };
 
 const MessagePop = ({ chat, user, chatMessage }: Props) => {
@@ -24,7 +24,7 @@ const MessagePop = ({ chat, user, chatMessage }: Props) => {
         message.senderId === user?.id ? (
           <div key={message.id} className="flex justify-end">
             <div className="text-left w-max px-5">
-              <p className=" bg-sky-200 p-2 rounded-t-xl rounded-br-xl">
+              <p className=" bg-sky-200 p-2 rounded-t-xl rounded-bl-xl">
                 {message.content}
               </p>
             </div>
@@ -32,7 +32,7 @@ const MessagePop = ({ chat, user, chatMessage }: Props) => {
         ) : (
           <div key={message.id} className="flex justify-start">
             <div className="text-right w-max right px-5">
-              <p className=" bg-green-200 p-2 rounded-t-xl rounded-bl-xl">
+              <p className=" bg-green-200 p-2 rounded-t-xl rounded-br-xl ">
                 {message.content}
               </p>
             </div>
