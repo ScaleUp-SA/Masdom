@@ -305,3 +305,102 @@ INFO [2023-12-10T19:49:36.425Z]: [KeywordCodeSearch.diffIndex] Diff computed
 INFO [2023-12-10T19:49:36.425Z]: {"adding":0,"deleting":0}
 INFO [2023-12-10T19:49:36.432Z]: project_reinitialize_success
 INFO [2023-12-10T19:49:36.432Z]: {}
+INFO [2023-12-11T12:40:23.808Z]: Preparing to initialize extension
+INFO [2023-12-11T12:40:24.812Z]: Registering flag observer
+INFO [2023-12-11T12:40:24.813Z]: Navigating to loading page
+INFO [2023-12-11T12:40:24.813Z]: Navigation
+INFO [2023-12-11T12:40:24.813Z]: {"page":"/loading"}
+INFO [2023-12-11T12:40:24.813Z]: Initializing workspace controller
+INFO [2023-12-11T12:40:24.815Z]: Creating URI handler
+INFO [2023-12-11T12:40:24.815Z]: Getting auth service props
+INFO [2023-12-11T12:40:24.816Z]: Creating auth service
+INFO [2023-12-11T12:40:24.816Z]: Setting network auth service
+INFO [2023-12-11T12:40:24.816Z]: Creating context store
+INFO [2023-12-11T12:40:24.817Z]: Creating engine
+INFO [2023-12-11T12:40:24.817Z]: Creating sql db
+INFO [2023-12-11T12:40:25.278Z]: Creating vector db
+INFO [2023-12-11T12:40:25.278Z]: Creating config manager
+INFO [2023-12-11T12:40:25.288Z]: Get languages
+INFO [2023-12-11T12:40:25.288Z]: Reading ALL files
+INFO [2023-12-11T12:40:25.332Z]: Files: 64
+INFO [2023-12-11T12:40:25.332Z]: Counting languages
+INFO [2023-12-11T12:40:25.332Z]: Sorting languages
+INFO [2023-12-11T12:40:25.332Z]: Get Overview
+INFO [2023-12-11T12:40:25.332Z]: Creating code parser
+INFO [2023-12-11T12:40:25.332Z]: Creating code index
+INFO [2023-12-11T12:40:25.333Z]: Creating graphs
+INFO [2023-12-11T12:40:25.333Z]: Creating tagger
+INFO [2023-12-11T12:40:25.334Z]: Creating semantic
+INFO [2023-12-11T12:40:25.334Z]: Creating keyword
+INFO [2023-12-11T12:40:25.334Z]: Creating file search
+INFO [2023-12-11T12:40:25.334Z]: Initializing engine
+INFO [2023-12-11T12:40:26.210Z]: [CodeTagger.init] Initializing
+INFO [2023-12-11T12:40:26.289Z]: Initializing history service
+INFO [2023-12-11T12:40:26.289Z]: Creating project bot props
+INFO [2023-12-11T12:40:26.289Z]: Creating plan service
+INFO [2023-12-11T12:40:26.289Z]: Creating terms service
+INFO [2023-12-11T12:40:26.289Z]: Creating auth controller
+INFO [2023-12-11T12:40:26.289Z]: Initializing auth controller
+INFO [2023-12-11T12:40:26.290Z]: Checking auth
+INFO [2023-12-11T12:40:27.579Z]: Set User: qn38Qp13HXWChxa84NVTIhOBNXj2
+INFO [2023-12-11T12:40:27.589Z]: Creating plan controller
+INFO [2023-12-11T12:40:27.589Z]: Initializing plan controller
+INFO [2023-12-11T12:40:28.072Z]: Creating status controller
+INFO [2023-12-11T12:40:28.073Z]: Creating chat bot
+INFO [2023-12-11T12:40:28.074Z]: Creating git service
+INFO [2023-12-11T12:40:28.074Z]: Creating user context
+INFO [2023-12-11T12:40:28.074Z]: Creating search controller
+INFO [2023-12-11T12:40:28.075Z]: Initializing search controller
+INFO [2023-12-11T12:40:28.082Z]: Creating index controller
+INFO [2023-12-11T12:40:28.082Z]: Initializing index controller
+INFO [2023-12-11T12:40:28.082Z]: Creating migrate controller
+INFO [2023-12-11T12:40:28.082Z]: Initializing migrate controller
+INFO [2023-12-11T12:40:28.082Z]: Creating settings controller
+INFO [2023-12-11T12:40:28.082Z]: Initializing settings controller
+INFO [2023-12-11T12:40:28.082Z]: Creating navigation controller
+INFO [2023-12-11T12:40:28.082Z]: Initializing navigation controller
+INFO [2023-12-11T12:40:28.083Z]: Registering auth service with auth controller
+INFO [2023-12-11T12:40:28.083Z]: Calculating navigation
+INFO [2023-12-11T12:40:28.163Z]: Navigation
+INFO [2023-12-11T12:40:28.163Z]: {"page":"/home"}
+INFO [2023-12-11T12:40:28.168Z]: Fully initialized!
+INFO [2023-12-11T12:40:28.188Z]: project_reinitialize_start
+INFO [2023-12-11T12:40:28.188Z]: {}
+INFO [2023-12-11T12:40:28.189Z]: extension_initialized
+INFO [2023-12-11T12:40:28.189Z]: {"timeToInit":4361}
+INFO [2023-12-11T12:40:28.282Z]: [Engine.indexCode] Preindexing with graph
+INFO [2023-12-11T12:40:28.282Z]: [SemanticCodeSearch.preIndex] Embedding components
+INFO [2023-12-11T12:40:28.282Z]: {"added":0,"deleted":0}
+INFO [2023-12-11T12:40:28.282Z]: [CodeGraphOrchestrator.preIndex] Preindexing
+INFO [2023-12-11T12:40:28.282Z]: [CodeGraphOrchestrator.preIndex] Preindexed
+INFO [2023-12-11T12:40:28.283Z]: [SemanticCodeSearch.preIndex] Embedded components
+INFO [2023-12-11T12:40:28.283Z]: {"length":0}
+INFO [2023-12-11T12:40:28.283Z]: [Engine.indexCode]: Preindexed semantic & graph
+INFO [2023-12-11T12:40:28.283Z]: [Engine.indexCode] Indexing code
+INFO [2023-12-11T12:40:28.283Z]: [KeywordCodeSearch.index] Indexing
+INFO [2023-12-11T12:40:28.283Z]: [KeywordCodeSearch.index] Saving index
+INFO [2023-12-11T12:40:28.283Z]: [CodeGraphOrchestrator.index] Indexing
+INFO [2023-12-11T12:40:28.283Z]: [CodeGraphOrchestrator.index] Indexed
+INFO [2023-12-11T12:40:28.560Z]: [KeywordCodeSearch.index] Indexed
+INFO [2023-12-11T12:40:28.560Z]: [SemanticCodeSearch.index] Indexing components
+INFO [2023-12-11T12:40:28.560Z]: {"added":0,"deleted":0}
+INFO [2023-12-11T12:40:28.560Z]: [SemanticCodeSearch.index] Deleting components
+INFO [2023-12-11T12:40:28.560Z]: {"embeddingsToDelete":0}
+INFO [2023-12-11T12:40:28.561Z]: [SemanticCodeSearch.index] Writing components
+INFO [2023-12-11T12:40:28.561Z]: {"write":0}
+INFO [2023-12-11T12:40:29.005Z]: [SemanticCodeSearch.index] Indexed components
+INFO [2023-12-11T12:40:29.005Z]: {"resuts":0,"delete":0}
+INFO [2023-12-11T12:40:29.006Z]: [CodeIndex.index] Indexing with MetaDB
+INFO [2023-12-11T12:40:29.006Z]: {"files":{"added":0,"changed":0,"deleted":0}}
+INFO [2023-12-11T12:40:29.097Z]: [CodeIndex.index] Indexed with MetaDB
+INFO [2023-12-11T12:40:29.102Z]: [CodeTagger.index] Starting to index
+INFO [2023-12-11T12:40:29.845Z]: [Engine.indexCode] Indexed code
+INFO [2023-12-11T12:40:29.845Z]: [KeywordCodeSearch.diffIndex] Computing diff
+INFO [2023-12-11T12:40:29.845Z]: [KeywordCodeSearch.diffIndex] Diff computed
+INFO [2023-12-11T12:40:29.845Z]: {"adding":0,"deleting":0}
+INFO [2023-12-11T12:40:29.845Z]: project_reinitialize_success
+INFO [2023-12-11T12:40:29.845Z]: {}
+INFO [2023-12-11T12:41:04.512Z]: question_start
+INFO [2023-12-11T12:41:04.512Z]: {"prompt":"i want this header to have blur opacity bg and blure like glass effect in tailwind "}
+INFO [2023-12-11T12:41:16.486Z]: question_success
+INFO [2023-12-11T12:41:16.486Z]: {"prompt":"i want this header to have blur opacity bg and blure like glass effect in tailwind "}

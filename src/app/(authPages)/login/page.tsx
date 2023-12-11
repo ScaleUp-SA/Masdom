@@ -6,7 +6,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,16 +14,18 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { loginFormSchema } from "@/validationSchemas/loginValidation";
 import { useRouter } from "next/navigation";
-import axios from "axios";
 import { Toaster } from "@/components/ui/toaster";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-import bgImage from "../../../../public/images/heroBg.png";
 import logo from "../../../../public/masdoomLogo.svg";
-
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 type Props = {};
 
 const Page = (props: Props) => {
+  const { data: session } = useSession();
+  console.log(session);
+
   const router = useRouter();
   const { toast } = useToast();
 
@@ -67,6 +68,17 @@ const Page = (props: Props) => {
     // }
   }
 
+  const pageRoute = () => {
+    if (session) {
+      router.push("/");
+    } else {
+      return;
+    }
+  };
+
+  useEffect(() => {
+    pageRoute();
+  }, [session]);
   return (
     <div className="flex w-full">
       <Form {...form}>

@@ -3605,3 +3605,15 @@ INFO [2023-12-10T19:49:34.613Z]: project_reinitialize_start
 INFO [2023-12-10T19:49:34.615Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
 INFO [2023-12-10T19:49:36.430Z]: project_reinitialize_success
 INFO [2023-12-10T19:49:36.432Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-12-11T12:40:27.582Z]: Set User: metwallysayed1999@gmail.com
+INFO [2023-12-11T12:40:27.584Z]: {"Telemetry":true}
+INFO [2023-12-11T12:40:28.165Z]: project_reinitialize_start
+INFO [2023-12-11T12:40:28.168Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-12-11T12:40:28.188Z]: extension_initialized
+INFO [2023-12-11T12:40:28.188Z]: {"timeToInit":4361,"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-12-11T12:40:29.163Z]: project_reinitialize_success
+INFO [2023-12-11T12:40:29.165Z]: {"agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-12-11T12:41:04.509Z]: question_start
+INFO [2023-12-11T12:41:04.511Z]: {"prompt":"i want this header to have blur opacity bg and blure like glass effect in tailwind ","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}
+INFO [2023-12-11T12:41:16.483Z]: question_success
+INFO [2023-12-11T12:41:16.485Z]: {"prompt":"i want this header to have blur opacity bg and blure like glass effect in tailwind ","agent":"cosine-vscode","version":"1.1.2","package":"@cosine/analytics"}

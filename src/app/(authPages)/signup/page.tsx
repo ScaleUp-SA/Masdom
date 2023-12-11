@@ -22,10 +22,14 @@ import { useToast } from "@/components/ui/use-toast";
 import Image from "next/image";
 import bgImage from "../../../../public/images/heroBg.png";
 import logo from "../../../../public/masdoomLogo.svg";
+import { useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 type Props = {};
 
 const Page = (props: Props) => {
+  const { data: session } = useSession();
+
   const router = useRouter();
   const { toast } = useToast();
 
@@ -50,6 +54,18 @@ const Page = (props: Props) => {
       console.log(error);
     }
   }
+
+  const pageRoute = () => {
+    if (session) {
+      router.push("/");
+    } else {
+      return;
+    }
+  };
+
+  useEffect(() => {
+    pageRoute();
+  }, [session]);
 
   return (
     <div className="flex">
