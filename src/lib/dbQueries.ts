@@ -32,6 +32,7 @@ export const getCar = async (id: string) => {
     include: {
       CarsMakers: true,
       CarsModels: true,
+      Damage: true,
     },
   });
   return car;

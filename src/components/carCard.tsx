@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import { CiCalendarDate } from "react-icons/ci";
 import { IoSpeedometerOutline } from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
 import { ListingCars } from "@prisma/client";
 import { useRouter } from "next/navigation";
-import UploadcareImage, { getBlurDataURL } from "@uploadcare/nextjs-loader";
+import { CldImage } from "next-cloudinary";
 
 const imageUrl = "https://ucarecdn.com/093e8474-e3a6-40e5-a7fa-3abcd9042e0c";
 
@@ -31,11 +30,19 @@ const CarCard = ({ carData }: { carData: ListingCars }) => {
           height={300}
           className="rounded-t-xl"
         /> */}
-        <UploadcareImage
+        {/* <UploadcareImage
           alt="Test image"
           src={`${imageUrl}/-/scale_crop/450x300/center/-/enhance/`}
           width={400}
           height={300}
+          className="rounded-t-xl"
+        /> */}
+
+        <CldImage
+          width={400}
+          height={300}
+          src="swhqw2dad0f7nj8vscsi"
+          alt="Test image"
           className="rounded-t-xl"
         />
       </div>

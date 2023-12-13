@@ -74,6 +74,28 @@ model ListingCars {
   carsModelsId String?
 
   Damage Damage[]
+  Images CarsImages[]
+  Videos CarsVideos[]
+}
+
+model CarsImages {
+  id        String   @id @default(uuid())
+  Links     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ListingCars   ListingCars? @relation(fields: [listingCarsId], references: [id])
+  listingCarsId String?
+}
+
+model CarsVideos {
+  id        String   @id @default(uuid())
+  Links     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ListingCars   ListingCars? @relation(fields: [listingCarsId], references: [id])
+  listingCarsId String?
 }
 
 model CarsMakers {

@@ -78,3 +78,11 @@
 html{
   direction: rtl;
 }
+
+
+.my-config {
+  --darkmode: 0;
+  --h-accent: 144;
+  --s-accent: 67%;
+  --l-accent: 57%;
+}
