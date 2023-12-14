@@ -1,4 +1,4 @@
-import { Message } from "@prisma/client";
+import { CarsImages, ListingCars, Message } from "@prisma/client";
 
 export type Session = {
   user: {
@@ -8,6 +8,7 @@ export type Session = {
     username: string; // Required property
     isAdmin: boolean; // Required property
     id: string; // Required property
+    phoneNumber: string; // Required property
   };
 };
 
@@ -55,3 +56,16 @@ export type CloudinaryUploadEvent = {
     width: number;
   };
 };
+
+export interface FullCar extends ListingCars {
+  CarsMakers: {
+    id: string;
+    name: string;
+  } | null;
+  CarsModels: {
+    id: string;
+    name: string;
+  } | null;
+
+  Images: CarsImages[];
+}

@@ -13,6 +13,8 @@ const page = async ({ params }: Props) => {
 
   const car = await getCar(params.carId);
 
+  console.log(car);
+
   return (
     <div>
       <CarDetails car={car} currentUserId={session?.user.id} />
@@ -21,9 +23,3 @@ const page = async ({ params }: Props) => {
 };
 
 export default page;
-
-// export async function getServerSideProps(context: any) {
-//   const { slug } = context.params;
-
-//   return slug;
-// }

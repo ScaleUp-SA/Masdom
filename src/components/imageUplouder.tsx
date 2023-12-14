@@ -48,7 +48,7 @@ export default function ImageUplouder() {
       <div className=" w-full flex justify-center my-16">
         <Button asChild>
           <CldUploadButton
-            uploadPreset="masdom"
+            uploadPreset="v6svhohp"
             onUpload={(res: CldUploadWidgetResults) => {
               if (typeof res.info === "object" && "resource_type" in res.info) {
                 if (res.info.resource_type === "video") {

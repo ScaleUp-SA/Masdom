@@ -11,6 +11,13 @@ interface ChatCreateInput {
 export const getFeaturedCars = async () => {
   const featuredCars = await prisma.listingCars.findMany({
     where: { featured: true },
+    include: {
+      CarsMakers: true,
+      CarsModels: true,
+      Damage: true,
+      Images: true,
+      Videos: true,
+    },
   });
 
   return featuredCars;
@@ -20,6 +27,13 @@ export const getLatestCars = async () => {
   const latestCars = await prisma.listingCars.findMany({
     orderBy: {
       createdAt: "desc",
+    },
+    include: {
+      CarsMakers: true,
+      CarsModels: true,
+      Damage: true,
+      Images: true,
+      Videos: true,
     },
   });
 
@@ -33,9 +47,27 @@ export const getCar = async (id: string) => {
       CarsMakers: true,
       CarsModels: true,
       Damage: true,
+      Images: true,
+      Videos: true,
     },
   });
   return car;
+};
+
+export const getUserCars = async (id: string) => {
+  const userCars = await prisma.listingCars.findMany({
+    where: {
+      ownerId: id,
+    },
+    include: {
+      CarsMakers: true,
+      CarsModels: true,
+      Damage: true,
+      Images: true,
+      Videos: true,
+    },
+  });
+  return userCars;
 };
 
 export const createChat = async (
@@ -84,5 +116,26 @@ export const createChat = async (
     console.error(error);
     const res = { message: "Internal server error" };
     return res;
+  }
+};
+
+export const updateUser = async (id: string, userData: {}) => {
+  try {
+    // Check if user exists
+    const existingUser = await prisma.user.findUnique({ where: { id } });
+    if (!existingUser) {
+      return { message: "User not found" };
+    }
+
+    // Update user
+    const updatedUser = await prisma.user.update({
+      where: { id },
+      data: userData,
+    });
+
+    return { message: "User updated successfully", User: updatedUser };
+  } catch (error) {
+    console.error(error);
+    return { message: "Internal server error" };
   }
 };

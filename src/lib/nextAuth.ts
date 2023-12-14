@@ -64,7 +64,13 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
 
   callbacks: {
-    async jwt({ token, user, account, profile, isNewUser }) {
+    async jwt({ token, user, session, account, profile, isNewUser, trigger }) {
+      if (trigger === "update") {
+        token.username = session.username;
+        token.email = session.email;
+        token.phoneNumber = session.phoneNumber;
+      }
+
       if (user) {
         return {
           ...token,
@@ -72,6 +78,7 @@ export const authOptions: NextAuthOptions = {
           isAdmin: user.isAdmin,
           id: user.id,
           email: user.email,
+          phoneNumber: user.phoneNumber,
         };
       }
 
@@ -86,6 +93,7 @@ export const authOptions: NextAuthOptions = {
           isAdmin: token.isAdmin,
           id: token.id,
           email: token.email,
+          phoneNumber: token.phoneNumber,
         },
       };
     },

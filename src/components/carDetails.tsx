@@ -1,77 +1,14 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
 import { Disclosure, Tab } from "@headlessui/react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
-import Image from "next/image";
-import { ListingCars } from "@prisma/client";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
-const product = {
-  name: "Zip Tote Basket",
-  price: "$140",
-  rating: 4,
-  images: [
-    {
-      id: 1,
-      name: "Angled view",
-      src: "https://ucarecdn.com/093e8474-e3a6-40e5-a7fa-3abcd9042e0c/-/preview/592x592/-/quality/smart/-/format/auto/",
-      alt: "Angled front view with bag zipped and handles upright.",
-    },
-    {
-      id: 2,
-      name: "Angled view",
-      src: "https://ucarecdn.com/093e8474-e3a6-40e5-a7fa-3abcd9042e0c/-/preview/592x592/-/quality/smart/-/format/auto/",
-      alt: "Angled front view with bag zipped and handles upright.",
-    },
-    // More images...
-  ],
-  colors: [
-    {
-      name: "Washed Black",
-      bgColor: "bg-gray-700",
-      selectedColor: "ring-gray-700",
-    },
-    { name: "White", bgColor: "bg-white", selectedColor: "ring-gray-400" },
-    {
-      name: "Washed Gray",
-      bgColor: "bg-gray-500",
-      selectedColor: "ring-gray-500",
-    },
-  ],
-  description: `
-    <p>The Zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps, you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goods protected for all-day use.</p>
-  `,
-  details: [
-    {
-      name: "Features",
-      items: [
-        "Multiple strap configurations",
-        "Spacious interior with top zip",
-        "Leather handle and tabs",
-        "Interior dividers",
-        "Stainless strap loops",
-        "Double stitched construction",
-        "Water-resistant",
-      ],
-    },
-    // More sections...
-  ],
-};
-
-interface FullCar extends ListingCars {
-  CarsMakers: {
-    id: string;
-    name: string;
-  } | null;
-  CarsModels: {
-    id: string;
-    name: string;
-  } | null;
-}
+import { CldImage } from "next-cloudinary";
+import { FullCar } from "@/types";
 
 type Props = {
   car: FullCar | null;
@@ -123,21 +60,19 @@ const CarDetails = ({ car, currentUserId }: Props) => {
             {/* Image selector */}
             <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
               <Tab.List className="grid grid-cols-4 gap-6">
-                {product.images.map((image) => (
+                {car?.Images.map((image) => (
                   <Tab
                     key={image.id}
                     className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
                   >
                     {({ selected }) => (
                       <>
-                        <span className="sr-only">{image.name}</span>
                         <span className="absolute inset-0 overflow-hidden rounded-md">
-                          <Image
+                          <CldImage
+                            src={image.Links}
                             width={400}
                             height={400}
-                            src={image.src}
-                            alt=""
-                            className="h-full w-full object-cover object-center"
+                            alt={""}
                           />
                         </span>
                         <span
@@ -155,13 +90,13 @@ const CarDetails = ({ car, currentUserId }: Props) => {
             </div>
 
             <Tab.Panels className="aspect-h-1 aspect-w-1 w-full">
-              {product.images.map((image) => (
+              {car?.Images.map((image) => (
                 <Tab.Panel key={image.id}>
-                  <Image
+                  <CldImage
                     width={400}
                     height={400}
-                    src={image.src}
-                    alt={image.alt}
+                    src={image.Links}
+                    alt={""}
                     className="h-full w-full object-cover object-center sm:rounded-lg"
                   />
                 </Tab.Panel>
@@ -178,7 +113,7 @@ const CarDetails = ({ car, currentUserId }: Props) => {
             <div className="mt-3">
               <h2 className="sr-only">Product information</h2>
               <p className="text-3xl tracking-tight text-gray-900">
-                {car?.price}
+                {car?.price} <span className=" text-lg font-light"> ريال </span>
               </p>
             </div>
 

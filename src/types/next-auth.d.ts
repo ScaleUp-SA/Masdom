@@ -16,6 +16,7 @@ declare module "next-auth" {
     username: string; // Required property
     isAdmin: boolean; // Required property
     id: string; // Required property
+    phoneNumber: string; // Added property
   }
 
   export interface Session {
@@ -27,6 +28,7 @@ declare module "next-auth" {
       username: string; // Required property
       isAdmin: boolean; // Required property
       id: string; // Required property
+      phoneNumber: string; // Added property
     };
   }
 }

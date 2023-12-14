@@ -1,21 +1,22 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import { CiCalendarDate } from "react-icons/ci";
 import { IoSpeedometerOutline } from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
 import { ListingCars } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { CldImage } from "next-cloudinary";
+import { FullCar } from "@/types";
 
 const imageUrl = "https://ucarecdn.com/093e8474-e3a6-40e5-a7fa-3abcd9042e0c";
 
-const CarCard = ({ carData }: { carData: ListingCars }) => {
+const CarCard = ({ carData }: { carData: FullCar }) => {
   const router = useRouter();
-  const [blurImage, setBlurImage] = useState("");
   const routeHandler = () => {
     router.push(`/cars/${carData.id}`);
   };
+
+  console.log(carData);
 
   return (
     <div
@@ -38,11 +39,19 @@ const CarCard = ({ carData }: { carData: ListingCars }) => {
           className="rounded-t-xl"
         /> */}
 
-        <CldImage
+        {/* <CldImage
           width={400}
           height={300}
           src="swhqw2dad0f7nj8vscsi"
           alt="Test image"
+          className="rounded-t-xl"
+        /> */}
+
+        <CldImage
+          alt={"image"}
+          src={carData.Images[0].Links}
+          width={400}
+          height={300}
           className="rounded-t-xl"
         />
       </div>
