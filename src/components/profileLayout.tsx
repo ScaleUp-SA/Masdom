@@ -16,11 +16,15 @@ const sidebarNavItems = [
 
   {
     title: "اعلاناتي",
-    href: "/profile/advertise",
+    href: "/profile/",
   },
   {
     title: "المحادثات",
     href: "/profile/chat",
+  },
+  {
+    title: "اضف اعلان",
+    href: "/profile/listcar",
   },
 ];
 
