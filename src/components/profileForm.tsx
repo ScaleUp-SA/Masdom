@@ -4,8 +4,6 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
-import { Toaster } from "@/components/ui/toaster";
-
 import {
   Form,
   FormControl,
@@ -17,7 +15,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Session } from "@/types";
-import { updateUser } from "@/lib/dbQueries";
 import axios from "axios";
 import { useToast } from "./ui/use-toast";
 import { useRouter } from "next/navigation";
@@ -37,7 +34,7 @@ const formSchema = z.object({
 });
 
 const ProfileForm = ({ session }: { session: Session | null }) => {
-  const { status, update } = useSession();
+  const { update } = useSession();
   const { toast } = useToast();
   const router = useRouter();
 

@@ -22,9 +22,8 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ["tailwindui.com", "ucarecdn.com"],
+    domains: ["tailwindui.com", "ucarecdn.com", "res.cloudinary.com"],
   },
-
 };
 
 module.exports = nextConfig;

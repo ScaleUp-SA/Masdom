@@ -1,15 +1,29 @@
 import { Metadata } from "next";
 import ProfileLayout from "@/components/profileLayout";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/nextAuth";
+import AdminLayout from "@/components/adminLayout";
 
 export const metadata: Metadata = {
   title: "Forms",
-  description: "Advanced form example using react-hook-form and Zod.",
 };
 
 interface SettingsLayoutProps {
   children: React.ReactNode;
 }
 
-export default function SettingsLayout({ children }: SettingsLayoutProps) {
-  return <ProfileLayout>{children}</ProfileLayout>;
+export default async function SettingsLayout({
+  children,
+}: SettingsLayoutProps) {
+  const session = await getServerSession(authOptions);
+
+  return (
+    <>
+      {session?.user.isAdmin ? (
+        <AdminLayout>{children}</AdminLayout>
+      ) : (
+        <ProfileLayout>{children}</ProfileLayout>
+      )}
+    </>
+  );
 }

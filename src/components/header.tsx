@@ -21,13 +21,13 @@ export default function Header({ session }: { session: Session | null }) {
   const navigation =
     pathname.includes("profile") === false
       ? [
-        { name: "حسابي", href: "/profile" },
-        { name: "الرئيسية", href: "/" },
-      ]
+          { name: "الرئيسية", href: "/" },
+          { name: "حسابي", href: "/profile" },
+        ]
       : [
-        { name: "الرئيسية", href: "/" },
-        { name: "المحادثات", href: "/profile/chat" },
-      ];
+          { name: "الرئيسية", href: "/" },
+          { name: "المحادثات", href: "/profile/chat" },
+        ];
 
   const handleSignOut = async () => {
     if (!session) {
@@ -38,7 +38,6 @@ export default function Header({ session }: { session: Session | null }) {
         toast({
           title: "تم تسجيل الخروج",
         });
-        // Redirect to the desired page after sign-out
       } catch (error) {
         console.error(error);
       }
@@ -66,8 +65,11 @@ export default function Header({ session }: { session: Session | null }) {
     : { title: "تسجيل الدخول", path: "/login" };
 
   return pathname === "/login" || pathname === "/signup" ? null : (
-    <header className={`w-full transition duration-300 ${header ? 'fixed backdrop-blur-md bg-white/30' : 'bg-white'}`}>
-
+    <header
+      className={`w-full transition duration-300 ${
+        header ? "fixed backdrop-blur-md bg-white/30" : "bg-white"
+      }`}
+    >
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"

@@ -41,9 +41,11 @@ const CarDetails = ({ car, currentUserId }: Props) => {
         userId2: currentUserId,
       });
       const chatId = await res.data.Chat;
-      router.push(`/profile/chat/${chatId}`);
+      console.log(res);
 
-      if (!chatId) {
+      if (res.status === 200) {
+        router.push(`/profile/chat/${chatId}`);
+      } else {
         toast({
           variant: "destructive",
           description: "Something went wrong",
@@ -97,6 +99,7 @@ const CarDetails = ({ car, currentUserId }: Props) => {
                     height={400}
                     src={image.Links}
                     alt={""}
+                    aspectRatio={1.7}
                     className="h-full w-full object-cover object-center sm:rounded-lg"
                   />
                 </Tab.Panel>
@@ -122,7 +125,7 @@ const CarDetails = ({ car, currentUserId }: Props) => {
 
               <div
                 className="space-y-6 text-base text-gray-700"
-                dangerouslySetInnerHTML={{ __html: car?.discussion || " " }}
+                dangerouslySetInnerHTML={{ __html: car?.offerDetails || " " }}
               />
             </div>
 
@@ -134,14 +137,15 @@ const CarDetails = ({ car, currentUserId }: Props) => {
                 >
                   شراء{" "}
                 </Button>
-
-                <Button
-                  onClick={(e) => chatHandler(e)}
-                  type="submit"
-                  className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                >
-                  تحدث مع البائع{" "}
-                </Button>
+                {currentUserId! !== car?.ownerId && (
+                  <Button
+                    onClick={(e) => chatHandler(e)}
+                    type="submit"
+                    className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                  >
+                    تحدث مع البائع{" "}
+                  </Button>
+                )}
               </div>
             </form>
 
@@ -202,7 +206,7 @@ const CarDetails = ({ car, currentUserId }: Props) => {
                           </li>
                           <li className="flex w-40 justify-between">
                             <span className=" font-bold text-lg">الفئة</span>{" "}
-                            {car?.class}{" "}
+                            {car?.carClass}{" "}
                           </li>
                           <li className="flex w-40 justify-between">
                             <span className=" font-bold text-lg">البلد</span>{" "}

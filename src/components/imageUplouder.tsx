@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   CldImage,
   CldUploadButton,
@@ -9,125 +7,148 @@ import {
 } from "next-cloudinary";
 
 import { Button } from "./ui/button";
-export default function ImageUplouder() {
+import { Files } from "./listingCarsForm";
+
+export default function ImageUplouder({
+  filesHandler,
+}: {
+  filesHandler: (files: Files) => void;
+}) {
   const [imageInfo, setImageInfo] = useState<{
-    info: { public_id: string[]; thumbnail_url: string[]; video_id: string[] };
+    public_id: string[];
+    thumbnail_url: string[];
+    video_id: string[];
   }>({
-    info: {
-      public_id: [],
-      thumbnail_url: [],
-      video_id: [],
-    },
+    public_id: [],
+    thumbnail_url: [],
+    video_id: [],
   });
+
   const [videoUrl, setVideoUrl] = useState<string[]>([]);
-  // const url = getCldVideoUrl({
-  //   width: 960,
-  //   height: 600,
-  //   src: imageInfo.info.video_id,
-  // });
+  const [showMediaPopup, setShowMediaPopup] = useState(false);
+  const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
 
-  const getVideoUrls = () => {
-    imageInfo.info.video_id.map((url) => {
-      const videoUrl = getCldVideoUrl({
-        width: 960,
-        height: 600,
-        src: url,
-      });
-
-      setVideoUrl((prev) => {
-        return [...prev, videoUrl];
-      });
-    });
+  const handleImageUpload = (res: CldUploadWidgetResults) => {
+    if (typeof res.info === "object" && "resource_type" in res.info) {
+      if (res.info.resource_type === "video") {
+        setImageInfo((prev) => ({
+          ...prev,
+          video_id: [...prev.video_id, (res.info as any).public_id as string],
+        }));
+        setVideoUrl((prev) => [
+          ...prev,
+          getCldVideoUrl({
+            width: 960,
+            height: 600,
+            src: (res.info as any).public_id as string,
+          }),
+        ]);
+        // filesHandler(videoUrl);
+      } else {
+        setImageInfo((prev) => ({
+          ...prev,
+          public_id: [...prev.public_id, (res.info as any).public_id as string],
+          thumbnail_url: [
+            ...prev.thumbnail_url,
+            (res.info as any).thumbnail_url as string,
+          ],
+        }));
+        // filesHandler(imageInfo);
+      }
+    }
   };
 
-  console.log(imageInfo);
-  console.log(videoUrl);
+  const handleMediaClick = (media: string) => {
+    setSelectedMedia(media);
+    setShowMediaPopup(true);
+  };
+
+  const closeMediaPopup = () => {
+    setSelectedMedia(null);
+    setShowMediaPopup(false);
+  };
+
+  useEffect(() => {
+    filesHandler(imageInfo);
+  }, [imageInfo]);
 
   return (
-    <div className="">
-      <div className=" w-full flex justify-center my-16">
+    <div className="container mx-auto p-8">
+      <div className="flex justify-center mb-8">
         <Button asChild>
           <CldUploadButton
             uploadPreset="v6svhohp"
-            onUpload={(res: CldUploadWidgetResults) => {
-              if (typeof res.info === "object" && "resource_type" in res.info) {
-                if (res.info.resource_type === "video") {
-                  console.log(res);
-
-                  setImageInfo((prev) => ({
-                    ...prev,
-                    info: {
-                      ...prev.info,
-                      video_id: [
-                        ...prev.info.video_id,
-                        (res.info as any).public_id as string,
-                      ],
-                    },
-                  }));
-                  getVideoUrls();
-                } else {
-                  setImageInfo((prev) => ({
-                    ...prev,
-                    info: {
-                      ...prev.info,
-                      public_id: [
-                        ...prev.info.public_id,
-                        (res.info as any).public_id as string,
-                      ],
-                      thumbnail_url: [
-                        ...prev.info.thumbnail_url,
-                        (res.info as any).thumbnail_url as string,
-                      ],
-                    },
-                  }));
-                }
-                console.log(res.info.resource_type);
-              }
-            }}
+            onUpload={handleImageUpload}
+            options={{ multiple: true }}
           >
             تحميل ملفاتك
           </CldUploadButton>
         </Button>
       </div>
 
-      <div>
-        <div className=" flex flex-col justify-center items-center">
-          {imageInfo.info.public_id.length !== 0 ? (
-            <h5 className=" font-bold text-4xl py-10 text-[#04214c]"> صور </h5>
-          ) : (
-            ""
-          )}
-          <div className="flex justify-evenly w-full">
-            {imageInfo?.info?.thumbnail_url.map((image, index) => (
-              <div key={index} className=" rounded-lg overflow-hidden">
-                <CldImage alt={"image"} src={image} width={200} height={200} />
-              </div>
-            ))}
+      <div className="grid grid-cols-4 gap-4">
+        {imageInfo.thumbnail_url.map((image, index) => (
+          <div
+            key={index}
+            className="overflow-hidden rounded-lg shadow-lg bg-white relative group cursor-pointer h-fit"
+            onClick={() => handleMediaClick(image)}
+          >
+            <CldImage
+              alt="image"
+              src={image}
+              width={200}
+              height={200}
+              aspectRatio={1.77}
+            />
+            <span className="absolute bottom-0 bg-black text-white py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
+              صورة {index + 1}
+            </span>
           </div>
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          {imageInfo.info.video_id.length !== 0 ? (
-            <h5 className=" font-bold text-4xl py-10 text-[#04214c]">
-              {" "}
-              الفيديوهات{" "}
-            </h5>
-          ) : (
-            ""
-          )}
-          <div className="flex justify-evenly w-full">
-            {videoUrl.map((url, idx) => {
-              return (
-                <div key={idx}>
-                  <video width="300" height="300" controls>
-                    <source src={url} type="video/mp4" />
-                    Sorry, your browser doesn`&apos;`t support videos.
-                  </video>
-                </div>
-              );
-            })}
+        ))}
+
+        {videoUrl.map((url, index) => (
+          <div
+            key={index}
+            className="overflow-hidden rounded-lg shadow-lg bg-black relative group cursor-pointer"
+            onClick={() => handleMediaClick(url)}
+          >
+            <video width="400" height="400" controls>
+              <source src={url} type="video/mp4" />
+              Sorry, your browser doesn`&apos;`t support videos.
+            </video>
+            <span className="absolute bottom-0 bg-white text-black py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
+              فيديو {index + 1}
+            </span>
           </div>
-        </div>
+        ))}
       </div>
+
+      {showMediaPopup && (
+        <div className="fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-75 flex justify-center items-center">
+          <div className="max-w-4xl w-full">
+            {selectedMedia && selectedMedia.includes(".mp4") ? (
+              <video width="100%" height="auto" controls>
+                <source src={selectedMedia} type="video/mp4" />
+                Sorry, your browser doesn`&apos;`t support videos.
+              </video>
+            ) : (
+              <CldImage
+                src={selectedMedia!}
+                alt="Full size"
+                fill={true}
+                quality={100}
+                className="max-w-full max-h-full"
+              />
+            )}
+            <button
+              onClick={closeMediaPopup}
+              className="absolute top-4 right-4 bg-white rounded-full p-2"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

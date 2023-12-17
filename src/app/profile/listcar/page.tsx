@@ -1,41 +1,36 @@
 "use client";
-
-import ImageUplouder from "@/components/imageUplouder";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { FaCarSide } from "react-icons/fa6";
-import { FaCarBurst } from "react-icons/fa6";
+import ListingCarsForm from "@/components/listingCarsForm";
 
 type Props = {};
 
 const Page = (props: Props) => {
-  const [formData, setFormData] = useState({
-    title: "",
-    kilometers: "",
-    model: "",
-    transmission: "Automatic",
-    offerDetails: "",
-    location: "",
-    price: "",
-    carBrand: "",
-    carModel: "",
-    category: "",
-    engineCapacity: "",
-    carColor: "",
-    collisionLocation: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   title: "",
+  //   kilometers: "",
+  //   model: "",
+  //   transmission: "Automatic",
+  //   offerDetails: "",
+  //   location: "",
+  //   price: "",
+  //   carBrand: "",
+  //   carModel: "",
+  //   category: "",
+  //   engineCapacity: "",
+  //   carColor: "",
+  //   collisionLocation: "",
+  // });
 
-  const handleInputChange = (fieldName: string, value: string) => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [fieldName]: value,
-    }));
-  };
+  // const handleInputChange = (fieldName: string, value: string) => {
+  //   setFormData((prevFormData) => ({
+  //     ...prevFormData,
+  //     [fieldName]: value,
+  //   }));
+  // };
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("Form Data:", formData);
-  };
+  // const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   console.log("Form Data:", formData);
+  // };
 
   return (
     <div className="flex flex-col">
@@ -45,7 +40,7 @@ const Page = (props: Props) => {
         </h1>
       </div>
 
-      <form onSubmit={handleFormSubmit}>
+      {/* <form onSubmit={handleFormSubmit}>
         <div className="px-8 pb-8 min-h-screen flex flex-col gap-6 items-center">
           <div>
             {" "}
@@ -259,7 +254,8 @@ const Page = (props: Props) => {
             </Button>
           </div>
         </div>
-      </form>
+      </form>  */}
+      <ListingCarsForm />
     </div>
   );
 };

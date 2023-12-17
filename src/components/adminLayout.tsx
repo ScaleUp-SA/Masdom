@@ -10,25 +10,12 @@ type Props = {
 
 const sidebarNavItems = [
   {
-    title: "حسابي",
-    href: "/profile/account",
-  },
-
-  {
-    title: "اعلاناتي",
-    href: "/profile/advertise",
-  },
-  {
-    title: "المحادثات",
-    href: "/profile/chat",
-  },
-  {
-    title: "اضف اعلان",
-    href: "/profile/listcar",
+    title: "لوحة التحكم",
+    href: "/profile/adminpanel",
   },
 ];
 
-const ProfileLayout = ({ children }: Props) => {
+const AdminLayout = ({ children }: Props) => {
   const pathname = usePathname();
   return (
     <>
@@ -51,4 +38,4 @@ const ProfileLayout = ({ children }: Props) => {
   );
 };
 
-export default ProfileLayout;
+export default AdminLayout;

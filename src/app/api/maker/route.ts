@@ -1,16 +1,31 @@
-import { PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
-export const POST = async (req: NextRequest, res: NextResponse) => {
-  try {
-    const { maker } = await req.json();
 
-    const createdMakers = await prisma.carsMakers.createMany({
-      data: maker,
-    });
-    return NextResponse.json({ message: "created maker" });
+export const GET = async (req: NextRequest) => {
+  try {
+    const makers = await prisma.carsMakers.findMany();
+
+    // Check if makers is not empty
+    if (!makers || makers.length === 0) {
+      return NextResponse.json(
+        { message: "No data found in carsMakers" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(
+      {
+        makers,
+      },
+      { status: 200 }
+    );
   } catch (error) {
-    console.log(error);
+    console.error("Error in GET method:", error);
+    return NextResponse.json(
+      { message: "Internal server error", error: error },
+      { status: 500 }
+    );
   }
 };
