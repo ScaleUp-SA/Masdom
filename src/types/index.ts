@@ -1,4 +1,10 @@
-import { CarsImages, ListingCars, Message } from "@prisma/client";
+import {
+  CarsImages,
+  CarsVideos,
+  Damage,
+  ListingCars,
+  Message,
+} from "@prisma/client";
 
 export type Session = {
   user: {
@@ -67,5 +73,29 @@ export interface FullCar extends ListingCars {
     name: string;
   } | null;
 
-  Images: CarsImages[];
+  images: CarsImages[];
+  videos: CarsVideos[];
+  damage: Damage[];
 }
+
+export type FormData = {
+  damage: Damage[];
+  videos: CarsVideos[];
+  images: CarsImages[];
+  carId: string;
+  title: string;
+  mileage: string;
+  year: string;
+  carsModelsId: string;
+  city: string;
+  color: string;
+  country: string;
+  cylinders: string;
+  offerDetails: string;
+  ownerId: string;
+  price: string;
+  shape: string;
+  carClass: string;
+  carsMakersId: string;
+  transmission: string;
+};

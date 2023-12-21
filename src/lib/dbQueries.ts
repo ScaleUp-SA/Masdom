@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prismaClient";
 import { Prisma } from "@prisma/client";
-
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/nextAuth";
 interface ChatCreateInput {
   users: { connect: { id: string }[] };
   messages?: Prisma.MessageCreateNestedManyWithoutChatInput;
@@ -14,9 +15,9 @@ export const getFeaturedCars = async () => {
     include: {
       CarsMakers: true,
       CarsModels: true,
-      Damage: true,
-      Images: true,
-      Videos: true,
+      damage: true,
+      images: true,
+      videos: true,
     },
   });
   return featuredCars;
@@ -30,9 +31,9 @@ export const getLatestCars = async () => {
     include: {
       CarsMakers: true,
       CarsModels: true,
-      Damage: true,
-      Images: true,
-      Videos: true,
+      damage: true,
+      images: true,
+      videos: true,
     },
   });
 
@@ -45,9 +46,9 @@ export const getCar = async (id: string) => {
     include: {
       CarsMakers: true,
       CarsModels: true,
-      Damage: true,
-      Images: true,
-      Videos: true,
+      damage: true,
+      images: true,
+      videos: true,
     },
   });
   return car;
@@ -61,9 +62,9 @@ export const getUserCars = async (id: string) => {
     include: {
       CarsMakers: true,
       CarsModels: true,
-      Damage: true,
-      Images: true,
-      Videos: true,
+      damage: true,
+      images: true,
+      videos: true,
     },
   });
   return userCars;

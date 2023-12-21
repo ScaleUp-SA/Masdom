@@ -1,16 +1,12 @@
-// import necessary modules and PrismaClient
-
-import { PrismaClient } from "@prisma/client";
+import { CarsImages, CarsVideos, PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
-export const POST = async function handler(
-  req: NextRequest,
-  res: NextResponse
-) {
+export const PUT = async function handler(req: NextRequest, res: NextResponse) {
   try {
     const {
+      carId,
       title,
       offerDetails,
       price,
@@ -28,19 +24,22 @@ export const POST = async function handler(
       carsMakersId,
       carsModelsId,
       damage,
-      CarsImages,
-      CarsVideos,
+      images, // Changed variable name to match the case in the request
+      videos, // Changed variable name to match the case in the request
     } = await req.json();
 
-    if (!damage) {
+    if (!images) {
       return NextResponse.json(
-        { message: "damage not exsisting" },
+        { message: "CarsImages missing" },
         { status: 400 }
       );
     }
 
-    // Create the new listing car
-    const newListingCar = await prisma.listingCars.create({
+    // Update the existing listing car
+    const updatedListingCar = await prisma.listingCars.update({
+      where: {
+        id: carId,
+      },
       data: {
         title,
         offerDetails,
@@ -59,19 +58,30 @@ export const POST = async function handler(
         carsMakersId,
         carsModelsId,
         damage: {
+          deleteMany: {}, // You might need to handle deletion differently if required
           createMany: {
-            data: damage,
+            data: damage.map((d: any) => ({
+              description: d.description,
+            })),
           },
         },
         images: {
-          createMany: {
-            data: CarsImages || [],
-          },
+          deleteMany: {},
+          createMany:
+            {
+              data: images.map((image: CarsImages) => ({
+                links: image.links,
+              })),
+            } || [],
         },
         videos: {
-          createMany: {
-            data: CarsVideos || [],
-          },
+          deleteMany: {},
+          createMany:
+            {
+              data: videos.map((video: CarsVideos) => ({
+                links: video.links,
+              })),
+            } || [],
         },
       },
       include: {
@@ -84,7 +94,7 @@ export const POST = async function handler(
     });
 
     return NextResponse.json(
-      { message: "Created", data: newListingCar },
+      { message: "Updated", data: updatedListingCar },
       { status: 200 }
     );
   } catch (error) {

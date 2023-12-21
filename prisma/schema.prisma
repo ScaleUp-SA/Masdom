@@ -73,28 +73,28 @@ model ListingCars {
   CarsModels   CarsModels? @relation(fields: [carsModelsId], references: [id], onDelete: Cascade)
   carsModelsId String?
 
-  Damage Damage[]
-  Images CarsImages[]
-  Videos CarsVideos[]
+  damage Damage[] // Updated field name to 'damage'
+  images CarsImages[]
+  videos CarsVideos[]
 }
 
 model CarsImages {
   id        String   @id @default(uuid())
-  Links     String
+  links     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  ListingCars   ListingCars? @relation(fields: [listingCarsId], references: [id])
+  listingCars   ListingCars? @relation(fields: [listingCarsId], references: [id])
   listingCarsId String?
 }
 
 model CarsVideos {
   id        String   @id @default(uuid())
-  Links     String
+  links     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  ListingCars   ListingCars? @relation(fields: [listingCarsId], references: [id])
+  listingCars   ListingCars? @relation(fields: [listingCarsId], references: [id])
   listingCarsId String?
 }
 

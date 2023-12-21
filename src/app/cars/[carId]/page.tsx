@@ -17,7 +17,7 @@ const page = async ({ params }: Props) => {
 
   return (
     <div>
-      <CarDetails car={car} currentUserId={session?.user.id} />
+      <CarDetails car={car} session={session} />
     </div>
   );
 };

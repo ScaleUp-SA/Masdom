@@ -51,7 +51,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       include: {
         CarsMakers: true,
         CarsModels: true,
-        Damage: true,
+        damage: true,
       },
     });
 

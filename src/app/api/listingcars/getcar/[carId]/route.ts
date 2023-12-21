@@ -12,6 +12,13 @@ export const GET = async (req: NextRequest, context: any) => {
   try {
     const carData = await prisma.listingCars.findUnique({
       where: { id: carId as string },
+      include: {
+        damage: true,
+        images: true,
+        videos: true,
+        CarsMakers: true,
+        CarsModels: true,
+      },
     });
 
     if (!carData) {
@@ -21,7 +28,7 @@ export const GET = async (req: NextRequest, context: any) => {
     return NextResponse.json(
       {
         message: "Car data fetched successfully",
-        chat: carData,
+        car: carData,
       },
       { status: 200 }
     );

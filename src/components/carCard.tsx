@@ -49,10 +49,10 @@ const CarCard = ({ carData }: { carData: FullCar }) => {
 
         <CldImage
           alt={"image"}
-          src={carData.Images[0].Links}
-          width={400}
-          height={300}
-          className="rounded-t-xl"
+          src={carData?.images[0]?.links}
+          width={500}
+          height={500}
+          className="rounded-t-xl object-contain object-center sm:rounded-lg w-[500px] "
         />
       </div>
       <div className="px-5">

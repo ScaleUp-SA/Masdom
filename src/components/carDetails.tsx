@@ -8,18 +8,25 @@ import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import { CldImage } from "next-cloudinary";
-import { FullCar } from "@/types";
+import { FullCar, Session } from "@/types";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 type Props = {
   car: FullCar | null;
-  currentUserId: string | undefined;
+  session: Session | null;
 };
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-const CarDetails = ({ car, currentUserId }: Props) => {
+const CarDetails = ({ car, session }: Props) => {
   const router = useRouter();
 
   const { toast } = useToast();
@@ -28,7 +35,7 @@ const CarDetails = ({ car, currentUserId }: Props) => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    if (!car?.ownerId || !currentUserId) {
+    if (!car?.ownerId || !session?.user.id) {
       toast({
         variant: "destructive",
         title: "Missing Id",
@@ -38,7 +45,7 @@ const CarDetails = ({ car, currentUserId }: Props) => {
     } else {
       const res = await axios.post("/api/chat/create", {
         userId1: car.ownerId,
-        userId2: currentUserId,
+        userId2: !session?.user.id,
       });
       const chatId = await res.data.Chat;
       console.log(res);
@@ -53,28 +60,108 @@ const CarDetails = ({ car, currentUserId }: Props) => {
       }
     }
   };
+  const deleteHandler = async () => {
+    if (car?.id) {
+      const res = await axios.delete("/api/listingcars/delete", {
+        data: { id: car.id },
+      });
+      if (res.status === 200) {
+        router.push(`/`);
+        toast({
+          variant: "destructive",
+          description: "تم حذف السيارة ",
+        });
+      }
+    }
+  };
+
+  const featureHandler = async () => {
+    if (car?.id) {
+      const res = await axios.put("/api/listingcars/update/featured", {
+        id: car.id,
+        featured: !car.featured,
+      });
+      if (res.status === 200) {
+        router.push(`/`);
+        toast({
+          description: "تم تمميز السيارة ",
+        });
+      }
+    }
+  };
+
+  const editHandler = async () => {
+    if (car?.id) {
+      router.push(`/cars/${car.id}/edit`);
+    }
+  };
+
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        {session?.user.isAdmin && (
+          <DropdownMenu>
+            <DropdownMenuTrigger className=" rounded-md shadow-2xl p-2 hover:bg-gray-300 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
+                />
+              </svg>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className=" flex flex-col justify-end items-end">
+              <DropdownMenuItem
+                onClick={editHandler}
+                className=" cursor-pointer w-full flex justify-end"
+              >
+                <span>تعديل</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={featureHandler}
+                className=" cursor-pointer w-full flex justify-end"
+              >
+                <span className=" ">
+                  {car?.featured === false ? "تمييز" : "اسقاف التمميز"}
+                </span>
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={deleteHandler}
+                className=" cursor-pointer w-full flex justify-end"
+              >
+                <span className=" text-red-600">حذف</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        )}
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
           {/* Image gallery */}
           <Tab.Group as="div" className="flex flex-col-reverse">
             {/* Image selector */}
             <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
               <Tab.List className="grid grid-cols-4 gap-6">
-                {car?.Images.map((image) => (
+                {car?.images.map((image) => (
                   <Tab
                     key={image.id}
                     className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
                   >
                     {({ selected }) => (
                       <>
-                        <span className="absolute inset-0 overflow-hidden rounded-md">
+                        <span className="absolute inset-0 overflow-hidden rounded-md ">
                           <CldImage
-                            src={image.Links}
+                            src={image.links}
                             width={400}
                             height={400}
+                            unoptimized={false}
                             alt={""}
+                            className=" object-contain object-center sm:rounded-lg w-[200px] h-[100px]"
                           />
                         </span>
                         <span
@@ -91,16 +178,15 @@ const CarDetails = ({ car, currentUserId }: Props) => {
               </Tab.List>
             </div>
 
-            <Tab.Panels className="aspect-h-1 aspect-w-1 w-full">
-              {car?.Images.map((image) => (
+            <Tab.Panels className="overflow-hidden ">
+              {car?.images.map((image) => (
                 <Tab.Panel key={image.id}>
                   <CldImage
-                    width={400}
-                    height={400}
-                    src={image.Links}
+                    width={500}
+                    height={500}
+                    src={image.links}
                     alt={""}
-                    aspectRatio={1.7}
-                    className="h-full w-full object-cover object-center sm:rounded-lg"
+                    className=" object-contain object-center sm:rounded-lg w-[500px] h-[500px]"
                   />
                 </Tab.Panel>
               ))}
@@ -137,7 +223,7 @@ const CarDetails = ({ car, currentUserId }: Props) => {
                 >
                   شراء{" "}
                 </Button>
-                {currentUserId! !== car?.ownerId && (
+                {session?.user.id !== car?.ownerId && (
                   <Button
                     onClick={(e) => chatHandler(e)}
                     type="submit"

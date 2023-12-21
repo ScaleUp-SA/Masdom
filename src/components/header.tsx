@@ -66,7 +66,7 @@ export default function Header({ session }: { session: Session | null }) {
 
   return pathname === "/login" || pathname === "/signup" ? null : (
     <header
-      className={`w-full transition duration-300 ${
+      className={`w-full transition duration-300 z-10 ${
         header ? "fixed backdrop-blur-md bg-white/30" : "bg-white"
       }`}
     >

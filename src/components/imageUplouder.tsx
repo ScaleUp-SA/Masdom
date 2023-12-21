@@ -8,11 +8,16 @@ import {
 
 import { Button } from "./ui/button";
 import { Files } from "./listingCarsForm";
+import { CarsImages, CarsVideos } from "@prisma/client";
 
 export default function ImageUplouder({
   filesHandler,
+  images,
+  videos,
 }: {
   filesHandler: (files: Files) => void;
+  images?: CarsImages[];
+  videos?: CarsVideos[];
 }) {
   const [imageInfo, setImageInfo] = useState<{
     public_id: string[];
@@ -24,9 +29,13 @@ export default function ImageUplouder({
     video_id: [],
   });
 
+  console.log(images);
+  console.log(videos);
+
   const [videoUrl, setVideoUrl] = useState<string[]>([]);
   const [showMediaPopup, setShowMediaPopup] = useState(false);
   const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
+  const [videoSorce, setVideoSorce] = useState<string[] | undefined>([]);
 
   const handleImageUpload = (res: CldUploadWidgetResults) => {
     if (typeof res.info === "object" && "resource_type" in res.info) {
@@ -72,6 +81,19 @@ export default function ImageUplouder({
     filesHandler(imageInfo);
   }, [imageInfo]);
 
+  useEffect(() => {
+    const sorce = videos?.map((video) =>
+      getCldVideoUrl({
+        width: 960,
+        height: 600,
+        src: video.links as string,
+      })
+    );
+    setVideoSorce(sorce);
+  }, [videos]);
+
+  console.log(videoSorce);
+
   return (
     <div className="container mx-auto p-8">
       <div className="flex justify-center mb-8">
@@ -80,6 +102,9 @@ export default function ImageUplouder({
             uploadPreset="v6svhohp"
             onUpload={handleImageUpload}
             options={{ multiple: true }}
+            onAbort={(data) => {
+              console.log(data);
+            }}
           >
             تحميل ملفاتك
           </CldUploadButton>
@@ -87,40 +112,85 @@ export default function ImageUplouder({
       </div>
 
       <div className="grid grid-cols-4 gap-4">
-        {imageInfo.thumbnail_url.map((image, index) => (
-          <div
-            key={index}
-            className="overflow-hidden rounded-lg shadow-lg bg-white relative group cursor-pointer h-fit"
-            onClick={() => handleMediaClick(image)}
-          >
-            <CldImage
-              alt="image"
-              src={image}
-              width={200}
-              height={200}
-              aspectRatio={1.77}
-            />
-            <span className="absolute bottom-0 bg-black text-white py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
-              صورة {index + 1}
-            </span>
-          </div>
-        ))}
+        {images
+          ? images.map((image, index) => (
+              <div
+                key={index}
+                className="overflow-hidden rounded-lg shadow-lg bg-white relative group cursor-pointer h-fit -z-0"
+                onClick={() => handleMediaClick(image.links)}
+              >
+                <CldImage
+                  alt="image"
+                  src={image.links}
+                  width={200}
+                  height={200}
+                  className="object-contain sm:rounded-lg w-[200px] h-[200px] "
+                />
+                <span className="absolute bottom-0 bg-black text-white py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
+                  صورة {index + 1}
+                </span>
+              </div>
+            ))
+          : imageInfo.thumbnail_url.map((image, index) => (
+              <div
+                key={index}
+                className="overflow-hidden rounded-lg shadow-lg bg-white relative group cursor-pointer h-fit -z-0"
+                onClick={() => handleMediaClick(image)}
+              >
+                <CldImage
+                  alt="image"
+                  src={image}
+                  width={200}
+                  height={200}
+                  className="object-contain sm:rounded-lg w-[200px] h-[200px] "
+                />
+                <span className="absolute bottom-0 bg-black text-white py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
+                  صورة {index + 1}
+                </span>
+              </div>
+            ))}
 
-        {videoUrl.map((url, index) => (
-          <div
-            key={index}
-            className="overflow-hidden rounded-lg shadow-lg bg-black relative group cursor-pointer"
-            onClick={() => handleMediaClick(url)}
-          >
-            <video width="400" height="400" controls>
-              <source src={url} type="video/mp4" />
-              Sorry, your browser doesn`&apos;`t support videos.
-            </video>
-            <span className="absolute bottom-0 bg-white text-black py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
-              فيديو {index + 1}
-            </span>
-          </div>
-        ))}
+        {videoSorce
+          ? videoSorce.map((url, index) => (
+              <div
+                key={index}
+                className="overflow-hidden rounded-lg shadow-lg bg-black relative group cursor-pointer flex justify-center items-center -z-0 "
+                onClick={() => handleMediaClick(url)}
+              >
+                <video
+                  width="200"
+                  height="200"
+                  controls
+                  className="object-contain  w-[200px] h-[150px]"
+                >
+                  <source src={url} type="video/mp4" />
+                  Sorry, your browser doesn`&apos;`t support videos.
+                </video>
+                <span className="absolute bottom-0 bg-white text-black py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
+                  فيديو {index + 1}
+                </span>
+              </div>
+            ))
+          : videoUrl.map((url, index) => (
+              <div
+                key={index}
+                className="overflow-hidden rounded-lg shadow-lg bg-black relative group cursor-pointer flex justify-center items-center -z-0 "
+                onClick={() => handleMediaClick(url)}
+              >
+                <video
+                  width="200"
+                  height="200"
+                  controls
+                  className="object-contain  w-[200px] h-[150px]"
+                >
+                  <source src={url} type="video/mp4" />
+                  Sorry, your browser doesn`&apos;`t support videos.
+                </video>
+                <span className="absolute bottom-0 bg-white text-black py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
+                  فيديو {index + 1}
+                </span>
+              </div>
+            ))}
       </div>
 
       {showMediaPopup && (

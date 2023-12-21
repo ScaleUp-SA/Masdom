@@ -25,7 +25,11 @@ import {
 import { Textarea } from "./ui/textarea";
 import axios from "axios";
 import { useSession } from "next-auth/react";
-import { CarsMakers, CarsModels } from "@prisma/client";
+import { CarsMakers, CarsModels, Damage, ListingCars } from "@prisma/client";
+import { usePathname } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { FullCar } from "@/types";
+import { Label } from "./ui/label";
 
 const formSchema = z.object({
   title: z.string().min(5, "يجب علي الاقل ان يحتوي علي 5 احرف علي الاقل"),
@@ -44,10 +48,11 @@ const formSchema = z.object({
   cylinders: z.string().min(0, "سعة المحرك يجب أن تكون رقمًا موجبًا"),
   color: z.string().min(2, "يجب علي الاقل ان يحتوي علي 2 احرف علي الاقل"),
   shape: z.string().min(2, "يجب علي الاقل ان يحتوي علي 2 احرف علي الاقل"),
-  Damage: z.string().optional(),
 });
 
-type Props = {};
+type Props = {
+  params?: { carId: string };
+};
 
 export interface Files {
   public_id: string[];
@@ -55,15 +60,52 @@ export interface Files {
   video_id: string[];
 }
 
-const ListingCarsForm = (props: Props) => {
+const ListingCarsForm = ({ params }: Props) => {
   const { data: session, status } = useSession();
   const { toast } = useToast();
   const router = useRouter();
-
+  const pathname = usePathname();
+  console.log(params);
+  const carId = params?.carId;
   const [files, setFiles] = useState<Files>();
   const [fileError, setFileError] = useState(false);
   const [makers, setMakers] = useState<CarsMakers[]>([]);
   const [model, setModel] = useState<CarsModels[]>([]);
+  const [carData, setCarData] = useState<FullCar>();
+  const [damages, setDamages] = useState([{ description: "" }]);
+  const isEditMode = pathname.includes("edit");
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      title: "",
+      mileage: "",
+      year: "",
+      transmission: "اوتوماتيك",
+      offerDetails: "",
+      country: "",
+      price: "",
+      carsMakersId: "",
+      carsModelsId: "",
+      carClass: "",
+      cylinders: "",
+      color: "",
+    },
+  });
+
+  const handleAddMore = () => {
+    setDamages([...damages, { description: "" }]);
+  };
+
+  const handleDescriptionChange = (
+    index: number,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const updatedDamages = [...damages];
+    updatedDamages[index].description = event.target.value;
+    setDamages(updatedDamages);
+  };
+
   useEffect(() => {
     (async () => {
       try {
@@ -76,27 +118,6 @@ const ListingCarsForm = (props: Props) => {
     })();
   }, []);
 
-  console.log(makers);
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      title: "",
-      mileage: "",
-      year: "",
-      transmission: "اوتوماتيك" || "مانيوال",
-      offerDetails: "",
-      country: "",
-      price: "",
-      carsMakersId: "",
-      carsModelsId: "",
-      carClass: "",
-      cylinders: "",
-      color: "",
-      Damage: "",
-    },
-  });
-
   const filesHandler = (files: Files) => {
     console.log(files, "fffffff");
     setFiles(files);
@@ -104,27 +125,40 @@ const ListingCarsForm = (props: Props) => {
   };
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    if (files?.public_id.length! < 3 || files?.public_id.length! < 3) {
+    if (files?.public_id.length! < 3) {
       setFileError(true);
       return;
     } else {
       setFileError(false);
-      const carData = {
+
+      const updatedCar = {
         ...values,
         ownerId: session?.user.id,
-        CarsImages: files?.public_id,
-        CarsVideos: files?.video_id,
+        CarsImages: files?.public_id.map((link) => {
+          return { links: link };
+        }),
+        CarsVideos: files?.video_id.map((link) => {
+          return { links: link };
+        }),
+        damage: damages,
       };
+      console.log(updatedCar, "updated");
+
       try {
-        const response = await axios.post("/api/listingcars/create", carData);
+        const response = await axios.post(
+          "/api/listingcars/create",
+          updatedCar
+        );
         console.log(response.data);
-        // Redirect to another page or update the UI here
+        toast({
+          variant: "default",
+          title: "تم نشر السيارة",
+        });
+        router.push(`/`);
       } catch (error) {
         console.error(error);
-        // Handle the error here
       }
     }
-    console.log(values);
   }
 
   return (
@@ -135,7 +169,11 @@ const ListingCarsForm = (props: Props) => {
           className="px-8 pb-8 min-h-screen flex flex-col gap-6 items-center"
         >
           <div className="mt-10">
-            <ImageUplouder filesHandler={filesHandler} />
+            <ImageUplouder
+              filesHandler={filesHandler}
+              images={carData?.images}
+              videos={carData?.videos}
+            />
             {fileError && (
               <p className=" text-red-600">يجب ادخال 3 صور علي الاقل</p>
             )}
@@ -314,26 +352,58 @@ const ListingCarsForm = (props: Props) => {
                 <FormItem>
                   <FormLabel>مصنع العربية</FormLabel>
                   <FormControl>
-                    <Select
-                      onValueChange={async (value) => {
-                        field.onChange(value);
-                        const res = await axios.get(`/api/model/${value}`);
-                        const models = res.data.models;
-                        setModel(models);
-                      }}
-                      defaultValue={field.value}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="اختار المصنع" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {makers.map((maker) => (
-                          <SelectItem key={maker.id} value={maker.id}>
-                            {maker.name}{" "}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    {!isEditMode ? (
+                      <Select
+                        onValueChange={async (value) => {
+                          console.log(value);
+                          field.onChange(value);
+                          const res = await axios.get(`/api/model/${value}`);
+                          const models = res.data.models;
+                          setModel(models);
+                        }}
+                        defaultValue={field.value}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="اختار المصنع" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {makers.map((maker) => (
+                            <SelectItem key={maker.id} value={maker.id}>
+                              {maker.name}{" "}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    ) : (
+                      <Select
+                        onValueChange={async (value) => {
+                          field.onChange(value);
+                          const res = await axios.get(`/api/model/${value}`);
+                          const models = res.data.models;
+                          setModel(models);
+                        }}
+                        defaultValue={carData?.CarsMakers?.id}
+                      >
+                        <SelectTrigger>
+                          <SelectValue
+                            placeholder={carData?.CarsMakers?.name}
+                            defaultChecked={true}
+                            defaultValue={carData?.CarsMakers?.name}
+                          />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {makers.map((maker) => (
+                            <SelectItem
+                              defaultValue={carData?.CarsMakers?.id}
+                              key={maker.id}
+                              value={maker.id}
+                            >
+                              {maker.name}{" "}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    )}
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -343,33 +413,50 @@ const ListingCarsForm = (props: Props) => {
               control={form.control}
               name="carsModelsId"
               render={({ field }) => (
-                // <FormItem>
-                //   <FormLabel>الموديل</FormLabel>
-                //   <FormControl>
-                //     <Input type="text" placeholder="بيكانتو" {...field} />
-                //   </FormControl>
-                //   <FormMessage />
-                // </FormItem>
                 <FormItem>
                   <FormLabel>ماركة العربية</FormLabel>
                   <FormControl>
-                    <Select
-                      onValueChange={async (value) => {
-                        field.onChange(value);
-                      }}
-                      defaultValue={field.value}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="اختار الماركة" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {model.map((item) => (
-                          <SelectItem key={item.id} value={item.id}>
-                            {item.name}{" "}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    {!isEditMode ? (
+                      <Select
+                        onValueChange={async (value) => {
+                          field.onChange(value);
+                        }}
+                        defaultValue={field.value}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="اختار الماركة" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {model.map((item) => (
+                            <SelectItem key={item.id} value={item.id}>
+                              {item.name}{" "}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    ) : (
+                      <Select
+                        onValueChange={async (value) => {
+                          field.onChange(value);
+                        }}
+                        defaultValue={field.value}
+                      >
+                        <SelectTrigger>
+                          <SelectValue
+                            placeholder={carData?.CarsModels?.name}
+                            defaultChecked={true}
+                            defaultValue={carData?.CarsModels?.name}
+                          />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {model.map((item) => (
+                            <SelectItem key={item.id} value={item.id}>
+                              {item.name}{" "}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    )}
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -420,29 +507,29 @@ const ListingCarsForm = (props: Props) => {
             />
           </div>
           <div className="flex flex-col w-4/5 gap-2">
-            <FormField
-              control={form.control}
-              name="Damage"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>مكان الصدمة</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      required
-                      placeholder="مكان الصدمة"
-                      className="max-h-24 rounded p-2 border w-full"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <div className=" flex justify-center">
+              <Button className="w-1/2" type="button" onClick={handleAddMore}>
+                اضف المزيد من الضرر
+              </Button>
+            </div>
+            {damages.map((damage, index) => (
+              <div
+                key={index}
+                className="grid w-full max-w-sm items-center gap-1.5"
+              >
+                <Label htmlFor="damage">الضرر</Label>
+                <Input
+                  onChange={(e) => handleDescriptionChange(index, e)}
+                  type="text"
+                  id="damage"
+                  placeholder="ادخل الضرر و المكان"
+                />
+              </div>
+            ))}
           </div>
+
           <div className="w-4/5 my-4">
-            <Button type="submit" className="w-full">
-              نشر المعاملة
-            </Button>
+            <Button className="w-full">نشر المعاملة</Button>
           </div>
         </form>
       </Form>
