@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import CarCard from "@/components/carCard";
 import { getFeaturedCars, getLatestCars } from "@/lib/dbQueries";
+import Link from "next/link";
 
 export const metadata = {
   title: "الرئيسية | منصة مصدوم",
@@ -52,7 +53,11 @@ export default async function Home() {
           ))}
         </div>
         <div className={styles.btn}>
-          <button>عرض جميع التفاصيل</button>
+          <button>
+            <Link href={"./cars"}>
+              عرض جميع التفاصيل
+            </Link>
+          </button>
         </div>
       </div>
     </div>

@@ -24,6 +24,7 @@ import bgImage from "../../../../public/images/heroBg.png";
 import logo from "../../../../public/masdoomLogo.svg";
 import { useEffect } from "react";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 type Props = {};
 
@@ -161,6 +162,7 @@ const Page = (props: Props) => {
             >
               انشاء حساب
             </Button>
+            <p> لديك حساب بالفعل؟<Link className="text-green-400 text-sm cursor-pointer" href={"/login"} > تسجيل الدخول</Link></p>
           </form>
         </div>
       </Form>

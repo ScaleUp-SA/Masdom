@@ -228,7 +228,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
   }, [formData.carsMakersId]);
 
   return (
-    <div className=" w-full p-10">
+    <div className=" w-full p-10 max-lg:p-1">
       <div className="mt-10">
         <ImageUplouder
           filesHandler={filesHandler}
@@ -239,7 +239,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
           <p className=" text-red-600">يجب ادخال 3 صور علي الاقل</p>
         )}
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="px-14 py-8">
         <div className="mb-4">
           <label
             htmlFor="title"
@@ -254,9 +254,8 @@ const Page = ({ params }: { params: { carId: string } }) => {
             type="text"
             id="title"
             name="title"
-            className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-              errors.title ? "border-red-500" : ""
-            }`}
+            className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.title ? "border-red-500" : ""
+              }`}
           />
           {errors.title && (
             <p className="text-red-500 text-sm mt-1">{errors.title}</p>
@@ -276,16 +275,15 @@ const Page = ({ params }: { params: { carId: string } }) => {
             type="text"
             id="offerDetails"
             name="offerDetails"
-            className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-              errors.offerDetails ? "border-red-500" : ""
-            }`}
+            className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.offerDetails ? "border-red-500" : ""
+              }`}
           />
           {errors.offerDetails && (
             <p className="text-red-500 text-sm mt-1">{errors.offerDetails}</p>
           )}
         </div>
-        <div className=" flex flex-wrap">
-          <div className="mb-4 w-1/2 ">
+        <div className=" flex flex-wrap gap-6 items-center justify-start">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="mileage"
               className="block text-sm font-medium text-gray-700"
@@ -299,15 +297,14 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="mileage"
               name="mileage"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-                errors.mileage ? "border-red-500" : ""
-              }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.mileage ? "border-red-500" : ""
+                }`}
             />
             {errors.mileage && (
               <p className="text-red-500 text-sm mt-1">{errors.mileage}</p>
             )}
           </div>
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="year"
               className="block text-sm font-medium text-gray-700"
@@ -321,15 +318,14 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="year"
               name="year"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-                errors.year ? "border-red-500" : ""
-              }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.year ? "border-red-500" : ""
+                }`}
             />
             {errors.year && (
               <p className="text-red-500 text-sm mt-1">{errors.year}</p>
             )}
           </div>
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="transmission"
               className="block text-sm font-medium text-gray-700"
@@ -341,9 +337,8 @@ const Page = ({ params }: { params: { carId: string } }) => {
               value={formData.transmission}
               id="transmission"
               name="transmission"
-              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${
-                errors.year ? "border-red-500" : ""
-              }`}
+              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${errors.year ? "border-red-500" : ""
+                }`}
             >
               <option value="اوتوماتيك">اوتوماتيك</option>
               <option value="مانيوال">مانيوال</option>
@@ -352,7 +347,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.transmission}</p>
             )}
           </div>
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="carClass"
               className="block text-sm font-medium text-gray-700"
@@ -366,15 +361,14 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="carClass"
               name="carClass"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-                errors.carClass ? "border-red-500" : ""
-              }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.carClass ? "border-red-500" : ""
+                }`}
             />
             {errors.carClass && (
               <p className="text-red-500 text-sm mt-1">{errors.carClass}</p>
             )}
           </div>
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="carsMakersId"
               className="block text-sm font-medium text-gray-700"
@@ -387,9 +381,8 @@ const Page = ({ params }: { params: { carId: string } }) => {
               value={formData.carsMakersId}
               id="carsMakersId"
               name="carsMakersId"
-              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${
-                errors.year ? "border-red-500" : ""
-              }`}
+              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${errors.year ? "border-red-500" : ""
+                }`}
             >
               {makers.map((maker, idx) => (
                 <option key={idx} value={maker.id}>
@@ -402,7 +395,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.carsMakersId}</p>
             )}
           </div>
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="carsModelsId"
               className="block text-sm font-medium text-gray-700"
@@ -414,9 +407,8 @@ const Page = ({ params }: { params: { carId: string } }) => {
               value={formData.carsModelsId}
               id="carsModelsId"
               name="carsModelsId"
-              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${
-                errors.year ? "border-red-500" : ""
-              }`}
+              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${errors.year ? "border-red-500" : ""
+                }`}
             >
               {Array.isArray(model) &&
                 model.map((item, idx) => (
@@ -429,7 +421,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.carsModelsId}</p>
             )}
           </div>
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="city"
               className="block text-sm font-medium text-gray-700"
@@ -443,15 +435,14 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="city"
               name="city"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-                errors.city ? "border-red-500" : ""
-              }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.city ? "border-red-500" : ""
+                }`}
             />
             {errors.city && (
               <p className="text-red-500 text-sm mt-1">{errors.city}</p>
             )}
           </div>
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="color"
               className="block text-sm font-medium text-gray-700"
@@ -465,15 +456,14 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="color"
               name="color"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-                errors.color ? "border-red-500" : ""
-              }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.color ? "border-red-500" : ""
+                }`}
             />
             {errors.color && (
               <p className="text-red-500 text-sm mt-1">{errors.color}</p>
             )}
           </div>
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="country"
               className="block text-sm font-medium text-gray-700"
@@ -487,15 +477,14 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="country"
               name="country"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-                errors.country ? "border-red-500" : ""
-              }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.country ? "border-red-500" : ""
+                }`}
             />
             {errors.country && (
               <p className="text-red-500 text-sm mt-1">{errors.country}</p>
             )}
           </div>
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="cylinders"
               className="block text-sm font-medium text-gray-700"
@@ -509,15 +498,14 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="cylinders"
               name="cylinders"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-                errors.cylinders ? "border-red-500" : ""
-              }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.cylinders ? "border-red-500" : ""
+                }`}
             />
             {errors.cylinders && (
               <p className="text-red-500 text-sm mt-1">{errors.cylinders}</p>
             )}
           </div>
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="ownerId"
               className="block text-sm font-medium text-gray-700"
@@ -531,15 +519,14 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="ownerId"
               name="ownerId"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-                errors.ownerId ? "border-red-500" : ""
-              }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.ownerId ? "border-red-500" : ""
+                }`}
             />
             {errors.ownerId && (
               <p className="text-red-500 text-sm mt-1">{errors.ownerId}</p>
             )}
           </div>
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-[45%] max-lg:w-full">
             <label
               htmlFor="price"
               className="block text-sm font-medium text-gray-700"
@@ -553,9 +540,8 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="price"
               name="price"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-                errors.price ? "border-red-500" : ""
-              }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.price ? "border-red-500" : ""
+                }`}
             />
             {errors.price && (
               <p className="text-red-500 text-sm mt-1">{errors.price}</p>
@@ -575,9 +561,8 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="shape"
               name="shape"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
-                errors.shape ? "border-red-500" : ""
-              }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.shape ? "border-red-500" : ""
+                }`}
             />
             {errors.shape && (
               <p className="text-red-500 text-sm mt-1">{errors.shape}</p>
@@ -600,11 +585,11 @@ const Page = ({ params }: { params: { carId: string } }) => {
               </div>
             ))}
           </div>
-          <Button type="button" onClick={handleAddMore}>
+          <Button type="button" onClick={handleAddMore} className="w-[29%] max-lg:w-[50%]">
             اضف الضرر
           </Button>
         </div>
-        <Button type="submit" className="px-4 py-2 text-white rounded-md">
+        <Button type="submit" className="px-4 py-2 text-white rounded-md mt-8 w-full">
           Submit
         </Button>
       </form>
