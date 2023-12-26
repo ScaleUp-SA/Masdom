@@ -15,6 +15,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { BsCashCoin } from "react-icons/bs";
+import { IoLocation } from "react-icons/io5";
 
 type Props = {
   car: FullCar | null;
@@ -99,10 +101,10 @@ const CarDetails = ({ car, session }: Props) => {
 
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="p-10 max-sm:p-4">
         {session?.user.isAdmin && (
           <DropdownMenu>
-            <DropdownMenuTrigger className=" rounded-md shadow-2xl p-2 hover:bg-gray-300 ">
+            <DropdownMenuTrigger className=" rounded-md shadow-2xl p-2 mb-2 hover:bg-gray-300 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -142,43 +144,12 @@ const CarDetails = ({ car, session }: Props) => {
             </DropdownMenuContent>
           </DropdownMenu>
         )}
-        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
-          {/* Image gallery */}
-          <Tab.Group as="div" className="flex flex-col-reverse">
-            {/* Image selector */}
-            <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
-              <Tab.List className="grid grid-cols-4 gap-6">
-                {car?.images.map((image) => (
-                  <Tab
-                    key={image.id}
-                    className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
-                  >
-                    {({ selected }) => (
-                      <>
-                        <span className="absolute inset-0 overflow-hidden rounded-md ">
-                          <CldImage
-                            src={image.links}
-                            width={400}
-                            height={400}
-                            unoptimized={false}
-                            alt={""}
-                            className=" object-contain object-center sm:rounded-lg w-[200px] h-[100px]"
-                          />
-                        </span>
-                        <span
-                          className={classNames(
-                            selected ? "ring-green-500" : "ring-transparent",
-                            "pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2"
-                          )}
-                          aria-hidden="true"
-                        />
-                      </>
-                    )}
-                  </Tab>
-                ))}
-              </Tab.List>
-            </div>
 
+        <div className="flex flex-col gap-12 max-lg:gap-2">
+          <Tab.Group
+            as="div"
+            className="flex flex-row items-start justify-evenly p-4 max-xl:p-2 max-xl:flex-col gap-6 "
+          >
             <Tab.Panels className="overflow-hidden ">
               {car?.images.map((image) => (
                 <Tab.Panel key={image.id}>
@@ -187,153 +158,159 @@ const CarDetails = ({ car, session }: Props) => {
                     height={500}
                     src={image.links}
                     alt={""}
-                    className=" object-contain object-center sm:rounded-lg w-[500px] h-[500px]"
+                    className="object-contain object-center sm:rounded-lg w-[700px] max-h-[400px]"
                   />
                 </Tab.Panel>
               ))}
             </Tab.Panels>
+
+            {/* Image selector */}
+            <Tab.List className="grid gap-4 grid-cols-2 grid-rows-auto max-xl:flex flex-wrap">
+              {car?.images.map((image) => (
+                <Tab
+                  key={image.id}
+                  className="relative flex items-center justify-center h-[200px] w-[200px] cursor-pointer rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4 max-lg:h-[100px] max-lg:w-[100px] max-sm:w-[50px] max-sm:h-[50px]"
+                >
+                  {({ selected }) => (
+                    <>
+                      <span className="absolute inset-0 overflow-hidden rounded-md flex items-center justify-center">
+                        <CldImage
+                          src={image.links}
+                          width={200}
+                          height={200}
+                          unoptimized={false}
+                          alt={""}
+                          className="object-contain object-center sm:rounded-lg w-[200px] h-[200px] max-xl:[100px] max-xl:[100px]"
+                        />
+                      </span>
+                      <span
+                        className={classNames(
+                          selected ? "ring-green-500" : "ring-transparent",
+                          "pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2"
+                        )}
+                        aria-hidden="true"
+                      />
+                    </>
+                  )}
+                </Tab>
+              ))}
+            </Tab.List>
           </Tab.Group>
 
           {/* Product info */}
-          <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              {car?.title}
-            </h1>
+          <div className="flex justify-between gap-4 p-2 max-lg:flex-col-reverse">
+            <div className="w-[50%] max-lg:w-full">
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+                {car?.title}
+              </h1>
 
-            <div className="mt-3">
-              <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl tracking-tight text-gray-900">
-                {car?.price} <span className=" text-lg font-light"> ريال </span>
-              </p>
+              <div className="mt-4">
+                <h3 className="sr-only">Description</h3>
+                <div
+                  className="space-y-6 text-base text-gray-700"
+                  dangerouslySetInnerHTML={{ __html: car?.offerDetails || " " }}
+                />
+              </div>
+
+              <section aria-labelledby="details-heading" className="mt-6">
+                <h2 id="details-heading" className="sr-only">
+                  Additional details
+                </h2>
+
+                <span className="flex gap-2 items-center">
+                  <span className="text-green-400 text-4xl">
+                    {/* <FaCarSide /> */}
+                  </span>
+                  <h1 className="text-gray-900 text-xl">تفاصيل السيارة</h1>
+                </span>
+
+                <div className="my-6">
+                  <div className="grid grid-cols-4 grid-rows-auto gap-8 mt-2 max-md:grid-cols-2 border rounded border-2 p-4 items-center justify-center">
+                    <div className="flex flex-col w-[max-content] gap-2  justify-between">
+                      <p className=" font-bold text-lg  "> الصانع </p>{" "}
+                      {car?.CarsMakers?.name}
+                    </div>
+
+                    <div className="flex flex-col w-[max-content] gap-2  justify-between">
+                      <span className=" font-bold text-lg">الموديل </span>{" "}
+                      {car?.CarsModels?.name}
+                    </div>
+
+                    <div className="flex flex-col w-[max-content] gap-2  justify-between">
+                      <span className=" font-bold text-lg">اللون</span>{" "}
+                      {car?.color}{" "}
+                    </div>
+
+                    <div className="flex flex-col w-[max-content]  gap-2 justify-between">
+                      <span className=" font-bold text-lg">الشكل</span>{" "}
+                      {car?.shape}{" "}
+                    </div>
+
+                    <div className="flex flex-col w-[max-content] gap-2   justify-between">
+                      <span className=" font-bold text-lg">الفئة</span>{" "}
+                      {car?.carClass}{" "}
+                    </div>
+
+                    <div className="flex flex-col w-[max-content] gap-2   justify-between">
+                      <span className=" font-bold text-lg">سنة الانشاء</span>
+                      {car?.year}{" "}
+                    </div>
+
+                    <div className="flex flex-col w-[max-content] gap-2   justify-between">
+                      <span className=" font-bold text-lg">الانتقالات</span>{" "}
+                      {car?.transmission}{" "}
+                    </div>
+
+                    <div className="flex  flex-col w-[max-content] gap-2  justify-between">
+                      <span className=" font-bold text-lg">الكيلومترات</span>{" "}
+                      {car?.mileage}{" "}
+                    </div>
+
+                    <div className="flex flex-col w-[max-content]  gap-2  justify-between">
+                      <span className=" font-bold text-lg">السليندرات</span>{" "}
+                      {car?.cylinders}{" "}
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
 
-            <div className="mt-6">
-              <h3 className="sr-only">Description</h3>
+            <div className="bg-gray-100 w-[30%] h-[max-content] p-4 rounded flex flex-col items-start max-lg:w-full ">
+              <div className="flex gap-4 text-3xl justify-center items-center">
+                <IoLocation />
+                <span className="text-sm">
+                  <p className="text-gray-600">الموقع</p>
+                  <p>{`${car?.country}, ${car?.city}`}</p>
+                </span>
+              </div>
+              <div className="flex gap-4 text-3xl justify-center mt-4 items-center">
+                <BsCashCoin />
+                <span className="text-sm">
+                  <p className="text-gray-600">السعر</p>
+                  <p className="text-xl">{`${car?.price} ريال`}</p>
+                </span>
+              </div>
 
-              <div
-                className="space-y-6 text-base text-gray-700"
-                dangerouslySetInnerHTML={{ __html: car?.offerDetails || " " }}
-              />
-            </div>
-
-            <form className="mt-6">
-              <div className="mt-10 flex flex-row-reverse justify-between ">
-                <Button
-                  type="submit"
-                  className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                >
-                  شراء{" "}
-                </Button>
-                {session?.user.id !== car?.ownerId && (
+              <form className="w-full">
+                <div className="mt-4 flex flex-col">
                   <Button
-                    onClick={(e) => chatHandler(e)}
                     type="submit"
-                    className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                    className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                   >
-                    تحدث مع البائع{" "}
+                    شراء{" "}
                   </Button>
-                )}
-              </div>
-            </form>
-
-            <section aria-labelledby="details-heading" className="mt-12">
-              <h2 id="details-heading" className="sr-only">
-                Additional details
-              </h2>
-
-              <div className="divide-y divide-gray-200 border-t">
-                <Disclosure as="div">
-                  {({ open }) => (
-                    <>
-                      <h3>
-                        <Disclosure.Button className="group relative flex w-full items-center justify-between py-6 text-left">
-                          <span
-                            className={classNames(
-                              open ? "text-green-600" : "text-gray-900",
-                              "text-sm font-medium"
-                            )}
-                          >
-                            خواص السيارة
-                          </span>
-                          <span className="ml-6 flex items-center">
-                            {open ? (
-                              <MinusIcon
-                                className="block h-6 w-6 text-green-400 group-hover:text-green-500"
-                                aria-hidden="true"
-                              />
-                            ) : (
-                              <PlusIcon
-                                className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
-                                aria-hidden="true"
-                              />
-                            )}
-                          </span>
-                        </Disclosure.Button>
-                      </h3>
-                      <Disclosure.Panel
-                        as="div"
-                        className="prose prose-sm pb-6"
-                      >
-                        <ul role="list">
-                          <li className="flex w-40 justify-between">
-                            <p className=" font-bold text-lg  "> الصانع </p>{" "}
-                            {car?.CarsMakers?.name}
-                          </li>
-                          <li className="flex w-40 justify-between">
-                            <span className=" font-bold text-lg">الموديل </span>{" "}
-                            {car?.CarsModels?.name}
-                          </li>
-                          <li className="flex w-40 justify-between">
-                            <span className=" font-bold text-lg">اللون</span>{" "}
-                            {car?.color}{" "}
-                          </li>
-                          <li className="flex w-40 justify-between">
-                            <span className=" font-bold text-lg">الشكل</span>{" "}
-                            {car?.shape}{" "}
-                          </li>
-                          <li className="flex w-40 justify-between">
-                            <span className=" font-bold text-lg">الفئة</span>{" "}
-                            {car?.carClass}{" "}
-                          </li>
-                          <li className="flex w-40 justify-between">
-                            <span className=" font-bold text-lg">البلد</span>{" "}
-                            {car?.country}{" "}
-                          </li>
-                          <li className="flex w-40 justify-between">
-                            <span className=" font-bold text-lg">المدينة</span>{" "}
-                            {car?.city}{" "}
-                          </li>
-                          <li className="flex w-40 justify-between">
-                            <span className=" font-bold text-lg">
-                              سنة الانشاء
-                            </span>
-                            {car?.year}{" "}
-                          </li>
-                          <li className="flex w-40 justify-between">
-                            <span className=" font-bold text-lg">
-                              الانتقالات
-                            </span>{" "}
-                            {car?.transmission}{" "}
-                          </li>
-                          <li className="flex w-40 justify-between">
-                            <span className=" font-bold text-lg">
-                              عدد الكيلو مترات
-                            </span>{" "}
-                            {car?.mileage}{" "}
-                          </li>
-                          <li className="flex w-40 justify-between">
-                            <span className=" font-bold text-lg">
-                              عدد السليندرات
-                            </span>{" "}
-                            {car?.cylinders}{" "}
-                          </li>
-                        </ul>
-                      </Disclosure.Panel>
-                    </>
+                  {session?.user.id !== car?.ownerId && (
+                    <Button
+                      onClick={(e) => chatHandler(e)}
+                      type="submit"
+                      className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                    >
+                      تحدث مع البائع{" "}
+                    </Button>
                   )}
-                </Disclosure>
-              </div>
-            </section>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

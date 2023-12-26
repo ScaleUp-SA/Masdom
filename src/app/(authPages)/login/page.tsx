@@ -20,6 +20,7 @@ import Image from "next/image";
 import logo from "../../../../public/masdoomLogo.svg";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
+import Link from "next/link";
 type Props = {};
 
 const Page = (props: Props) => {
@@ -133,6 +134,7 @@ const Page = (props: Props) => {
               تسجيل الدخول
             </Button>
           </form>
+          <p>ليس لديك حساب بالفعل؟<Link className="text-green-400 text-sm cursor-pointer" href={"/signup"} > إنشاء حساب جديد</Link></p>
           <Toaster />
         </div>
       </Form>
