@@ -70,6 +70,15 @@ export const getUserCars = async (id: string) => {
   return userCars;
 };
 
+export const getCars = async () => {
+  try {
+    const ListingCars = await prisma.listingCars.findMany();
+    return ListingCars;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const createChat = async (
   userId1: string | undefined,
   userId2: string | undefined

@@ -8,7 +8,7 @@ export const POST = async (req: NextRequest) => {
     const { userId1, userId2 } = await req.json();
 
     if (!userId1 || !userId2) {
-      return NextResponse.json({ message: "Missing user ID" });
+      return NextResponse.json({ message: "Missing user ID" }, { status: 400 });
     }
 
     const chatData = {
@@ -29,7 +29,10 @@ export const POST = async (req: NextRequest) => {
     ]);
 
     if (!user1Chats || !user2Chats) {
-      throw new Error("One or both users not found");
+      return NextResponse.json(
+        { message: "One or both users not found" },
+        { status: 400 }
+      );
     }
 
     const commonChat = user1Chats.chats.find((chat1) =>

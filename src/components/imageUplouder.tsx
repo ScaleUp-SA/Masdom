@@ -112,26 +112,29 @@ export default function ImageUplouder({
       </div>
 
       <div className="grid grid-cols-4 gap-4">
-        {images
-          ? images.map((image, index) => (
-              <div
-                key={index}
-                className="overflow-hidden rounded-lg shadow-lg bg-white relative group cursor-pointer h-fit -z-0"
-                onClick={() => handleMediaClick(image.links)}
-              >
-                <CldImage
-                  alt="image"
-                  src={image.links}
-                  width={200}
-                  height={200}
-                  className="object-contain sm:rounded-lg w-[200px] h-[200px] "
-                />
-                <span className="absolute bottom-0 bg-black text-white py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
-                  صورة {index + 1}
-                </span>
-              </div>
-            ))
-          : imageInfo.thumbnail_url.map((image, index) => (
+        {images &&
+          images.map((image, index) => (
+            <div
+              key={index}
+              className="overflow-hidden rounded-lg shadow-lg bg-white relative group cursor-pointer h-fit -z-0"
+              onClick={() => handleMediaClick(image.links)}
+            >
+              <CldImage
+                alt="image"
+                src={image.links}
+                width={200}
+                height={200}
+                className="object-contain obj sm:rounded-lg w-[200px] h-[200px] "
+              />
+              <span className="absolute bottom-0 bg-black text-white py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
+                صورة {index + 1}
+              </span>
+            </div>
+          ))}
+
+        <div>
+          {imageInfo.thumbnail_url &&
+            imageInfo.thumbnail_url.map((image, index) => (
               <div
                 key={index}
                 className="overflow-hidden rounded-lg shadow-lg bg-white relative group cursor-pointer h-fit -z-0"
@@ -149,48 +152,51 @@ export default function ImageUplouder({
                 </span>
               </div>
             ))}
+        </div>
 
-        {videoSorce
-          ? videoSorce.map((url, index) => (
-              <div
-                key={index}
-                className="overflow-hidden rounded-lg shadow-lg bg-black relative group cursor-pointer flex justify-center items-center -z-0 "
-                onClick={() => handleMediaClick(url)}
+        {videoSorce &&
+          videoSorce.map((url, index) => (
+            <div
+              key={index}
+              className="overflow-hidden rounded-lg shadow-lg bg-black relative group cursor-pointer flex justify-center items-center -z-0 "
+              onClick={() => handleMediaClick(url)}
+            >
+              <video
+                width="200"
+                height="200"
+                controls
+                className="object-contain  w-[200px] h-[150px]"
               >
-                <video
-                  width="200"
-                  height="200"
-                  controls
-                  className="object-contain  w-[200px] h-[150px]"
-                >
-                  <source src={url} type="video/mp4" />
-                  Sorry, your browser doesn`&apos;`t support videos.
-                </video>
-                <span className="absolute bottom-0 bg-white text-black py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
-                  فيديو {index + 1}
-                </span>
-              </div>
-            ))
-          : videoUrl.map((url, index) => (
-              <div
-                key={index}
-                className="overflow-hidden rounded-lg shadow-lg bg-black relative group cursor-pointer flex justify-center items-center -z-0 "
-                onClick={() => handleMediaClick(url)}
+                <source src={url} type="video/mp4" />
+                Sorry, your browser doesn`&apos;`t support videos.
+              </video>
+              <span className="absolute bottom-0 bg-white text-black py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
+                فيديو {index + 1}
+              </span>
+            </div>
+          ))}
+        <div>
+          {videoUrl.map((url, index) => (
+            <div
+              key={index}
+              className="overflow-hidden rounded-lg shadow-lg bg-black relative group cursor-pointer flex justify-center items-center -z-0 "
+              onClick={() => handleMediaClick(url)}
+            >
+              <video
+                width="200"
+                height="200"
+                controls
+                className="object-contain  w-[200px] h-[150px]"
               >
-                <video
-                  width="200"
-                  height="200"
-                  controls
-                  className="object-contain  w-[200px] h-[150px]"
-                >
-                  <source src={url} type="video/mp4" />
-                  Sorry, your browser doesn`&apos;`t support videos.
-                </video>
-                <span className="absolute bottom-0 bg-white text-black py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
-                  فيديو {index + 1}
-                </span>
-              </div>
-            ))}
+                <source src={url} type="video/mp4" />
+                Sorry, your browser doesn`&apos;`t support videos.
+              </video>
+              <span className="absolute bottom-0 bg-white text-black py-1 px-2 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-90">
+                فيديو {index + 1}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
 
       {showMediaPopup && (

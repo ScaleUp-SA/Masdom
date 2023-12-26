@@ -9,7 +9,6 @@ import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import { CldImage } from "next-cloudinary";
 import { FullCar, Session } from "@/types";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,6 +27,7 @@ function classNames(...classes: string[]) {
 
 const CarDetails = ({ car, session }: Props) => {
   const router = useRouter();
+  const userId = session?.user.id;
 
   const { toast } = useToast();
 
@@ -35,22 +35,15 @@ const CarDetails = ({ car, session }: Props) => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    if (!car?.ownerId || !session?.user.id) {
-      toast({
-        variant: "destructive",
-        title: "Missing Id",
-        description: "One of the users Id are Missing",
-      });
-      return;
-    } else {
+    if (car?.ownerId && userId) {
       const res = await axios.post("/api/chat/create", {
         userId1: car.ownerId,
-        userId2: !session?.user.id,
+        userId2: userId,
       });
-      const chatId = await res.data.Chat;
-      console.log(res);
-
+      console.log(car.ownerId, userId);
       if (res.status === 200) {
+        const chatId = await res.data.Chat;
+
         router.push(`/profile/chat/${chatId}`);
       } else {
         toast({
@@ -58,6 +51,14 @@ const CarDetails = ({ car, session }: Props) => {
           description: "Something went wrong",
         });
       }
+      console.log(res, "chat");
+    } else {
+      toast({
+        variant: "destructive",
+        title: "Missing Id",
+        description: "One of the users Id are Missing",
+      });
+      return;
     }
   };
   const deleteHandler = async () => {
@@ -129,7 +130,7 @@ const CarDetails = ({ car, session }: Props) => {
                 className=" cursor-pointer w-full flex justify-end"
               >
                 <span className=" ">
-                  {car?.featured === false ? "تمييز" : "اسقاف التمميز"}
+                  {car?.featured === false ? "تمييز" : "ايقاف التمميز"}
                 </span>
               </DropdownMenuItem>
               <DropdownMenuItem

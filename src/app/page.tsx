@@ -1,6 +1,9 @@
 import styles from "./page.module.css";
 import CarCard from "@/components/carCard";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { getFeaturedCars, getLatestCars } from "@/lib/dbQueries";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export const metadata = {
   title: "الرئيسية | منصة مصدوم",
@@ -52,7 +55,15 @@ export default async function Home() {
           ))}
         </div>
         <div className={styles.btn}>
-          <button>عرض جميع التفاصيل</button>
+          <Link
+            className={cn(
+              buttonVariants(),
+              "styles.btn justify-start bg-[#31C77F] hover:bg-[#22ae6a]"
+            )}
+            href={"/cars"}
+          >
+            عرض جميع التفاصيل
+          </Link>
         </div>
       </div>
     </div>

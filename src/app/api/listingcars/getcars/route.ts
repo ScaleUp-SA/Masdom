@@ -21,7 +21,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       shape,
       cylinders,
       ...filters
-    } = params;
+    } = Object.fromEntries(req.nextUrl.searchParams.entries());
 
     const whereConditions = {
       ...Object.entries(filters).reduce((acc, [key, value]) => {
@@ -52,6 +52,8 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         CarsMakers: true,
         CarsModels: true,
         damage: true,
+        images: true,
+        videos: true,
       },
     });
 
