@@ -18,13 +18,13 @@ const Footer = () => {
           priority
         />
       </div>
-      <div className="flex flex-col gap-10 text-white font-bold text-xl  md:flex-row items-center gap-5 py-5">
+      <div className="flex flex-col gap-10 text-white font-bold text-lg  md:flex-row items-center gap-5 py-5">
         <a href="#">الرئيسية</a>
         <a href="#">جميع السيارات</a>
         <a href="#">اتصل بنا</a>
       </div>
-      <hr className="w-4/5" />
-      <div className="text-white flex flex-col w-full gap-6 pl-8 pr-8 md:flex-row justify-between pl-24 pr-24 items-center">
+      <hr className="w-[80%]"/>
+      <div className="text-white flex flex-col items-center justify-between w-[80%] gap-2 md:flex-row justify-between items-center">
         <span>
           <p className="">جميع الحقوق محفوظة لمنصة مصدوم 2023 ©</p>
         </span>

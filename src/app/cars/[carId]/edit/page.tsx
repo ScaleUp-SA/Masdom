@@ -228,7 +228,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
   }, [formData.carsMakersId]);
 
   return (
-    <div className=" w-full p-10 max-lg:p-1">
+    <div className="w-full py-10 px-24 max-lg:p-1">
       <div className="mt-10">
         <ImageUplouder
           filesHandler={filesHandler}
@@ -282,8 +282,8 @@ const Page = ({ params }: { params: { carId: string } }) => {
             <p className="text-red-500 text-sm mt-1">{errors.offerDetails}</p>
           )}
         </div>
-        <div className=" flex flex-wrap gap-6 items-center justify-start">
-          <div className="mb-4 w-[45%] max-lg:w-full">
+        <div className=" flex flex-wrap gap-6 max-2xl:gap-4 items-center justify-start">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="mileage"
               className="block text-sm font-medium text-gray-700"
@@ -304,7 +304,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.mileage}</p>
             )}
           </div>
-          <div className="mb-4 w-[45%] max-lg:w-full">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="year"
               className="block text-sm font-medium text-gray-700"
@@ -325,7 +325,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.year}</p>
             )}
           </div>
-          <div className="mb-4 w-[45%] max-lg:w-full">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="transmission"
               className="block text-sm font-medium text-gray-700"
@@ -347,7 +347,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.transmission}</p>
             )}
           </div>
-          <div className="mb-4 w-[45%] max-lg:w-full">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="carClass"
               className="block text-sm font-medium text-gray-700"
@@ -368,7 +368,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.carClass}</p>
             )}
           </div>
-          <div className="mb-4 w-[45%] max-lg:w-full">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="carsMakersId"
               className="block text-sm font-medium text-gray-700"
@@ -395,7 +395,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.carsMakersId}</p>
             )}
           </div>
-          <div className="mb-4 w-[45%] max-lg:w-full">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="carsModelsId"
               className="block text-sm font-medium text-gray-700"
@@ -421,7 +421,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.carsModelsId}</p>
             )}
           </div>
-          <div className="mb-4 w-[45%] max-lg:w-full">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="city"
               className="block text-sm font-medium text-gray-700"
@@ -442,7 +442,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.city}</p>
             )}
           </div>
-          <div className="mb-4 w-[45%] max-lg:w-full">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="color"
               className="block text-sm font-medium text-gray-700"
@@ -463,7 +463,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.color}</p>
             )}
           </div>
-          <div className="mb-4 w-[45%] max-lg:w-full">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="country"
               className="block text-sm font-medium text-gray-700"
@@ -484,7 +484,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.country}</p>
             )}
           </div>
-          <div className="mb-4 w-[45%] max-lg:w-full">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="cylinders"
               className="block text-sm font-medium text-gray-700"
@@ -505,7 +505,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.cylinders}</p>
             )}
           </div>
-          <div className="mb-4 w-[45%] max-lg:w-full">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="ownerId"
               className="block text-sm font-medium text-gray-700"
@@ -526,7 +526,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               <p className="text-red-500 text-sm mt-1">{errors.ownerId}</p>
             )}
           </div>
-          <div className="mb-4 w-[45%] max-lg:w-full">
+          <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="price"
               className="block text-sm font-medium text-gray-700"
@@ -585,12 +585,12 @@ const Page = ({ params }: { params: { carId: string } }) => {
               </div>
             ))}
           </div>
-          <Button type="button" onClick={handleAddMore} className="w-[29%] max-lg:w-[50%]">
+          <Button type="button" onClick={handleAddMore} className="w-[29%] max-lg:w-[50%] bg-green-400 hover:bg-green-600">
             اضف الضرر
           </Button>
         </div>
-        <Button type="submit" className="px-4 py-2 text-white rounded-md mt-8 w-full">
-          Submit
+        <Button type="submit" className="px-4 py-2 text-white rounded-md mt-8 w-full bg-green-400 hover:bg-green-600">
+          حفظ التغييرات
         </Button>
       </form>
     </div>

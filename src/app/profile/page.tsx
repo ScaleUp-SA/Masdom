@@ -12,9 +12,9 @@ const Page = async (props: Props) => {
   console.log(session);
 
   return (
-    <div className="flex w-full justify-center items-center bg-[#5647FF] bg-opacity-5 rounded-lg">
-      <div className=" m-auto w-[90%] md:w-[480px] h-[581px] flex justify-center items-center ">
-        <h2 className=" font-bold text-3xl">
+    <div className="flex w-full h-screen justify-center items-center bg-[#5647FF] bg-opacity-5 rounded-lg">
+      <div className="m-auto w-[90%] md:w-[480px] h-[581px] flex justify-center items-center ">
+        <h2 className="font-bold text-3xl">
           مرحبا{" "}
           <span className=" text-green-600">
             {session?.user.username.toLocaleUpperCase()}{" "}
