@@ -75,7 +75,7 @@ export default async function Home() {
           <Link
             className={cn(
               buttonVariants(),
-              "styles.btn justify-start bg-[#31C77F] hover:bg-[#22ae6a]"
+              "styles.btn justify-start bg-[#31C77F] hover:bg-[#22ae6a] px-10 py-6"
             )}
             href={"/cars"}
           >

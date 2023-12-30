@@ -11,7 +11,7 @@ const page = async (props: Props) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.content}>
+      <div className={styles.content} >
         {listingCars.map((item, index) => (
           <div key={index}>
             <CarCard carData={item} />

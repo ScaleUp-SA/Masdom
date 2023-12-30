@@ -508,7 +508,7 @@ const ListingCarsForm = ({ params }: Props) => {
           </div>
           <div className="flex flex-col w-4/5 gap-2">
             <div className=" flex justify-center">
-              <Button className="w-1/2" type="button" onClick={handleAddMore}>
+              <Button className="w-1/2 bg-green-400 hover:bg-green-600" type="button" onClick={handleAddMore}>
                 اضف المزيد من الضرر
               </Button>
             </div>
@@ -529,7 +529,7 @@ const ListingCarsForm = ({ params }: Props) => {
           </div>
 
           <div className="w-4/5 my-4">
-            <Button className="w-full">نشر المعاملة</Button>
+            <Button className="w-full bg-green-400 hover:bg-green-600">نشر المعاملة</Button>
           </div>
         </form>
       </Form>

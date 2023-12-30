@@ -93,7 +93,7 @@ const Page = (props: Props) => {
               render={({ field }) => (
                 <FormItem>
                   {/* <FormLabel>User name</FormLabel> */}
-                  <FormControl className="rounded-full px-4">
+                  <FormControl className="rounded px-4">
                     <Input type="text" placeholder="الاسم" {...field} />
                   </FormControl>
                   {/* <FormDescription>
@@ -109,7 +109,7 @@ const Page = (props: Props) => {
               render={({ field }) => (
                 <FormItem>
                   {/* <FormLabel>Email</FormLabel> */}
-                  <FormControl className="rounded-full px-4">
+                  <FormControl className="rounded px-4">
                     <Input
                       type="email"
                       placeholder="البريد الالكنتروني"
@@ -129,8 +129,8 @@ const Page = (props: Props) => {
               render={({ field }) => (
                 <FormItem>
                   {/* <FormLabel>Phone</FormLabel> */}
-                  <FormControl className="rounded-full px-4">
-                    <Input type="tel" placeholder="رقم الجوال" {...field} />
+                  <FormControl className="rounded px-4">
+                    <Input type="tel" placeholder="رقم الجوال" {...field} className="text-right" />
                   </FormControl>
                   {/* <FormDescription>
                 This is your public display name.
@@ -145,7 +145,7 @@ const Page = (props: Props) => {
               render={({ field }) => (
                 <FormItem>
                   {/* <FormLabel>Password</FormLabel> */}
-                  <FormControl className="rounded-full px-4">
+                  <FormControl className="rounded px-4">
                     <Input type="password" placeholder="كلمة السر" {...field} />
                   </FormControl>
                   {/* <FormDescription>
@@ -157,7 +157,7 @@ const Page = (props: Props) => {
             />
 
             <Button
-              className="w-full bg-green-400 text-white rounded-full hover:bg-green-600"
+              className="w-full bg-green-400 text-white rounded hover:bg-green-600"
               type="submit"
             >
               انشاء حساب
