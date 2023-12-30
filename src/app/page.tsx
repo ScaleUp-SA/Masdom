@@ -4,7 +4,8 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { getFeaturedCars, getLatestCars } from "@/lib/dbQueries";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 export const metadata = {
   title: "الرئيسية | منصة مصدوم",
 };
@@ -21,8 +22,16 @@ export default async function Home() {
           الحراج الأول <br></br> للسيارات المصدومة
         </h1>
         <div className={styles.links}>
-          <button>أبرز الإعلانات</button>
-          <a href="#">جميع الإعلانات</a>
+          <Link
+            className={cn(
+              buttonVariants(),
+              " justify-start bg-[#31C77F] hover:bg-[#22ae6a] py-[1.5rem] px-[2.5rem] "
+            )}
+            href={"/"}
+          >
+            أبرز الإعلانات{" "}
+          </Link>
+          <Link href="/cars">جميع الإعلانات</Link>
         </div>
       </div>
       <div className={styles.topOffersSection}>
@@ -33,11 +42,15 @@ export default async function Home() {
           <h6>تصفح أبرز العروض</h6>
         </div>
         <div className={styles.content}>
-          {featuredCars.map((item, index) => (
-            <div key={index}>
-              <CarCard carData={item} />
-            </div>
-          ))}
+          {featuredCars ? (
+            featuredCars.map((item, index) => (
+              <div key={index}>
+                <CarCard carData={item} />
+              </div>
+            ))
+          ) : (
+            <Skeleton className="h-[70px] my-2" />
+          )}
         </div>
       </div>
       <div className={styles.latestOffersSection}>
@@ -48,11 +61,15 @@ export default async function Home() {
           <h6>تصفح آخر العروض</h6>
         </div>
         <div className={styles.content}>
-          {latestCars.map((item, index) => (
-            <div key={index}>
-              <CarCard carData={item} />
-            </div>
-          ))}
+          {latestCars ? (
+            latestCars.map((item, index) => (
+              <div key={index}>
+                <CarCard carData={item} />
+              </div>
+            ))
+          ) : (
+            <Skeleton className="h-[70px] my-2" />
+          )}
         </div>
         <div className={styles.btn}>
           <Link

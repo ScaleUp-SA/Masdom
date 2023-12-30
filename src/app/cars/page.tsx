@@ -1,49 +1,57 @@
 "use client";
 
 import { Fragment, useEffect, useState } from "react";
-import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
+import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  FunnelIcon,
-  MinusIcon,
-  PlusIcon,
-  Squares2X2Icon,
-} from "@heroicons/react/20/solid";
-
-const filters = [
-  {
-    id: "Brand",
-    name: "الماركة",
-    options: [
-      { value: "Mercedes", label: "مارسيدس", checked: false },
-      { value: "Mercedes", label: "مارسيدس", checked: false },
-      { value: "Mercedes", label: "مارسيدس", checked: true },
-      { value: "Mercedes", label: "مارسيدس", checked: false },
-      { value: "Mercedes", label: "مارسيدس", checked: false },
-      { value: "Mercedes", label: "مارسيدس", checked: false },
-    ],
-  },
-  {
-    id: "MotionVector",
-    name: "ناقل الحركة",
-    options: [
-      { value: "auto", label: "اتوماتيك ", checked: false },
-      { value: "manuel", label: "مانوال", checked: false },
-    ],
-  },
-];
+import { FunnelIcon, MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
+import axios from "axios";
+import { Filter, FullCar } from "@/types";
+import CarCard from "@/components/carCard";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function Cars() {
+  const [loading, setLoading] = useState(true);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [filtersState, setFiltersState] = useState([...filters]);
+  const [filtersState, setFiltersState] = useState<Filter[]>([]);
+  const [latestCars, setLatestCars] = useState<FullCar[]>([]);
+
+  console.log(filtersState);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const [pageFilterData, pageData] = await Promise.all([
+          axios.get("/api/filterdata"),
+          axios.post("/api/listingcars/getcars"),
+        ]);
+
+        console.log(pageFilterData, "pageFilterData");
+        console.log(pageData, "pageData");
+
+        if (pageFilterData.status === 200 && pageData.status === 200) {
+          setFiltersState(pageFilterData.data.data.filters);
+          setLatestCars(pageData.data.data.listingCars);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
+  console.log(latestCars, "carsData");
 
   //handle checkbox
-  const handleCheckboxChange = (sectionId: string, optionIdx: number) => {
-    setFiltersState((prevFiltersState) => {
-      const updatedFilters = prevFiltersState.map((section) => {
+  const handleCheckboxChange = async (sectionId: string, optionIdx: number) => {
+    try {
+      // Create a copy of the current filters state
+      const updatedFiltersState = [...filtersState];
+
+      // Update the checked status of the selected option
+      updatedFiltersState.forEach((section) => {
         if (section.id === sectionId) {
-          const updatedOptions = section.options.map((option, index) => {
+          section.options = section.options.map((option, index) => {
             if (index === optionIdx) {
               return {
                 ...option,
@@ -52,69 +60,123 @@ export default function Cars() {
             }
             return option;
           });
-          return {
-            ...section,
-            options: updatedOptions,
-          };
         }
-        return section;
       });
-      return updatedFilters;
+
+      // Set the updated filters state
+      setFiltersState(updatedFiltersState);
+
+      // Extract selected filters
+      const selectedFilters: { [key: string]: string[] } = {};
+      updatedFiltersState.forEach((section) => {
+        section.options.forEach((option) => {
+          if (option.checked) {
+            if (!selectedFilters[section.id]) {
+              selectedFilters[section.id] = [];
+            }
+            selectedFilters[section.id].push(option.value);
+          }
+        });
+      });
+
+      // Perform API request with selected filters
+      const { data } = await axios.post("/api/listingcars/getcars", {
+        filters: selectedFilters,
+      });
+
+      // Update the latestCars state with the filtered data
+      setLatestCars(data.data.listingCars);
+    } catch (error) {
+      console.error(error);
+      // Handle error
+    }
+  };
+
+  const activeFilters = () => {
+    let activeCount = 0;
+    const filter = filtersState.map((f) => {
+      const active = f.options.find((option) =>
+        option.checked === true ? activeCount++ : activeCount
+      );
+      return activeCount;
+    });
+    return activeCount;
+  };
+
+  const resetFilterHandler = () => {
+    setFiltersState((prev) => {
+      const updatedFilter = prev.map((filter) => ({
+        ...filter,
+        options: filter.options.map((option) => ({
+          ...option,
+          checked: false,
+        })),
+      }));
+      return updatedFilter;
     });
   };
 
+  console.log(activeFilters());
   return (
-    <div className="">
-      <div>
-        {/* Mobile filter dialog */}
-        <Transition.Root show={mobileFiltersOpen} as={Fragment}>
-          <Dialog
-            as="div"
-            className="relative z-40 lg:hidden"
-            onClose={setMobileFiltersOpen}
+    <div>
+      {/* Mobile filter dialog */}
+      <Transition.Root show={mobileFiltersOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          className="relative z-40 lg:hidden"
+          onClose={setMobileFiltersOpen}
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="transition-opacity ease-linear duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-40 flex">
             <Transition.Child
               as={Fragment}
-              enter="transition-opacity ease-linear duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="transition-opacity ease-linear duration-300"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
+              enter="transition ease-in-out duration-300 transform"
+              enterFrom="translate-x-full"
+              enterTo="translate-x-0"
+              leave="transition ease-in-out duration-300 transform"
+              leaveFrom="translate-x-0"
+              leaveTo="translate-x-full"
             >
-              <div className="fixed inset-0 bg-black bg-opacity-25" />
-            </Transition.Child>
+              <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+                <div className="flex items-center justify-between px-4">
+                  <h2 className="text-lg font-medium text-gray-900">فلتر</h2>
+                  <button
+                    type="button"
+                    className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+                    onClick={() => setMobileFiltersOpen(false)}
+                  >
+                    <span className="sr-only">Close menu</span>
+                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                </div>
 
-            <div className="fixed inset-0 z-40 flex">
-              <Transition.Child
-                as={Fragment}
-                enter="transition ease-in-out duration-300 transform"
-                enterFrom="translate-x-full"
-                enterTo="translate-x-0"
-                leave="transition ease-in-out duration-300 transform"
-                leaveFrom="translate-x-0"
-                leaveTo="translate-x-full"
-              >
-                <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
-                  <div className="flex items-center justify-between px-4">
-                    <h2 className="text-lg font-medium text-gray-900">
-                      Filters
-                    </h2>
-                    <button
-                      type="button"
-                      className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
-                      onClick={() => setMobileFiltersOpen(false)}
-                    >
-                      <span className="sr-only">Close menu</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
+                {/* Filters */}
+                <form className="mt-4 border-t border-gray-200">
+                  <h3 className="sr-only">Categories</h3>
 
-                  {/* Filters */}
-                  <form className="mt-4 border-t border-gray-200">
-                    <h3 className="sr-only">Categories</h3>
-
-                    {filters.map((section) => (
+                  {loading === true ? (
+                    <>
+                      <Skeleton className="h-[70px] my-2" />
+                      <Skeleton className="h-[70px] my-2" />
+                      <Skeleton className="h-[70px] my-2" />
+                      <Skeleton className="h-[70px] my-2" />
+                      <Skeleton className="h-[70px] my-2" />
+                      <Skeleton className="h-[70px] my-2" />
+                      <Skeleton className="h-[70px] my-2" />
+                    </>
+                  ) : (
+                    filtersState.map((section) => (
                       <Disclosure
                         as="div"
                         key={section.id}
@@ -154,9 +216,16 @@ export default function Cars() {
                                       name={`${section.id}[]`}
                                       defaultValue={option.value}
                                       type="checkbox"
+                                      onChange={() =>
+                                        handleCheckboxChange(
+                                          section.id,
+                                          optionIdx
+                                        )
+                                      }
                                       defaultChecked={option.checked}
                                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                     />
+
                                     <label
                                       htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
                                       className="ml-3 min-w-0 flex-1 text-gray-500"
@@ -170,42 +239,50 @@ export default function Cars() {
                           </>
                         )}
                       </Disclosure>
-                    ))}
-                  </form>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </Dialog>
-        </Transition.Root>
-
-        <main className="py-4 px-6">
-          <div className="flex items-baseline justify-between">
-            <div className="flex items-center">
-              <button
-                type="button"
-                className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
-                onClick={() => setMobileFiltersOpen(true)}
-              >
-                <span className="sr-only">Filters</span>
-                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
-            </div>
+                    ))
+                  )}
+                </form>
+              </Dialog.Panel>
+            </Transition.Child>
           </div>
+        </Dialog>
+      </Transition.Root>
 
-          <section aria-labelledby="products-heading" className="pb-24 pt-6">
-            <h2 id="products-heading" className="sr-only">
-              Products
-            </h2>
+      <main className="py-4 px-6">
+        <div className="flex items-baseline justify-between">
+          <div className="flex items-center">
+            <button
+              type="button"
+              className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+              onClick={() => setMobileFiltersOpen(true)}
+            >
+              <span className="sr-only">Filters</span>
+              <FunnelIcon className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
 
-            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-              {/* Filters */}
+        <section aria-labelledby="products-heading" className="pb-24 pt-6">
+          <h2 id="products-heading" className="sr-only">
+            Products
+          </h2>
 
-              <form className="border rounded hidden lg:block  px-2 py-4">
-                <div className="flex items-center justify-between p-2 border-b-2 pb-4">
-                  <h1>الفلاتر المختارة(3)</h1>
-                  <p className="tex-tsm text-blue-400">مسح الكل</p>
-                </div>
-                {filters.map((section) => (
+          <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+            {/* Filters */}
+
+            <form className="border rounded hidden lg:block  px-2 py-4">
+              {loading === true ? (
+                <>
+                  <Skeleton className="h-[70px] my-2" />
+                  <Skeleton className="h-[70px] my-2" />
+                  <Skeleton className="h-[70px] my-2" />
+                  <Skeleton className="h-[70px] my-2" />
+                  <Skeleton className="h-[70px] my-2" />
+                  <Skeleton className="h-[70px] my-2" />
+                  <Skeleton className="h-[70px] my-2" />
+                </>
+              ) : (
+                filtersState.map((section) => (
                   <Disclosure
                     as="div"
                     key={section.id}
@@ -249,7 +326,7 @@ export default function Cars() {
                                   onChange={() =>
                                     handleCheckboxChange(section.id, optionIdx)
                                   }
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 px-2"
                                 />
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
@@ -264,15 +341,30 @@ export default function Cars() {
                       </>
                     )}
                   </Disclosure>
-                ))}
-              </form>
+                ))
+              )}
+            </form>
 
-              {/* Product grid */}
-              <div className="lg:col-span-3  p-2">{/* content */}</div>
-            </div>
-          </section>
-        </main>
-      </div>
+            {/* Product grid */}
+
+            {loading === true ? (
+              <>
+                <Skeleton className="h-[400px]" />
+                <Skeleton className="h-[400px]" />
+                <Skeleton className="h-[400px]" />
+              </>
+            ) : (
+              latestCars.map((item, index) => (
+                <div key={index} className="">
+                  <div>
+                    <CarCard carData={item} />
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </section>
+      </main>
     </div>
   );
 }

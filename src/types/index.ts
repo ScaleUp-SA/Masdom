@@ -99,3 +99,15 @@ export type FormData = {
   carsMakersId: string;
   transmission: string;
 };
+
+export interface FilterOption {
+  value: string;
+  label: string;
+  checked: boolean;
+}
+
+export interface Filter {
+  id: string;
+  name: string;
+  options: FilterOption[];
+}

@@ -86,3 +86,42 @@ html{
   --s-accent: 67%;
   --l-accent: 57%;
 }
+
+
+
+/* Default checkbox styles */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #22C578; /* Default border color */
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease; /* Transition for color change */
+  cursor: pointer; /* Add pointer cursor for interaction */
+  margin-left: 6px;
+}
+
+/* Add a hover effect to the checkbox */
+input[type="checkbox"]:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Example shadow effect on hover */
+}
+
+/* Custom style for the checkbox when checked */
+input[type="checkbox"]:checked {
+  background-color: #22C578; /* Change the background color when checked */
+}
+
+/* Add focus outline to the checkbox */
+input[type="checkbox"]:focus {
+  outline: 2px solid #22C578; /* Example focus outline color */
+}
+
+/* Custom style for the label when hover */
+label:hover {
+  color: #22C578; 
+  transition: color 0.3s ease; /* Smooth transition for label color change */
+}
+

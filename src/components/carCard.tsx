@@ -21,32 +21,9 @@ const CarCard = ({ carData }: { carData: FullCar }) => {
   return (
     <div
       onClick={routeHandler}
-      className="flex flex-col gap-5 border-2 border-solid rounded-xl pb-5 cursor-pointer"
+      className="flex flex-col gap-5 border-2 border-solid rounded-xl pb-5 cursor-pointer "
     >
       <div>
-        {/* <Image
-          src="/car.jpg"
-          alt="Car"
-          width={400}
-          height={300}
-          className="rounded-t-xl"
-        /> */}
-        {/* <UploadcareImage
-          alt="Test image"
-          src={`${imageUrl}/-/scale_crop/450x300/center/-/enhance/`}
-          width={400}
-          height={300}
-          className="rounded-t-xl"
-        /> */}
-
-        {/* <CldImage
-          width={400}
-          height={300}
-          src="swhqw2dad0f7nj8vscsi"
-          alt="Test image"
-          className="rounded-t-xl"
-        /> */}
-
         <CldImage
           alt={"image"}
           src={carData?.images[0]?.links}
