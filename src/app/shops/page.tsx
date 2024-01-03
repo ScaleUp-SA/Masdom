@@ -1,28 +1,28 @@
 "use client";
-import { Fragment, useEffect, useState } from "react";
-import { Dialog, Disclosure, Transition } from "@headlessui/react";
+import ShopCard from "@/components/shopCard";
+import { Filter } from "@/types";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { FunnelIcon, MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
+import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import axios from "axios";
-import { Filter, FullCar } from "@/types";
-import CarCard from "@/components/carCard";
+import React, { Fragment, useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-export default function Cars() {
+type Props = {};
+
+const Page = (props: Props) => {
   const [loading, setLoading] = useState(true);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [shopData, setShopData] = useState([]);
   const [filtersState, setFiltersState] = useState<Filter[]>([]);
-  const [latestCars, setLatestCars] = useState<FullCar[]>([]);
-
-  console.log(filtersState);
 
   useEffect(() => {
     (async () => {
       try {
         const [pageFilterData, pageData] = await Promise.all([
-          axios.get("/api/filterdata"),
-          axios.post("/api/listingcars/getcars"),
+          axios.get("/api/filterdata/shopsfilter"),
+          axios.post("/api/shops/getshops"),
         ]);
 
         console.log(pageFilterData, "pageFilterData");
@@ -30,7 +30,7 @@ export default function Cars() {
 
         if (pageFilterData.status === 200 && pageData.status === 200) {
           setFiltersState(pageFilterData.data.data.filters);
-          setLatestCars(pageData.data.data.listingCars);
+          setShopData(pageData.data.data.shops);
           setLoading(false);
         }
       } catch (error) {
@@ -39,9 +39,9 @@ export default function Cars() {
     })();
   }, []);
 
-  console.log(latestCars, "carsData");
-
   const handleCheckboxChange = async (sectionId: string, optionIdx: number) => {
+    console.log("muinujnhunu");
+
     try {
       const updatedFiltersState = [...filtersState];
 
@@ -60,7 +60,6 @@ export default function Cars() {
       });
 
       setFiltersState(updatedFiltersState);
-
       const selectedFilters: { [key: string]: string[] } = {};
       updatedFiltersState.forEach((section) => {
         section.options.forEach((option) => {
@@ -73,11 +72,12 @@ export default function Cars() {
         });
       });
 
-      const { data } = await axios.post("/api/listingcars/getcars", {
+      const res = await axios.post("/api/shops/getshops", {
         filters: selectedFilters,
       });
-
-      setLatestCars(data.data.listingCars);
+      console.log(res);
+      console.log(res.data.data.shops);
+      setShopData(res.data.data.shops);
     } catch (error) {
       console.error(error);
     }
@@ -317,10 +317,10 @@ export default function Cars() {
                   <Skeleton className="h-full" />
                 </div>
               ) : (
-                latestCars.map((item, index) => (
+                shopData.map((item, index) => (
                   <div key={index} className="">
                     <div>
-                      <CarCard carData={item} />
+                      <ShopCard shop={item} />
                     </div>
                   </div>
                 ))
@@ -331,4 +331,10 @@ export default function Cars() {
       </main>
     </div>
   );
+};
+
+export default Page;
+
+{
+  /* <ShopCard shop={item} /> */
 }

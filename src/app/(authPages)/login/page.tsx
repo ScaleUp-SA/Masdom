@@ -25,8 +25,6 @@ type Props = {};
 
 const Page = (props: Props) => {
   const { data: session } = useSession();
-  console.log(session);
-
   const router = useRouter();
   const { toast } = useToast();
 
@@ -49,24 +47,11 @@ const Page = (props: Props) => {
     } else {
       toast({
         variant: "default",
-        title: "logged in successfully",
+        title: "تم تسجيل الدخول",
       });
-      router.push("/");
-      router.refresh();
+      await router.refresh();
+      await router.push("/");
     }
-
-    // try {
-    //   const res = await axios.post("/api/users/login", values);
-    //   router.push("/");
-    //   router.refresh();
-    // } catch (error: any) {
-    //   console.log(error);
-    //   toast({
-    //     variant: "destructive",
-    //     title: error.message,
-    //   });
-    //   console.log(error);
-    // }
   }
 
   const pageRoute = () => {
@@ -134,7 +119,16 @@ const Page = (props: Props) => {
               تسجيل الدخول
             </Button>
           </form>
-          <p>ليس لديك حساب بالفعل؟<Link className="text-green-400 text-sm cursor-pointer" href={"/signup"} > إنشاء حساب جديد</Link></p>
+          <p>
+            ليس لديك حساب بالفعل؟
+            <Link
+              className="text-green-400 text-sm cursor-pointer"
+              href={"/signup"}
+            >
+              {" "}
+              إنشاء حساب جديد
+            </Link>
+          </p>
           <Toaster />
         </div>
       </Form>

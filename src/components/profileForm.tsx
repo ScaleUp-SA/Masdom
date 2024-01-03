@@ -47,9 +47,7 @@ const ProfileForm = ({ session }: { session: Session | null }) => {
     },
   });
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
     const userData = { ...values, id: session?.user.id };
-    console.log(userData);
     try {
       const res = await axios.patch("api/users/update", userData);
 

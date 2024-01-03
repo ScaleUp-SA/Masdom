@@ -44,13 +44,12 @@ const Page = (props: Props) => {
       toast({
         title: res.data.message,
       });
-      router.push("/login");
-      router.refresh();
+      await router.push("/login");
+      await router.refresh();
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: error.message,
-        description: error.response.data.message,
+        title: "حدث خطأ ما",
       });
       console.log(error);
     }
@@ -130,7 +129,12 @@ const Page = (props: Props) => {
                 <FormItem>
                   {/* <FormLabel>Phone</FormLabel> */}
                   <FormControl className="rounded px-4">
-                    <Input type="tel" placeholder="رقم الجوال" {...field} className="text-right" />
+                    <Input
+                      type="tel"
+                      placeholder="رقم الجوال"
+                      {...field}
+                      className="text-right"
+                    />
                   </FormControl>
                   {/* <FormDescription>
                 This is your public display name.
@@ -162,7 +166,17 @@ const Page = (props: Props) => {
             >
               انشاء حساب
             </Button>
-            <p> لديك حساب بالفعل؟<Link className="text-green-400 text-sm cursor-pointer" href={"/login"} > تسجيل الدخول</Link></p>
+            <p>
+              {" "}
+              لديك حساب بالفعل؟
+              <Link
+                className="text-green-400 text-sm cursor-pointer"
+                href={"/login"}
+              >
+                {" "}
+                تسجيل الدخول
+              </Link>
+            </p>
           </form>
         </div>
       </Form>

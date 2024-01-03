@@ -9,7 +9,6 @@ export const metadata = {
 
 const Page = async (props: Props) => {
   const session = await getServerSession(authOptions);
-  console.log(session);
 
   return (
     <div className="flex w-full h-screen justify-center items-center bg-[#5647FF] bg-opacity-5 rounded-lg">

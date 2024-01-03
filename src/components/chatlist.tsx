@@ -41,8 +41,6 @@ const ChatList = ({ session }: Props) => {
       if (user) {
         try {
           const res = await axios.get(`/api/chat/getuserchat/${user?.id}`);
-          console.log(res);
-
           setChatsList(res.data.chats);
         } catch (error) {
           console.error("Error", error);

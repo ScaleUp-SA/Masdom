@@ -1,99 +1,80 @@
 "use client";
 
 import React from "react";
-import { Disclosure, Tab } from "@headlessui/react";
-import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
-import { Button } from "./ui/button";
+import { Tab } from "@headlessui/react";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import { CldImage } from "next-cloudinary";
-import { FullCar, Session } from "@/types";
+import { FullShop, Session } from "@/types";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { BsCashCoin } from "react-icons/bs";
-import { IoLocation } from "react-icons/io5";
+import { FaWhatsapp } from "react-icons/fa";
 
 type Props = {
-  car: FullCar | null;
+  shop: FullShop | null;
   session: Session | null;
 };
+type ShopCar = string | number | null;
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-const CarDetails = ({ car, session }: Props) => {
+const ShopDetails = ({ shop, session }: Props) => {
   const router = useRouter();
   const userId = session?.user.id;
 
   const { toast } = useToast();
 
-  const chatHandler = async (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    e.preventDefault();
-    if (car?.ownerId && userId) {
-      const res = await axios.post("/api/chat/create", {
-        userId1: car.ownerId,
-        userId2: userId,
-      });
-      if (res.status === 200) {
-        const chatId = await res.data.Chat;
-
-        router.push(`/profile/chat/${chatId}`);
-      } else {
-        toast({
-          variant: "destructive",
-          description: "حدث خطأ ما",
-        });
-      }
-    } else {
-      toast({
-        variant: "destructive",
-        description: "حدث خطأ ما",
-      });
-      return;
-    }
-  };
   const deleteHandler = async () => {
-    if (car?.id) {
-      const res = await axios.delete("/api/listingcars/delete", {
-        data: { id: car.id },
+    if (shop?.id) {
+      const res = await axios.delete("/api/shops/delete", {
+        data: { id: shop.id },
       });
       if (res.status === 200) {
         router.push(`/`);
         toast({
           variant: "destructive",
-          description: "تم حذف السيارة ",
-        });
-      }
-    }
-  };
-
-  const featureHandler = async () => {
-    if (car?.id) {
-      const res = await axios.put("/api/listingcars/update/featured", {
-        id: car.id,
-        featured: !car.featured,
-      });
-      if (res.status === 200) {
-        router.push(`/`);
-        toast({
-          description: "تم تمميز السيارة ",
+          description: "تم حذف المحل ",
         });
       }
     }
   };
 
   const editHandler = async () => {
-    if (car?.id) {
-      router.push(`/cars/${car.id}/edit`);
+    if (shop?.id) {
+      router.push(`/shops/${shop.id}/edit`);
     }
+  };
+
+  const renderCarDetails = () => {
+    if (!Array.isArray(shop?.cars) || shop.cars === null) return null;
+
+    const carsArray = shop.cars as ShopCar[];
+
+    return carsArray.map((car: ShopCar, idx: number) => {
+      if (typeof car === "string" || typeof car === "number" || car === null) {
+        const isLastCar = idx === carsArray.length - 1;
+
+        return (
+          <span key={idx}>
+            <p>
+              {car ?? ""}
+              {!isLastCar && (
+                <span className="text-[#31c77f] font-bold pl-1">, </span>
+              )}
+            </p>
+          </span>
+        );
+      }
+
+      return null;
+    });
   };
 
   return (
@@ -124,14 +105,14 @@ const CarDetails = ({ car, session }: Props) => {
               >
                 <span>تعديل</span>
               </DropdownMenuItem>
-              <DropdownMenuItem
+              {/* <DropdownMenuItem
                 onClick={featureHandler}
                 className=" cursor-pointer w-full flex justify-end"
               >
                 <span className=" ">
                   {car?.featured === false ? "تمييز" : "ايقاف التمميز"}
                 </span>
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
               <DropdownMenuItem
                 onClick={deleteHandler}
                 className=" cursor-pointer w-full flex justify-end"
@@ -149,7 +130,7 @@ const CarDetails = ({ car, session }: Props) => {
               className="flex flex-row items-start justify-center p-4 max-xl:p-2 max-xl:flex-col gap-6 "
             >
               <Tab.Panels className="overflow-hidden ">
-                {car?.images.map((image) => (
+                {shop?.images.map((image) => (
                   <Tab.Panel key={image.id}>
                     <CldImage
                       width={500}
@@ -164,7 +145,7 @@ const CarDetails = ({ car, session }: Props) => {
 
               {/* Image selector */}
               <Tab.List className="grid gap-4 grid-cols-2 grid-rows-auto max-xl:flex flex-wrap">
-                {car?.images.map((image) => (
+                {shop?.images.map((image) => (
                   <Tab
                     key={image.id}
                     className="relative flex items-center justify-center h-[200px] w-[200px] cursor-pointer rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4 max-lg:h-[100px] max-lg:w-[100px] max-sm:w-[50px] max-sm:h-[50px]"
@@ -199,15 +180,14 @@ const CarDetails = ({ car, session }: Props) => {
             <div className="flex justify-center items-start gap-32 p-2 max-lg:flex-col-reverse max-lg:gap-14">
               <div className="w-[50%] max-lg:w-full">
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-                  {car?.title}
+                  {shop?.name}
                 </h1>
 
                 <div className="mt-4">
-                  <h3 className="sr-only">Description</h3>
                   <div
                     className="space-y-6 text-base text-gray-700"
                     dangerouslySetInnerHTML={{
-                      __html: car?.offerDetails || " ",
+                      __html: `${shop?.country}, ${shop?.city} ` || " ",
                     }}
                   />
                 </div>
@@ -221,54 +201,16 @@ const CarDetails = ({ car, session }: Props) => {
                     <span className="text-green-400 text-4xl">
                       {/* <FaCarSide /> */}
                     </span>
-                    <h1 className="text-gray-900 text-xl">تفاصيل السيارة</h1>
                   </span>
 
                   <div className="my-4">
-                    <div className="grid grid-cols-4 grid-rows-auto gap-10 mt-2 max-xl:grid-cols-2 border rounded border-2 p-4 items-center justify-center">
+                    <div className="grid grid-cols-4 grid-rows-auto gap-10 mt-2 max-xl:grid-cols-2  rounded border-2 p-4 items-center justify-center">
                       <div className="flex flex-col w-[max-content] gap-2  justify-between">
-                        <p className=" font-bold text-lg  "> الصانع </p>{" "}
-                        {car?.CarsMakers?.name}
-                      </div>
-
-                      <div className="flex flex-col w-[max-content] gap-2  justify-between">
-                        <span className=" font-bold text-lg">الموديل </span>{" "}
-                        {car?.CarsModels?.name}
-                      </div>
-
-                      <div className="flex flex-col w-[max-content] gap-2  justify-between">
-                        <span className=" font-bold text-lg">اللون</span>{" "}
-                        {car?.color}{" "}
-                      </div>
-
-                      <div className="flex flex-col w-[max-content]  gap-2 justify-between">
-                        <span className=" font-bold text-lg">الشكل</span>{" "}
-                        {car?.shape}{" "}
-                      </div>
-
-                      <div className="flex flex-col w-[max-content] gap-2   justify-between">
-                        <span className=" font-bold text-lg">الفئة</span>{" "}
-                        {car?.carClass}{" "}
-                      </div>
-
-                      <div className="flex flex-col w-[max-content] gap-2   justify-between">
-                        <span className=" font-bold text-lg">سنة الانشاء</span>
-                        {car?.year}{" "}
-                      </div>
-
-                      <div className="flex flex-col w-[max-content] gap-2   justify-between">
-                        <span className=" font-bold text-lg">الانتقالات</span>{" "}
-                        {car?.transmission}{" "}
-                      </div>
-
-                      <div className="flex  flex-col w-[max-content] gap-2  justify-between">
-                        <span className=" font-bold text-lg">الكيلومترات</span>{" "}
-                        {car?.mileage}{" "}
-                      </div>
-
-                      <div className="flex flex-col w-[max-content]  gap-2  justify-between">
-                        <span className=" font-bold text-lg">السليندرات</span>{" "}
-                        {car?.cylinders}{" "}
+                        <p className=" font-bold text-lg  ">
+                          {" "}
+                          السيارات المتخصص بها{" "}
+                        </p>{" "}
+                        {renderCarDetails()}
                       </div>
                     </div>
                   </div>
@@ -277,39 +219,23 @@ const CarDetails = ({ car, session }: Props) => {
 
               <div className="bg-gray-100 w-[25rem] max-sm:w-[100%] h-[max-content] px-14 py-6 rounded flex flex-col items-start ">
                 <div className="flex gap-4 text-3xl justify-center items-center">
-                  <IoLocation />
+                  <FaWhatsapp />{" "}
                   <span className="text-sm">
-                    <p className="text-gray-600">الموقع</p>
-                    <p>{`${car?.country}, ${car?.city}`}</p>
+                    <a
+                      className="text-gray-600"
+                      href={`https://wa.me/${shop?.phoneNumber}`}
+                    >
+                      الواتساب
+                    </a>
                   </span>
                 </div>
-                <div className="flex gap-4 text-3xl justify-center mt-4 items-center">
+                {/* <div className="flex gap-4 text-3xl justify-center mt-4 items-center">
                   <BsCashCoin />
                   <span className="text-sm">
                     <p className="text-gray-600">السعر</p>
-                    <p className="text-xl">{`${car?.price} ريال`}</p>
+                    <p className="text-xl">{`${shop?.name} ريال`}</p>
                   </span>
-                </div>
-
-                <form className="w-full">
-                  <div className="mt-4 flex flex-col">
-                    <Button
-                      type="submit"
-                      className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                    >
-                      شراء{" "}
-                    </Button>
-                    {session?.user.id !== car?.ownerId && (
-                      <Button
-                        onClick={(e) => chatHandler(e)}
-                        type="submit"
-                        className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                      >
-                        تحدث مع البائع{" "}
-                      </Button>
-                    )}
-                  </div>
-                </form>
+                </div> */}
               </div>
             </div>
           </div>
@@ -319,4 +245,4 @@ const CarDetails = ({ car, session }: Props) => {
   );
 };
 
-export default CarDetails;
+export default ShopDetails;

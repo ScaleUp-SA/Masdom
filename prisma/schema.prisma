@@ -126,3 +126,22 @@ model Damage {
   listingCar   ListingCars @relation(fields: [listingCarId], references: [id], onDelete: Cascade)
   listingCarId String
 }
+
+model RepairShops {
+  id          String        @id @default(uuid())
+  name        String
+  country     String
+  city        String
+  images      ShopsImages[]
+  cars        String[]
+  phoneNumber String
+}
+
+model ShopsImages {
+  id            String       @id @default(uuid())
+  links         String
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  RepairShops   RepairShops? @relation(fields: [repairShopsId], references: [id])
+  repairShopsId String?
+}

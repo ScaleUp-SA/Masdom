@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { CarsMakers, CarsModels, Damage } from "@prisma/client";
 import ImageUplouder from "@/components/imageUplouder";
 import { Files } from "@/components/listingCarsForm";
+import { useToast } from "@/components/ui/use-toast";
 
 const Page = ({ params }: { params: { carId: string } }) => {
   const [files, setFiles] = useState<Files>();
@@ -38,6 +39,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const carId = params.carId;
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,16 +47,19 @@ const Page = ({ params }: { params: { carId: string } }) => {
     if (validateForm()) {
       try {
         const response = await axios.put("/api/listingcars/update", formData);
-        console.log(response.data);
-
-        // Handle success or redirect to another page
+        toast({
+          title: `تم تعديل البيانات `,
+        });
       } catch (error) {
+        toast({
+          variant: "destructive",
+          title: `حدث خطأ ما اثناء تعديل البيانات`,
+        });
         console.error(error);
         // Handle error
       }
     }
   };
-  console.log(formData, "form");
 
   const handleChange = (
     e:
@@ -95,11 +100,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
         damage: updatedDamages, // Update the formData with the modified array
       };
     });
-    console.log(formData);
   };
 
   const filesHandler = (files: Files) => {
-    console.log(files, "fffffff");
     const { public_id, video_id } = files;
     setFiles(files);
     const updatedImages = public_id.map((link: string) => ({ links: link }));
@@ -198,7 +201,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
             carId: carId,
             damage: carInfo.damage,
           }));
-          console.log(carDataResponse);
 
           const makersResponse = await axios.get("/api/maker");
           if (makersResponse.status === 200) {
@@ -218,7 +220,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
           const modelsData = await axios.get(
             `/api/model/${formData.carsMakersId}`
           );
-          console.log(modelsData, "models");
           setModel(modelsData.data.models);
         } catch (error) {
           console.log(error);
@@ -245,7 +246,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
             htmlFor="title"
             className="block text-sm font-medium text-gray-700"
           >
-            Title
+            عنوان العرض{" "}
           </label>
           <Input
             placeholder="Enter Title"
@@ -254,8 +255,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
             type="text"
             id="title"
             name="title"
-            className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.title ? "border-red-500" : ""
-              }`}
+            className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+              errors.title ? "border-red-500" : ""
+            }`}
           />
           {errors.title && (
             <p className="text-red-500 text-sm mt-1">{errors.title}</p>
@@ -275,8 +277,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
             type="text"
             id="offerDetails"
             name="offerDetails"
-            className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.offerDetails ? "border-red-500" : ""
-              }`}
+            className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+              errors.offerDetails ? "border-red-500" : ""
+            }`}
           />
           {errors.offerDetails && (
             <p className="text-red-500 text-sm mt-1">{errors.offerDetails}</p>
@@ -288,7 +291,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="mileage"
               className="block text-sm font-medium text-gray-700"
             >
-              Mileage
+              عدد الكيلومترات{" "}
             </label>
             <Input
               placeholder="Enter Mileage"
@@ -297,8 +300,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="mileage"
               name="mileage"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.mileage ? "border-red-500" : ""
-                }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.mileage ? "border-red-500" : ""
+              }`}
             />
             {errors.mileage && (
               <p className="text-red-500 text-sm mt-1">{errors.mileage}</p>
@@ -309,7 +313,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="year"
               className="block text-sm font-medium text-gray-700"
             >
-              Year
+              الموديل{" "}
             </label>
             <Input
               placeholder="Enter Year"
@@ -318,8 +322,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="year"
               name="year"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.year ? "border-red-500" : ""
-                }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.year ? "border-red-500" : ""
+              }`}
             />
             {errors.year && (
               <p className="text-red-500 text-sm mt-1">{errors.year}</p>
@@ -330,15 +335,16 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="transmission"
               className="block text-sm font-medium text-gray-700"
             >
-              Transmission
+              ناقل الحركة{" "}
             </label>
             <select
               onChange={handleChange}
               value={formData.transmission}
               id="transmission"
               name="transmission"
-              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${errors.year ? "border-red-500" : ""
-                }`}
+              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${
+                errors.year ? "border-red-500" : ""
+              }`}
             >
               <option value="اوتوماتيك">اوتوماتيك</option>
               <option value="مانيوال">مانيوال</option>
@@ -352,7 +358,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="carClass"
               className="block text-sm font-medium text-gray-700"
             >
-              Car Class
+              الفئة{" "}
             </label>
             <Input
               placeholder="Enter Car Class"
@@ -361,8 +367,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="carClass"
               name="carClass"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.carClass ? "border-red-500" : ""
-                }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.carClass ? "border-red-500" : ""
+              }`}
             />
             {errors.carClass && (
               <p className="text-red-500 text-sm mt-1">{errors.carClass}</p>
@@ -373,7 +380,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="carsMakersId"
               className="block text-sm font-medium text-gray-700"
             >
-              Cars Makers ID
+              مصنع العربية{" "}
             </label>
 
             <select
@@ -381,8 +388,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
               value={formData.carsMakersId}
               id="carsMakersId"
               name="carsMakersId"
-              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${errors.year ? "border-red-500" : ""
-                }`}
+              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${
+                errors.year ? "border-red-500" : ""
+              }`}
             >
               {makers.map((maker, idx) => (
                 <option key={idx} value={maker.id}>
@@ -400,15 +408,16 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="carsModelsId"
               className="block text-sm font-medium text-gray-700"
             >
-              Cars Models ID
+              ماركة العربية{" "}
             </label>
             <select
               onChange={handleChange}
               value={formData.carsModelsId}
               id="carsModelsId"
               name="carsModelsId"
-              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${errors.year ? "border-red-500" : ""
-                }`}
+              className={`mt-1 h-10 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md ${
+                errors.year ? "border-red-500" : ""
+              }`}
             >
               {Array.isArray(model) &&
                 model.map((item, idx) => (
@@ -426,7 +435,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="city"
               className="block text-sm font-medium text-gray-700"
             >
-              City
+              المدينة
             </label>
             <Input
               placeholder="Enter City"
@@ -435,8 +444,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="city"
               name="city"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.city ? "border-red-500" : ""
-                }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.city ? "border-red-500" : ""
+              }`}
             />
             {errors.city && (
               <p className="text-red-500 text-sm mt-1">{errors.city}</p>
@@ -447,7 +457,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="color"
               className="block text-sm font-medium text-gray-700"
             >
-              Color
+              اللون
             </label>
             <Input
               placeholder="Enter Color"
@@ -456,8 +466,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="color"
               name="color"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.color ? "border-red-500" : ""
-                }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.color ? "border-red-500" : ""
+              }`}
             />
             {errors.color && (
               <p className="text-red-500 text-sm mt-1">{errors.color}</p>
@@ -468,7 +479,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="country"
               className="block text-sm font-medium text-gray-700"
             >
-              Country
+              البلد{" "}
             </label>
             <Input
               placeholder="Enter Country"
@@ -477,8 +488,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="country"
               name="country"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.country ? "border-red-500" : ""
-                }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.country ? "border-red-500" : ""
+              }`}
             />
             {errors.country && (
               <p className="text-red-500 text-sm mt-1">{errors.country}</p>
@@ -489,7 +501,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="cylinders"
               className="block text-sm font-medium text-gray-700"
             >
-              Cylinders
+              سعة الموتور
             </label>
             <Input
               placeholder="Enter Cylinders"
@@ -498,8 +510,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="cylinders"
               name="cylinders"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.cylinders ? "border-red-500" : ""
-                }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.cylinders ? "border-red-500" : ""
+              }`}
             />
             {errors.cylinders && (
               <p className="text-red-500 text-sm mt-1">{errors.cylinders}</p>
@@ -510,7 +523,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="ownerId"
               className="block text-sm font-medium text-gray-700"
             >
-              Owner ID
+              المالك{" "}
             </label>
             <Input
               placeholder="Enter Owner ID"
@@ -519,8 +532,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="ownerId"
               name="ownerId"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.ownerId ? "border-red-500" : ""
-                }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.ownerId ? "border-red-500" : ""
+              }`}
             />
             {errors.ownerId && (
               <p className="text-red-500 text-sm mt-1">{errors.ownerId}</p>
@@ -531,7 +545,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="price"
               className="block text-sm font-medium text-gray-700"
             >
-              Price
+              السعر{" "}
             </label>
             <Input
               placeholder="Enter Price"
@@ -540,8 +554,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="price"
               name="price"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.price ? "border-red-500" : ""
-                }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.price ? "border-red-500" : ""
+              }`}
             />
             {errors.price && (
               <p className="text-red-500 text-sm mt-1">{errors.price}</p>
@@ -552,7 +567,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="shape"
               className="block text-sm font-medium text-gray-700"
             >
-              Shape
+              الشكل{" "}
             </label>
             <Input
               placeholder="Enter Shape"
@@ -561,8 +576,9 @@ const Page = ({ params }: { params: { carId: string } }) => {
               type="text"
               id="shape"
               name="shape"
-              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${errors.shape ? "border-red-500" : ""
-                }`}
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.shape ? "border-red-500" : ""
+              }`}
             />
             {errors.shape && (
               <p className="text-red-500 text-sm mt-1">{errors.shape}</p>
@@ -585,11 +601,18 @@ const Page = ({ params }: { params: { carId: string } }) => {
               </div>
             ))}
           </div>
-          <Button type="button" onClick={handleAddMore} className="w-[29%] max-lg:w-[50%] bg-green-400 hover:bg-green-600">
+          <Button
+            type="button"
+            onClick={handleAddMore}
+            className="w-[29%] max-lg:w-[50%] bg-green-400 hover:bg-green-600"
+          >
             اضف الضرر
           </Button>
         </div>
-        <Button type="submit" className="px-4 py-2 text-white rounded-md mt-8 w-full bg-green-400 hover:bg-green-600">
+        <Button
+          type="submit"
+          className="px-4 py-2 text-white rounded-md mt-8 w-full bg-green-400 hover:bg-green-600"
+        >
           حفظ التغييرات
         </Button>
       </form>

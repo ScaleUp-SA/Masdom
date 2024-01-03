@@ -4,6 +4,8 @@ import {
   Damage,
   ListingCars,
   Message,
+  RepairShops,
+  ShopsImages,
 } from "@prisma/client";
 
 export type Session = {
@@ -100,6 +102,15 @@ export type FormData = {
   transmission: string;
 };
 
+export type ShopFormData = {
+  images: ShopsImages[];
+  shopId: string;
+  name: string;
+  city: string;
+  country: string;
+  cars: string[];
+};
+
 export interface FilterOption {
   value: string;
   label: string;
@@ -110,4 +121,8 @@ export interface Filter {
   id: string;
   name: string;
   options: FilterOption[];
+}
+
+export interface FullShop extends RepairShops {
+  images: ShopsImages[];
 }

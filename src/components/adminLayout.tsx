@@ -10,8 +10,20 @@ type Props = {
 
 const sidebarNavItems = [
   {
-    title: "لوحة التحكم",
-    href: "/profile/adminpanel",
+    title: "السيارات المعروضة",
+    href: "/profile/adminallcars",
+  },
+  {
+    title: "اضف سيارات",
+    href: "/profile/listcar",
+  },
+  {
+    title: "اضف محلات",
+    href: "/profile/adminaddshops",
+  },
+  {
+    title: "المحلات المعروضة",
+    href: "/profile/adminallshops",
   },
 ];
 

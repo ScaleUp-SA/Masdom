@@ -25,9 +25,6 @@ export const getFeaturedCars = async () => {
 
 export const getLatestCars = async () => {
   const latestCars = await prisma.listingCars.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
     include: {
       CarsMakers: true,
       CarsModels: true,
@@ -35,11 +32,14 @@ export const getLatestCars = async () => {
       images: true,
       videos: true,
     },
+    take: 3,
   });
 
-  return latestCars;
-};
+  // Reverse the order of the retrieved cars
+  const latestThreeCars = latestCars.reverse();
 
+  return latestThreeCars;
+};
 export const getCar = async (id: string) => {
   const car = await prisma.listingCars.findUnique({
     where: { id },
@@ -72,7 +72,15 @@ export const getUserCars = async (id: string) => {
 
 export const getCars = async () => {
   try {
-    const ListingCars = await prisma.listingCars.findMany();
+    const ListingCars = await prisma.listingCars.findMany({
+      include: {
+        CarsMakers: true,
+        CarsModels: true,
+        damage: true,
+        images: true,
+        videos: true,
+      },
+    });
     return ListingCars;
   } catch (error) {
     console.log(error);
@@ -147,4 +155,33 @@ export const updateUser = async (id: string, userData: {}) => {
     console.error(error);
     return { message: "Internal server error" };
   }
+};
+
+export const getShops = async () => {
+  try {
+    const shops = await prisma.repairShops.findMany({
+      include: {
+        images: true,
+      },
+    });
+    return shops;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getShop = async (id: string) => {
+  const shop = await prisma.repairShops.findUnique({
+    where: { id: id },
+    include: {
+      images: true,
+    },
+  });
+
+  return shop;
+};
+
+export const deleteShop = async (id: string) => {
+  const deleteShop = await prisma.repairShops.delete({ where: { id } });
+  return deleteShop;
 };

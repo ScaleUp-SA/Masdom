@@ -3,6 +3,7 @@ import { getCar } from "@/lib/dbQueries";
 import React from "react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/nextAuth";
+import { FullCar } from "@/types";
 
 type Props = {
   params: { carId: string };
@@ -10,10 +11,7 @@ type Props = {
 
 const page = async ({ params }: Props) => {
   const session = await getServerSession(authOptions);
-
-  const car = await getCar(params.carId);
-
-  console.log(car);
+  const car: FullCar | null = await getCar(params.carId);
 
   return (
     <div>

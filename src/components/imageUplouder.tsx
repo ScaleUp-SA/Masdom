@@ -31,8 +31,7 @@ export default function ImageUplouder({
     video_id: [],
   });
 
-  console.log(images);
-  console.log(videos);
+
 
   const [videoUrl, setVideoUrl] = useState<string[]>([]);
   const [showMediaPopup, setShowMediaPopup] = useState(false);
@@ -94,7 +93,6 @@ export default function ImageUplouder({
     setVideoSorce(sorce);
   }, [videos]);
 
-  console.log(videoSorce);
 
   return (
     <div className="container mx-auto p-8">

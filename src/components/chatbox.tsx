@@ -70,7 +70,7 @@ const ChatBox = ({ chatId, session }: Props) => {
   const textareaHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (!user?.id || !chatId) {
       return toast({
-        title: "something went wrong",
+        title: "حدث خطأ ما",
         variant: "destructive",
       });
     }
@@ -82,7 +82,7 @@ const ChatBox = ({ chatId, session }: Props) => {
   const sendMessageHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
     if (!user?.id || !chatId) {
       return toast({
-        title: "something went wrong",
+        title: "حدث خطأ ما",
         variant: "destructive",
       });
     }
@@ -90,7 +90,7 @@ const ChatBox = ({ chatId, session }: Props) => {
 
     if (res.status === 400 || res.status === 500)
       return toast({
-        title: "something went wrong, try again",
+        title: "حدث خطأ ما",
         variant: "destructive",
       });
 

@@ -10,7 +10,7 @@ import Image from "next/image";
 import { Session } from "@/types";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
-import logo from "../../public/masdomLogo.png"
+import logo from "../../public/masdomLogo.png";
 
 export default function Header({ session }: { session: Session | null }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,23 +22,25 @@ export default function Header({ session }: { session: Session | null }) {
   const navigation =
     pathname.includes("profile") === false
       ? [
-        { name: "الرئيسية", href: "/" },
-        { name: "حسابي", href: "/profile" },
-      ]
+          { name: "الرئيسية", href: "/" },
+          { name: "حسابي", href: "/profile" },
+          { name: "المحلات", href: "/shops" },
+        ]
       : [
-        { name: "الرئيسية", href: "/" },
-        { name: "المحادثات", href: "/profile/chat" },
-      ];
+          { name: "الرئيسية", href: "/" },
+          { name: "المحادثات", href: "/profile/chat" },
+        ];
 
   const handleSignOut = async () => {
     if (!session) {
-      router.push("/login");
     } else {
       try {
         await signOut();
         toast({
           title: "تم تسجيل الخروج",
         });
+        router.refresh();
+        router.push("/login");
       } catch (error) {
         console.error(error);
       }
@@ -62,11 +64,17 @@ export default function Header({ session }: { session: Session | null }) {
   }, []);
 
   const logStatues = session
-    ? { title: "تسجيل الخروج", path: "/" }
-    : { title: "تسجيل الدخول", path: "/login" };
+    ? { title: "تسجيل الخروج", path: "/", handleSignOut }
+    : { title: "تسجيل الدخول", path: "/login", handleSignOut };
 
   return pathname === "/login" || pathname === "/signup" ? null : (
-    <header className={` ${pathname === "/" ? "fixed w-full z-10 backdrop-blur-md bg-black/30" : "block w-full bg-white"} `}>
+    <header
+      className={` ${
+        pathname === "/"
+          ? "fixed w-full z-10 backdrop-blur-md bg-black/30"
+          : "block w-full bg-white"
+      } `}
+    >
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -74,29 +82,33 @@ export default function Header({ session }: { session: Session | null }) {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Masdoom</span>
-            {
-              pathname === "/" ? (
-                <Image
-                  width={200}
-                  height={200}
-                  className="h-8 w-auto"
-                  src="https://uploads-ssl.webflow.com/63c520dbb2108882704bf6eb/6443e56ceae6ea7806d4f161_masdoom%20logo%20white%20.svg"
-                  alt="logo"
-                />) : (
-                <Image
-                  width={200}
-                  height={200}
-                  className="h-10 w-auto"
-                  src={logo}
-                  alt="logo"
-                />)
-            }
+            {pathname === "/" ? (
+              <Image
+                width={200}
+                height={200}
+                className="h-8 w-auto"
+                src="https://uploads-ssl.webflow.com/63c520dbb2108882704bf6eb/6443e56ceae6ea7806d4f161_masdoom%20logo%20white%20.svg"
+                alt="logo"
+              />
+            ) : (
+              <Image
+                width={200}
+                height={200}
+                className="h-10 w-auto"
+                src={logo}
+                alt="logo"
+              />
+            )}
           </a>
         </div>
         <div className="flex ">
           <button
             type="button"
-            className={` ${pathname === "/" ? "inline-flex items-center justify-center rounded-md p-2.5 text-white" : "inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"}`}
+            className={` ${
+              pathname === "/"
+                ? "inline-flex items-center justify-center rounded-md p-2.5 text-white"
+                : "inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
+            }`}
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -124,14 +136,13 @@ export default function Header({ session }: { session: Session | null }) {
         </div> */}
       </nav>
 
-
       <Dialog
         as="div"
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
         className="fixed inset-0 z-10"
       >
-        <div className="fixed items-center justify-center inset-0 z-10 bg-black/50 px-12"/>
+        <div className="fixed items-center justify-center inset-0 z-10 bg-black/50 px-12" />
         <Dialog.Panel className="fixed items-center justify-center min-w-[100%] h-screen z-20 bg-white py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex w-full items-center justify-between px-12">
             <div className="flex lg:flex-1">
@@ -165,17 +176,32 @@ export default function Header({ session }: { session: Session | null }) {
                     onClick={() => setMobileMenuOpen(false)}
                     className="font-semibold leading-6 text-center"
                   >
-                    <h4 className="text-gray-900 mt-12 text-[3rem] max-md:text-2xl max-md:mt-4">{item.name}</h4>
+                    <h4 className="text-gray-900 mt-12 text-[3rem] max-md:text-2xl max-md:mt-4">
+                      {item.name}
+                    </h4>
                   </Link>
                 ))}
               </div>
               <div className="py-6">
-                <Link
-                  href={logStatues.path}
-                  className="mx-3 mt-10 p-2 px-8 block rounded-lg px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  {logStatues.title}
-                </Link>
+                {session ? (
+                  <Link
+                    href={"/"}
+                    onClick={handleSignOut}
+                    className="mx-3 mt-10 p-2 px-8 block rounded-lg  text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    {logStatues.title}
+                  </Link>
+                ) : (
+                  <Link
+                    href="/login"
+                    onClick={() => {
+                      router.refresh();
+                    }}
+                    className="mx-3 mt-10 p-2 px-8 block rounded-lg  text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    {logStatues.title}
+                  </Link>
+                )}
               </div>
             </div>
           </div>
