@@ -1,13 +1,12 @@
 "use client";
 
-import React from "react";
-import { Disclosure, Tab } from "@headlessui/react";
-import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
+import React, { useEffect, useState } from "react";
+import { Tab } from "@headlessui/react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
-import { CldImage } from "next-cloudinary";
+import { CldImage, getCldVideoUrl } from "next-cloudinary";
 import { FullCar, Session } from "@/types";
 import {
   DropdownMenu,
@@ -17,10 +16,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { BsCashCoin } from "react-icons/bs";
 import { IoLocation } from "react-icons/io5";
+import { CarsImages, CarsVideos } from "@prisma/client";
 
 type Props = {
   car: FullCar | null;
   session: Session | null;
+};
+
+type Media = {
+  type: "video" | "image";
+  id: string;
+  links: string;
+  createdAt: Date;
+  updatedAt: Date;
+  listingCarsId: string | null;
 };
 
 function classNames(...classes: string[]) {
@@ -28,8 +37,12 @@ function classNames(...classes: string[]) {
 }
 
 const CarDetails = ({ car, session }: Props) => {
+  const [videoSorce, setVideoSorce] = useState<CarsVideos[]>([]);
+  const [combinedMedia, setCombinedMedia] = useState<Media[]>([]);
+
   const router = useRouter();
   const userId = session?.user.id;
+  console.log(car);
 
   const { toast } = useToast();
 
@@ -95,6 +108,35 @@ const CarDetails = ({ car, session }: Props) => {
       router.push(`/cars/${car.id}/edit`);
     }
   };
+  useEffect(() => {
+    if (car) {
+      const videoSources = car.videos?.map((video) =>
+        getCldVideoUrl({
+          width: 960,
+          height: 600,
+          src: video.links as string,
+        })
+      );
+
+      const updatedVideos: Media[] = Array.isArray(car.videos)
+        ? car.videos.map((video, index) => ({
+            ...video,
+            links: videoSources?.[index] || video.links,
+            type: "video",
+          }))
+        : [];
+      setVideoSorce(updatedVideos);
+
+      // Combine images and updated videos arrays into one
+      const combined: any = [
+        ...(car.images.map((image) => ({ ...image, type: "image" })) || []),
+        ...updatedVideos,
+      ];
+      setCombinedMedia(combined);
+    }
+  }, [car]);
+
+  console.log(videoSorce);
 
   return (
     <div className="bg-white">
@@ -148,48 +190,62 @@ const CarDetails = ({ car, session }: Props) => {
               as="div"
               className="flex flex-row items-start justify-center p-4 max-xl:p-2 max-xl:flex-col gap-6 "
             >
-              <Tab.Panels className="overflow-hidden ">
-                {car?.images.map((image) => (
-                  <Tab.Panel key={image.id}>
-                    <CldImage
-                      width={500}
-                      height={500}
-                      src={image.links}
-                      alt={""}
-                      className="object-contain object-center sm:rounded-lg w-[700px] max-h-[400px]"
-                    />
+              <Tab.Panels className="overflow-hidden">
+                {combinedMedia.map((media) => (
+                  <Tab.Panel key={media.id}>
+                    {media.type === "image" && (
+                      <CldImage
+                        width={500}
+                        height={500}
+                        src={media.links}
+                        alt=""
+                        className="object-contain object-center sm:rounded-lg w-[700px] max-h-[400px]"
+                      />
+                    )}
+                    {media.type === "video" && (
+                      <video
+                        width={500}
+                        height={500}
+                        controls
+                        className="object-contain object-center sm:rounded-lg w-[700px] max-h-[400px]"
+                      >
+                        <source src={media.links} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    )}
                   </Tab.Panel>
                 ))}
               </Tab.Panels>
 
               {/* Image selector */}
               <Tab.List className="grid gap-4 grid-cols-2 grid-rows-auto max-xl:flex flex-wrap">
-                {car?.images.map((image) => (
+                {combinedMedia.map((media) => (
                   <Tab
-                    key={image.id}
+                    key={media.id}
                     className="relative flex items-center justify-center h-[200px] w-[200px] cursor-pointer rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4 max-lg:h-[100px] max-lg:w-[100px] max-sm:w-[50px] max-sm:h-[50px]"
                   >
-                    {({ selected }) => (
-                      <>
-                        <span className="absolute inset-0 overflow-hidden rounded-md flex items-center justify-center">
-                          <CldImage
-                            src={image.links}
-                            width={200}
-                            height={200}
-                            unoptimized={false}
-                            alt={""}
-                            className="object-contain object-center sm:rounded-lg w-[200px] h-[200px] max-xl:[100px] max-xl:[100px]"
-                          />
-                        </span>
-                        <span
-                          className={classNames(
-                            selected ? "ring-green-500" : "ring-transparent",
-                            "pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2"
-                          )}
-                          aria-hidden="true"
-                        />
-                      </>
+                    {media.type === "image" && (
+                      <CldImage
+                        src={media.links}
+                        width={200}
+                        height={200}
+                        unoptimized={false}
+                        alt=""
+                        className="object-contain object-center sm:rounded-lg w-[200px] h-[200px] max-xl:[100px] max-xl:[100px]"
+                      />
                     )}
+                    {media.type === "video" && (
+                      <video
+                        width={200}
+                        height={200}
+                        controls
+                        className="object-contain object-center sm:rounded-lg w-[200px] h-[200px] max-xl:[100px] max-xl:[100px]"
+                      >
+                        <source src={media.links} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    )}
+                    {/* Other selected styles */}
                   </Tab>
                 ))}
               </Tab.List>
