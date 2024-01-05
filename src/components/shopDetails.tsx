@@ -53,6 +53,8 @@ const ShopDetails = ({ shop, session }: Props) => {
   };
 
   const renderCarDetails = () => {
+    if (!shop) return null;
+
     if (!Array.isArray(shop?.cars) || shop.cars === null) return null;
 
     const carsArray = shop.cars as ShopCar[];
