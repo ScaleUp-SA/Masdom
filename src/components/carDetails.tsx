@@ -17,6 +17,12 @@ import {
 import { BsCashCoin } from "react-icons/bs";
 import { IoLocation } from "react-icons/io5";
 import { CarsImages, CarsVideos } from "@prisma/client";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 type Props = {
   car: FullCar | null;
@@ -39,6 +45,7 @@ function classNames(...classes: string[]) {
 const CarDetails = ({ car, session }: Props) => {
   const [videoSorce, setVideoSorce] = useState<CarsVideos[]>([]);
   const [combinedMedia, setCombinedMedia] = useState<Media[]>([]);
+  console.log(car);
 
   const router = useRouter();
   const userId = session?.user.id;
@@ -327,6 +334,18 @@ const CarDetails = ({ car, session }: Props) => {
                         {car?.cylinders}{" "}
                       </div>
                     </div>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem value="item-1">
+                        <AccordionTrigger>
+                          <h1 className="text-gray-900 text-xl">الصدمات </h1>
+                        </AccordionTrigger>
+                        {car?.damage.map((describtion, idx) => (
+                          <AccordionContent key={idx}>
+                            {describtion.description}{" "}
+                          </AccordionContent>
+                        ))}
+                      </AccordionItem>
+                    </Accordion>
                   </div>
                 </section>
               </div>
