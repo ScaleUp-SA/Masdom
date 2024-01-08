@@ -22,14 +22,14 @@ export default function Header({ session }: { session: Session | null }) {
   const navigation =
     pathname.includes("profile") === false
       ? [
-          { name: "الرئيسية", href: "/" },
-          { name: "حسابي", href: "/profile" },
-          { name: "المحلات", href: "/shops" },
-        ]
+        { name: "الرئيسية", href: "/" },
+        { name: "حسابي", href: "/profile" },
+        { name: "المحلات", href: "/shops" },
+      ]
       : [
-          { name: "الرئيسية", href: "/" },
-          { name: "المحادثات", href: "/profile/chat" },
-        ];
+        { name: "الرئيسية", href: "/" },
+        { name: "المحادثات", href: "/profile/chat" },
+      ];
 
   const handleSignOut = async () => {
     if (!session) {
@@ -69,11 +69,10 @@ export default function Header({ session }: { session: Session | null }) {
 
   return pathname === "/login" || pathname === "/signup" ? null : (
     <header
-      className={` ${
-        pathname === "/"
-          ? "fixed w-full z-10 backdrop-blur-md bg-black/30"
-          : "block w-full bg-white"
-      } `}
+      className={` ${pathname === "/"
+        ? "fixed w-full z-10 backdrop-blur-md bg-black/30"
+        : "block w-full bg-white"
+        } `}
     >
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
@@ -104,11 +103,10 @@ export default function Header({ session }: { session: Session | null }) {
         <div className="flex ">
           <button
             type="button"
-            className={` ${
-              pathname === "/"
-                ? "inline-flex items-center justify-center rounded-md p-2.5 text-white"
-                : "inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
-            }`}
+            className={` ${pathname === "/"
+              ? "inline-flex items-center justify-center rounded-md p-2.5 text-white"
+              : "inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
+              }`}
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -144,7 +142,7 @@ export default function Header({ session }: { session: Session | null }) {
       >
         <div className="fixed items-center justify-center inset-0 z-10 bg-black/50 px-12" />
         <Dialog.Panel className="fixed items-center justify-center min-w-[100%] h-screen z-20 bg-white py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex w-full items-center justify-between px-12">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
             <div className="flex lg:flex-1">
               <a href="/" className="p-1">
                 <span className="sr-only">Masdoom</span>
@@ -163,7 +161,7 @@ export default function Header({ session }: { session: Session | null }) {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <XMarkIcon className="h-8 w-8" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root h-screen w-screen flex flex-col items-center justify-center">

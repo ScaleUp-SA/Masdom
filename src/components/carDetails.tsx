@@ -127,10 +127,10 @@ const CarDetails = ({ car, session }: Props) => {
 
       const updatedVideos: Media[] = Array.isArray(car.videos)
         ? car.videos.map((video, index) => ({
-            ...video,
-            links: videoSources?.[index] || video.links,
-            type: "video",
-          }))
+          ...video,
+          links: videoSources?.[index] || video.links,
+          type: "video",
+        }))
         : [];
       setVideoSorce(updatedVideos);
 
@@ -195,18 +195,18 @@ const CarDetails = ({ car, session }: Props) => {
           <div className="flex flex-col gap-12 max-lg:gap-2">
             <Tab.Group
               as="div"
-              className="flex flex-row items-start justify-center p-4 max-xl:p-2 max-xl:flex-col gap-6 "
+              className="flex flex-row items-start gap-10 justify-center p-4 max-xl:p-2 max-xl:flex-col gap-10 "
             >
               <Tab.Panels className="overflow-hidden">
                 {combinedMedia.map((media) => (
                   <Tab.Panel key={media.id}>
                     {media.type === "image" && (
                       <CldImage
-                        width={500}
-                        height={500}
+                        width={600}
+                        height={600}
                         src={media.links}
                         alt=""
-                        className="object-contain object-center sm:rounded-lg w-[700px] max-h-[400px]"
+                        className="object-contain object-center sm:rounded-lg w-[700px] max-h-[500px]"
                       />
                     )}
                     {media.type === "video" && (
@@ -225,11 +225,11 @@ const CarDetails = ({ car, session }: Props) => {
               </Tab.Panels>
 
               {/* Image selector */}
-              <Tab.List className="grid gap-4 grid-cols-2 grid-rows-auto max-xl:flex flex-wrap">
+              <Tab.List className="grid gap-4 grid-cols-2 grid-rows-auto max-xl:flex max-xl:flex-wrap max-xl:gap-10">
                 {combinedMedia.map((media) => (
                   <Tab
                     key={media.id}
-                    className="relative flex items-center justify-center h-[200px] w-[200px] cursor-pointer rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4 max-lg:h-[100px] max-lg:w-[100px] max-sm:w-[50px] max-sm:h-[50px]"
+                    className="relative flex items-center justify-center h-[max-content] w-[max-content] cursor-pointer rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4 max-lg:h-[100px] max-lg:w-[100px] max-sm:w-[50px] max-sm:h-[50px]"
                   >
                     {media.type === "image" && (
                       <CldImage
