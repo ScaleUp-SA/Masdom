@@ -4,8 +4,6 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/nextAuth";
 import AuthContextProvider from "./../lib/AuthContext";
 
 const alexandria = Alexandria({ subsets: ["latin", "arabic"] });
@@ -23,13 +21,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
-
   return (
     <html lang="en">
       <body className={alexandria.className}>
         <AuthContextProvider>
-          <Header session={session} />
+          <Header />
           {children}
           <Toaster />
           <Footer />

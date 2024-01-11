@@ -49,15 +49,15 @@ model ListingCars {
   id           String  @id @default(uuid())
   title        String
   offerDetails String
-  price        String
+  price        Int
   color        String
   year         String
   transmission String
   country      String
   city         String
-  mileage      String
+  mileage      Int
   featured     Boolean @default(false)
-  cylinders    String
+  cylinders    Int
   shape        String
   carClass     String
 

@@ -32,23 +32,117 @@ import { useSearchParams } from "next/navigation";
 import { FullCar } from "@/types";
 import { Label } from "./ui/label";
 
+const negativeNumbersValidation = (number: number) => {
+  if (number < 0) return false;
+
+  return true;
+};
+
+const priceValidation = (price: number) => {
+  if (+price < 0) return false;
+
+  return true;
+};
+
+const cities = [
+  "الرياض",
+  "مكة المكرمة",
+  "المدينة المنورة",
+  "الشرقية",
+  "الجوف",
+  "الباحة",
+  "عسير",
+  "القصيم",
+  "حائل",
+  "تبوك",
+  "الحدود الشمالية",
+  "جازان",
+  "نجران",
+];
+
+const carShapes = [
+  "سيدان (Sedan)",
+  "كوبيه (Coupe)",
+  "هاتشباك (Hatchback)",
+  "كروس أوفر (Crossover)",
+  "سيارة دفع رباعي (SUV - Sport Utility Vehicle)",
+  "شاحنة (Pickup Truck)",
+  "فان (Van)",
+  "كابريوليه (Convertible)",
+  "رياضية (Sports Car)",
+  "سيارة كهربائية (Electric Car)",
+];
+
 const formSchema = z.object({
   title: z.string().min(5, "يجب علي الاقل ان يحتوي علي 5 احرف علي الاقل"),
-  mileage: z.string().min(0, "لا يمكن أن يكون حقل الكيلومترات فارغًا"),
-  year: z.string().min(4, "السنة غير صالحة").max(4, "السنة غير صالحة"),
+  mileage: z.coerce
+    .number({
+      invalid_type_error: "يجب ادخال ارقتم",
+    })
+    .min(0, "لا يمكن أن يكون حقل المشي فارغًا")
+    .refine(
+      (value) => {
+        return negativeNumbersValidation(value);
+      },
+      {
+        message: "السعر يجب أن يكون رقمًا موجبًا",
+      }
+    ),
+  year: z.string().min(4, "سنة الصنع غير صالحة").max(4, "سنة الصنع غير صالحة"),
   transmission: z.enum(["اوتوماتيك", "مانيوال"]),
   offerDetails: z
     .string()
     .min(10, "يجب علي الاقل ان يحتوي علي 10 احرف علي الاقل"),
-  country: z.string().min(5, "يجب علي الاقل ان يحتوي علي 5 احرف علي الاقل"),
-  city: z.string().min(3, "يجب علي الاقل ان يحتوي علي 5 احرف علي الاقل"),
-  price: z.string().min(0, "السعر يجب أن يكون رقمًا موجبًا"),
+  country: z.string().optional(),
+  city: z.enum([
+    "الرياض",
+    "مكة المكرمة",
+    "المدينة المنورة",
+    "الشرقية",
+    "الجوف",
+    "الباحة",
+    "عسير",
+    "القصيم",
+    "حائل",
+    "تبوك",
+    "الحدود الشمالية",
+    "جازان",
+    "نجران",
+  ]),
+  price: z.coerce
+    .number({
+      invalid_type_error: "يجب ادخال ارقم فقط",
+    })
+    .min(0, "السعر يجب أن يكون رقمًا موجبًا")
+    .refine(
+      (value) => {
+        return priceValidation(value);
+      },
+      {
+        message: "السعر يجب أن يكون رقمًا موجبًا",
+      }
+    ),
   carsMakersId: z.string(),
   carsModelsId: z.string(),
   carClass: z.string().min(2, "يجب علي الاقل ان يحتوي علي 2 احرف علي الاقل"),
-  cylinders: z.string().min(0, "سعة المحرك يجب أن تكون رقمًا موجبًا"),
+  cylinders: z.coerce
+    .number({
+      invalid_type_error: "يجب ادخال ارقتم",
+    })
+    .min(0, "سعة المحرك يجب أن تكون رقمًا موجبًا"),
   color: z.string().min(2, "يجب علي الاقل ان يحتوي علي 2 احرف علي الاقل"),
-  shape: z.string().min(2, "يجب علي الاقل ان يحتوي علي 2 احرف علي الاقل"),
+  shape: z.enum([
+    "سيدان (Sedan)",
+    "كوبيه (Coupe)",
+    "هاتشباك (Hatchback)",
+    "كروس أوفر (Crossover)",
+    "سيارة دفع رباعي (SUV - Sport Utility Vehicle)",
+    "شاحنة (Pickup Truck)",
+    "فان (Van)",
+    "كابريوليه (Convertible)",
+    "رياضية (Sports Car)",
+    "سيارة كهربائية (Electric Car)",
+  ]),
 });
 
 type Props = {
@@ -66,7 +160,6 @@ const ListingCarsForm = ({ params }: Props) => {
   const { toast } = useToast();
   const router = useRouter();
   const pathname = usePathname();
-  console.log(params);
   const carId = params?.carId;
   const [files, setFiles] = useState<Files>();
   const [fileError, setFileError] = useState(false);
@@ -80,16 +173,17 @@ const ListingCarsForm = ({ params }: Props) => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: "",
-      mileage: "",
+      mileage: 0,
       year: "",
       transmission: "اوتوماتيك",
       offerDetails: "",
-      country: "",
-      price: "",
+      country: "السعودية",
+      city: "الرياض",
+      price: 0,
       carsMakersId: "",
       carsModelsId: "",
       carClass: "",
-      cylinders: "",
+      cylinders: 0,
       color: "",
     },
   });
@@ -134,6 +228,7 @@ const ListingCarsForm = ({ params }: Props) => {
 
       const updatedCar = {
         ...values,
+        country: "السعودية",
         ownerId: session?.user.id,
         CarsImages: files?.public_id.map((link) => {
           return { links: link };
@@ -205,7 +300,7 @@ const ListingCarsForm = ({ params }: Props) => {
               name="mileage"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>عدد الكيلومترات</FormLabel>
+                  <FormLabel>عدد المشي</FormLabel>
                   <FormControl>
                     <Input required type="text" placeholder="140" {...field} />
                   </FormControl>
@@ -237,18 +332,28 @@ const ListingCarsForm = ({ params }: Props) => {
               name="transmission"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>ناقل الحركة</FormLabel>
+                  <FormLabel>القير</FormLabel>
                   <FormControl>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
-                      <SelectTrigger>
-                        <SelectValue placeholder="اختار ناقل الحركة" />
+                      <SelectTrigger className=" flex flex-row-reverse">
+                        <SelectValue placeholder="اختار القير" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="اوتوماتيك">اوتوماتيك</SelectItem>
-                        <SelectItem value="مانيوال">مانيوال</SelectItem>
+                        <SelectItem
+                          className=" flex flex-row-reverse"
+                          value="اوتوماتيك"
+                        >
+                          اوتوماتيك
+                        </SelectItem>
+                        <SelectItem
+                          className=" flex flex-row-reverse"
+                          value="مانيوال"
+                        >
+                          مانيوال
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </FormControl>
@@ -278,6 +383,7 @@ const ListingCarsForm = ({ params }: Props) => {
           </div>
           <div className="grid grid-cols-2 w-4/5 gap-6 max-md:grid-cols-1">
             <FormField
+              disabled
               control={form.control}
               name="country"
               render={({ field }) => (
@@ -285,7 +391,7 @@ const ListingCarsForm = ({ params }: Props) => {
                   <FormLabel>البلد</FormLabel>
                   <FormControl>
                     <Input
-                      required
+                      disabled
                       type="text"
                       placeholder="السعودية"
                       {...field}
@@ -295,7 +401,7 @@ const ListingCarsForm = ({ params }: Props) => {
                 </FormItem>
               )}
             />
-            <FormField
+            {/* <FormField
               control={form.control}
               name="city"
               render={({ field }) => (
@@ -312,8 +418,39 @@ const ListingCarsForm = ({ params }: Props) => {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
+              control={form.control}
+              name="city"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>المدينة</FormLabel>
+                  <FormControl>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <SelectTrigger className=" flex flex-row-reverse">
+                        <SelectValue placeholder="اختار المدينة" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {cities.map((city) => (
+                          <SelectItem
+                            className=" flex flex-row-reverse"
+                            key={city}
+                            value={city}
+                          >
+                            {city}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {/* <FormField
               control={form.control}
               name="shape"
               render={({ field }) => (
@@ -330,7 +467,40 @@ const ListingCarsForm = ({ params }: Props) => {
                   <FormMessage />
                 </FormItem>
               )}
+            /> */}
+
+            <FormField
+              control={form.control}
+              name="shape"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>الشكل</FormLabel>
+                  <FormControl>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <SelectTrigger className=" flex flex-row-reverse">
+                        <SelectValue placeholder="اختار الشكل" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {carShapes.map((car) => (
+                          <SelectItem
+                            className=" flex flex-row-reverse"
+                            key={car}
+                            value={car}
+                          >
+                            {car}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
+
             <FormField
               control={form.control}
               name="price"
@@ -351,7 +521,7 @@ const ListingCarsForm = ({ params }: Props) => {
               name="carsMakersId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>مصنع العربية</FormLabel>
+                  <FormLabel>مصنع السيارة</FormLabel>
                   <FormControl>
                     {!isEditMode ? (
                       <Select
@@ -364,12 +534,16 @@ const ListingCarsForm = ({ params }: Props) => {
                         }}
                         defaultValue={field.value}
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className=" flex flex-row-reverse">
                           <SelectValue placeholder="اختار المصنع" />
                         </SelectTrigger>
                         <SelectContent>
                           {makers.map((maker) => (
-                            <SelectItem key={maker.id} value={maker.id}>
+                            <SelectItem
+                              className=" flex flex-row-reverse"
+                              key={maker.id}
+                              value={maker.id}
+                            >
                               {maker.name}{" "}
                             </SelectItem>
                           ))}
@@ -415,7 +589,7 @@ const ListingCarsForm = ({ params }: Props) => {
               name="carsModelsId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>ماركة العربية</FormLabel>
+                  <FormLabel>ماركة السيارة</FormLabel>
                   <FormControl>
                     {!isEditMode ? (
                       <Select
@@ -424,12 +598,16 @@ const ListingCarsForm = ({ params }: Props) => {
                         }}
                         defaultValue={field.value}
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className=" flex flex-row-reverse">
                           <SelectValue placeholder="اختار الماركة" />
                         </SelectTrigger>
                         <SelectContent>
                           {model.map((item) => (
-                            <SelectItem key={item.id} value={item.id}>
+                            <SelectItem
+                              className=" flex flex-row-reverse"
+                              key={item.id}
+                              value={item.id}
+                            >
                               {item.name}{" "}
                             </SelectItem>
                           ))}
@@ -498,7 +676,7 @@ const ListingCarsForm = ({ params }: Props) => {
               name="color"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>لون العربية</FormLabel>
+                  <FormLabel>لون السيارة</FormLabel>
                   <FormControl>
                     <Input required placeholder="الاسود" {...field} />
                   </FormControl>
@@ -509,7 +687,11 @@ const ListingCarsForm = ({ params }: Props) => {
           </div>
           <div className="flex flex-col w-4/5 gap-2">
             <div className=" flex justify-center">
-              <Button className="w-1/2 bg-green-400 hover:bg-green-600" type="button" onClick={handleAddMore}>
+              <Button
+                className="w-1/2 bg-green-400 hover:bg-green-600"
+                type="button"
+                onClick={handleAddMore}
+              >
                 اضف المزيد من الضرر
               </Button>
             </div>
@@ -530,7 +712,9 @@ const ListingCarsForm = ({ params }: Props) => {
           </div>
 
           <div className="w-4/5 my-4">
-            <Button className="w-full bg-green-400 hover:bg-green-600">نشر المعاملة</Button>
+            <Button className="w-full bg-green-400 hover:bg-green-600">
+              نشر المعاملة
+            </Button>
           </div>
         </form>
       </Form>

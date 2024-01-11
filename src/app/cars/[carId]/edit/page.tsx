@@ -291,7 +291,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="mileage"
               className="block text-sm font-medium text-gray-700"
             >
-              عدد الكيلومترات{" "}
+              عدد المشي{" "}
             </label>
             <Input
               placeholder="Enter Mileage"
@@ -335,7 +335,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="transmission"
               className="block text-sm font-medium text-gray-700"
             >
-              ناقل الحركة{" "}
+              القير{" "}
             </label>
             <select
               onChange={handleChange}
@@ -380,7 +380,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="carsMakersId"
               className="block text-sm font-medium text-gray-700"
             >
-              مصنع العربية{" "}
+              مصنع السيارة{" "}
             </label>
 
             <select
@@ -408,7 +408,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="carsModelsId"
               className="block text-sm font-medium text-gray-700"
             >
-              ماركة العربية{" "}
+              ماركة السيارة{" "}
             </label>
             <select
               onChange={handleChange}

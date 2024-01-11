@@ -11,7 +11,6 @@ import { Files } from "./listingCarsForm";
 import { CarsImages, CarsVideos } from "@prisma/client";
 import { MdClose } from "react-icons/md";
 
-
 export default function ImageUplouder({
   filesHandler,
   images,
@@ -30,8 +29,6 @@ export default function ImageUplouder({
     thumbnail_url: [],
     video_id: [],
   });
-
-
 
   const [videoUrl, setVideoUrl] = useState<string[]>([]);
   const [showMediaPopup, setShowMediaPopup] = useState(false);
@@ -92,7 +89,6 @@ export default function ImageUplouder({
     );
     setVideoSorce(sorce);
   }, [videos]);
-
 
   return (
     <div className="container mx-auto p-8">

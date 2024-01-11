@@ -11,7 +11,7 @@ interface ChatCreateInput {
 
 export const getFeaturedCars = async () => {
   const featuredCars = await prisma.listingCars.findMany({
-    where: { featured: true },
+    where: { featured: true, },
     include: {
       CarsMakers: true,
       CarsModels: true,

@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { CldImage } from "next-cloudinary";
 import { FullCar } from "@/types";
 
-
 const CarCard = ({ carData }: { carData: FullCar }) => {
   const router = useRouter();
   const routeHandler = () => {
@@ -43,10 +42,17 @@ const CarCard = ({ carData }: { carData: FullCar }) => {
         </div>
       </div>
       <div className="flex justify-between px-5">
-        <p className="text-slate-500">
-          <span className="text-green-500 ml-2 text-xl">{carData.price}</span>{" "}
-          ريال
-        </p>
+        {carData.price === 0 ? (
+          <p className="text-slate-500">
+            <span className="text-green-500 ml-2 text-xl">{"علي السوم"}</span>{" "}
+          </p>
+        ) : (
+          <p className="text-slate-500">
+            <span className="text-green-500 ml-2 text-xl">{carData.price}</span>{" "}
+            ريال
+          </p>
+        )}
+
         <span className="flex items-center gap-2">
           <p className="text-sky-900 ">عرض التفاصيل</p>
           <IoIosArrowBack className="text-slate-500" />

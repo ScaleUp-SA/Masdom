@@ -101,7 +101,7 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
       },
       {
         id: "transmission",
-        name: "ناقل الحركة",
+        name: "القير",
         options: transmissions.map((transmission) => ({
           value: transmission.transmission,
           label: transmission.transmission,
@@ -109,7 +109,7 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
       },
       {
         id: "year",
-        name: "السنة",
+        name: "سنة الصنع",
         options: years.map((year) => ({
           value: year.year,
           label: year.year,

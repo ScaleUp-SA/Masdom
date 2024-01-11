@@ -19,7 +19,7 @@ import { signIn } from "next-auth/react";
 import Image from "next/image";
 import logo from "../../../../public/masdoomLogo.svg";
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import Link from "next/link";
 type Props = {};
 
@@ -42,7 +42,7 @@ const Page = (props: Props) => {
     if (signInData?.error) {
       toast({
         variant: "destructive",
-        title: `${signInData?.error}`,
+        title: `حدث خطأ ما ! `,
       });
     } else {
       toast({
@@ -54,13 +54,13 @@ const Page = (props: Props) => {
     }
   }
 
-  const pageRoute = () => {
+  const pageRoute = useCallback(() => {
     if (session) {
       router.push("/");
     } else {
       return;
     }
-  };
+  }, [session]);
 
   useEffect(() => {
     pageRoute();

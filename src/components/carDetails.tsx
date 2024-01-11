@@ -23,6 +23,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { MdClose } from "react-icons/md";
 
 type Props = {
   car: FullCar | null;
@@ -45,6 +46,8 @@ function classNames(...classes: string[]) {
 const CarDetails = ({ car, session }: Props) => {
   const [videoSorce, setVideoSorce] = useState<CarsVideos[]>([]);
   const [combinedMedia, setCombinedMedia] = useState<Media[]>([]);
+  const [showMediaPopup, setShowMediaPopup] = useState(false);
+
   console.log(car);
 
   const router = useRouter();
@@ -52,6 +55,16 @@ const CarDetails = ({ car, session }: Props) => {
   console.log(car);
 
   const { toast } = useToast();
+
+  const closeMediaPopup = () => {
+    setShowMediaPopup(false);
+    console.log("close");
+  };
+
+  const handleMediaClick = (media: string) => {
+    setShowMediaPopup(true);
+    console.log("dada");
+  };
 
   const chatHandler = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -127,10 +140,10 @@ const CarDetails = ({ car, session }: Props) => {
 
       const updatedVideos: Media[] = Array.isArray(car.videos)
         ? car.videos.map((video, index) => ({
-          ...video,
-          links: videoSources?.[index] || video.links,
-          type: "video",
-        }))
+            ...video,
+            links: videoSources?.[index] || video.links,
+            type: "video",
+          }))
         : [];
       setVideoSorce(updatedVideos);
 
@@ -195,13 +208,14 @@ const CarDetails = ({ car, session }: Props) => {
           <div className="flex flex-col gap-12 max-lg:gap-2">
             <Tab.Group
               as="div"
-              className="flex flex-row items-start gap-10 justify-center p-4 max-xl:p-2 max-xl:flex-col gap-10 "
+              className="flex flex-row items-start gap-10 justify-center p-4 max-xl:p-2 max-xl:flex-col "
             >
               <Tab.Panels className="overflow-hidden">
                 {combinedMedia.map((media) => (
                   <Tab.Panel key={media.id}>
                     {media.type === "image" && (
                       <CldImage
+                        onClick={() => handleMediaClick(media.links)}
                         width={600}
                         height={600}
                         src={media.links}
@@ -220,11 +234,34 @@ const CarDetails = ({ car, session }: Props) => {
                         Your browser does not support the video tag.
                       </video>
                     )}
+                    {showMediaPopup && media.type === "image" && (
+                      <div className="fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-75 flex justify-center items-center">
+                        <div className="max-w-xl">
+                          {
+                            <CldImage
+                              src={media.links!}
+                              alt="Full size"
+                              quality={100}
+                              width={700}
+                              height={700}
+                              className=""
+                            />
+                          }
+                          <button
+                            onClick={() => {
+                              return closeMediaPopup();
+                            }}
+                            className="absolute top-4 right-4 p-2 text-2xl"
+                          >
+                            <MdClose />
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </Tab.Panel>
                 ))}
               </Tab.Panels>
 
-              {/* Image selector */}
               <Tab.List className="grid gap-4 grid-cols-2 grid-rows-auto max-xl:flex max-xl:flex-wrap max-xl:gap-10">
                 {combinedMedia.map((media) => (
                   <Tab
@@ -252,7 +289,6 @@ const CarDetails = ({ car, session }: Props) => {
                         Your browser does not support the video tag.
                       </video>
                     )}
-                    {/* Other selected styles */}
                   </Tab>
                 ))}
               </Tab.List>
@@ -288,7 +324,7 @@ const CarDetails = ({ car, session }: Props) => {
                   </span>
 
                   <div className="my-4">
-                    <div className="grid grid-cols-4 grid-rows-auto gap-10 mt-2 max-xl:grid-cols-2 border rounded border-2 p-4 items-center justify-center">
+                    <div className="grid grid-cols-4 grid-rows-auto gap-10 mt-2 max-xl:grid-cols-2 rounded border-2 p-4 items-center justify-center">
                       <div className="flex flex-col w-[max-content] gap-2  justify-between">
                         <p className=" font-bold text-lg  "> الصانع </p>{" "}
                         {car?.CarsMakers?.name}
@@ -325,13 +361,8 @@ const CarDetails = ({ car, session }: Props) => {
                       </div>
 
                       <div className="flex  flex-col w-[max-content] gap-2  justify-between">
-                        <span className=" font-bold text-lg">الكيلومترات</span>{" "}
+                        <span className=" font-bold text-lg">المشي</span>{" "}
                         {car?.mileage}{" "}
-                      </div>
-
-                      <div className="flex flex-col w-[max-content]  gap-2  justify-between">
-                        <span className=" font-bold text-lg">السليندرات</span>{" "}
-                        {car?.cylinders}{" "}
                       </div>
                     </div>
                     <Accordion type="single" collapsible>
@@ -362,19 +393,21 @@ const CarDetails = ({ car, session }: Props) => {
                   <BsCashCoin />
                   <span className="text-sm">
                     <p className="text-gray-600">السعر</p>
-                    <p className="text-xl">{`${car?.price} ريال`}</p>
+                    <p className="text-xl">
+                      {car?.price === 0 ? "على السوم" : `${car?.price}ريال`}
+                    </p>
                   </span>
                 </div>
 
                 <form className="w-full">
-                  <div className="mt-4 flex flex-col">
-                    <Button
-                      type="submit"
-                      className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                    >
-                      شراء{" "}
-                    </Button>
-                    {session?.user.id !== car?.ownerId && (
+                  {session?.user.id !== car?.ownerId && (
+                    <div className="mt-4 flex flex-col">
+                      {/* <Button
+                        type="submit"
+                        className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                      >
+                        شراء{" "}
+                      </Button> */}
                       <Button
                         onClick={(e) => chatHandler(e)}
                         type="submit"
@@ -382,8 +415,8 @@ const CarDetails = ({ car, session }: Props) => {
                       >
                         تحدث مع البائع{" "}
                       </Button>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </form>
               </div>
             </div>

@@ -29,7 +29,23 @@ export default function Cars() {
         console.log(pageData, "pageData");
 
         if (pageFilterData.status === 200 && pageData.status === 200) {
-          setFiltersState(pageFilterData.data.data.filters);
+          const updateFilter = pageFilterData.data.data.filters.map(
+            (filter: Filter) => {
+              if (filter.id === "price") {
+                const updatedOptions = filter.options.map(
+                  (option: { value: string | number }) => {
+                    if (option.value === 0) {
+                      return { value: 0, label: "علي السوم" };
+                    }
+                    return option;
+                  }
+                );
+                return { ...filter, options: updatedOptions };
+              }
+              return filter;
+            }
+          );
+          setFiltersState(updateFilter);
           setLatestCars(pageData.data.data.listingCars);
           setLoading(false);
         }

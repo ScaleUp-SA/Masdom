@@ -11,25 +11,25 @@ import { Session } from "@/types";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 import logo from "../../public/masdomLogo.png";
-
-export default function Header({ session }: { session: Session | null }) {
+import { useSession } from "next-auth/react";
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [header, setHeader] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const { toast } = useToast();
-
+  const { data: session, status } = useSession();
   const navigation =
     pathname.includes("profile") === false
       ? [
-        { name: "الرئيسية", href: "/" },
-        { name: "حسابي", href: "/profile" },
-        { name: "المحلات", href: "/shops" },
-      ]
+          { name: "الرئيسية", href: "/" },
+          { name: "حسابي", href: "/profile" },
+          { name: "المحلات", href: "/shops" },
+        ]
       : [
-        { name: "الرئيسية", href: "/" },
-        { name: "المحادثات", href: "/profile/chat" },
-      ];
+          { name: "الرئيسية", href: "/" },
+          { name: "المحادثات", href: "/profile/chat" },
+        ];
 
   const handleSignOut = async () => {
     if (!session) {
@@ -69,17 +69,18 @@ export default function Header({ session }: { session: Session | null }) {
 
   return pathname === "/login" || pathname === "/signup" ? null : (
     <header
-      className={` ${pathname === "/"
-        ? "fixed w-full z-10 backdrop-blur-md bg-black/30"
-        : "block w-full bg-white"
-        } `}
+      className={` ${
+        pathname === "/"
+          ? "fixed w-full z-10 backdrop-blur-md bg-black/30"
+          : "block w-full bg-white"
+      } `}
     >
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Masdoom</span>
             {pathname === "/" ? (
               <Image
@@ -103,10 +104,11 @@ export default function Header({ session }: { session: Session | null }) {
         <div className="flex ">
           <button
             type="button"
-            className={` ${pathname === "/"
-              ? "inline-flex items-center justify-center rounded-md p-2.5 text-white"
-              : "inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
-              }`}
+            className={` ${
+              pathname === "/"
+                ? "inline-flex items-center justify-center rounded-md p-2.5 text-white"
+                : "inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
+            }`}
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -164,7 +166,7 @@ export default function Header({ session }: { session: Session | null }) {
               <XMarkIcon className="h-8 w-8" aria-hidden="true" />
             </button>
           </div>
-          <div className="mt-6 flow-root h-screen w-screen flex flex-col items-center justify-center">
+          <div className="mt-6 flow-root h-screen w-screen flex-col items-center justify-center">
             <div className="my-32 flex flex-col items-center justify-center">
               <div className="flex flex-col items-center justify-center">
                 {navigation.map((item) => (
