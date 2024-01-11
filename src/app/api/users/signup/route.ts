@@ -8,12 +8,15 @@ export async function POST(req: NextRequest) {
 
     // Check if all the data are sent
     if (!username || !email || !password || !phoneNumber)
-      return NextResponse.json("Invalid user data");
+      return NextResponse.json("البيانات غير صحيحه");
 
     // Check if the user already exists
     const existUser = await prisma.user.findUnique({ where: { email } });
     if (existUser) {
-      return NextResponse.json("User already exists");
+      return NextResponse.json(
+        { message: "هذا البريد الالكتروني مسجل بالفعل" },
+        { status: 400 }
+      );
     }
 
     // Create the new user
@@ -28,10 +31,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    return NextResponse.json(
-      { message: "User created successfully" },
-      { status: 201 }
-    );
+    return NextResponse.json({ message: "تم انشاء المستخدم" }, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }

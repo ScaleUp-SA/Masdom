@@ -41,17 +41,17 @@ const Page = (props: Props) => {
   async function onSubmit(values: z.infer<typeof signupSchema>) {
     try {
       const res = await axios.post("/api/users/signup", values);
-      toast({
-        title: res.data.message,
-      });
-      await router.push("/login");
-      await router.refresh();
+      if (res.status === 201) {
+        toast({
+          title: res.data.message,
+        });
+        router.push("/login");
+      }
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "حدث خطأ ما",
+        title: error.response.data.message,
       });
-      console.log(error);
     }
   }
 
