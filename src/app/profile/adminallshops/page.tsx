@@ -7,7 +7,6 @@ type Props = {};
 
 const page = async (props: Props) => {
   const shops = await getShops();
-  console.log(shops);
 
   return (
     <div className={styles.container}>

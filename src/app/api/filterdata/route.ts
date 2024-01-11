@@ -1,8 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
-const prisma = new PrismaClient();
-
+const prisma = new PrismaClient()
 export const GET = async (req: NextRequest, res: NextResponse) => {
   try {
     const makes = await prisma.carsMakers.findMany();

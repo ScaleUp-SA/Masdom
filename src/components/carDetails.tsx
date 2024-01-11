@@ -48,22 +48,17 @@ const CarDetails = ({ car, session }: Props) => {
   const [combinedMedia, setCombinedMedia] = useState<Media[]>([]);
   const [showMediaPopup, setShowMediaPopup] = useState(false);
 
-  console.log(car);
-
   const router = useRouter();
   const userId = session?.user.id;
-  console.log(car);
 
   const { toast } = useToast();
 
   const closeMediaPopup = () => {
     setShowMediaPopup(false);
-    console.log("close");
   };
 
   const handleMediaClick = (media: string) => {
     setShowMediaPopup(true);
-    console.log("dada");
   };
 
   const chatHandler = async (
@@ -155,8 +150,6 @@ const CarDetails = ({ car, session }: Props) => {
       setCombinedMedia(combined);
     }
   }, [car]);
-
-  console.log(videoSorce);
 
   return (
     <div className="bg-white">

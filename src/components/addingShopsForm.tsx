@@ -68,13 +68,10 @@ const AddingCarsForm = (props: Props) => {
     index: number,
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    console.log(e.target.value);
     const updatedCars = [...addCars];
     updatedCars[index] = e.target.value;
     setAddCars(updatedCars);
   };
-
-  console.log(addCars);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     if (files?.public_id.length! < 3) {
@@ -101,7 +98,6 @@ const AddingCarsForm = (props: Props) => {
         console.error(error);
       }
     }
-    console.log(values, "dadasdasdas");
   }
 
   return (

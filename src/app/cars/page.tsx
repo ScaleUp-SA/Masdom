@@ -15,8 +15,6 @@ export default function Cars() {
   const [filtersState, setFiltersState] = useState<Filter[]>([]);
   const [latestCars, setLatestCars] = useState<FullCar[]>([]);
 
-  console.log(filtersState);
-
   useEffect(() => {
     (async () => {
       try {
@@ -24,9 +22,6 @@ export default function Cars() {
           axios.get("/api/filterdata"),
           axios.post("/api/listingcars/getcars"),
         ]);
-
-        console.log(pageFilterData, "pageFilterData");
-        console.log(pageData, "pageData");
 
         if (pageFilterData.status === 200 && pageData.status === 200) {
           const updateFilter = pageFilterData.data.data.filters.map(
@@ -54,8 +49,6 @@ export default function Cars() {
       }
     })();
   }, []);
-
-  console.log(latestCars, "carsData");
 
   const handleCheckboxChange = async (sectionId: string, optionIdx: number) => {
     try {

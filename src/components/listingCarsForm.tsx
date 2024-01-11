@@ -205,7 +205,6 @@ const ListingCarsForm = ({ params }: Props) => {
     (async () => {
       try {
         const res = await axios.get("/api/maker");
-        console.log(res);
         setMakers(res.data.makers);
       } catch (error) {
         console.error(error);
@@ -214,7 +213,6 @@ const ListingCarsForm = ({ params }: Props) => {
   }, []);
 
   const filesHandler = (files: Files) => {
-    console.log(files, "fffffff");
     setFiles(files);
     return files;
   };
@@ -238,14 +236,12 @@ const ListingCarsForm = ({ params }: Props) => {
         }),
         damage: damages,
       };
-      console.log(updatedCar, "updated");
 
       try {
         const response = await axios.post(
           "/api/listingcars/create",
           updatedCar
         );
-        console.log(response.data);
         toast({
           variant: "default",
           title: "تم نشر السيارة",
@@ -526,7 +522,6 @@ const ListingCarsForm = ({ params }: Props) => {
                     {!isEditMode ? (
                       <Select
                         onValueChange={async (value) => {
-                          console.log(value);
                           field.onChange(value);
                           const res = await axios.get(`/api/model/${value}`);
                           const models = res.data.models;

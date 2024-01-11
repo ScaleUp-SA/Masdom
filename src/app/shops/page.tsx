@@ -25,9 +25,6 @@ const Page = (props: Props) => {
           axios.post("/api/shops/getshops"),
         ]);
 
-        console.log(pageFilterData, "pageFilterData");
-        console.log(pageData, "pageData");
-
         if (pageFilterData.status === 200 && pageData.status === 200) {
           setFiltersState(pageFilterData.data.data.filters);
           setShopData(pageData.data.data.shops);
@@ -40,8 +37,6 @@ const Page = (props: Props) => {
   }, []);
 
   const handleCheckboxChange = async (sectionId: string, optionIdx: number) => {
-    console.log("muinujnhunu");
-
     try {
       const updatedFiltersState = [...filtersState];
 
@@ -75,8 +70,7 @@ const Page = (props: Props) => {
       const res = await axios.post("/api/shops/getshops", {
         filters: selectedFilters,
       });
-      console.log(res);
-      console.log(res.data.data.shops);
+
       setShopData(res.data.data.shops);
     } catch (error) {
       console.error(error);

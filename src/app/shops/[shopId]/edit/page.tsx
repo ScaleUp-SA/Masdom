@@ -117,7 +117,6 @@ const Page = ({ params }: { params: { shopId: string } }) => {
       try {
         const carDataResponse = await axios.get(`/api/shops/getshop/${shopId}`);
         if (carDataResponse.status === 200) {
-          console.log(carDataResponse);
           const carInfo = carDataResponse.data.shop;
           setCarData(carInfo);
 

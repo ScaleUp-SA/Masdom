@@ -10,10 +10,8 @@ type Props = {
 
 const Page = async ({ params }: Props) => {
   const session = await getServerSession(authOptions);
-  console.log("params.shopId", params.shopId);
 
   const shop = await getShop(params.shopId);
-  console.log(shop, "shop");
 
   return (
     <div>

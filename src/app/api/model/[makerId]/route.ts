@@ -6,7 +6,6 @@ const prisma = new PrismaClient();
 
 export const GET = async (req: NextRequest, context: any) => {
   const { makerId } = context.params;
-  console.log(makerId , "id");
 
   if (!makerId) {
     return NextResponse.json(
