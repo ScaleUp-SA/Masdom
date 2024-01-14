@@ -2,7 +2,6 @@ import { prisma } from "@/lib/prismaClient";
 import { CarsImages, CarsVideos } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
-
 export const PUT = async function handler(req: NextRequest, res: NextResponse) {
   try {
     const {
@@ -43,22 +42,22 @@ export const PUT = async function handler(req: NextRequest, res: NextResponse) {
       data: {
         title,
         offerDetails,
-        price,
+        price: Number(price),
         color,
         year,
         transmission,
         country,
         city,
-        mileage,
+        mileage: Number(mileage),
         featured,
-        cylinders,
+        cylinders: Number(cylinders),
         shape,
         carClass,
         ownerId,
         carsMakersId,
         carsModelsId,
         damage: {
-          deleteMany: {}, // You might need to handle deletion differently if required
+          deleteMany: {},
           createMany: {
             data: damage.map((d: any) => ({
               description: d.description,
