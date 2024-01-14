@@ -99,7 +99,6 @@ export default function ImageUplouder({
             onUpload={handleImageUpload}
             options={{ multiple: true }}
             onAbort={(data) => {
-              console.log(data);
             }}
           >
             تحميل ملفاتك

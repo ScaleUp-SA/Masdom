@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prismaClient";
 import { NextRequest, NextResponse } from "next/server";
-
-const prisma = new PrismaClient();
 
 interface Detail {
   id: string | null;
@@ -9,7 +7,7 @@ interface Detail {
 
 const getMakerIds = async (
   names: string[],
-  prismaEntity: any // Adjust this type to reflect the Prisma entity type for carsMakers
+  prismaEntity: any
 ): Promise<string[] | undefined> => {
   try {
     const details: Detail[] = await prismaEntity.findMany({
@@ -56,6 +54,11 @@ const getModelIds = async (
 };
 export const POST = async (req: NextRequest, res: NextResponse) => {
   try {
+    const url = new URL(req.url);
+
+    const skip = url.searchParams.get("skip") ?? 0;
+    const take = url.searchParams.get("take") ?? 6;
+
     interface Filters {
       [key: string]: string | string[] | { in: string[] };
     }
@@ -90,8 +93,10 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         }
       }
     }
-
+    const totalCount = await prisma.listingCars.count({ where: whereFilters });
     const listingCars = await prisma.listingCars.findMany({
+      skip: +skip,
+      take: +take,
       include: {
         CarsMakers: true,
         CarsModels: true,
@@ -105,6 +110,9 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     const response = NextResponse.json({
       data: {
         listingCars,
+        totalCount,
+        totalPages: Math.ceil(totalCount / +take),
+        currentPage: Math.floor(+skip / +take) + 1,
       },
     });
     return response;

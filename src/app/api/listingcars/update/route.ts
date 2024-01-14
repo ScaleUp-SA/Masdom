@@ -1,7 +1,7 @@
-import { CarsImages, CarsVideos, PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prismaClient";
+import { CarsImages, CarsVideos } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
-const prisma = new PrismaClient();
 
 export const PUT = async function handler(req: NextRequest, res: NextResponse) {
   try {

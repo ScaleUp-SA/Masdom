@@ -1,8 +1,7 @@
 // src\app\api\models\route.ts
-import { Prisma, PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prismaClient";
 import { NextRequest, NextResponse } from "next/server";
 
-const prisma = new PrismaClient();
 
 export const GET = async (req: NextRequest, context: any) => {
   const { makerId } = context.params;

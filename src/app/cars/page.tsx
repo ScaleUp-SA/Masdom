@@ -14,16 +14,18 @@ export default function Cars() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [filtersState, setFiltersState] = useState<Filter[]>([]);
   const [latestCars, setLatestCars] = useState<FullCar[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     (async () => {
       try {
         const [pageFilterData, pageData] = await Promise.all([
           axios.get("/api/filterdata"),
-          axios.post("/api/listingcars/getcars"),
+          fetchCarsData(1),
         ]);
 
-        if (pageFilterData.status === 200 && pageData.status === 200) {
+        if (pageFilterData.status === 200 && pageData?.status === 200) {
           const updateFilter = pageFilterData.data.data.filters.map(
             (filter: Filter) => {
               if (filter.id === "price") {
@@ -42,13 +44,32 @@ export default function Cars() {
           );
           setFiltersState(updateFilter);
           setLatestCars(pageData.data.data.listingCars);
+          setTotalPages(pageData.data.data.totalPages);
           setLoading(false);
         }
       } catch (error) {
         console.log(error);
       }
     })();
-  }, []);
+  }, []); // Removed [totalPages] dependency
+
+  const fetchCarsData = async (page: number) => {
+    try {
+      const skip = (page - 1) * 6;
+      const take = 6;
+      const response = await axios.post(
+        `/api/listingcars/getcars?skip=${skip}&take=${take}`,
+        {
+          filters: getSelectedFilters(),
+        }
+      );
+      setTotalPages(response.data.data.totalPages); // Update total pages
+
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleCheckboxChange = async (sectionId: string, optionIdx: number) => {
     try {
@@ -70,26 +91,39 @@ export default function Cars() {
 
       setFiltersState(updatedFiltersState);
 
-      const selectedFilters: { [key: string]: string[] } = {};
-      updatedFiltersState.forEach((section) => {
-        section.options.forEach((option) => {
-          if (option.checked) {
-            if (!selectedFilters[section.id]) {
-              selectedFilters[section.id] = [];
-            }
-            selectedFilters[section.id].push(option.value);
-          }
-        });
-      });
+      const carsData = await fetchCarsData(1);
 
-      const { data } = await axios.post("/api/listingcars/getcars", {
-        filters: selectedFilters,
-      });
-
-      setLatestCars(data.data.listingCars);
+      setLatestCars(carsData?.data.data.listingCars);
+      setCurrentPage(1);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handlePaginationClick = async (page: number) => {
+    try {
+      const carsData = await fetchCarsData(page);
+
+      setLatestCars(carsData?.data.data.listingCars);
+      setCurrentPage(page);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getSelectedFilters = () => {
+    const selectedFilters: { [key: string]: string[] } = {};
+    filtersState.forEach((section) => {
+      section.options.forEach((option) => {
+        if (option.checked) {
+          if (!selectedFilters[section.id]) {
+            selectedFilters[section.id] = [];
+          }
+          selectedFilters[section.id].push(option.value);
+        }
+      });
+    });
+    return selectedFilters;
   };
 
   return (
@@ -335,6 +369,22 @@ export default function Cars() {
                 ))
               )}
             </div>
+          </div>
+
+          <div className="flex justify-center mt-6">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                className={`mx-1 px-3 py-1 rounded ${
+                  currentPage === index + 1
+                    ? "bg-[#22C578] text-white"
+                    : "bg-gray-200 text-gray-600"
+                }`}
+                onClick={() => handlePaginationClick(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
           </div>
         </section>
       </main>

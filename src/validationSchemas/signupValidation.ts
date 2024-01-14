@@ -29,7 +29,7 @@ export const signupSchema: ZodSchema<{
       required_error: "يجب ادخال الاسم",
     })
     .min(2, "يجب علي الاقل ادخال 2 احرف و ارقام")
-    .max(10, "لقد تخطيت العدد المسموح"),
+    .max(20, "لقد تخطيت العدد المسموح"),
   phoneNumber: z
     .string({ required_error: "يجب ادخال رقم الجوال" })
     .regex(phoneRegex, "رقم الهاتف غير صحيح"),

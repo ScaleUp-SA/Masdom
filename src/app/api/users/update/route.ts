@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prismaClient";
 import { NextRequest, NextResponse } from "next/server";
 
-const prisma = new PrismaClient();
 
 export const PATCH = async (req: NextRequest, res: NextResponse) => {
   try {

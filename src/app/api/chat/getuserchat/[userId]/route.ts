@@ -1,8 +1,7 @@
-import { Prisma, PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import cors from "cors";
+import { prisma } from "@/lib/prismaClient";
 
-const prisma = new PrismaClient();
 export const GET = async (req: NextRequest, context: any) => {
   const { userId } = context.params;
 
