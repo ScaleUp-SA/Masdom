@@ -22,18 +22,18 @@ export default function Header() {
   const navigation =
     pathname.includes("profile") === false
       ? [
-        { name: "الرئيسية", href: "/" },
-        { name: "حسابي", href: "/profile" },
-        { name: "المحلات", href: "/shops" },
-      ]
+          { name: "الرئيسية", href: "/" },
+          { name: "حسابي", href: "/profile" },
+          { name: "المحلات", href: "/shops" },
+        ]
       : [
-        { name: "الرئيسية", href: "/" },
-        { name: "المحادثات", href: "/profile/chat" },
-      ];
+          { name: "الرئيسية", href: "/" },
+          { name: "المحادثات", href: "/profile/chat" },
+        ];
 
   const handleSignOut = async () => {
-    if (!session) {
-    } else {
+    console.log("asasa");
+    if (session) {
       try {
         await signOut();
         toast({
@@ -44,6 +44,8 @@ export default function Header() {
       } catch (error) {
         console.error(error);
       }
+    } else {
+      router.push("/login");
     }
   };
 
@@ -69,10 +71,11 @@ export default function Header() {
 
   return pathname === "/login" || pathname === "/signup" ? null : (
     <header
-      className={` ${pathname === "/"
-        ? "fixed w-full z-10 backdrop-blur-md bg-black/30"
-        : "block w-full bg-white"
-        } `}
+      className={` ${
+        pathname === "/"
+          ? "fixed w-full z-10 backdrop-blur-md bg-black/30"
+          : "block w-full bg-white"
+      } `}
     >
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
@@ -103,10 +106,11 @@ export default function Header() {
         <div className="hidden max-lg:flex">
           <button
             type="button"
-            className={` ${pathname === "/"
-              ? "inline-flex items-center justify-center rounded-md p-2.5 text-white"
-              : "inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
-              }`}
+            className={` ${
+              pathname === "/"
+                ? "inline-flex items-center justify-center rounded-md p-2.5 text-white"
+                : "inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
+            }`}
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -118,22 +122,42 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              // className="text-sm font-semibold leading-6 text-white" 
-              className={` text-sm font-semibold leading-6 ${pathname === "/" ? "text-white" : "text-gray-900"}`}
+              // className="text-sm font-semibold leading-6 text-white"
+              className={` text-sm font-semibold leading-6 ${
+                pathname === "/" ? "text-white" : "text-gray-900"
+              }`}
             >
               {item.name}
             </Link>
           ))}
         </div>
-        <div
-          onClick={handleSignOut}
-          className="hidden lg:flex lg:flex-1 lg:justify-end"
-        >
-          <p
-            className={` text-sm font-semibold leading-6 cursor-pointer ${pathname === "/" ? "text-white" : "text-gray-900"}`}>
-            {logStatues.title}
-          </p>
-        </div>
+        {session ? (
+          <div
+            onClick={handleSignOut}
+            className="hidden lg:flex lg:flex-1 lg:justify-end"
+          >
+            <p
+              className={` text-sm font-semibold leading-6 cursor-pointer ${
+                pathname === "/" ? "text-white" : "text-gray-900"
+              }`}
+            >
+              {logStatues.title}
+            </p>
+          </div>
+        ) : (
+          <div
+            onClick={handleSignOut}
+            className="hidden lg:flex lg:flex-1 lg:justify-end"
+          >
+            <p
+              className={` text-sm font-semibold leading-6 cursor-pointer ${
+                pathname === "/" ? "text-white" : "text-gray-900"
+              }`}
+            >
+              {logStatues.title}
+            </p>
+          </div>
+        )}
       </nav>
 
       <Dialog
@@ -194,9 +218,6 @@ export default function Header() {
                 ) : (
                   <Link
                     href="/login"
-                    onClick={() => {
-                      router.refresh();
-                    }}
                     className="mx-3 mt-10 p-2 px-8 block rounded-lg  text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     {logStatues.title}
