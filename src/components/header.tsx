@@ -22,14 +22,14 @@ export default function Header() {
   const navigation =
     pathname.includes("profile") === false
       ? [
-          { name: "الرئيسية", href: "/" },
-          { name: "حسابي", href: "/profile" },
-          { name: "المحلات", href: "/shops" },
-        ]
+        { name: "الرئيسية", href: "/" },
+        { name: "حسابي", href: "/profile" },
+        { name: "المحلات", href: "/shops" },
+      ]
       : [
-          { name: "الرئيسية", href: "/" },
-          { name: "المحادثات", href: "/profile/chat" },
-        ];
+        { name: "الرئيسية", href: "/" },
+        { name: "المحادثات", href: "/profile/chat" },
+      ];
 
   const handleSignOut = async () => {
     if (!session) {
@@ -69,11 +69,10 @@ export default function Header() {
 
   return pathname === "/login" || pathname === "/signup" ? null : (
     <header
-      className={` ${
-        pathname === "/"
-          ? "fixed w-full z-10 backdrop-blur-md bg-black/30"
-          : "block w-full bg-white"
-      } `}
+      className={` ${pathname === "/"
+        ? "fixed w-full z-10 backdrop-blur-md bg-black/30"
+        : "block w-full bg-white"
+        } `}
     >
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
@@ -101,39 +100,40 @@ export default function Header() {
             )}
           </a>
         </div>
-        <div className="flex ">
+        <div className="hidden max-lg:flex">
           <button
             type="button"
-            className={` ${
-              pathname === "/"
-                ? "inline-flex items-center justify-center rounded-md p-2.5 text-white"
-                : "inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
-            }`}
+            className={` ${pathname === "/"
+              ? "inline-flex items-center justify-center rounded-md p-2.5 text-white"
+              : "inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
+              }`}
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon className="h-7 w-7" aria-hidden="true" />
           </button>
         </div>
-        {/* <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900"
+              // className="text-sm font-semibold leading-6 text-white" 
+              className={` text-sm font-semibold leading-6 ${pathname === "/" ? "text-white" : "text-gray-900"}`}
             >
               {item.name}
             </Link>
           ))}
-        </div> */}
-        {/* <div
+        </div>
+        <div
           onClick={handleSignOut}
           className="hidden lg:flex lg:flex-1 lg:justify-end"
         >
-          <p className="text-sm font-semibold leading-6 cursor-pointer text-gray-900">
+          <p
+            className={` text-sm font-semibold leading-6 cursor-pointer ${pathname === "/" ? "text-white" : "text-gray-900"}`}>
             {logStatues.title}
           </p>
-        </div> */}
+        </div>
       </nav>
 
       <Dialog

@@ -333,7 +333,7 @@ const CarDetails = ({ car, session }: Props) => {
                         {car?.color}{" "}
                       </div>
 
-                      <div className="flex flex-col w-[max-content]  gap-2 justify-between">
+                      <div className="flex flex-col w-28 gap-2 justify-between">
                         <span className=" font-bold text-lg">الشكل</span>{" "}
                         {car?.shape}{" "}
                       </div>

@@ -258,7 +258,7 @@ const ListingCarsForm = ({ params }: Props) => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="px-8 pb-8 min-h-screen flex flex-col gap-6 items-center"
+          className="px-4 pb-8 min-h-screen flex flex-col gap-6 items-center"
         >
           <div className="mt-10">
             <ImageUplouder
