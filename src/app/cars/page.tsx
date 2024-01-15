@@ -271,15 +271,16 @@ export default function Cars() {
           </div>
         </div>
 
-        <section aria-labelledby="products-heading" className="pb-24 pt-6">
+        <section aria-labelledby="products-heading" className="pb-16 pt-6">
           <h2 id="products-heading" className="sr-only">
             Products
           </h2>
 
+          {/* container */}
           <div className="flex w-full">
-            {/* Filters */}
 
-            <form className="border rounded hidden lg:block basis-1/4 ml-10 px-2 py-4">
+            {/* Filters */}
+            <form className="border rounded hidden h-[max-content] lg:block basis-1/4 ml-10 px-2 py-4">
               {loading === true ? (
                 <>
                   <Skeleton className="h-[70px] my-2" />
@@ -320,7 +321,7 @@ export default function Cars() {
                           </Disclosure.Button>
                         </h3>
                         <Disclosure.Panel className="pt-6">
-                          <div className="space-y-4">
+                          <div className="space-y-4 h-[max-content]">
                             {section.options.map((option, optionIdx) => (
                               <div
                                 key={option.value}
@@ -354,38 +355,46 @@ export default function Cars() {
               )}
             </form>
 
-            <div className="flex flex-shrink-1 flex-grow basis-1/2 gap-4 flex-wrap">
-              {loading === true ? (
-                <div className="w-full">
-                  <Skeleton className="h-full" />
-                </div>
-              ) : (
-                latestCars.map((item, index) => (
-                  <div key={index} className="">
-                    <div>
-                      <CarCard carData={item} />
-                    </div>
+            {/* content */}
+            <div className="flex flex-col items-center justify-between gap-4 h-[max-content] min-h-[90vh] flex-shrink-1 flex-grow basis-1/2">
+
+              {/* cars */}
+              <div className="flex items-center h-[max-content] w-full justify-center gap-6 flex-wrap">
+                {loading === true ? (
+                  <div className="w-full h-[85vh]">
+                    <Skeleton className="h-full" />
                   </div>
-                ))
-              )}
+                ) : (
+                  latestCars.map((item, index) => (
+                    <div key={index} className="">
+                      <div>
+                        <CarCard carData={item} />
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+
+              {/* Pagination */}
+              <div className="flex justify-center mt-6 flex-wrap gap-4">
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <button
+                    key={index}
+                    className={`mx-1 px-3 py-1 rounded ${currentPage === index + 1
+                      ? "bg-[#22C578] text-white"
+                      : "bg-gray-200 text-gray-600"
+                      }`}
+                    onClick={() => handlePaginationClick(index + 1)}
+                  >
+                    {index + 1}
+                  </button>
+                ))}
+              </div>
+
             </div>
+
           </div>
 
-          <div className="flex justify-center mt-6">
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index}
-                className={`mx-1 px-3 py-1 rounded ${
-                  currentPage === index + 1
-                    ? "bg-[#22C578] text-white"
-                    : "bg-gray-200 text-gray-600"
-                }`}
-                onClick={() => handlePaginationClick(index + 1)}
-              >
-                {index + 1}
-              </button>
-            ))}
-          </div>
         </section>
       </main>
     </div>

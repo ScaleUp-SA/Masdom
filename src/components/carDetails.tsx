@@ -135,10 +135,10 @@ const CarDetails = ({ car, session }: Props) => {
 
       const updatedVideos: Media[] = Array.isArray(car.videos)
         ? car.videos.map((video, index) => ({
-            ...video,
-            links: videoSources?.[index] || video.links,
-            type: "video",
-          }))
+          ...video,
+          links: videoSources?.[index] || video.links,
+          type: "video",
+        }))
         : [];
       setVideoSorce(updatedVideos);
 
