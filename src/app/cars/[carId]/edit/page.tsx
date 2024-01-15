@@ -40,7 +40,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const carId = params.carId;
   const { toast } = useToast();
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
