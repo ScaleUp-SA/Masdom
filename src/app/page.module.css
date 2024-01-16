@@ -149,3 +149,12 @@
     padding: 2rem;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .container .top h1 {
+    font-size: 30px;
+  }
+  .container .top h6 {
+    font-size: 17px;
+  }
+}
