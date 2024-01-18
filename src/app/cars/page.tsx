@@ -8,6 +8,15 @@ import { Filter, FullCar } from "@/types";
 import CarCard from "@/components/carCard";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
 export default function Cars() {
   const [loading, setLoading] = useState(true);
@@ -278,7 +287,6 @@ export default function Cars() {
 
           {/* container */}
           <div className="flex w-full">
-
             {/* Filters */}
             <form className="border rounded hidden h-[max-content] lg:block basis-1/4 ml-10 px-2 py-4">
               {loading === true ? (
@@ -357,7 +365,6 @@ export default function Cars() {
 
             {/* content */}
             <div className="flex flex-col items-center justify-between gap-4 h-[max-content] min-h-[90vh] flex-shrink-1 flex-grow basis-1/2">
-
               {/* cars */}
               <div className="flex items-center h-[max-content] w-full justify-center gap-6 flex-wrap">
                 {loading === true ? (
@@ -376,25 +383,23 @@ export default function Cars() {
               </div>
 
               {/* Pagination */}
-              <div className="flex justify-center mt-6 flex-wrap gap-4">
+              <div className="flex justify-center mt-6 flex-wrap gap-2">
                 {Array.from({ length: totalPages }, (_, index) => (
                   <button
                     key={index}
-                    className={`mx-1 px-3 py-1 rounded ${currentPage === index + 1
-                      ? "bg-[#22C578] text-white"
-                      : "bg-gray-200 text-gray-600"
-                      }`}
+                    className={`mx-1 px-3 py-1 rounded ${
+                      currentPage === index + 1
+                        ? "bg-[#22C578] text-white"
+                        : "bg-gray-200 text-gray-600"
+                    }`}
                     onClick={() => handlePaginationClick(index + 1)}
                   >
                     {index + 1}
                   </button>
                 ))}
               </div>
-
             </div>
-
           </div>
-
         </section>
       </main>
     </div>
