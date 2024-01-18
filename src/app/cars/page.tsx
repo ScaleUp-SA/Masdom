@@ -8,15 +8,8 @@ import { Filter, FullCar } from "@/types";
 import CarCard from "@/components/carCard";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+import Pagination from "@/components/pagination";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function Cars() {
   const [loading, setLoading] = useState(true);
@@ -201,7 +194,7 @@ export default function Cars() {
                         className="border-t border-gray-200 px-4 py-6"
                       >
                         {({ open }) => (
-                          <>
+                          <div>
                             <h3 className="-mx-2 -my-3 flow-root">
                               <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
                                 <span className="font-medium text-gray-900">
@@ -223,38 +216,40 @@ export default function Cars() {
                               </Disclosure.Button>
                             </h3>
                             <Disclosure.Panel className="pt-6">
-                              <div className="space-y-6">
-                                {section.options.map((option, optionIdx) => (
-                                  <div
-                                    key={option.value}
-                                    className="flex items-center"
-                                  >
-                                    <input
-                                      id={`filter-mobile-${section.id}-${optionIdx}`}
-                                      name={`${section.id}[]`}
-                                      defaultValue={option.value}
-                                      type="checkbox"
-                                      onChange={() =>
-                                        handleCheckboxChange(
-                                          section.id,
-                                          optionIdx
-                                        )
-                                      }
-                                      defaultChecked={option.checked}
-                                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                    />
-
-                                    <label
-                                      htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                      className="ml-3 min-w-0 flex-1 text-gray-500"
+                              <ScrollArea className="h-[700px]">
+                                <div className="space-y-6">
+                                  {section.options.map((option, optionIdx) => (
+                                    <div
+                                      key={option.value}
+                                      className="flex items-center"
                                     >
-                                      {option.label}
-                                    </label>
-                                  </div>
-                                ))}
-                              </div>
+                                      <input
+                                        id={`filter-mobile-${section.id}-${optionIdx}`}
+                                        name={`${section.id}[]`}
+                                        defaultValue={option.value}
+                                        type="checkbox"
+                                        onChange={() =>
+                                          handleCheckboxChange(
+                                            section.id,
+                                            optionIdx
+                                          )
+                                        }
+                                        defaultChecked={option.checked}
+                                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                      />
+
+                                      <label
+                                        htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                        className="ml-3 min-w-0 flex-1 text-gray-500"
+                                      >
+                                        {option.label}
+                                      </label>
+                                    </div>
+                                  ))}
+                                </div>
+                              </ScrollArea>
                             </Disclosure.Panel>
-                          </>
+                          </div>
                         )}
                       </Disclosure>
                     ))
@@ -329,32 +324,37 @@ export default function Cars() {
                           </Disclosure.Button>
                         </h3>
                         <Disclosure.Panel className="pt-6">
-                          <div className="space-y-4 h-[max-content]">
-                            {section.options.map((option, optionIdx) => (
-                              <div
-                                key={option.value}
-                                className="flex items-center"
-                              >
-                                <input
-                                  id={`filter-${section.id}-${optionIdx}`}
-                                  name={`${section.id}[]`}
-                                  defaultValue={option.value}
-                                  type="checkbox"
-                                  defaultChecked={option.checked}
-                                  onChange={() =>
-                                    handleCheckboxChange(section.id, optionIdx)
-                                  }
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 px-2"
-                                />
-                                <label
-                                  htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="ml-3 text-sm text-gray-600"
+                          <ScrollArea className="h-[500px]">
+                            <div className="space-y-4 h-[max-content]">
+                              {section.options.map((option, optionIdx) => (
+                                <div
+                                  key={option.value}
+                                  className="flex items-center"
                                 >
-                                  {option.label}
-                                </label>
-                              </div>
-                            ))}
-                          </div>
+                                  <input
+                                    id={`filter-${section.id}-${optionIdx}`}
+                                    name={`${section.id}[]`}
+                                    defaultValue={option.value}
+                                    type="checkbox"
+                                    defaultChecked={option.checked}
+                                    onChange={() =>
+                                      handleCheckboxChange(
+                                        section.id,
+                                        optionIdx
+                                      )
+                                    }
+                                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 px-2"
+                                  />
+                                  <label
+                                    htmlFor={`filter-${section.id}-${optionIdx}`}
+                                    className="ml-3 text-sm text-gray-600"
+                                  >
+                                    {option.label}
+                                  </label>
+                                </div>
+                              ))}
+                            </div>
+                          </ScrollArea>
                         </Disclosure.Panel>
                       </>
                     )}
@@ -384,19 +384,11 @@ export default function Cars() {
 
               {/* Pagination */}
               <div className="flex justify-center mt-6 flex-wrap gap-2">
-                {Array.from({ length: totalPages }, (_, index) => (
-                  <button
-                    key={index}
-                    className={`mx-1 px-3 py-1 rounded ${
-                      currentPage === index + 1
-                        ? "bg-[#22C578] text-white"
-                        : "bg-gray-200 text-gray-600"
-                    }`}
-                    onClick={() => handlePaginationClick(index + 1)}
-                  >
-                    {index + 1}
-                  </button>
-                ))}
+                <Pagination
+                  totalPages={totalPages}
+                  currentPage={currentPage}
+                  handlePaginationClick={handlePaginationClick}
+                />
               </div>
             </div>
           </div>
