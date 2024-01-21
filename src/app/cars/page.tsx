@@ -191,7 +191,7 @@ export default function Cars() {
                       <Disclosure
                         as="div"
                         key={section.id}
-                        className="border-t border-gray-200 px-4 py-6"
+                        className="border-t border-gray-200 px-4 py-6 "
                       >
                         {({ open }) => (
                           <div>
