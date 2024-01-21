@@ -25,9 +25,9 @@ const phoneRegex = new RegExp(
 );
 
 const formSchema = z.object({
-  name: z.string().min(5, "يجب علي الاقل ان يحتوي علي 5 احرف علي الاقل"),
-  country: z.string().min(3, "يجب علي الاقل ان يحتوي علي 3 احرف علي الاقل"),
-  city: z.string().min(3, "يجب علي الاقل ان يحتوي علي 3 احرف علي الاقل"),
+  name: z.string().min(5, "يجب على الاقل ان يحتوي على 5 احرف على الاقل"),
+  country: z.string().min(3, "يجب على الاقل ان يحتوي على 3 احرف على الاقل"),
+  city: z.string().min(3, "يجب على الاقل ان يحتوي على 3 احرف على الاقل"),
   phoneNumber: z.string().regex(phoneRegex, "رقم الهاتف غير صحيح"),
 });
 
@@ -110,7 +110,7 @@ const AddingCarsForm = (props: Props) => {
           <div className="mt-10">
             <ImageUplouder filesHandler={filesHandler} />
             {fileError && (
-              <p className=" text-red-600">يجب ادخال 3 صور علي الاقل</p>
+              <p className=" text-red-600">يجب ادخال 3 صور على الاقل</p>
             )}
           </div>
           <div className="w-4/5">

@@ -61,20 +61,20 @@ const cities = [
 ];
 
 const carShapes = [
-  "سيدان (Sedan)",
-  "كوبيه (Coupe)",
-  "هاتشباك (Hatchback)",
-  "كروس أوفر (Crossover)",
-  "سيارة دفع رباعي (SUV - Sport Utility Vehicle)",
-  "شاحنة (Pickup Truck)",
-  "فان (Van)",
-  "كابريوليه (Convertible)",
-  "رياضية (Sports Car)",
-  "سيارة كهربائية (Electric Car)",
+  "سيدان ",
+  "كوبيه ",
+  "هاتشباك",
+  "كروس أوفر",
+  "سيارة دفع رباعي ",
+  "شاحنة",
+  "فان",
+  "كابريوليه",
+  "رياضية",
+  "سيارة كهربائية ",
 ];
 
 const formSchema = z.object({
-  title: z.string().min(5, "يجب علي الاقل ان يحتوي علي 5 احرف علي الاقل"),
+  title: z.string().min(5, "يجب على الاقل ان يحتوي على 5 احرف على الاقل"),
   mileage: z.coerce
     .number({
       invalid_type_error: "يجب ادخال ارقتم",
@@ -92,7 +92,7 @@ const formSchema = z.object({
   transmission: z.enum(["اوتوماتيك", "مانيوال"]),
   offerDetails: z
     .string()
-    .min(10, "يجب علي الاقل ان يحتوي علي 10 احرف علي الاقل"),
+    .min(10, "يجب على الاقل ان يحتوي على 10 احرف على الاقل"),
   country: z.string().optional(),
   city: z.enum([
     "الرياض",
@@ -124,24 +124,24 @@ const formSchema = z.object({
     ),
   carsMakersId: z.string(),
   carsModelsId: z.string(),
-  carClass: z.string().min(2, "يجب علي الاقل ان يحتوي علي 2 احرف علي الاقل"),
+  carClass: z.string().min(2, "يجب على الاقل ان يحتوي على 2 احرف على الاقل"),
   cylinders: z.coerce
     .number({
       invalid_type_error: "يجب ادخال ارقتم",
     })
     .min(0, "سعة المحرك يجب أن تكون رقمًا موجبًا"),
-  color: z.string().min(2, "يجب علي الاقل ان يحتوي علي 2 احرف علي الاقل"),
+  color: z.string().min(2, "يجب على الاقل ان يحتوي على 2 احرف على الاقل"),
   shape: z.enum([
-    "سيدان (Sedan)",
-    "كوبيه (Coupe)",
-    "هاتشباك (Hatchback)",
-    "كروس أوفر (Crossover)",
-    "سيارة دفع رباعي (SUV - Sport Utility Vehicle)",
-    "شاحنة (Pickup Truck)",
-    "فان (Van)",
-    "كابريوليه (Convertible)",
-    "رياضية (Sports Car)",
-    "سيارة كهربائية (Electric Car)",
+    "سيدان ",
+    "كوبيه ",
+    "هاتشباك ",
+    "كروس أوفر",
+    "سيارة دفع رباعي ",
+    "شاحنة ",
+    "فان ",
+    "كابريوليه ",
+    "رياضية ",
+    "سيارة كهربائية ",
   ]),
 });
 
@@ -267,7 +267,7 @@ const ListingCarsForm = ({ params }: Props) => {
               videos={carData?.videos}
             />
             {fileError && (
-              <p className=" text-red-600">يجب ادخال 3 صور علي الاقل</p>
+              <p className=" text-red-600">يجب ادخال 3 صور على الاقل</p>
             )}
           </div>
           <div className="w-4/5">

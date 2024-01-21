@@ -29,7 +29,9 @@ const CarCard = ({ carData }: { carData: FullCar }) => {
       </div>
       <div className="h-[50%] flex flex-col justify-evenly w-full p-2 max-sm:h-full max-sm:w-[60%] max-sm:justify-between max-sm:gap-2 max-sm:py-4">
         <div className="w-full h-16 overflow-hidden max-sm:h-20">
-          <h1 className="text-xl text-sky-900 max-sm:text-lg">{carData.title}</h1>
+          <h1 className="text-xl text-sky-900 max-sm:text-lg">
+            {carData.title}
+          </h1>
         </div>
         <div className="flex items-center justify-evenly  border-b-2 border-solid border-slate-100 max-sm:border-none max-sm:items-start">
           <div className="flex flex-col justify-center items-center gap-1 text-slate-500 w-[50%] max-sm:flex-row max-sm:justify-start max-sm:text-xs  max-sm:w-[60%]">
@@ -45,11 +47,15 @@ const CarCard = ({ carData }: { carData: FullCar }) => {
         <div className="flex justify-between max-sm:mt-2">
           {carData.price === 0 ? (
             <p className="text-slate-500">
-              <span className="text-green-500 ml-2 text-xl max-sm:text-lg">{"علي السوم"}</span>{" "}
+              <span className="text-green-500 ml-2 text-xl max-sm:text-lg">
+                {"على السوم"}
+              </span>{" "}
             </p>
           ) : (
             <p className="text-slate-500">
-              <span className="text-green-500 ml-2 text-xl max-sm:text-lg">{carData.price}</span>{" "}
+              <span className="text-green-500 ml-2 text-xl max-sm:text-lg">
+                {carData.price}
+              </span>{" "}
               ريال
             </p>
           )}
@@ -60,7 +66,6 @@ const CarCard = ({ carData }: { carData: FullCar }) => {
           </span>
         </div>
       </div>
-
     </div>
   );
 };

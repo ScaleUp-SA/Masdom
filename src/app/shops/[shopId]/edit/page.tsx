@@ -141,7 +141,7 @@ const Page = ({ params }: { params: { shopId: string } }) => {
           videos={carData?.videos}
         />
         {fileError && (
-          <p className=" text-red-600">يجب ادخال 3 صور علي الاقل</p>
+          <p className=" text-red-600">يجب ادخال 3 صور على الاقل</p>
         )}
       </div>
       <form onSubmit={handleSubmit} className="px-14 py-8">

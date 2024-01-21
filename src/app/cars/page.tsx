@@ -34,7 +34,7 @@ export default function Cars() {
                 const updatedOptions = filter.options.map(
                   (option: { value: string | number }) => {
                     if (option.value === 0) {
-                      return { value: 0, label: "علي السوم" };
+                      return { value: 0, label: "على السوم" };
                     }
                     return option;
                   }

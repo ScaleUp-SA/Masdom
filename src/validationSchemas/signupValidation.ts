@@ -21,14 +21,14 @@ export const signupSchema: ZodSchema<{
       invalid_type_error: "يجب ادخال احرف و ارقام و رموز",
       required_error: "يجب ادخال كلمة السر",
     })
-    .min(8, "يجب علي الاقل ادخال 8 احرف و ارقام")
+    .min(8, "يجب على الاقل ادخال 8 احرف و ارقام")
     .max(18, "لقد تخطيت العدد المسموح"),
   username: z
     .string({
       invalid_type_error: "يجب ادخال احرف",
       required_error: "يجب ادخال الاسم",
     })
-    .min(2, "يجب علي الاقل ادخال 2 احرف و ارقام")
+    .min(2, "يجب على الاقل ادخال 2 احرف و ارقام")
     .max(20, "لقد تخطيت العدد المسموح"),
   phoneNumber: z
     .string({ required_error: "يجب ادخال رقم الجوال" })
