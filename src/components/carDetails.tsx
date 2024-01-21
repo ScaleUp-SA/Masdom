@@ -61,6 +61,7 @@ const CarDetails = ({ car, session }: Props) => {
     setShowMediaPopup(true);
   };
 
+
   const chatHandler = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -135,10 +136,10 @@ const CarDetails = ({ car, session }: Props) => {
 
       const updatedVideos: Media[] = Array.isArray(car.videos)
         ? car.videos.map((video, index) => ({
-          ...video,
-          links: videoSources?.[index] || video.links,
-          type: "video",
-        }))
+            ...video,
+            links: videoSources?.[index] || video.links,
+            type: "video",
+          }))
         : [];
       setVideoSorce(updatedVideos);
 
@@ -407,6 +408,14 @@ const CarDetails = ({ car, session }: Props) => {
                         className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                       >
                         تحدث مع البائع{" "}
+                      </Button>
+                      <Button
+                        type="submit"
+                        className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                      >
+                        <a href={`tel:${car?.owner?.phoneNumber}`}>
+                          اتصل بالبائع
+                        </a>{" "}
                       </Button>
                     </div>
                   )}

@@ -11,7 +11,7 @@ interface ChatCreateInput {
 
 export const getFeaturedCars = async () => {
   const featuredCars = await prisma.listingCars.findMany({
-    where: { featured: true, },
+    where: { featured: true },
     include: {
       CarsMakers: true,
       CarsModels: true,
@@ -49,6 +49,7 @@ export const getCar = async (id: string) => {
       damage: true,
       images: true,
       videos: true,
+      owner: true,
     },
   });
   return car;

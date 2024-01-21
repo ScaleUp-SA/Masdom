@@ -6,6 +6,7 @@ import {
   Message,
   RepairShops,
   ShopsImages,
+  User,
 } from "@prisma/client";
 
 export type Session = {
@@ -74,7 +75,7 @@ export interface FullCar extends ListingCars {
     id: string;
     name: string;
   } | null;
-
+  owner?: User;
   images: CarsImages[];
   videos: CarsVideos[];
   damage: Damage[];
