@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 import { Toaster } from "@/components/ui/toaster";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-import logo from "../../public/masdoomLogo.svg";
+import logo from "../../../../public/masdoomLogo.svg";
 import { useSession } from "next-auth/react";
 import { useEffect, useCallback } from "react";
 import Link from "next/link";
