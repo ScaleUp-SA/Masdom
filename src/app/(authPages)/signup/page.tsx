@@ -21,7 +21,7 @@ import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 import Image from "next/image";
 import bgImage from "../../../../public/images/heroBg.png";
-import logo from "../../../../public/masdoomLogo.svg";
+import logo from "../../../public/masdoomLogo.svg";
 import { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
