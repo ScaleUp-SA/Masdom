@@ -30,6 +30,20 @@ export default async function RootLayout({
           <Toaster />
           <Footer />
         </AuthContextProvider>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `  window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'G-QC5G6QZ864');
+          `,
+          }}
+        />
       </body>
     </html>
   );
