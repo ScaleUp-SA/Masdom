@@ -47,6 +47,7 @@ const CarDetails = ({ car, session }: Props) => {
   const [videoSorce, setVideoSorce] = useState<CarsVideos[]>([]);
   const [combinedMedia, setCombinedMedia] = useState<Media[]>([]);
   const [showMediaPopup, setShowMediaPopup] = useState(false);
+  const [isChatRequestInProgress, setIsChatRequestInProgress] = useState(false);
 
   const router = useRouter();
   const userId = session?.user.id;
@@ -61,32 +62,49 @@ const CarDetails = ({ car, session }: Props) => {
     setShowMediaPopup(true);
   };
 
-
   const chatHandler = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    if (car?.ownerId && userId) {
-      const res = await axios.post("/api/chat/create", {
-        userId1: car.ownerId,
-        userId2: userId,
-      });
-      if (res.status === 200) {
-        const chatId = await res.data.Chat;
 
-        router.push(`/profile/chat/${chatId}`);
-      } else {
+    if (isChatRequestInProgress) {
+      return; // Exit if a chat request is already in progress
+    }
+
+    setIsChatRequestInProgress(true);
+
+    if (car?.ownerId && userId) {
+      try {
+        const res = await axios.post("/api/chat/create", {
+          userId1: car.ownerId,
+          userId2: userId,
+        });
+
+        if (res.status === 200) {
+          const chatId = res.data.Chat;
+          if (chatId) {
+            router.push(`/profile/chat/${chatId}`);
+          }
+        } else {
+          toast({
+            variant: "destructive",
+            description: "حدث خطأ ما",
+          });
+        }
+      } catch (error) {
         toast({
           variant: "destructive",
           description: "حدث خطأ ما",
         });
+      } finally {
+        setIsChatRequestInProgress(false);
       }
     } else {
       toast({
         variant: "destructive",
-        description: "حدث خطأ ما",
+        description: "يجب عليك تسجيل الدخول للتواصل عبر الرسائل الخاصة",
       });
-      return;
+      setIsChatRequestInProgress(false);
     }
   };
   const deleteHandler = async () => {
@@ -410,12 +428,14 @@ const CarDetails = ({ car, session }: Props) => {
                         تحدث مع البائع{" "}
                       </Button>
                       <Button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.location.href = `tel:${car?.owner?.phoneNumber}`;
+                        }}
                         type="submit"
                         className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                       >
-                        <a href={`tel:${car?.owner?.phoneNumber}`}>
-                          اتصل بالبائع
-                        </a>{" "}
+                        اتصل بالبائع
                       </Button>
                     </div>
                   )}
