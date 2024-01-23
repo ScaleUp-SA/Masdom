@@ -51,6 +51,7 @@ const Page = (props: Props) => {
       });
       router.push("/");
       router.refresh();
+      window.location.reload();
     }
   }
 
