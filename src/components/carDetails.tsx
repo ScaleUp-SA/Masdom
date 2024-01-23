@@ -26,7 +26,6 @@ import {
 import { MdClose } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 
-
 type Props = {
   car: FullCar | null;
   session: Session | null;
@@ -155,10 +154,10 @@ const CarDetails = ({ car, session }: Props) => {
 
       const updatedVideos: Media[] = Array.isArray(car.videos)
         ? car.videos.map((video, index) => ({
-          ...video,
-          links: videoSources?.[index] || video.links,
-          type: "video",
-        }))
+            ...video,
+            links: videoSources?.[index] || video.links,
+            type: "video",
+          }))
         : [];
       setVideoSorce(updatedVideos);
 
@@ -430,7 +429,12 @@ const CarDetails = ({ car, session }: Props) => {
                       </Button> */}
                       <div className="flex items-center justify-evenly gap-4">
                         <Button
-                          onClick={(e) => chatHandler(e)}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            car?.contactNumber
+                              ? (window.location.href = `tel:${car?.contactNumber}`)
+                              : `tel:${car?.owner?.phoneNumber}`;
+                          }}
                           type="submit"
                           className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                         >
@@ -444,16 +448,13 @@ const CarDetails = ({ car, session }: Props) => {
                           </span>
                         )}
                       </div>
-                      <h5
-                        onClick={(e) => {
-                          e.preventDefault();
-                          window.location.href = `tel:${car?.owner?.phoneNumber}`;
-                        }}
+                      <button
+                        onClick={(e) => chatHandler(e)}
                         // type="submit"
                         className="cursor-pointer text-start mt-4 mr-2"
                       >
                         تواصل عبر الرسائل الخاصة
-                      </h5>
+                      </button>
                     </div>
                   )}
                 </form>
