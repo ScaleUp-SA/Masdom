@@ -37,6 +37,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
     carsMakersId: "",
     transmission: "",
     location: "",
+    contactNumber: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const carId = params.carId;
@@ -268,7 +269,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
             htmlFor="offerDetails"
             className="block text-sm font-medium text-gray-700"
           >
-            Offer Details
+            تفاصيل العرض{" "}
           </label>
           <Input
             onChange={handleChange}
@@ -284,7 +285,37 @@ const Page = ({ params }: { params: { carId: string } }) => {
             <p className="text-red-500 text-sm mt-1">{errors.offerDetails}</p>
           )}
         </div>
+
         <div className=" flex flex-wrap gap-6 max-2xl:gap-4 items-center justify-start">
+          <div className="mb-4 w-[49%] max-lg:w-full">
+            <label
+              htmlFor="mileage"
+              className="block text-sm font-medium text-gray-700"
+            >
+              رقم للتواصل{" "}
+            </label>
+            <Input
+              onChange={handleChange}
+              value={formData.contactNumber}
+              type="text"
+              pattern="[0-9]*"
+              id="contactNumber"
+              onKeyDown={(e) => {
+                if (!(e.key === "Backspace" || !isNaN(Number(e.key)))) {
+                  e.preventDefault();
+                }
+              }}
+              name="contactNumber"
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.mileage ? "border-red-500" : ""
+              }`}
+            />
+            {errors.contactNumber && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.contactNumber}
+              </p>
+            )}
+          </div>
           <div className="mb-4 w-[49%] max-lg:w-full">
             <label
               htmlFor="mileage"
@@ -316,9 +347,15 @@ const Page = ({ params }: { params: { carId: string } }) => {
             <Input
               onChange={handleChange}
               value={formData.year}
-              type="text"
+              type="number"
               id="year"
               name="year"
+              pattern="[0-9]*"
+              onKeyDown={(e) => {
+                if (!(e.key === "Backspace" || !isNaN(Number(e.key)))) {
+                  e.preventDefault();
+                }
+              }}
               className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
                 errors.year ? "border-red-500" : ""
               }`}
@@ -520,9 +557,15 @@ const Page = ({ params }: { params: { carId: string } }) => {
             <Input
               onChange={handleChange}
               value={formData.cylinders}
-              type="text"
+              type="number"
               id="cylinders"
               name="cylinders"
+              pattern="[0-9]*"
+              onKeyDown={(e) => {
+                if (!(e.key === "Backspace" || !isNaN(Number(e.key)))) {
+                  e.preventDefault();
+                }
+              }}
               className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
                 errors.cylinders ? "border-red-500" : ""
               }`}
@@ -562,9 +605,15 @@ const Page = ({ params }: { params: { carId: string } }) => {
             <Input
               onChange={handleChange}
               value={formData.price}
-              type="text"
+              type="number"
               id="price"
               name="price"
+              pattern="[0-9]*"
+              onKeyDown={(e) => {
+                if (!(e.key === "Backspace" || !isNaN(Number(e.key)))) {
+                  e.preventDefault();
+                }
+              }}
               className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
                 errors.price ? "border-red-500" : ""
               }`}

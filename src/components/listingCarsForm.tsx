@@ -159,6 +159,23 @@ const formSchema = z.object({
         message: "يجب أن يكون الرابط لموقع Google Maps صالحًا",
       }
     ),
+  contactNumber: z
+    .string()
+    .optional()
+    .refine(
+      (value) => {
+        if (value === undefined) {
+          return false;
+        }
+        const phoneRegex = new RegExp(
+          /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
+        );
+        return phoneRegex.test(value);
+      },
+      {
+        message: "يجب ان يكون رقم التواصل صالح",
+      }
+    ),
 });
 
 type Props = {
@@ -310,12 +327,43 @@ const ListingCarsForm = ({ params }: Props) => {
           <div className="w-4/5 grid grid-cols-3 gap-6 max-md:grid-cols-1">
             <FormField
               control={form.control}
+              name="contactNumber"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>رقم التواصل</FormLabel>
+                  <FormControl>
+                    <Input
+                      onKeyDown={(e) => {
+                        if (!(e.key === "Backspace" || !isNaN(Number(e.key)))) {
+                          e.preventDefault();
+                        }
+                      }}
+                      type="text"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name="mileage"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>عدد المشي</FormLabel>
                   <FormControl>
-                    <Input required type="text" placeholder="140" {...field} />
+                    <Input
+                      required
+                      onKeyDown={(e) => {
+                        if (!(e.key === "Backspace" || !isNaN(Number(e.key)))) {
+                          e.preventDefault();
+                        }
+                      }}
+                      type="text"
+                      placeholder="140"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -504,7 +552,16 @@ const ListingCarsForm = ({ params }: Props) => {
                 <FormItem>
                   <FormLabel>السعر</FormLabel>
                   <FormControl>
-                    <Input type="text" placeholder="24,750" {...field} />
+                    <Input
+                      onKeyDown={(e) => {
+                        if (!(e.key === "Backspace" || !isNaN(Number(e.key)))) {
+                          e.preventDefault();
+                        }
+                      }}
+                      type="text"
+                      placeholder="24,750"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -658,7 +715,17 @@ const ListingCarsForm = ({ params }: Props) => {
                 <FormItem>
                   <FormLabel>سعة الموتور</FormLabel>
                   <FormControl>
-                    <Input required type="text" placeholder="1500" {...field} />
+                    <Input
+                      onKeyDown={(e) => {
+                        if (!(e.key === "Backspace" || !isNaN(Number(e.key)))) {
+                          e.preventDefault();
+                        }
+                      }}
+                      required
+                      type="text"
+                      placeholder="1500"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
