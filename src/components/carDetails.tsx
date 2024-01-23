@@ -432,7 +432,7 @@ const CarDetails = ({ car, session }: Props) => {
                           onClick={(e) => {
                             e.preventDefault();
                             car?.contactNumber
-                              ? (window.location.href = `tel:${car?.contactNumber}`)
+                              ? (window.location.href = `tel:+966${car?.contactNumber}`)
                               : `tel:${car?.owner?.phoneNumber}`;
                           }}
                           type="submit"
