@@ -49,8 +49,8 @@ const Page = (props: Props) => {
         variant: "default",
         title: "تم تسجيل الدخول",
       });
-      await router.refresh();
-      await router.push("/");
+      router.push("/");
+      router.refresh();
     }
   }
 
@@ -60,11 +60,11 @@ const Page = (props: Props) => {
     } else {
       return;
     }
-  }, [session]);
+  }, [router, session]);
 
   useEffect(() => {
     pageRoute();
-  }, [session]);
+  }, [pageRoute, session]);
   return (
     <div className="flex w-full">
       <Form {...form}>
