@@ -23,6 +23,7 @@ export const PUT = async function handler(req: NextRequest, res: NextResponse) {
       carsMakersId,
       carsModelsId,
       damage,
+      location,
       images, // Changed variable name to match the case in the request
       videos, // Changed variable name to match the case in the request
     } = await req.json();
@@ -54,6 +55,7 @@ export const PUT = async function handler(req: NextRequest, res: NextResponse) {
         shape,
         carClass,
         ownerId,
+        location,
         carsMakersId,
         carsModelsId,
         damage: {

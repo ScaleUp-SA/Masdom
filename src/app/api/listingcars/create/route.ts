@@ -1,7 +1,6 @@
 import { prisma } from "@/lib/prismaClient";
 import { NextRequest, NextResponse } from "next/server";
 
-
 export const POST = async function handler(
   req: NextRequest,
   res: NextResponse
@@ -21,6 +20,7 @@ export const POST = async function handler(
       cylinders,
       shape,
       carClass,
+      location,
       ownerId,
       carsMakersId,
       carsModelsId,
@@ -51,6 +51,7 @@ export const POST = async function handler(
         featured,
         cylinders,
         shape,
+        location,
         carClass,
         ownerId,
         carsMakersId,

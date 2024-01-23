@@ -143,6 +143,22 @@ const formSchema = z.object({
     "رياضية ",
     "سيارة كهربائية ",
   ]),
+
+  location: z
+    .string()
+    .optional()
+    .refine(
+      (value) => {
+        if (value === undefined) {
+          return false;
+        }
+        const googleMapsLinkRegex = /^https:\/\/www\.google\.com\/maps\/.*$/;
+        return googleMapsLinkRegex.test(value);
+      },
+      {
+        message: "يجب أن يكون الرابط لموقع Google Maps صالحًا",
+      }
+    ),
 });
 
 type Props = {
@@ -185,6 +201,7 @@ const ListingCarsForm = ({ params }: Props) => {
       carClass: "",
       cylinders: 0,
       color: "",
+      location: "",
     },
   });
 
@@ -397,24 +414,7 @@ const ListingCarsForm = ({ params }: Props) => {
                 </FormItem>
               )}
             />
-            {/* <FormField
-              control={form.control}
-              name="city"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>المدينة</FormLabel>
-                  <FormControl>
-                    <Input
-                      required
-                      type="text"
-                      placeholder="الرياض / حي الربيع"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
+
             <FormField
               control={form.control}
               name="city"
@@ -446,24 +446,6 @@ const ListingCarsForm = ({ params }: Props) => {
                 </FormItem>
               )}
             />
-            {/* <FormField
-              control={form.control}
-              name="shape"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>الشكل</FormLabel>
-                  <FormControl>
-                    <Input
-                      required
-                      type="text"
-                      placeholder="سيدان"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
 
             <FormField
               control={form.control}
@@ -491,6 +473,24 @@ const ListingCarsForm = ({ params }: Props) => {
                         ))}
                       </SelectContent>
                     </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="location"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>الموقع</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="text"
+                      {...field}
+                      placeholder=" اضف الموقع من علي جوجل مابس"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

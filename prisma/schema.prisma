@@ -57,7 +57,7 @@ model Message {
 }
 
 model ListingCars {
-  id           String  @id @default(uuid())
+  id           String   @id @default(uuid())
   title        String
   offerDetails String
   price        Int
@@ -67,13 +67,13 @@ model ListingCars {
   country      String
   city         String
   mileage      Int
-  featured     Boolean @default(false)
+  featured     Boolean  @default(false)
   cylinders    Int
   shape        String
   carClass     String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  location     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
   ownerId String

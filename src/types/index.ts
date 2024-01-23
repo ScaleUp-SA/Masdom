@@ -101,6 +101,7 @@ export type FormData = {
   carClass: string;
   carsMakersId: string;
   transmission: string;
+  location: string;
 };
 
 export type ShopFormData = {

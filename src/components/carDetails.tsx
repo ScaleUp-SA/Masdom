@@ -73,8 +73,8 @@ const CarDetails = ({ car, session }: Props) => {
 
     setIsChatRequestInProgress(true);
 
-    if (car?.ownerId && userId) {
-      try {
+    try {
+      if (car?.ownerId && userId) {
         const res = await axios.post("/api/chat/create", {
           userId1: car.ownerId,
           userId2: userId,
@@ -91,19 +91,18 @@ const CarDetails = ({ car, session }: Props) => {
             description: "حدث خطأ ما",
           });
         }
-      } catch (error) {
+      } else {
         toast({
           variant: "destructive",
-          description: "حدث خطأ ما",
+          description: "يجب عليك تسجيل الدخول للتواصل عبر الرسائل الخاصة",
         });
-      } finally {
-        setIsChatRequestInProgress(false);
       }
-    } else {
+    } catch (error) {
       toast({
         variant: "destructive",
-        description: "يجب عليك تسجيل الدخول للتواصل عبر الرسائل الخاصة",
+        description: "حدث خطأ ما",
       });
+    } finally {
       setIsChatRequestInProgress(false);
     }
   };
@@ -399,6 +398,13 @@ const CarDetails = ({ car, session }: Props) => {
                   <span className="text-sm">
                     <p className="text-gray-600">الموقع</p>
                     <p>{`${car?.country}, ${car?.city}`}</p>
+                    <br />
+                    {car?.location && (
+                      <a target="_blank" href={`${car?.location}`}>
+                        {" "}
+                        أفتح جوجل ماب{" "}
+                      </a>
+                    )}
                   </span>
                 </div>
                 <div className="flex gap-4 text-3xl justify-center mt-4 items-center">

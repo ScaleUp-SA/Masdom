@@ -36,6 +36,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
     carClass: "",
     carsMakersId: "",
     transmission: "",
+    location: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const carId = params.carId;
@@ -121,63 +122,63 @@ const Page = ({ params }: { params: { carId: string } }) => {
     const errors: Record<string, string> = {};
 
     if (!formData.title) {
-      errors.title = "Title is required";
+      errors.title = "يجب ادخال العنوان";
     }
 
-    if (!formData.mileage) {
-      errors.mileage = "Mileage is required";
+    if (formData.mileage !== 0 && !formData.mileage) {
+      errors.mileage = "يجب ادخال الممشي";
     }
 
     if (!formData.year) {
-      errors.year = "Year is required";
+      errors.year = "يجب ادخال سنة الانشاء";
     }
 
     if (!formData.transmission) {
-      errors.transmission = "Transmission is required";
+      errors.transmission = "يجب ادخال نوف القير";
     }
 
     if (!formData.carClass) {
-      errors.carClass = "Car Class is required";
+      errors.carClass = "يجب ادخال الفئة";
     }
 
     if (!formData.carsMakersId) {
-      errors.carsMakersId = "Cars Makers ID is required";
+      errors.carsMakersId = "يجب ادخال مصنع السيارة";
     }
 
     if (!formData.carsModelsId) {
-      errors.carsModelsId = "Cars Models ID is required";
+      errors.carsModelsId = "يجب ادخال موديل السيارة";
     }
 
     if (!formData.city) {
-      errors.city = "City is required";
+      errors.city = "يجب ادخال المدينة";
     }
 
     if (!formData.color) {
-      errors.color = "Color is required";
+      errors.color = "يجب ادخال اللون";
     }
 
     if (!formData.country) {
-      errors.country = "Country is required";
+      errors.country = "يجب ادخال البلد";
     }
 
-    if (!formData.cylinders) {
-      errors.cylinders = "Cylinders is required";
+    if (formData.cylinders !== 0 && !formData.cylinders) {
+      errors.cylinders = "يجب ادخال عدد السليندرات";
     }
 
     if (!formData.offerDetails) {
-      errors.offerDetails = "Offer Details is required";
+      errors.offerDetails = "يجب ادخال تفاصيل العرض";
     }
 
     if (!formData.ownerId) {
-      errors.ownerId = "Owner ID is required";
+      errors.ownerId = "يجب ادخال المالك";
     }
 
-    if (!formData.price) {
-      errors.price = "Price is required";
+    if (formData.price !== 0 && !formData.price) {
+      errors.price = "يجب ادخال السعر";
     }
 
     if (!formData.shape) {
-      errors.shape = "Shape is required";
+      errors.shape = "يجب ادخال الشكل";
     }
 
     setErrors(errors);
@@ -249,7 +250,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
             عنوان العرض{" "}
           </label>
           <Input
-            placeholder="Enter Title"
             onChange={handleChange}
             value={formData.title}
             type="text"
@@ -271,7 +271,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
             Offer Details
           </label>
           <Input
-            placeholder="Enter Offer Details"
             onChange={handleChange}
             value={formData.offerDetails}
             type="text"
@@ -294,7 +293,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
               عدد المشي{" "}
             </label>
             <Input
-              placeholder="Enter Mileage"
               onChange={handleChange}
               value={formData.mileage}
               type="text"
@@ -316,7 +314,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
               الموديل{" "}
             </label>
             <Input
-              placeholder="Enter Year"
               onChange={handleChange}
               value={formData.year}
               type="text"
@@ -361,7 +358,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
               الفئة{" "}
             </label>
             <Input
-              placeholder="Enter Car Class"
               onChange={handleChange}
               value={formData.carClass}
               type="text"
@@ -438,7 +434,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
               المدينة
             </label>
             <Input
-              placeholder="Enter City"
               onChange={handleChange}
               value={formData.city}
               type="text"
@@ -454,13 +449,33 @@ const Page = ({ params }: { params: { carId: string } }) => {
           </div>
           <div className="mb-4 w-[49%] max-lg:w-full">
             <label
+              htmlFor="location"
+              className="block text-sm font-medium text-gray-700"
+            >
+              الموقع{" "}
+            </label>
+            <Input
+              onChange={handleChange}
+              value={formData.location}
+              type="text"
+              id="location"
+              name="location"
+              className={`mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                errors.city ? "border-red-500" : ""
+              }`}
+            />
+            {errors.location && (
+              <p className="text-red-500 text-sm mt-1">{errors.location}</p>
+            )}
+          </div>
+          <div className="mb-4 w-[49%] max-lg:w-full">
+            <label
               htmlFor="color"
               className="block text-sm font-medium text-gray-700"
             >
               اللون
             </label>
             <Input
-              placeholder="Enter Color"
               onChange={handleChange}
               value={formData.color}
               type="text"
@@ -482,7 +497,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
               البلد{" "}
             </label>
             <Input
-              placeholder="Enter Country"
               onChange={handleChange}
               value={formData.country}
               type="text"
@@ -504,7 +518,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
               سعة الموتور
             </label>
             <Input
-              placeholder="Enter Cylinders"
               onChange={handleChange}
               value={formData.cylinders}
               type="text"
@@ -526,7 +539,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
               المالك{" "}
             </label>
             <Input
-              placeholder="Enter Owner ID"
               onChange={handleChange}
               value={formData.ownerId}
               type="text"
@@ -548,7 +560,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
               السعر{" "}
             </label>
             <Input
-              placeholder="Enter Price"
               onChange={handleChange}
               value={formData.price}
               type="text"
@@ -570,7 +581,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
               الشكل{" "}
             </label>
             <Input
-              placeholder="Enter Shape"
               onChange={handleChange}
               value={formData.shape}
               type="text"
@@ -595,7 +605,6 @@ const Page = ({ params }: { params: { carId: string } }) => {
                   onChange={(e) => handleDescriptionChange(index, e)}
                   type="text"
                   id="damage"
-                  placeholder="ادخل الضرر و المكان"
                   value={item.description}
                 />
               </div>
