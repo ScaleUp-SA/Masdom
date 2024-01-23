@@ -24,6 +24,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { MdClose } from "react-icons/md";
+import { IoLocationOutline } from "react-icons/io5";
+
 
 type Props = {
   car: FullCar | null;
@@ -153,10 +155,10 @@ const CarDetails = ({ car, session }: Props) => {
 
       const updatedVideos: Media[] = Array.isArray(car.videos)
         ? car.videos.map((video, index) => ({
-            ...video,
-            links: videoSources?.[index] || video.links,
-            type: "video",
-          }))
+          ...video,
+          links: videoSources?.[index] || video.links,
+          type: "video",
+        }))
         : [];
       setVideoSorce(updatedVideos);
 
@@ -392,19 +394,19 @@ const CarDetails = ({ car, session }: Props) => {
                 </section>
               </div>
 
-              <div className="bg-gray-100 w-[25rem] max-sm:w-[100%] h-[max-content] px-14 py-6 rounded flex flex-col items-start ">
+              <div className="bg-gray-100 w-[25rem] max-sm:w-[100%] h-[max-content] px-10 py-6 rounded flex flex-col items-start ">
                 <div className="flex gap-4 text-3xl justify-center items-center">
                   <IoLocation />
                   <span className="text-sm">
                     <p className="text-gray-600">الموقع</p>
                     <p>{`${car?.country}, ${car?.city}`}</p>
                     <br />
-                    {car?.location && (
+                    {/* {car?.location && (
                       <a target="_blank" href={`${car?.location}`}>
                         {" "}
                         أفتح جوجل ماب{" "}
                       </a>
-                    )}
+                    )} */}
                   </span>
                 </div>
                 <div className="flex gap-4 text-3xl justify-center mt-4 items-center">
@@ -426,23 +428,32 @@ const CarDetails = ({ car, session }: Props) => {
                       >
                         شراء{" "}
                       </Button> */}
-                      <Button
-                        onClick={(e) => chatHandler(e)}
-                        type="submit"
-                        className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                      >
-                        تحدث مع البائع{" "}
-                      </Button>
-                      <Button
+                      <div className="flex items-center justify-evenly gap-4">
+                        <Button
+                          onClick={(e) => chatHandler(e)}
+                          type="submit"
+                          className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                        >
+                          اتصل بالبائع
+                        </Button>
+                        {car?.location && (
+                          <span className="text-3xl cursor-pointer">
+                            <a target="_blank" href={`${car?.location}`}>
+                              <IoLocationOutline />
+                            </a>
+                          </span>
+                        )}
+                      </div>
+                      <h5
                         onClick={(e) => {
                           e.preventDefault();
                           window.location.href = `tel:${car?.owner?.phoneNumber}`;
                         }}
-                        type="submit"
-                        className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                        // type="submit"
+                        className="cursor-pointer text-start mt-4 mr-2"
                       >
-                        اتصل بالبائع
-                      </Button>
+                        تواصل عبر الرسائل الخاصة
+                      </h5>
                     </div>
                   )}
                 </form>
