@@ -69,7 +69,7 @@ export default function Header() {
     ? { title: "تسجيل الخروج", path: "/", handleSignOut }
     : { title: "تسجيل الدخول", path: "/login", handleSignOut };
 
-  return pathname === "/login" || pathname === "/signup" ? null : (
+  return (
     <header
       className={` ${
         pathname === "/"
