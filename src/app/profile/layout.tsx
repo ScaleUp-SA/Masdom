@@ -5,7 +5,7 @@ import { authOptions } from "@/lib/nextAuth";
 import AdminLayout from "@/components/adminLayout";
 
 export const metadata: Metadata = {
-  title: "Forms",
+  title: "إضــافة سيـارة",
 };
 
 interface SettingsLayoutProps {

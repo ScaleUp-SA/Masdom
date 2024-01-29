@@ -321,7 +321,7 @@ const Page = ({ params }: { params: { carId: string } }) => {
               htmlFor="mileage"
               className="block text-sm font-medium text-gray-700"
             >
-              عدد المشي{" "}
+              عدد الممشي{" "}
             </label>
             <Input
               onChange={handleChange}

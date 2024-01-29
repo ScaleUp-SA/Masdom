@@ -61,8 +61,8 @@ const cities = [
 ];
 
 const carShapes = [
-  "سيدان ",
-  "كوبيه ",
+  "سيدان",
+  "كوبيه",
   "هاتشباك",
   "كروس أوفر",
   "SUV",
@@ -70,7 +70,7 @@ const carShapes = [
   "فان",
   "كابريوليه",
   "رياضية",
-  "سيارة كهربائية ",
+  "سيارة كهربائية",
 ];
 
 const formSchema = z.object({
@@ -79,7 +79,7 @@ const formSchema = z.object({
     .number({
       invalid_type_error: "يجب ادخال ارقتم",
     })
-    .min(0, "لا يمكن أن يكون حقل المشي فارغًا")
+    .min(0, "لا يمكن أن يكون حقل الممشي فارغًا")
     .refine(
       (value) => {
         return negativeNumbersValidation(value);
@@ -132,16 +132,16 @@ const formSchema = z.object({
     .min(0, "سعة المحرك يجب أن تكون رقمًا موجبًا"),
   color: z.string().min(2, "يجب على الاقل ان يحتوي على 2 احرف على الاقل"),
   shape: z.enum([
-    "سيدان ",
-    "كوبيه ",
-    "هاتشباك ",
+    "سيدان",
+    "كوبيه",
+    "هاتشباك",
     "كروس أوفر",
     "SUV",
-    "شاحنة ",
-    "فان ",
-    "كابريوليه ",
-    "رياضية ",
-    "سيارة كهربائية ",
+    "شاحنة",
+    "فان",
+    "كابريوليه",
+    "رياضية",
+    "سيارة كهربائية",
   ]),
 
   location: z
@@ -152,7 +152,8 @@ const formSchema = z.object({
         if (value === undefined) {
           return false;
         }
-        const googleMapsLinkRegex = /^https:\/\/www\.google\.com\/maps\/.*$/;
+        const googleMapsLinkRegex =
+          /(?:https?:\/\/)?(?:www\.)?(?:google\.com\/maps\/?(?:.*?[?&](?:q|query)=([^&]+)|.*?\/@([-0-9.]+),([-0-9.]+),\d+z)|maps\.app\.goo\.gl\/([^\/?]+))/;
         return googleMapsLinkRegex.test(value);
       },
       {
@@ -351,7 +352,7 @@ const ListingCarsForm = ({ params }: Props) => {
               name="mileage"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>عدد المشي</FormLabel>
+                  <FormLabel>عدد الممشي</FormLabel>
                   <FormControl>
                     <Input
                       required

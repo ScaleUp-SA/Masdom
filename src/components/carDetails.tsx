@@ -373,7 +373,7 @@ const CarDetails = ({ car, session }: Props) => {
                       </div>
 
                       <div className="flex  flex-col w-[max-content] gap-2  justify-between">
-                        <span className=" font-bold text-lg">المشي</span>{" "}
+                        <span className=" font-bold text-lg">الممشي</span>{" "}
                         {car?.mileage}{" "}
                       </div>
                     </div>
@@ -419,44 +419,42 @@ const CarDetails = ({ car, session }: Props) => {
                 </div>
 
                 <form className="w-full">
-                  {session?.user.id !== car?.ownerId && (
-                    <div className="mt-4 flex flex-col">
-                      {/* <Button
+                  <div className="mt-4 flex flex-col">
+                    {/* <Button
                         type="submit"
                         className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                       >
                         شراء{" "}
                       </Button> */}
-                      <div className="flex items-center justify-evenly gap-4">
-                        <Button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            car?.contactNumber
-                              ? (window.location.href = `tel:+966${car?.contactNumber}`)
-                              : `tel:${car?.owner?.phoneNumber}`;
-                          }}
-                          type="submit"
-                          className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                        >
-                          اتصل بالبائع
-                        </Button>
-                        {car?.location && (
-                          <span className="text-3xl cursor-pointer">
-                            <a target="_blank" href={`${car?.location}`}>
-                              <IoLocationOutline />
-                            </a>
-                          </span>
-                        )}
-                      </div>
-                      <button
-                        onClick={(e) => chatHandler(e)}
-                        // type="submit"
-                        className="cursor-pointer text-start mt-4 mr-2"
+                    <div className="flex items-center justify-evenly gap-4">
+                      <Button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          car?.contactNumber
+                            ? (window.location.href = `tel:+966${car?.contactNumber}`)
+                            : `tel:${car?.owner?.phoneNumber}`;
+                        }}
+                        type="submit"
+                        className="flex m-1 max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-green-600 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                       >
-                        تواصل عبر الرسائل الخاصة
-                      </button>
+                        اتصل بالبائع
+                      </Button>
+                      {car?.location && (
+                        <span className="text-3xl cursor-pointer">
+                          <a target="_blank" href={`${car?.location}`}>
+                            <IoLocationOutline />
+                          </a>
+                        </span>
+                      )}
                     </div>
-                  )}
+                    <button
+                      onClick={(e) => chatHandler(e)}
+                      // type="submit"
+                      className="cursor-pointer text-start mt-4 mr-2"
+                    >
+                      تواصل عبر الرسائل الخاصة
+                    </button>
+                  </div>
                 </form>
               </div>
             </div>
